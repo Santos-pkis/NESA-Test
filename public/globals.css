@@ -10,3 +10,19 @@ html,
 body {
   overflow-x: hidden;
 }
+
+._under_border {
+  position: relative;
+  width: fit-content;
+}
+
+._under_border::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 4px;
+  width: 60%;
+  left: 0;
+  background-color: #ffb92e;
+  border-radius: 5px;
+}

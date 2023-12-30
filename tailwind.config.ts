@@ -20,6 +20,7 @@ const config: Config = {
         lightGold: "#FFD37A",
         xlGold: "#FFE4AD",
         whiteGold: "#FFF5E0",
+        darkGold: "#251f14",
       },
     },
   },

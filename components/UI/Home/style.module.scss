@@ -1,0 +1,56 @@
+.homeHeader::before {
+  // content: "";
+  // position: absolute;
+  // right: 0;
+  // bottom: 0;
+  // width: 600px;
+  // height: 600px;
+  // background: radial-gradient(#e0aa3e69, rgba(0, 0, 0, 0));
+  // border-radius: 50%;
+  // z-index: 2;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-100%);
+  }
+  from {
+    transform: translateX(0);
+  }
+}
+
+.head-scroll-con {
+  position: relative;
+  padding: 8px 0;
+  white-space: nowrap;
+
+  @mixin fade() {
+    content: "";
+    position: absolute;
+    top: -3px;
+    height: 110%;
+    width: 400px;
+    z-index: 2;
+  }
+
+  &::after {
+    @include fade();
+    right: 0;
+    background: linear-gradient(to left, #13100d, #13100d5e, rgba(0, 0, 0, 0));
+  }
+
+  &::before {
+    @include fade();
+    left: 0;
+    background: linear-gradient(to right, #110d07, #110d0763, rgba(0, 0, 0, 0));
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .head-scroll-text {
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+  }
+}
