@@ -16,6 +16,10 @@ body {
   width: fit-content;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+}
+
 ._under_border::after {
   content: "";
   position: absolute;

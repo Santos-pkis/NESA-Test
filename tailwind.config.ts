@@ -21,6 +21,9 @@ const config: Config = {
         xlGold: "#FFE4AD",
         whiteGold: "#FFF5E0",
         darkGold: "#251f14",
+
+        // gray
+        semiGrey: "#757575",
       },
     },
   },
