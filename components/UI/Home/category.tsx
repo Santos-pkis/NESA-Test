@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import styles from "./style.module.scss";
+import { Award } from "@/lib/types/global";
 
-const awards = [
+const awards: Award[] = [
   {
     image: "/images/girl.jpg",
     title: "FAITH-BASED ORGANIZATION COCNTRIBUTIONS TO EDUCATION",
