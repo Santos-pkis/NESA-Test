@@ -30,33 +30,58 @@ const Category = () => {
           Celebrating Unsung Heroes: <span className="font-black">Nominate Today!</span>
         </p>
 
-        <div className="overflow-hidden space-x-3 whitespace-nowrap">
-          {awards.map((award, id) => (
-            <div
-              key={id}
-              className={`h-[26rem] rounded-3xl inline-block aspect-[5/7] w-auto bg-darkGold overflow-hidden text-white relative`}
-            >
-              <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center">
-                <Image src={"/images/medal.png"} alt="medal" width={100} height={300} />
-              </div>
-              <div className="absolute top-0 left-0 w-full h-full bg-[#181818a8] p-5">
-                <div>
-                  <div className="w-16 h-16 border-2 rounded-full border-deepGold overflow-hidden">
-                    <Image src={award.image} alt="medal" width={200} height={200} />
-                  </div>
-
-                  <div className="max-w-[3rem]">
-                    <p>{award.title}</p>
-                    <p>{award.description}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className={`overflow-hidden flex items-center relative space-x-4 ${styles["award_con"]}`}>
+          <AwardsScroll />
+          <AwardsScroll />
+          <AwardsScroll />
         </div>
       </div>
     </section>
   );
 };
+
+export const AwardsScroll = () => {
+  return (
+    <div className={`space-x-4 inline-flex items-center flex-shrink-0 ${styles["scroll-el"]}`}>
+      {awards.map((award, id) => (
+        <div
+          key={id}
+          className={`h-[26rem] aspect-[5/7] w-auto rounded-2xl bg-darkGold overflow-hidden text-white relative`}
+        >
+          <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center">
+            <Image src={"/images/medal.png"} alt="medal" width={100} height={300} />
+          </div>
+
+          <div className="absolute top-0 left-0 w-full h-full bg-[#181818a8]"></div>
+
+          <div className="py-8 px-5 absolute top-0 left-0 w-full h-full">
+            <div className="flex flex-col justify-between h-full">
+              <div className="w-16 h-16 border-2 rounded-full border-deepGold overflow-hidden">
+                <Image src={award.image} alt="medal" width={200} height={200} />
+              </div>
+
+              <p className="font-bold  text-lg">{award.title}</p>
+              <p className="font-light">{award.description}</p>
+
+              <button className="border-[#e0aa3e] w-full text-sm font-semibold py-2 rounded-lg border-2 bg-[#191307]">
+                Nominate your NGO champion
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export const Partners = () => (
+  <div className={`inline-block ${styles["scroll-el"]}`}>
+    {new Array(5).fill(null).map((_, id) => (
+      <div key={id} className="inline mx-6">
+        <Image src={`/images/logos/logo_${id + 1}.png`} alt="logo" width={150} height={150} className="inline" />
+      </div>
+    ))}
+  </div>
+);
 
 export default Category;

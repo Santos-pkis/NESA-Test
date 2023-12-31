@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "@/components/UI/Home/style.module.scss";
-import Category from "@/components/UI/Home/category";
+import Category, { Partners } from "@/components/UI/Home/category";
 
 const Page = () => {
   return (
@@ -64,6 +64,31 @@ const Page = () => {
       </header>
       <main>
         <Category />
+
+        <section className="py-[10rem] my-[5rem] text-white relative">
+          <Image
+            src={"/images/bg/back_.jpeg"}
+            alt="dark background"
+            className="w-full h-full object-cover -z-[1] absolute top-0 left-0"
+            width={1024}
+            height={600}
+          />
+          <div className="space-y-8 container">
+            <p className="text-white text-center text-2xl">Meet our Key Partners Powering Education Together</p>
+
+            <div>
+              <div className={"relative whitespace-nowrap container overflow-hidden border-x-2"}>
+                <Partners />
+                <Partners />
+                <Partners />
+              </div>
+            </div>
+
+            <div className="grid place-content-center">
+              <button className="bg-[#e0aa3e] px-5 font-semibold py-3 rounded-md text-black">Partner with us</button>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
