@@ -23,15 +23,22 @@ const awards: Award[] = [
 
 const Category = () => {
   return (
-    <section className="py-[6rem] container">
+    <section className="py-[6rem]">
       <div className="space-y-5">
-        <h2 className="_under_border font-bold text-sm text-darkGold">NOMINATION CATEGORY</h2>
+        <div className="space-y-5 container">
+          <h2 className="_under_border font-bold text-sm text-darkGold">NOMINATION CATEGORY</h2>
 
-        <p className="font-bold text-gray-800 text-3xl">
-          Celebrating Unsung Heroes: <span className="font-black">Nominate Today!</span>
-        </p>
+          <p className="font-bold text-gray-800 text-3xl">
+            Celebrating Unsung Heroes: <span className="font-black">Nominate Today!</span>
+          </p>
+        </div>
 
         <div className={`overflow-hidden flex items-center relative space-x-4 ${styles["award_con"]}`}>
+          <AwardsScroll />
+          <AwardsScroll />
+          <AwardsScroll />
+          <AwardsScroll />
+          <AwardsScroll />
           <AwardsScroll />
           <AwardsScroll />
           <AwardsScroll />

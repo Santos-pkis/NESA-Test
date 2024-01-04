@@ -21,17 +21,6 @@ const HeroCenter = () => {
         .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
         .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } })
         .from("._h_medal", { y: "-100%", opacity: 0, duration: 1.5, ease: "power4.inOut", stagger: { amount: 0.1 } });
-
-      const t2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
-
-      t2.to("#_h_medal1", { y: "40%" }).to("#_h_medal2", { y: "40%" }, 0);
     }, ref);
 
     return () => cxt.revert();

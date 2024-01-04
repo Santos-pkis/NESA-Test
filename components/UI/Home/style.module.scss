@@ -57,15 +57,19 @@
 
 .award_con {
   &::after {
-    @include fade(50px);
+    @include fade(100px);
     right: 0;
-    background: linear-gradient(to left, #fff, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    background: linear-gradient(to left, #141007, rgba(0, 0, 0, 0));
   }
 
   &::before {
-    @include fade(50px);
+    @include fade(100px);
     left: 0;
-    background: linear-gradient(to right, #fff, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    background: linear-gradient(to right, #141007, rgba(0, 0, 0, 0));
+  }
+
+  &:hover div {
+    animation-play-state: paused;
   }
 }
 
