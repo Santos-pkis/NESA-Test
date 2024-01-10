@@ -14,8 +14,8 @@ const Page = () => {
             <Image
               src={"/images/bg/home_back.png"}
               alt="hero image"
-              width={1024}
-              height={650}
+              width={12400}
+              height={800}
               className="w-full h-full object-cover"
             />
           </div>
@@ -32,15 +32,20 @@ const Page = () => {
           <Image
             src={"/images/bg/back_.jpeg"}
             alt="dark background"
-            className="w-full h-full object-cover -z-[1] absolute top-0 left-0"
+            className="w-full h-full object-cover -z-[2] absolute top-0 left-0"
             width={1024}
             height={600}
           />
+
+          <div className="bg-[#15110999] absolute top-0 left-0 w-full -z-[1] h-full"></div>
+
           <div className="space-y-8 container">
-            <p className="text-white text-center text-2xl">Meet our Key Partners Powering Education Together</p>
+            <p className="text-white text-center text-2xl font-medium">
+              Meet our Key Partners Powering Education Together
+            </p>
 
             <div>
-              <div className={"relative whitespace-nowrap container overflow-hidden border-x-2"}>
+              <div className={"relative whitespace-nowrap md:container overflow-hidden md:border-x-2"}>
                 <Partners />
                 <Partners />
                 <Partners />
@@ -59,16 +64,16 @@ const Page = () => {
             alt="logo"
             width={800}
             height={800}
-            className="absolute -bottom-16 left-0 -z-[1] opacity-40"
+            className="absolute -bottom-16 left-0 -z-[1] md:opacity-40 opacity-0 duration-300"
           />
 
-          <div className="container grid grid-cols-2 gap-16 items-center">
+          <div className="container grid md:grid-cols-2 md:gap-16 gap-12 items-center">
             <div className="grid place-content-center">
               <Image src={"/images/bg/education.png"} alt="dark background" width={600} height={600} />
             </div>
             <div className="space-y-6">
               <h3 className="_under_border font-bold text-darkGold">ABOUT NEW EDUCATION STANDARD AWARDS:</h3>
-              <p className="font-bold text-5xl">Championing Education Excellence Since 2013...</p>
+              <p className="font-bold md:text-5xl text-4xl">Championing Education Excellence Since 2013...</p>
 
               <div className="space-y-6">
                 <p>
@@ -94,17 +99,20 @@ const Page = () => {
             src={"/images/bg/timeline.png"}
             alt="dark background"
             className="w-full h-full object-cover -z-[1] absolute top-0 left-0"
-            width={1024}
-            height={1024}
+            width={1440}
+            height={1580}
           />
 
           <div className="container py-[4rem]">
-            <h3 className="_under_border font-bold text-lg">NESA NIGERIA 2023 AWARD TIMELINES</h3>
+            <h3 className="_under_border font-bold text-lg hidden md:block">NESA NIGERIA 2023 AWARD TIMELINES</h3>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-[15rem]">
+              <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
-                  <h4 className="font-bold text-3xl">Nominate Your Education Champion</h4>
+                  <h4 className="font-bold text-3xl">
+                    Nominate Your Education Champion{" "}
+                    <span className="md:hidden text-deepGold">--- 15th January 2024</span>
+                  </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
                       Click the “NOMINATE NOW” button to access the nomination page where you have access to then select
@@ -123,17 +131,17 @@ const Page = () => {
                   </ul>
                 </div>
 
-                <div className="flex-shrink-0 text-end space-y-1">
+                <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
                   <p className="font-extrabold text-xl">15th</p>
                   <p className="font-semibold">January 2024</p>
-                  <button className="bg-[#e0aa3e] px-4 text-sm font-semibold py-2 rounded-md text-black">
-                    Click to Nominate Now
-                  </button>
                 </div>
               </div>
-              <div className="flex items-center gap-[15rem]">
+              <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
-                  <h4 className="font-bold text-3xl">Nomination closes & Internal Screening Proceeds</h4>
+                  <h4 className="font-bold text-3xl">
+                    Nomination closes & Internal Screening Proceeds{" "}
+                    <span className="md:hidden text-deepGold">--- 15th January 2024</span>
+                  </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
                       Nomination process ends followed by internal screening to ensure compliance with the criteria and
@@ -147,14 +155,16 @@ const Page = () => {
                   </ul>
                 </div>
 
-                <div className="flex-shrink-0 text-end space-y-1">
+                <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
                   <p className="font-extrabold text-xl">Feb - March</p>
                   <p className="font-semibold">2024</p>
                 </div>
               </div>
-              <div className="flex items-center gap-[15rem]">
+              <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
-                  <h4 className="font-bold text-3xl">Public Voting Proceeds</h4>
+                  <h4 className="font-bold text-3xl">
+                    Public Voting Proceeds <span className="md:hidden text-deepGold">--- 15th January 2024</span>
+                  </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
                       General Public Voting for the Shortlisted candidate proceeds. Note that Public Votes contributes
@@ -169,14 +179,17 @@ const Page = () => {
                   </ul>
                 </div>
 
-                <div className="flex-shrink-0 text-end space-y-1">
+                <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
                   <p className="font-extrabold text-xl">Feb - March</p>
                   <p className="font-semibold">2024</p>
                 </div>
               </div>
-              <div className="flex items-center gap-[15rem]">
+              <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
-                  <h4 className="font-bold text-3xl">The Award Cermony and Winner Announcements</h4>
+                  <h4 className="font-bold text-3xl">
+                    The Award Ceremony and Winner Announcements{" "}
+                    <span className="md:hidden text-deepGold">--- 15th January 2024</span>
+                  </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
                       The winners will be announced, and their extraordinary contributions will be celebrated in style
@@ -185,7 +198,7 @@ const Page = () => {
                   </ul>
                 </div>
 
-                <div className="flex-shrink-0 text-end space-y-1">
+                <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
                   <p className="font-extrabold text-xl">5th</p>
                   <p className="font-semibold">May 2024</p>
                 </div>

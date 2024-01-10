@@ -74,9 +74,10 @@ const Navbar = () => {
           >
             <motion.button
               variants={fromTop}
-              className="text-[#17120a] xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-lg bg-gradient-to-r from-primaryGoldLight to-deepGold"
+              className="text-[#17120a] xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-lg"
+              style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
             >
-              Nominate a Champ
+              Vote Now
             </motion.button>
             <motion.button
               variants={fromTop}

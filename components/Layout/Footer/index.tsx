@@ -70,69 +70,73 @@ const socials: Social[] = [
 
 const Footer = () => {
   return (
-    <footer className="py-20 relative text-white space-y-8">
+    <footer className="py-20 relative text-white overflow-hidden">
       <Image
         src={"/images/bg/back_.jpeg"}
         alt="dark background"
-        className="w-full h-full object-cover -z-[1] absolute top-0 left-0"
+        className="w-full h-full object-cover -z-[2] absolute top-0 left-0"
         width={1024}
         height={600}
       />
-      <div className="container grid grid-cols-4 gap-2">
-        {footerData.map((data, id) => (
-          <div key={id}>
-            <h5 className="font-bold">{data.heading}</h5>
-            <ul className="text-[#b6b6b6] space-y-2 mt-2">
-              {data.children.map((child, id) => (
-                <li key={id}>
-                  <Link href={child.path}>{child.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-        <div className="bg-midGold text-black self-start rounded-md p-5 space-y-3">
-          <h5 className="font-bold">Subscribe to our Newsletter</h5>
 
-          <div className="flex items-center">
-            <input
-              type="text"
-              className="w-full bg-white rounded-l-md p-2 text-sm outline-none"
-              placeholder="Input your Email address"
-            />
-            <button className="h-full py-2 px-3 bg-[#1E1E1E] border-[#1E1E1E] border-2 flex-shrink-0 text-white rounded-r-md grid place-content-center">
-              <ChevronRight size={18} />
-            </button>
-          </div>
+      <div className="bg-[#15110999] absolute top-0 left-0 w-full -z-[1] h-full"></div>
+      <div className="space-y-8">
+        <div className="container grid md:grid-cols-4 sm:grid-cols-2 md:gap-2 gap-6">
+          {footerData.map((data, id) => (
+            <div key={id}>
+              <h5 className="font-bold">{data.heading}</h5>
+              <ul className="text-[#b6b6b6] space-y-2 mt-2">
+                {data.children.map((child, id) => (
+                  <li key={id}>
+                    <Link href={child.path}>{child.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div className="bg-[#ffd37a] text-black self-start rounded-md p-5 space-y-3">
+            <h5 className="font-bold">Subscribe to our Newsletter</h5>
 
-          <p className="text-[#191307] text-sm">
-            Gravida sed justo, justo, id est et. Amet tristique convallis sed porttitor nullam eu ut. Duis et odio
-            aliquam bibendum. Metus et lectus id viverra fringilla magna morbi.{" "}
-          </p>
+            <div className="flex items-center">
+              <input
+                type="text"
+                className="w-full bg-white rounded-l-md p-2 text-sm outline-none"
+                placeholder="Input your Email address"
+              />
+              <button className="h-full py-2 px-3 bg-[#1E1E1E] border-[#1E1E1E] border-2 flex-shrink-0 text-white rounded-r-md grid place-content-center">
+                <ChevronRight size={18} />
+              </button>
+            </div>
+
+            <p className="text-[#191307] text-sm">
+              Gravida sed justo, justo, id est et. Amet tristique convallis sed porttitor nullam eu ut. Duis et odio
+              aliquam bibendum. Metus et lectus id viverra fringilla magna morbi.{" "}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="container border-t-2 border-white/10 pt-8">
-        <div className="flex items-center justify-between">
-          <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} />
+        <div className="container border-t-2 border-white/10 pt-8">
+          <div className="flex items-center md:justify-between gap-7 md:gap-0 md:flex-row flex-col">
+            <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} />
 
-          <div className="flex items-center gap-6">
-            {bottomLinks.map((data, id) => (
-              <div key={id} className="text-sm font-medium">
-                <Link href={data.path}>{data.label}</Link>
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center gap-6">
-            {socials.map((social, id) => (
-              <div key={id} className="text-sm font-medium">
-                <Link href={social.path} title={social.label}>
-                  <div className="w-8 h-8 rounded-full border-2 border-white/20 grid place-content-center">
-                    {social.icon}
-                  </div>
-                </Link>
-              </div>
-            ))}
+            <div className="flex items-center gap-6">
+              {bottomLinks.map((data, id) => (
+                <div key={id} className="text-sm font-medium">
+                  <Link href={data.path}>{data.label}</Link>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-6">
+              {socials.map((social, id) => (
+                <div key={id} className="text-sm font-medium">
+                  <Link href={social.path} title={social.label}>
+                    <div className="w-8 h-8 rounded-full border-2 border-white/20 grid place-content-center">
+                      {social.icon}
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
