@@ -12,15 +12,13 @@ const Page = () => {
         <div className={`min-h-[43rem] bg-zinc-200 text-white relative ${styles.homeHeader}`}>
           <div className="absolute top-0 left-0 h-full w-full">
             <Image
-              src={"/images/bg/hero-image.jpeg"}
+              src={"/images/bg/home_back.png"}
               alt="hero image"
               width={1024}
               height={650}
               className="w-full h-full object-cover"
             />
           </div>
-
-          <div className="absolute top-0 left-0 h-full w-full bg-[#17120aae]"></div>
 
           <div className="absolute top-0 left-0 h-full w-full text-center">
             <HeroCenter />
@@ -55,16 +53,18 @@ const Page = () => {
           </div>
         </section>
 
-        <section>
+        <section className="relative">
+          <Image
+            src={"/images/logos/big_logo.png"}
+            alt="logo"
+            width={800}
+            height={800}
+            className="absolute -bottom-16 left-0 -z-[1] opacity-40"
+          />
+
           <div className="container grid grid-cols-2 gap-16 items-center">
             <div className="grid place-content-center">
-              <Image
-                src={"/images/bg/education.png"}
-                alt="dark background"
-                // className="w-full h-full object-cover -z-[1]"
-                width={600}
-                height={600}
-              />
+              <Image src={"/images/bg/education.png"} alt="dark background" width={600} height={600} />
             </div>
             <div className="space-y-6">
               <h3 className="_under_border font-bold text-darkGold">ABOUT NEW EDUCATION STANDARD AWARDS:</h3>

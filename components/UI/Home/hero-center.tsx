@@ -19,8 +19,7 @@ const HeroCenter = () => {
       timeline
         .set(ref.current, { visibility: "visible" })
         .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
-        .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } })
-        .from("._h_medal", { y: "-100%", opacity: 0, duration: 1.5, ease: "power4.inOut", stagger: { amount: 0.1 } });
+        .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } });
     }, ref);
 
     return () => cxt.revert();
@@ -42,8 +41,6 @@ const HeroCenter = () => {
       </motion.div>
       <div className="flex items-center justify-center h-[calc(100%-200px)] invisible" ref={ref}>
         <div className="container flex items-end justify-between">
-          <Image src={"/images/medal.png"} alt="medal" width={90} height={270} className="_h_medal" id="_h_medal1" />
-
           <div className="max-w-6xl mx-auto">
             <div className="space-y-7">
               <div className="overflow-hidden">
@@ -68,8 +65,6 @@ const HeroCenter = () => {
               </button>
             </div>
           </div>
-
-          <Image src={"/images/medal.png"} alt="medal" width={90} height={270} className="_h_medal" id="_h_medal2" />
         </div>
       </div>
     </>
