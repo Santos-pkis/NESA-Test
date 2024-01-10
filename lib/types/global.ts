@@ -3,6 +3,11 @@ export interface Category {
   description: string;
 }
 
+export interface Faq {
+  question: string;
+  answer: string;
+}
+
 // footer
 export interface FooterData {
   heading: string;

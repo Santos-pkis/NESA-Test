@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "3rem",
     },
     extend: {
       colors: {
@@ -27,6 +27,9 @@ const config: Config = {
 
         // black
         darkBrown: "#191307",
+
+        // dark
+        secondaryDark: "#33270E",
       },
     },
   },
