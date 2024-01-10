@@ -20,6 +20,14 @@ body {
   width: 4px;
 }
 
+::-moz-selection {
+  background: #ffb92e3f;
+}
+
+::selection {
+  background: #ffb92e3f;
+}
+
 ._under_border::after {
   content: "";
   position: absolute;

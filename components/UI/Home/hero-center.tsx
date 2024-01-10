@@ -2,9 +2,10 @@
 import { primaryBtn } from "@/lib/helpers";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
-import styles from "@/components/UI/Home/style.module.scss";
+import styles from "@/components/Common/Slide/style.module.scss";
 import { motion } from "framer-motion";
 import { opacityTrans } from "@/lib/utils/transitions";
+import Link from "next/link";
 
 const HeroCenter = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -65,10 +66,14 @@ const HeroCenter = () => {
             </div>
 
             <div className="flex items-center md:gap-6 gap-4 text-sm md:text-base justify-center mt-8 overflow-hidden">
-              <button className={`${primaryBtn} _h_button`}>Vote Now</button>
-              <button className="border-[#e0aa3e] px-5 font-semibold _h_button py-3 rounded-md border-2 bg-[#191307]">
-                What&apos;s NESA?
-              </button>
+              <button className={`${primaryBtn} _h_button bg-midGold`}>Vote Now</button>
+              <div>
+                <Link href={"/about"}>
+                  <button className="border-[#e0aa3e] px-5 font-semibold _h_button py-3 rounded-md border-2 bg-[#191307]">
+                    What&apos;s NESA?
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

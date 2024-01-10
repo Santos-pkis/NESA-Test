@@ -23,7 +23,7 @@ const navlinks = [
   },
   {
     label: "N.E.S.A",
-    path: "/nesa",
+    path: "/about",
   },
 ];
 

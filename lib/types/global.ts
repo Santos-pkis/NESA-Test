@@ -1,5 +1,4 @@
-export interface Award {
-  image: string;
+export interface Category {
   title: string;
   description: string;
 }

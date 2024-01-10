@@ -1,25 +1,7 @@
 "use client";
-import Image from "next/image";
-import styles from "./style.module.scss";
-import { Award } from "@/lib/types/global";
-
-const awards: Award[] = [
-  {
-    image: "/images/girl.jpg",
-    title: "FAITH-BASED ORGANIZATION COCNTRIBUTIONS TO EDUCATION",
-    description: `This award category will recognise and celebrate NGO's making remarkable cocntributions in the educational sector`,
-  },
-  {
-    image: "/images/girl.jpg",
-    title: "NGO CONTRIBUTION TO EDUCTION",
-    description: `This award category will recognise and celebrate NGO's making remarkable cocntributions in the educational sector`,
-  },
-  {
-    image: "/images/girl.jpg",
-    title: "CORPORATE SOCIAL RESPONSIBILITY (CSR) IN EDUCATION",
-    description: `This award category will recognise and celebrate NGO's making remarkable cocntributions in the educational sector`,
-  },
-];
+import CategorySlide from "@/components/Common/Slide/category";
+import styles from "@/components/Common/Slide/style.module.scss";
+import { homeCategories } from "@/lib/store/category";
 
 const Category = () => {
   return (
@@ -34,58 +16,11 @@ const Category = () => {
         </div>
 
         <div className={`overflow-hidden flex items-center relative space-x-4 ${styles["award_con"]}`}>
-          <AwardsScroll />
-          <AwardsScroll />
-          <AwardsScroll />
-          <AwardsScroll />
-          <AwardsScroll />
-          <AwardsScroll />
-          <AwardsScroll />
-          <AwardsScroll />
+          <CategorySlide categories={homeCategories} />
         </div>
       </div>
     </section>
   );
 };
-
-export const AwardsScroll = () => {
-  return (
-    <div className={`space-x-4 inline-flex items-center flex-shrink-0 ${styles["scroll-el"]}`}>
-      {awards.map((award, id) => (
-        <div
-          key={id}
-          className={`h-[26rem] aspect-[5.5/7] w-auto rounded-2xl bg-darkGold overflow-hidden text-white relative`}
-        >
-          <div className="absolute top-0 left-0 w-full h-full bg-[#181818a8]"></div>
-
-          <div className="py-8 px-5 absolute top-0 left-0 w-full h-full">
-            <div className="flex flex-col space-y-6 h-full">
-              <div className="w-16 h-16">
-                <Image src={"/images/logos/small_logo.png"} alt="medal" width={200} height={200} />
-              </div>
-
-              <p className="font-bold  text-lg">{award.title}</p>
-              <p className="font-light">{award.description}</p>
-
-              {/* <button className="border-[#e0aa3e] w-full text-sm font-semibold py-2 rounded-lg border-2 bg-[#191307]">
-                Nominate your NGO champion
-              </button> */}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export const Partners = () => (
-  <div className={`inline-block ${styles["scroll-el"]}`}>
-    {new Array(5).fill(null).map((_, id) => (
-      <div key={id} className="inline mx-6">
-        <Image src={`/images/logos/logo_${id + 1}.png`} alt="logo" width={150} height={150} className="inline" />
-      </div>
-    ))}
-  </div>
-);
 
 export default Category;

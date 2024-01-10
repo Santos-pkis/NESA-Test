@@ -24,6 +24,9 @@ const config: Config = {
 
         // gray
         semiGrey: "#757575",
+
+        // black
+        darkBrown: "#191307",
       },
     },
   },

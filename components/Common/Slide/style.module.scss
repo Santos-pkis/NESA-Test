@@ -57,15 +57,16 @@
   }
 }
 
+// category
 .award_con {
   &::after {
-    @include fade(100px);
+    @include fade(200px);
     right: 0;
     background: linear-gradient(to left, #141007, rgba(0, 0, 0, 0));
   }
 
   &::before {
-    @include fade(100px);
+    @include fade(200px);
     left: 0;
     background: linear-gradient(to right, #141007, rgba(0, 0, 0, 0));
   }
@@ -75,6 +76,12 @@
   }
 }
 
+// left direction
 .scroll-el {
   animation: scroll 20s linear infinite;
+}
+
+// right direction
+.scroll-right {
+  animation: scroll 20s linear infinite reverse;
 }

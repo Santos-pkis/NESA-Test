@@ -1,9 +1,10 @@
 import Image from "next/image";
-import styles from "@/components/UI/Home/style.module.scss";
-import Category, { Partners } from "@/components/UI/Home/category";
+import styles from "@/components/Common/Slide/style.module.scss";
+import Category from "@/components/UI/Home/category";
 import HomeFaq from "@/components/UI/Home/faq";
 import HeroCenter from "@/components/UI/Home/hero-center";
 import { primaryBtn } from "@/lib/helpers";
+import Partners from "@/components/Common/Slide/partners";
 
 const Page = () => {
   return (
