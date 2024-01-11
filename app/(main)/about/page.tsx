@@ -15,7 +15,7 @@ const Page = () => {
             <Image
               src={"/images/bg/about_.png"}
               alt="hero image"
-              width={12400}
+              width={1240}
               height={800}
               className="w-full h-full object-cover"
             />

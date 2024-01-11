@@ -27,10 +27,10 @@ const Page = () => {
           </div>
         </div>
       </header>
-      <main className="space-y-28 pb-8">
+      <main className="pb-8">
         <Category />
 
-        <section className="py-[10rem] my-[5rem] text-white relative">
+        <section className="py-[10rem] mb-[5rem] text-white relative">
           <Image
             src={"/images/bg/back_.jpeg"}
             alt="dark background"
@@ -60,7 +60,7 @@ const Page = () => {
           </div>
         </section>
 
-        <section className="relative">
+        <section className="relative py-10">
           <Image
             src={"/images/logos/big_logo.png"}
             alt="logo"
