@@ -55,7 +55,7 @@ const Page = () => {
             </div>
 
             <div className="grid place-content-center">
-              <button className={primaryBtn}>Partner with us</button>
+              <button className={primaryBtn + " bg-midGold"}>Partner with us</button>
             </div>
           </div>
         </section>

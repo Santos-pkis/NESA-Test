@@ -5,7 +5,7 @@ import { homeCategories } from "@/lib/store/category";
 
 const Category = () => {
   return (
-    <section className="py-[6rem]">
+    <section className="py-[8rem] bg-[#fff5e0]">
       <div className="space-y-5">
         <div className="space-y-5 container">
           <h2 className="_under_border font-bold text-sm text-darkGold">NOMINATION CATEGORY</h2>
