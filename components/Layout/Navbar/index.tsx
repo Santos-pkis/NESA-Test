@@ -6,26 +6,8 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { fromLeft, fromRight, fromTop, opacityTrans, parentTrans, parentTransActivate } from "@/lib/utils/transitions";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-
-const navlinks = [
-  {
-    label: "Home",
-    path: "/",
-  },
-  {
-    label: "Awards",
-    path: "/awards",
-  },
-  {
-    label: "Media",
-    path: "/media",
-  },
-  {
-    label: "N.E.S.A",
-    path: "/about",
-  },
-];
+import { ChevronDown, Menu, X } from "lucide-react";
+import { navlinks } from "@/lib/store/global";
 
 const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -42,16 +24,13 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-[#17120a]">
-        <div
-          className="container py-4 lg:grid flex justify-between items-center grid-cols-3 overflow-y-hidden text-white"
-          ref={ref}
-        >
+      <nav className="bg-[#17120a] z-[5000]">
+        <div className="container py-4 lg:grid flex justify-between items-center grid-cols-3 text-white" ref={ref}>
           <motion.div {...fromLeft}>
             <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} id="nav_logo" />
           </motion.div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center relative">
             <motion.ul
               variants={parentTrans}
               {...parentTransActivate}
@@ -59,9 +38,38 @@ const Navbar = () => {
             >
               {navlinks.map((link, id) => (
                 <motion.li variants={fromTop} key={id}>
-                  <Link href={link.path} className={link.path === pathname ? "font-bold" : "font-normal"}>
-                    {link.label}
-                  </Link>
+                  {link.children ? (
+                    <div
+                      className={`group cursor-pointer ${
+                        link.path === pathname ? "font-semibold" : "font-normal duration-200"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span>{link.label}</span>
+                        <ChevronDown size={18} className="group-hover:rotate-90 duration-300" />
+                      </div>
+
+                      <div className="absolute top-full -right-5 duration-300 group-hover:opacity-100 group-hover:translate-y-0 -translate-y-1 opacity-0 z-[1000] overflow-hidden border-4 text-sm min-w-[10rem] bg-white/90 rounded-lg">
+                        {link.children.map((child, id) => (
+                          <div
+                            key={id}
+                            className="text-center hover:bg-deepGold duration-200 text-darkGold hover:text-white"
+                          >
+                            <Link href={link.path} className={"w-full"}>
+                              <div className="py-2">{child.label}</div>
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.path}
+                      className={link.path === pathname ? "font-semibold" : "font-normal duration-200"}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </motion.li>
               ))}
             </motion.ul>

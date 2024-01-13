@@ -22,3 +22,15 @@ export interface Social {
   label: string;
   path: string;
 }
+
+export interface NavLink {
+  label: string;
+  path: string;
+  children?: NavLink[];
+}
+
+export interface Panel {
+  image: string;
+  name: string;
+  position: string;
+}
