@@ -6,7 +6,7 @@ const Page = () => {
   return (
     <>
       <header>
-        <div className={`min-h-[35rem] bg-zinc-200 text-white relative py-10`}>
+        <div className={`min-h-[40rem] bg-zinc-200 text-white relative py-10`}>
           <div className="absolute top-0 left-0 h-full w-full">
             <Image
               src={"/images/bg/about_.png"}
