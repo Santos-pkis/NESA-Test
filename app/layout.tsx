@@ -15,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={raleway.className}>
         <Providers>
-          <Navbar />
+          <div className="pb-12">
+            <Navbar />
+          </div>
           {children}
           <Footer />
         </Providers>

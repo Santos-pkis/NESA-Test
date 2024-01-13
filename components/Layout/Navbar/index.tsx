@@ -24,20 +24,20 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-[#17120a] z-[5000]">
+      <nav className="bg-[#17120a] fixed top-0 left-0 w-full z-[1000]">
         <div className="container py-4 lg:grid flex justify-between items-center grid-cols-3 text-white" ref={ref}>
           <motion.div {...fromLeft}>
             <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} id="nav_logo" />
           </motion.div>
 
-          <div className="flex items-center justify-center relative">
+          <div className="flex items-center justify-center">
             <motion.ul
               variants={parentTrans}
               {...parentTransActivate}
               className="hidden items-center gap-12 font-medium text-lg lg:flex"
             >
               {navlinks.map((link, id) => (
-                <motion.li variants={fromTop} key={id}>
+                <motion.li variants={fromTop} key={id} className="">
                   {link.children ? (
                     <div
                       className={`group cursor-pointer ${
@@ -49,11 +49,11 @@ const Navbar = () => {
                         <ChevronDown size={18} className="group-hover:rotate-90 duration-300" />
                       </div>
 
-                      <div className="absolute top-full -right-5 duration-300 group-hover:opacity-100 group-hover:translate-y-0 -translate-y-1 opacity-0 z-[1000] overflow-hidden border-4 text-sm min-w-[10rem] bg-white/90 rounded-lg">
+                      <div className="absolute top-full -right-1/2 duration-300 group-hover:opacity-100 group-hover:translate-y-0 -translate-y-1 opacity-0 overflow-hidden border-4 text-sm min-w-[15rem] bg-white/90 rounded-lg">
                         {link.children.map((child, id) => (
                           <div
                             key={id}
-                            className="text-center hover:bg-deepGold duration-200 text-darkGold hover:text-white"
+                            className="text-center hover:bg-deepGold duration-200 px-5 text-darkGold hover:text-white"
                           >
                             <Link href={link.path} className={"w-full"}>
                               <div className="py-2">{child.label}</div>
@@ -89,7 +89,7 @@ const Navbar = () => {
             </motion.button>
             <motion.button
               variants={fromTop}
-              className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-lg border-2 border-white text-white"
+              className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-lg text-white"
             >
               Get Involved
             </motion.button>

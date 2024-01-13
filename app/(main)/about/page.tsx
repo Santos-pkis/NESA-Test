@@ -19,8 +19,8 @@ const Page = () => {
 
           <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
-          <div className="w-full h-full flex items-center absolute top-0 left-0 -mt-6">
-            <div className="container grid grid-cols-2 gap-16 items-center">
+          <div className="w-full h-full flex items-center absolute top-0 left-0 overflow-hidden">
+            <div className="container grid grid-cols-2 gap-16 items-center -mt-6">
               <div className="flex items-center justify-center">
                 <div className="w-4/5 grid place-content-center aspect-square h-auto border-4 border-primaryGold rounded-xl relative overflow-hidden">
                   <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
@@ -36,7 +36,7 @@ const Page = () => {
                   <p className="font-semibold text-2xl">The Founding Story</p>
                 </div>
                 <p className="mt-8 text-white/90">
-                  In 2013, NNESA was born out of a commitment to address the pressing challenges facing Nigeria&apos;s
+                  In 2013, NESA was born out of a commitment to address the pressing challenges facing Nigeria&apos;s
                   educational sector. The visionaries at Santos Creations saw an opportunity to uplift educational
                   standards by acknowledging and rewarding those making significant contributions.
                 </p>
