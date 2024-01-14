@@ -24,7 +24,7 @@ const Page = () => {
           <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
           <div className="w-full h-full flex items-center absolute top-0 left-0 -mt-6">
-            <div className="container grid grid-cols-2 items-center">
+            <div className="container grid md:grid-cols-2 items-center">
               <div className="space-y-6">
                 <h1 className="font-bold text-5xl text-midGold leading-[1.4]">
                   Nigeria Education Standard Award: The award of the decade
@@ -70,7 +70,7 @@ const Page = () => {
           </section>
 
           <section className="bg-darkBrown py-12 text-white mt-20">
-            <div className="container grid grid-cols-2 items-center">
+            <div className="container grid md:grid-cols-2 items-center">
               <div className="grid place-content-center">
                 <Image src={"/images/bg/contest.png"} alt="timeline" width={400} height={400} />
               </div>

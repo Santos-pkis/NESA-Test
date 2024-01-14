@@ -19,7 +19,7 @@ const Page = () => {
           <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
           <div className="w-full h-full flex items-center absolute top-0 left-0 -mt-6">
-            <div className="container grid grid-cols-2 items-center">
+            <div className="container grid md:grid-cols-2 items-center">
               <div className="space-y-6">
                 <h1 className="font-bold text-5xl text-midGold leading-[1.4]">The NESA Award Categories</h1>
 

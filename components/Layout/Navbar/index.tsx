@@ -28,7 +28,9 @@ const Navbar = () => {
       <nav className="bg-[#17120a] fixed top-0 left-0 w-full z-[1000]">
         <div className="container py-4 lg:grid flex justify-between items-center grid-cols-3 text-white" ref={ref}>
           <motion.div {...fromLeft}>
-            <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} id="nav_logo" />
+            <Link href={"/"}>
+              <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} id="nav_logo" />
+            </Link>
           </motion.div>
 
           <div className="flex items-center justify-center">

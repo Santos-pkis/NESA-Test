@@ -20,7 +20,7 @@ const Page = () => {
           <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
           <div className="w-full h-full flex items-center absolute top-0 left-0 overflow-hidden">
-            <div className="container grid grid-cols-2 gap-16 items-center -mt-6">
+            <div className="container grid md:grid-cols-2 gap-16 items-center -mt-6">
               <div className="flex items-center justify-center">
                 <div className="w-4/5 grid place-content-center aspect-square h-auto border-4 border-primaryGold rounded-xl relative overflow-hidden">
                   <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
@@ -53,7 +53,7 @@ const Page = () => {
         </div>
       </header>
       <main>
-        <div className="container grid grid-cols-2 items-center py-16">
+        <div className="container grid md:grid-cols-2 items-center py-16">
           <div className="space-y-4">
             <h3 className="_under_border font-bold text-sm uppercase">WHY NESA AFRICA</h3>
             <div className="space-y-8">
@@ -180,7 +180,7 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="container grid grid-cols-2 gap-10 py-24">
+            <div className="container grid md:grid-cols-2 gap-10 py-24">
               <div className="p-10 flex flex-col space-y-10 bg-[#1e1e1e] text-white min-h-[24rem]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
                   <path
