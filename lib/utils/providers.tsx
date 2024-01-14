@@ -22,12 +22,10 @@ const Providers: React.FC<PropsWithChildren> = ({ children }) => {
     position: "bottom-right",
   };
 
-  const { visible } = useModal();
 
   return (
     <AuthProvider>
       <Toaster toastOptions={toastOptions} />
-      {/* <Modal visible={visible} /> */}
 
       <ModalProvider>{children}</ModalProvider>
     </AuthProvider>

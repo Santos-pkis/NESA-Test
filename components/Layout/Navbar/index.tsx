@@ -23,10 +23,32 @@ const Navbar = () => {
     }
   }, [sidebarOpen]);
 
+  useEffect(() => {
+    let prevScrollPos = window.scrollY;
+    const hideNavOnScroll = () => {
+      if (!ref.current) return;
+
+      const currentScrollPos = window.scrollY;
+      if (prevScrollPos > currentScrollPos) {
+        ref.current.style.top = "0";
+        ref.current.style.opacity = "100%";
+      } else {
+        ref.current.style.top = "-85px";
+        ref.current.style.opacity = "0%";
+      }
+
+      prevScrollPos = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", hideNavOnScroll);
+
+    return () => window.removeEventListener("scroll", hideNavOnScroll);
+  }, []);
+
   return (
     <>
-      <nav className="bg-[#17120a] fixed top-0 left-0 w-full z-[1000]">
-        <div className="container py-4 lg:grid flex justify-between items-center grid-cols-3 text-white" ref={ref}>
+      <nav className="bg-[#17120a] fixed top-0 left-0 w-full duration-[400ms] z-[1000]" ref={ref}>
+        <div className="container py-4 lg:grid flex justify-between items-center grid-cols-3 text-white">
           <motion.div {...fromLeft}>
             <Link href={"/"}>
               <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} id="nav_logo" />

@@ -7,7 +7,7 @@ const Page = () => {
   return (
     <>
       <header>
-        <div className={`min-h-[40rem] bg-zinc-200 text-white relative py-10`}>
+        <div className={`min-h-[45rem] bg-zinc-200 text-white relative py-10`}>
           <div className="absolute top-0 left-0 h-full w-full">
             <Image
               src={"/images/bg/about_.png"}
@@ -20,7 +20,7 @@ const Page = () => {
 
           <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
-          <div className="w-full h-full flex items-center absolute top-0 left-0 -mt-6">
+          <div className="w-full h-full flex items-center absolute top-0 left-0 pt-12">
             <div className="container">
               <div className="space-y-6 text-center py-8">
                 <div className="space-y-2">

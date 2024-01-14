@@ -27,7 +27,7 @@ const HeroCenter = () => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative pt-12">
         <motion.div
           {...opacityTrans}
           transition={{ delay: 1, duration: 1.5 }}
