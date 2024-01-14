@@ -8,6 +8,7 @@ import { fromLeft, fromRight, fromTop, opacityTrans, parentTrans, parentTransAct
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navlinks } from "@/lib/store/global";
+import styles from "./style.module.scss";
 
 const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,23 +41,25 @@ const Navbar = () => {
                 <motion.li variants={fromTop} key={id} className="">
                   {link.children ? (
                     <div
-                      className={`group cursor-pointer ${
+                      className={`cursor-pointer ${
                         link.path === pathname ? "font-semibold" : "font-normal duration-200"
-                      }`}
+                      } ${styles["nav-link"]}`}
                     >
                       <div className="flex items-center gap-2">
                         <span>{link.label}</span>
-                        <ChevronDown size={18} className="group-hover:rotate-90 duration-300" />
+                        <ChevronDown size={18} className={`duration-300 ${styles["chevron"]}`} />
                       </div>
 
-                      <div className="absolute top-full -right-1/2 duration-300 group-hover:opacity-100 group-hover:translate-y-0 -translate-y-1 opacity-0 overflow-hidden border-4 text-sm min-w-[15rem] bg-white/90 rounded-lg">
+                      <div
+                        className={`absolute ${styles["nav-link-child"]} top-full -right-1/2 duration-300 overflow-hidden shadow-xl text-sm min-w-[15rem] bg-white rounded-md`}
+                      >
                         {link.children.map((child, id) => (
                           <div
                             key={id}
                             className="text-center hover:bg-deepGold duration-200 px-5 text-darkGold hover:text-white"
                           >
                             <Link href={link.path} className={"w-full"}>
-                              <div className="py-2">{child.label}</div>
+                              <div className="py-3">{child.label}</div>
                             </Link>
                           </div>
                         ))}

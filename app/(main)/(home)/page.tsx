@@ -22,7 +22,7 @@ const Page = () => {
             />
           </div>
 
-          <div className="absolute top-0 left-0 h-full w-full text-center">
+          <div className="absolute top-0 left-0 h-full w-full text-center pt-[3rem]">
             <HeroCenter />
           </div>
         </div>

@@ -1,0 +1,12 @@
+.nav-link-child {
+  display: none;
+}
+
+.nav-link {
+  &:hover .chevron {
+    transform: rotate(90deg);
+  }
+  &:hover .nav-link-child {
+    display: block;
+  }
+}
