@@ -40,7 +40,7 @@ const TypeOfAwards = () => {
   const [selected, setSelected] = useState<Selector>("platinum");
 
   return (
-    <section className="my-20 px-28">
+    <section className="my-20 md:px-28">
       <div className="container">
         <div className="space-y-8">
           <h3 className="font-bold text-4xl text-darkBrown">
@@ -52,7 +52,7 @@ const TypeOfAwards = () => {
             acknowledgment and celebration for all nominees contributions.
           </p>
 
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 sm:grid-cols-2 md:gap-6 gap-3">
             {awardDescriptionData.map((data, id) => (
               <div
                 key={id}

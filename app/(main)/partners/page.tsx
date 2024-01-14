@@ -21,10 +21,10 @@ const Page = () => {
 
           <div className="w-full h-full flex items-center justify-center absolute top-0 left-0 overflow-hidden">
             <div className="text-center space-y-4">
-              <h1 className="font-bold text-6xl">
-                Partnerships and <br /> Collaborations @ NESA Africa
+              <h1 className="font-bold md:text-6xl text-5xl">
+                Partnerships and <br className="hidden md:block" /> Collaborations @ NESA Africa
               </h1>
-              <p className="">
+              <p>
                 Recognizing players who contributed to the growth of the Nigerian <br /> education sector and fostering
                 innovations
               </p>
@@ -61,7 +61,7 @@ const Logos = () => {
   const imgs = [1, 2, 4, 6, 7, 4, 7];
 
   return (
-    <div className="grid grid-cols-5 gap-8 my-6">
+    <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-8 my-6">
       {imgs.map((_, id) => (
         <div key={id} className="p-4 shadow-lg rounded-md flex items-center justify-center">
           <Image src={`/images/logos/logo_${_}.png`} alt="logo" width={150} height={150} />

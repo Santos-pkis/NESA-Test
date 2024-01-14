@@ -191,13 +191,13 @@ const GetInvolved = () => {
   const partnerWithUsClickHandler = () => showModal(<GetInvolvedModalContent />);
 
   return (
-    <div className="container text-center bg-darkBrown text-white rounded-2xl space-y-4 px-12 py-16">
-      <p className="text-lg uppercase">How to get Involved</p>
-      <p className="text-5xl text-center mx-auto max-w-2xl font-semibold">
+    <div className="container text-center bg-darkBrown text-white md:rounded-2xl rounded-md space-y-4 md:px-12 py-16">
+      <p className="md:text-lg uppercase">How to get Involved</p>
+      <p className="md:text-5xl sm:text-4xl text-3xl text-center mx-auto max-w-2xl font-semibold">
         Etiam nulla lectus amet nunc molestie at vulputate.
       </p>
       <div className="pt-6">
-        <div className="flex items-center gap-6 justify-center">
+        <div className="flex items-center flex-wrap gap-6 justify-center">
           <button
             className="flex-shrink-0 self-start w-fit px-5 text-sm font-semibold py-3 rounded-md text-black"
             style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}

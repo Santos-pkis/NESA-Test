@@ -10,7 +10,7 @@ const Page = () => {
   return (
     <>
       <header>
-        <div className={`min-h-[40rem] bg-zinc-200 text-white relative`}>
+        <div className={`md:min-h-[40rem] min-h-screen bg-zinc-200 text-white relative overflow-hidden`}>
           <div className="absolute top-0 left-0 h-full w-full">
             <Image
               src={"/images/bg/about_.png"}
@@ -23,10 +23,10 @@ const Page = () => {
 
           <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
-          <div className="w-full h-full flex items-center absolute top-0 left-0 pt-12">
+          <div className="w-full h-full flex items-center absolute top-0 left-0 md:pt-12 sm:pt-52 pt-56">
             <div className="container grid md:grid-cols-2 items-center">
               <div className="space-y-6">
-                <h1 className="font-bold text-5xl text-midGold leading-[1.4]">
+                <h1 className="font-bold lg:text-5xl text-4xl text-midGold lg:leading-[1.4]">
                   Nigeria Education Standard Award: The award of the decade
                 </h1>
 
@@ -37,7 +37,7 @@ const Page = () => {
                 </p>
               </div>
 
-              <div className="grid place-content-center">
+              <div className="grid place-content-center opacity-40 md:opacity-100 duration-300">
                 <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
               </div>
             </div>
@@ -118,7 +118,7 @@ const Page = () => {
           <section className="my-20 space-y-10">
             <h4 className="text-center text-4xl font-bold text-darkGold">N.E.S.A Award Panel Judges</h4>
             <div className="flex items-center justify-center">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 overflow-x-hidden">
                 {Array.from({ length: 4 }).map((_, id) => (
                   <div key={id} className="h-[20rem] aspect-[5/7] text-whiteGold w-auto bg-darkGold p-4 relative">
                     <div className="absolute bottom-3 left-3">

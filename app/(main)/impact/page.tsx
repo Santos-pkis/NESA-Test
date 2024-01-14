@@ -24,7 +24,7 @@ const Page = () => {
             <div className="container">
               <div className="space-y-6 text-center py-8">
                 <div className="space-y-2">
-                  <h1 className="font-bold text-5xl text-midGold leading-[1.4]">IMPACT @ NESA AFRICA</h1>
+                  <h1 className="font-bold md:text-5xl text-4xl text-midGold md:leading-[1.4]">IMPACT @ NESA AFRICA</h1>
                   <p className="max-w-2xl mx-auto text-center">
                     In a country facing infrastructural deficits, outdated curricula, and educator motivation issues,
                     NESA Nigeria strives to encourage government bodies, NGOs, UN agencies, CSR initiatives, and private
@@ -47,7 +47,7 @@ const Page = () => {
       </header>
 
       <main>
-        <div className="pt-20 bg-[#f4f4f3]">
+        <div className="py-20 bg-[#f4f4f3]">
           <div className="text-center container space-y-6">
             <h2 className="font-bold text-3xl">Metrics That Matter</h2>
             <p>
@@ -58,13 +58,13 @@ const Page = () => {
           </div>
 
           <section className="my-20">
-            <div className="space-y-16 px-16">
+            <div className="space-y-16 md:px-16 container md:w-full">
               <div className="grid md:grid-cols-2 items-center">
                 <div className="grid place-content-center">
                   <Image src={"/images/examples/e1.png"} alt="hero image" width={400} height={400} />
                 </div>
-                <div className="grid place-content-center space-y-5">
-                  <div className="max-w-md space-y-12">
+                <div className="grid place-content-center space-y-5 md:p-0 py-2">
+                  <div className="max-w-md md:space-y-12 space-y-6">
                     <p className="font-bold text-3xl">Purus id tellus arcu habitant proin magna. Integer purus </p>
                     <p>
                       Facilisi viverra dictum augue eu lobortis elit. In et donec habitasse lacus mi commodo elementum.
@@ -72,9 +72,10 @@ const Page = () => {
                   </div>
                 </div>
               </div>
-              <div className="grid md:grid-cols-2 items-center">
-                <div className="grid place-content-center space-y-5">
-                  <div className="max-w-md space-y-12">
+
+              <div className="md:grid flex flex-col-reverse md:grid-cols-2 items-center">
+                <div className="grid place-content-center space-y-5 md:p-0 py-2">
+                  <div className="max-w-md md:space-y-12 space-y-6">
                     <p className="font-bold text-3xl">Purus id tellus arcu habitant proin magna. Integer purus </p>
                     <p>
                       Facilisi viverra dictum augue eu lobortis elit. In et donec habitasse lacus mi commodo elementum.
@@ -91,8 +92,8 @@ const Page = () => {
                 <div className="grid place-content-center">
                   <Image src={"/images/examples/e3.png"} alt="hero image" width={400} height={400} />
                 </div>
-                <div className="grid place-content-center space-y-5">
-                  <div className="max-w-md space-y-12">
+                <div className="grid place-content-center space-y-5 md:p-0 py-2">
+                  <div className="max-w-md md:space-y-12 space-y-6">
                     <p className="font-bold text-3xl">Purus id tellus arcu habitant proin magna. Integer purus </p>
                     <p>
                       Facilisi viverra dictum augue eu lobortis elit. In et donec habitasse lacus mi commodo elementum.
@@ -104,7 +105,7 @@ const Page = () => {
           </section>
         </div>
 
-        <section className="overflow-hidden relative min-h-[45rem]">
+        <section className="overflow-hidden relative md:min-h-[45rem] min-h-[52rem]">
           <Image
             src={"/images/bg/back_.jpeg"}
             alt="background image"
@@ -119,10 +120,10 @@ const Page = () => {
             <div className="container text-white">
               <div className="space-y-6">
                 <h3 className="_under_border font-bold text-sm uppercase">Projects ongoing</h3>
-                <div className="flex gap-10">
+                <div className="flex md:gap-10 gap-4 md:flex-row flex-col">
                   <div className="space-y-2">
-                    <h4 className="font-bold text-4xl text-midGold">Quarterly Intervention Crowdfunding</h4>
-                    <p>
+                    <h4 className="font-bold md:text-4xl text-3xl text-midGold">Quarterly Intervention Crowdfunding</h4>
+                    <p className="md:text-base text-sm">
                       NESA also facilitates a crowdfunding platforms to support educational projects and interventions.
                       These projects are categorized based on their focus and impact areas. Every Quatar, different
                       projects will be highlighted for crowdfunding opportunities
@@ -142,11 +143,11 @@ const Page = () => {
                 {Array.from({ length: 6 }).map((_, id) => (
                   <div
                     key={id}
-                    className="h-[24rem] aspect-[6/7] text-darkGold w-auto rounded-2xl p-10 flex flex-col justify-between bg-[#f9d9a5]"
+                    className="md:h-[24rem] h-[20rem] md:aspect-[6/7] aspect-[5/7] text-darkGold w-auto rounded-2xl md:p-10 p-5 flex flex-col justify-between bg-[#f9d9a5]"
                   >
-                    <p className="text-2xl font-bold">Infrastructure Development Project</p>
+                    <p className="md:text-2xl text-xl font-bold">Infrastructure Development Project</p>
 
-                    <p>
+                    <p className="md:text-base text-sm">
                       This Project is aimed at improving and physical infrastructure in schools such as building
                       classrooms, libraries, sporting facilities and others.
                     </p>
@@ -182,7 +183,7 @@ const Page = () => {
             </div>
 
             <div className="mt-10">
-              <div className="grid grid-cols-3 gap-12">
+              <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-12">
                 {blogs.map((blog, id) => (
                   <div key={id} className="rounded-xl overflow-hidden bg-white shadow-lg">
                     <div>
@@ -225,7 +226,7 @@ const Page = () => {
           </div>
         </section>
 
-        <div className="my-20 bg-[#f4f4f3] py-24">
+        <div className="md:my-20 bg-[#f4f4f3] py-24">
           <GetInvolved />
         </div>
 
@@ -233,12 +234,12 @@ const Page = () => {
           <div className="container">
             <h3 className="_under_border font-bold text-sm uppercase">View gallery</h3>
 
-            <div className="my-10 grid grid-cols-5 gap-4">
+            <div className="my-10 md:grid flex items-center overflow-x-hidden grid-cols-5 gap-4">
               {Array.from({ length: 5 }).map((_, id) => (
                 <div
                   className={`rounded-lg ${
                     id === 2 && "scale-110"
-                  } max-h-[20rem] border-4 overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 duration-300 cursor-pointer hover:z-50`}
+                  } max-h-[20rem] border-4 overflow-hidden shadow-lg flex-shrink-0 hover:shadow-xl hover:scale-105 duration-300 cursor-pointer hover:z-50`}
                   key={id}
                 >
                   <Image

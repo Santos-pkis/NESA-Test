@@ -6,7 +6,7 @@ const Page = () => {
   return (
     <>
       <header>
-        <div className={`min-h-[44rem] bg-zinc-200 text-white relative py-10`}>
+        <div className={`md:min-h-[44rem] min-h-[52rem] bg-zinc-200 text-white relative py-10`}>
           <div className="absolute top-0 left-0 h-full w-full">
             <Image
               src={"/images/bg/about_.png"}
@@ -19,10 +19,10 @@ const Page = () => {
 
           <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
-          <div className="w-full h-full flex items-center absolute top-0 left-0 overflow-hidden pt-20">
+          <div className="w-full h-full flex items-center absolute top-0 left-0 overflow-hidden md:pt-20 pt-28">
             <div className="container grid md:grid-cols-2 gap-16 items-center -mt-6">
               <div className="flex items-center justify-center">
-                <div className="w-4/5 grid place-content-center aspect-square h-auto border-4 border-primaryGold rounded-xl relative overflow-hidden">
+                <div className="md:w-4/5 grid place-content-center md:aspect-square aspect-video h-auto border-4 border-primaryGold rounded-xl relative overflow-hidden">
                   <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
 
                   <div className="absolute top-0 left-0 w-full h-full bg-black/30 grid place-content-center">
@@ -32,15 +32,15 @@ const Page = () => {
               </div>
               <div>
                 <div className="space-y-2">
-                  <h1 className="text-5xl font-bold text-midGold">About NESA</h1>
-                  <p className="font-semibold text-2xl">The Founding Story</p>
+                  <h1 className="md:text-5xl text-4xl font-bold text-midGold">About NESA</h1>
+                  <p className="font-semibold md:text-2xl text-xl">The Founding Story</p>
                 </div>
                 <p className="mt-8 text-white/90">
                   In 2013, NESA was born out of a commitment to address the pressing challenges facing Nigeria&apos;s
                   educational sector. The visionaries at Santos Creations saw an opportunity to uplift educational
                   standards by acknowledging and rewarding those making significant contributions.
                 </p>
-                <div className="mt-10 flex items-center gap-3 cursor-pointer w-fit">
+                <div className="md:mt-10 mt-4 flex items-center md:gap-3 gap-2 cursor-pointer w-fit">
                   <Image src={"/images/about/play.svg"} className="mt-5" alt="play button" width={80} height={80} />
                   <p className="text-midGold font-semibold">
                     Watch Our <br /> Short Story
@@ -53,7 +53,7 @@ const Page = () => {
         </div>
       </header>
       <main>
-        <div className="container grid md:grid-cols-2 items-center py-16">
+        <div className="container md:grid flex flex-col-reverse gap-6 md:gap-0 md:grid-cols-2 items-center py-16">
           <div className="space-y-4">
             <h3 className="_under_border font-bold text-sm uppercase">WHY NESA AFRICA</h3>
             <div className="space-y-8">
@@ -100,7 +100,7 @@ const Page = () => {
               educator motivation issues, NESA Nigeria strives to encourage government bodies, NGOs, UN agencies, CSR
               initiatives, and private entities to play pivotal roles in improving education.
             </p>
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
               <div className="p-10 rounded-lg bg-lightGold text-darkGold space-y-5">
                 <h4 className="font-bold text-2xl">Quarterly Crowdfunding Programme</h4>
                 <p>
@@ -135,10 +135,10 @@ const Page = () => {
           <div className="mt-5">
             <div className="container px-10">
               <div className="flex items-center justify-center">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center flex-wrap gap-4">
                   {panel.map((judge, id) => (
                     <div key={id}>
-                      <div className="h-[20rem] aspect-[5.5/7] w-auto p-4 relative">
+                      <div className="h-[20rem] w-full sm:aspect-[5.5/7] mx-auto md:mx-0 sm:w-auto p-4 relative">
                         <Image
                           src={judge.image}
                           alt={"judge - " + judge.name}
