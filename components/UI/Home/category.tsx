@@ -1,7 +1,7 @@
 "use client";
 import CategorySlide from "@/components/Common/Slide/category";
 import styles from "@/components/Common/Slide/style.module.scss";
-import { homeCategories } from "@/lib/store/category";
+import { homeCategories } from "@/lib/data/category";
 
 const Category = () => {
   return (

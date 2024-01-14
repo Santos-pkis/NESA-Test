@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { fromLeft, fromRight, fromTop, opacityTrans, parentTrans, parentTransActivate } from "@/lib/utils/transitions";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { navlinks } from "@/lib/store/global";
+import { navlinks } from "@/lib/data/global";
 import styles from "./style.module.scss";
 
 const Navbar = () => {
@@ -60,7 +60,7 @@ const Navbar = () => {
                             key={id}
                             className="text-center hover:bg-deepGold duration-200 px-5 text-darkGold hover:text-white"
                           >
-                            <Link href={link.path} className={"w-full"}>
+                            <Link href={child.path} className={"w-full"}>
                               <div className="py-3">{child.label}</div>
                             </Link>
                           </div>
@@ -94,7 +94,7 @@ const Navbar = () => {
             </motion.button>
             <motion.button
               variants={fromTop}
-              className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-lg text-white"
+              className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base border text-sm rounded-lg text-white"
             >
               Get Involved
             </motion.button>

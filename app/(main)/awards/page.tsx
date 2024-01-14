@@ -1,9 +1,9 @@
 import Image from "next/image";
 import CategorySlide from "@/components/Common/Slide/category";
-import { aboutLeftCategories, aboutRightCategories } from "@/lib/store/category";
+import { aboutLeftCategories, aboutRightCategories } from "@/lib/data/category";
 import TypeOfAwards from "@/components/UI/About/type-of-awards";
 import FAQs from "@/components/Common/Others/faq";
-import { aboutFaq } from "@/lib/store/faq";
+import { aboutFaq } from "@/lib/data/faq";
 import Panel from "@/components/UI/About/panel";
 
 const Page = () => {

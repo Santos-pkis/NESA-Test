@@ -5,6 +5,9 @@ import AuthProvider from "./auth-provider";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { DefaultToastOptions, Toaster } from "react-hot-toast";
+import Modal from "@/components/Common/Modal";
+import { useModal } from "../store/modal";
+import ModalProvider from "./modal-provider";
 
 // register gsap basic plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -19,10 +22,14 @@ const Providers: React.FC<PropsWithChildren> = ({ children }) => {
     position: "bottom-right",
   };
 
+  const { visible } = useModal();
+
   return (
     <AuthProvider>
       <Toaster toastOptions={toastOptions} />
-      {children}
+      {/* <Modal visible={visible} /> */}
+
+      <ModalProvider>{children}</ModalProvider>
     </AuthProvider>
   );
 };

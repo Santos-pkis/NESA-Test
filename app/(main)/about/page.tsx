@@ -1,4 +1,4 @@
-import { panel } from "@/lib/store/about";
+import { panel } from "@/lib/data/about";
 import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
 import Image from "next/image";
 

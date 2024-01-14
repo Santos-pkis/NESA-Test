@@ -1,5 +1,5 @@
 import GetInvolved from "@/components/Common/Others/get-involved";
-import { blogs } from "@/lib/store/blogs";
+import { blogs } from "@/lib/data/blogs";
 import { ArrowLeft, ArrowRight, Calendar, ChevronRight, User2 } from "lucide-react";
 import Image from "next/image";
 

@@ -4,6 +4,7 @@ import "../public/globals.css";
 import Navbar from "@/components/Layout/Navbar";
 import Providers from "@/lib/utils/providers";
 import Footer from "@/components/Layout/Footer";
+import Modal from "@/components/Common/Modal";
 
 export const metadata: Metadata = {
   title: "NESA 2024",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={raleway.className}>
         <Providers>
+          {/* <Modal /> */}
           <div className="pb-12">
             <Navbar />
           </div>

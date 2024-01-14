@@ -5,7 +5,7 @@ import HeroCenter from "@/components/UI/Home/hero-center";
 import { primaryBtn } from "@/lib/helpers";
 import Partners from "@/components/Common/Slide/partners";
 import FAQs from "@/components/Common/Others/faq";
-import { homeFaq } from "@/lib/store/faq";
+import { homeFaq } from "@/lib/data/faq";
 
 const Page = () => {
   return (

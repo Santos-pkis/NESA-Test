@@ -1,4 +1,4 @@
-import { aboutLeftCategories, aboutRightCategories } from "@/lib/store/category";
+import { aboutLeftCategories, aboutRightCategories } from "@/lib/data/category";
 import Image from "next/image";
 
 const Page = () => {
