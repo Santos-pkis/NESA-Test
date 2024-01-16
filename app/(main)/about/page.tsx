@@ -135,8 +135,8 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="container grid md:grid-cols-2 gap-10 py-24">
-              <div className="p-10 flex flex-col space-y-10 bg-[#1e1e1e] text-white min-h-[24rem]">
+            <div className="container flex items-center justify-between bg-[#1e1e1e] gap-10 py-4 mt-10">
+              <div className="p-10 flex flex-col space-y-10 text-white min-h-[24rem]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
                   <path
                     fillRule="evenodd"
@@ -146,10 +146,10 @@ const Page = () => {
                   />
                 </svg>
 
-                <div className="space-y-4 max-w-[20rem]">
+                <div className="space-y-4">
                   <p className="font-bold text-midGold">GIVE MONEY</p>
 
-                  <p className="font-semibold text-xl">Will you change the life of an African Child today?</p>
+                  <p className="font-semibold text-3xl">Will you change the life of an African Child today?</p>
 
                   <p className="text-sm font-medium">
                     Invest in people, invest in their growth <br />
@@ -159,7 +159,10 @@ const Page = () => {
 
                 <p className="_under_border font-bold max-h-[23rem] text-sm uppercase">DONATE</p>
               </div>
-              <div className="p-10 flex flex-col space-y-10 bg-[#1e1e1e] text-white min-h-[26rem]">
+              <div className="hidden md:block">
+                <Image src={"/images/examples/gallery/g3.png"} alt="image" width={400} height={400} />
+              </div>
+              {/* <div className="p-10 flex flex-col space-y-10 bg-[#1e1e1e] text-white min-h-[26rem]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
                   <path
                     d="M5.625 20.625C3.5625 20.625 1.875 22.3125 1.875 24.375V37.5C1.875 39.5625 3.5625 41.25 5.625 41.25C7.6875 41.25 9.375 39.5625 9.375 37.5V24.375C9.375 22.3125 7.6875 20.625 5.625 20.625ZM18.75 9.9375C18.75 6.46875 21.4688 3.75 24.9375 3.75C26.8875 3.75 28.7812 4.66875 30 6.09375C31.2188 4.66875 33.1125 3.75 35.0625 3.75C38.5312 3.75 41.25 6.46875 41.25 9.9375C41.25 13.875 36.5625 18.3938 31.2563 23.2313C30.9106 23.5475 30.4591 23.7228 29.9906 23.7228C29.5222 23.7228 29.0706 23.5475 28.725 23.2313C23.4375 18.3938 18.75 13.875 18.75 9.9375ZM37.4813 31.875H24.675C24.4637 31.8741 24.2543 31.836 24.0562 31.7625L21.3 30.8063C21.185 30.7663 21.0791 30.704 20.9884 30.6228C20.8977 30.5416 20.824 30.4432 20.7717 30.3333C20.7194 30.2234 20.6894 30.1042 20.6835 29.9826C20.6776 29.861 20.696 29.7394 20.7375 29.625C20.9062 29.1375 21.45 28.875 21.9375 29.0625L24.0375 29.8688C24.2437 29.9438 24.4875 30 24.7125 30H29.6438C30.8625 30 31.8562 29.0062 31.8562 27.7875C31.8562 26.8687 31.275 26.0438 30.4125 25.7062L17.4375 20.8687C17.025 20.7 16.575 20.625 16.125 20.625H13.125V37.5375L25.0688 40.9313C25.8375 41.1562 26.6625 41.1188 27.4125 40.8375L41.25 35.625C41.25 33.5438 39.5625 31.875 37.4813 31.875Z"
@@ -181,7 +184,7 @@ const Page = () => {
                 </div>
 
                 <p className="_under_border font-bold max-h-[23rem] text-sm uppercase">NOMINATE</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
