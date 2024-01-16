@@ -1,4 +1,5 @@
 import GetInvolved from "@/components/Common/Others/get-involved";
+import ImpactHeader from "@/components/UI/Impact/header";
 import { blogs } from "@/lib/data/blogs";
 import { ArrowLeft, ArrowRight, Calendar, ChevronRight, User2 } from "lucide-react";
 import Image from "next/image";
@@ -6,45 +7,7 @@ import Image from "next/image";
 const Page = () => {
   return (
     <>
-      <header>
-        <div className={`min-h-[45rem] bg-zinc-200 text-white relative py-10`}>
-          <div className="absolute top-0 left-0 h-full w-full">
-            <Image
-              src={"/images/bg/about_.png"}
-              alt="hero image"
-              width={1240}
-              height={800}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
-
-          <div className="w-full h-full flex items-center absolute top-0 left-0 pt-12">
-            <div className="container">
-              <div className="space-y-6 text-center py-8">
-                <div className="space-y-2">
-                  <h1 className="font-bold md:text-5xl text-4xl text-midGold md:leading-[1.4]">IMPACT @ NESA AFRICA</h1>
-                  <p className="max-w-2xl mx-auto text-center">
-                    In a country facing infrastructural deficits, outdated curricula, and educator motivation issues,
-                    NESA Nigeria strives to encourage government bodies, NGOs, UN agencies, CSR initiatives, and private
-                    entities to play pivotal roles in improving education
-                  </p>
-                </div>
-                <div className="max-w-2xl mx-auto border-2 border-midGold cursor-pointer rounded-lg max-h-[25rem] overflow-hidden grid place-content-center mt-10 relative">
-                  <Image
-                    src={"/images/bg/video.png"}
-                    alt="hero image"
-                    width={900}
-                    height={800}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <ImpactHeader />
 
       <main>
         <div className="py-20 bg-[#f4f4f3]">
