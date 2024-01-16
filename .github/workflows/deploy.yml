@@ -3,7 +3,7 @@ name: Node CICD
 on:
   push:
     branches:
-      - main
+      - master 
 
 jobs:
   deploy-production:
