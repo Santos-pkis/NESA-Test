@@ -1,0 +1,36 @@
+name: Node CICD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.x
+
+      - name: npm install
+        run: npm install --legacy-peer-deps
+
+      - name: Build application
+        run: npm run build
+
+      - name: Deploy to production
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_PROD_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_PROD_USERNAME }}
+          TARGET: ${{ secrets.TARGET_MAIN}}
+          SCRIPT_AFTER: |
+            pm2 restart all
