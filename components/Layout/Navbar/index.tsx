@@ -131,7 +131,7 @@ const Navbar = () => {
       <aside
         className={`${
           sidebarOpen ? "w-full" : "w-0"
-        } fixed top-0 right-0 min-h-screen bg-black/90 text-white select-none flex duration-200 items-center justify-center z-[20] overflow-hidden`}
+        } fixed top-0 right-0 min-h-screen bg-black/90 text-white select-none flex duration-200 items-center justify-center z-[2000] overflow-hidden`}
       >
         <motion.div {...fromRight} className="absolute right-8 top-8 cursor-pointer">
           <X size={28} onClick={() => setSidebarOpen(!sidebarOpen)} />
@@ -139,7 +139,7 @@ const Navbar = () => {
 
         <motion.ul {...opacityTrans} className="flex flex-col gap-6 text-center text-lg">
           {navlinks.map((link, id) => (
-            <motion.li variants={fromTop} key={id}>
+            <motion.li variants={fromTop} key={id} onClick={() => setSidebarOpen(false)}>
               <Link href={link.path} className={link.path === pathname ? "font-bold" : "font-normal"}>
                 {link.label}
               </Link>

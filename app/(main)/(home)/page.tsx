@@ -211,7 +211,7 @@ const Page = () => {
 
         <section>
           <div className="container">
-            <div className="space-y-3 max-w-4xl">
+            <div className="space-y-3 max-w-4xl py-20">
               <h3 className="font-bold text-2xl">Frequently Asked Questions</h3>
               <p className="text-[#757575]">
                 Pellentesque cras adipiscing tempus libero vel nullam mauris tellus. Aliquam ultrices tellus consequat
