@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { redirect, useRouter } from "next/navigation";
 import { Category } from "@/lib/types/global";
 import toast from "react-hot-toast";
+import { allCategories } from "@/lib/data/category";
 
 type Props = { id: number; category: Category | undefined };
 
@@ -21,7 +22,7 @@ const CategoriesDetailsHeader: React.FC<Props> = ({ id, category }) => {
 
   return (
     <header>
-      <div className={`md:min-h-[40rem] min-h-screen bg-zinc-200 text-white relative`}>
+      <div className={`md:min-h-[48rem] min-h-screen bg-zinc-200 text-white relative`}>
         <div className="absolute top-0 left-0 h-full w-full">
           <Image
             src={"/images/bg/about_.png"}
@@ -49,28 +50,20 @@ const CategoriesDetailsHeader: React.FC<Props> = ({ id, category }) => {
                 </h1>
               </div>
 
-              <p>
-                The NGO Educational Champion of the Decade Award is established to honor and recognize the pivotal role
-                of Nigerian indigenous NGOs and civil society organizations in championing the cause of &lsquo;Education
-                for All&lsquo;. The 2023 award cycle specifically acknowledges those entities that have excelled in
-                aligning with the objectives of civil society organizations, including continuous learning, adult
-                education, environmental education, and alignment with Sustainable Development Goals (SDGs) in
-                education.
-              </p>
+              <p>{category.detailsDescription ?? category.description}</p>
 
               <div className="flex items-center gap-4">
                 <button
-                  className={`w-12 h-12 duration-300 rounded-lg ${
-                    id < 2 ? "bg-zinc-400" : "bg-midGold"
-                  } text-black grid place-content-center`}
+                  className={`w-12 h-12 duration-300 rounded-lg disabled:bg-zinc-400 bg-midGold text-black grid place-content-center`}
                   onClick={() => (id > 1 ? router.push(`/categories/${id - 1}`) : {})}
                   disabled={id < 2}
                 >
                   <ArrowLeft />
                 </button>
                 <button
-                  className={`w-12 h-12 duration-300 rounded-lg bg-midGold text-black grid place-content-center`}
+                  className={`w-12 h-12 duration-300 rounded-lg bg-midGold disabled:bg-zinc-400 text-black grid place-content-center`}
                   onClick={() => router.push(`/categories/${id + 1}`)}
+                  disabled={id >= allCategories.length}
                 >
                   <ArrowRight />
                 </button>

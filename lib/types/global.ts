@@ -2,6 +2,7 @@ export interface Category {
   id: number;
   title: string;
   description: string;
+  detailsDescription?: string;
 }
 
 export interface Faq {
