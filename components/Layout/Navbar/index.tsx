@@ -107,19 +107,32 @@ const Navbar = () => {
             {...parentTransActivate}
             className="lg:flex hidden items-center gap-6 font-semibold justify-end"
           >
-            <motion.button
-              variants={fromTop}
-              className="text-[#17120a] xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-lg"
-              style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
-            >
-              Vote Now
-            </motion.button>
-            <motion.button
+            {!pathname.startsWith("/categories/") ? (
+              <motion.button
+                variants={fromTop}
+                className="text-[#17120a] xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-lg"
+                style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
+              >
+                Nominate Now
+              </motion.button>
+            ) : (
+              <div>
+                <Link href={"/categories"}>
+                  <motion.button
+                    variants={fromTop}
+                    className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base border text-sm rounded-lg text-white"
+                  >
+                    Go Back to Category
+                  </motion.button>
+                </Link>
+              </div>
+            )}
+            {/* <motion.button
               variants={fromTop}
               className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base border text-sm rounded-lg text-white"
             >
               Get Involved
-            </motion.button>
+            </motion.button> */}
           </motion.div>
 
           <motion.div {...fromRight} className="block lg:hidden cursor-pointer">

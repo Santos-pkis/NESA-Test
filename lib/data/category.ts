@@ -159,43 +159,860 @@ export const categoryDetails: CategoryDetails[] = [
       {
         label: "Nominate Best NGO for Inclusive Education and Literacy Award",
         options: [
-          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
-          { text: "Farida Charity", value: "faridaCharity" },
+          { text: "United Nations Foundation", value: "" },
+          { text: "Farida Charity", value: "" },
         ],
       },
       {
         label: "Nominate Best NGO for Continuous Learning and Adult Education Award",
         options: [
-          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
-          { text: "Farida Charity", value: "faridaCharity" },
+          { text: "United Nations Foundation", value: "" },
+          { text: "Farida Charity", value: "" },
         ],
       },
       {
         label: "Nominate Best NGO for Environmental Education and Sustainability Award",
         options: [
-          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
-          { text: "Farida Charity", value: "faridaCharity" },
+          { text: "United Nations Foundation", value: "" },
+          { text: "Farida Charity", value: "" },
         ],
       },
       {
         label: "Nominate Best NGO for Educational Advocacy Services Award",
         options: [
-          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
-          { text: "Farida Charity", value: "faridaCharity" },
+          { text: "United Nations Foundation", value: "" },
+          { text: "Farida Charity", value: "" },
         ],
       },
       {
         label: "Nominate Best NGO for Innovation in Educational Policy Advocacy Award",
         options: [
-          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
-          { text: "Farida Charity", value: "faridaCharity" },
+          { text: "United Nations Foundation", value: "" },
+          { text: "Farida Charity", value: "" },
         ],
       },
       {
         label: "Nominate Best NGO for SDG Alignment and Global Education Award",
         options: [
-          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
-          { text: "Farida Charity", value: "faridaCharity" },
+          { text: "United Nations Foundation", value: "" },
+          { text: "Farida Charity", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    data: [
+      {
+        label: "Nominate  Champion for Banking and Finance CSR in Education Award",
+        options: [
+          { text: "Guaranty Trust Bank", value: "" },
+          { text: "Zenith Bank", value: "" },
+          { text: "United Bank of Africa", value: "" },
+          { text: "Access Bank", value: "" },
+          { text: "Fidelity Bank", value: "" },
+          { text: "Stanbic IBTC Bank", value: "" },
+          { text: "EcoBank", value: "" },
+          { text: "Sterling Bank", value: "" },
+          { text: "Jaiz Bank (Non-Interest Bank)", value: "" },
+          { text: "TajBank (Non-Interest Bank)", value: "" },
+          { text: "AB Microfinance Bank", value: "" },
+          { text: "Fina Trust Microfinance Bank", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Telecommunications CSR in Education Award",
+        options: [
+          { text: "MTN Nigeria", value: "" },
+          { text: "Airtel Nigeria", value: "" },
+          { text: "Globalcom", value: "" },
+          { text: "9mobile", value: "" },
+          { text: "MainOne", value: "" },
+          { text: "Emerging Markets Telecommunication Services Ltd. (EMTS)", value: "" },
+          { text: "Intercellular Nigeria Plc", value: "" },
+          { text: "Mafab Communications Limited", value: "" },
+          { text: "Tizeti Network Limited", value: "" },
+          { text: "Broadbased Communications Ltd", value: "" },
+          { text: "Cyberspace Network Ltd", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Oil and Gas CSR in Education Award",
+        options: [
+          { text: "Nigerian National Petroleum Corporation (NNPC)", value: "" },
+          { text: "Shell Petroleum Development Company of Nigeria", value: "" },
+          { text: "Chevron Nigeria", value: "" },
+          { text: "Total Nigeria", value: "" },
+          { text: "ExxonMobil Nigeria", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Food and Beverages CSR in Education Award",
+        options: [
+          { text: "Nestle Nigeria", value: "" },
+          { text: "Nigerian Breweries", value: "" },
+          { text: "Dangote Group (Food Division)", value: "" },
+          { text: "Unilever Nigeria", value: "" },
+          { text: "Flour Mills of Nigeria", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Manufacturing CSR in Education Award",
+        options: [
+          { text: "Dangote Group", value: "" },
+          { text: "Lafarge Africa", value: "" },
+          { text: "PZ Cussons Nigeria", value: "" },
+          { text: "Bua Group", value: "" },
+          { text: "Innoson Vehicle Manufacturing", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Aviation CSR in Education Award",
+        options: [
+          { text: "Arik Air", value: "" },
+          { text: "Air Peace", value: "" },
+          { text: "Dana Air", value: "" },
+          { text: "Azman Air", value: "" },
+          { text: "Ibom Air", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Technology and ICT CSR in Education Award",
+        options: [
+          { text: "Interswitch", value: "" },
+          { text: "Computer Warehouse Group", value: "" },
+          { text: "IROKOtv", value: "" },
+          { text: "Andela", value: "" },
+          { text: "Zinox Technologies", value: "" },
+          { text: "SystemSpecs (Remita)", value: "" },
+          { text: "Softcom", value: "" },
+          { text: "Chams Plc", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Real Estate and Construction CSR in Education Award",
+        options: [
+          { text: "Julius Berger Nigeria", value: "" },
+          { text: "Adron Homes & Properties", value: "" },
+          { text: "Eko Atlantic", value: "" },
+          { text: "Elalan Construction Company", value: "" },
+          { text: "Oat Construction Nigeria", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Retail and E-commerce CSR in Education Award",
+        options: [
+          { text: "Jumia Nigeria", value: "" },
+          { text: "Konga", value: "" },
+          { text: "Shoprite Nigeria", value: "" },
+          { text: "SPAR Nigeria", value: "" },
+          { text: "Game Stores", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Pharmaceuticals CSR in Education Award",
+        options: [
+          { text: "May & Baker Nigeria", value: "" },
+          { text: "Emzor Pharmaceutical Industries", value: "" },
+          { text: "Fidson Healthcare Plc", value: "" },
+          { text: "Swiss Pharma Nigeria", value: "" },
+          { text: "GlaxoSmithKline Nigeria", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Insurance CSR in Education Award",
+        options: [
+          { text: "Leadway Assurance", value: "" },
+          { text: "AXA Mansard Insurance", value: "" },
+          { text: "AIICO Insurance", value: "" },
+          { text: "Cornerstone Insurance", value: "" },
+          { text: "Mutual Benefits Assurance Plc", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Conglomerates and Diversified Businesses CSR in Education Award",
+        options: [
+          { text: "Transnational Corporation of Nigeria", value: "" },
+          { text: "Chagoury Group", value: "" },
+          { text: "Honeywell Group", value: "" },
+          { text: "Tara Group", value: "" },
+          { text: "Ibu Organization", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Media and Entertainment CSR in Education Award",
+        options: [
+          { text: "Silverbird Group", value: "" },
+          { text: "DAAR Communications Plc", value: "" },
+          { text: "Punch Nigeria Limited", value: "" },
+          { text: "Channels Television", value: "" },
+          { text: "Linda Ikeja Media", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Agriculture and Agribusiness CSR in Education Award",
+        options: [
+          { text: "Olam Nigeria", value: "" },
+          { text: "UAC Foods", value: "" },
+          { text: "Obasanjo Farms", value: "" },
+          { text: "Chi Farms", value: "" },
+          { text: "Tropical General Investments (TGI) Group", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Health Care and Hospitals CSR in Education Award",
+        options: [
+          { text: "Reddington Hospital", value: "" },
+          { text: "Lagoon Hospitals", value: "" },
+          { text: "St. Nicholas Hospital", value: "" },
+          { text: "HealthPlus Limited", value: "" },
+          { text: "Lily Hospitals Limited", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Champion for Professional Services CSR in Education Award",
+        options: [...Array.from({ length: 3 }).map((_, id) => ({ text: "Option " + (id + 1), value: "" }))],
+      },
+      {
+        label: "Nominate  Champion for Fintech CSR in Education Award",
+        options: [...Array.from({ length: 3 }).map((_, id) => ({ text: "Option " + (id + 1), value: "" }))],
+      },
+      {
+        label: "Nominate  Champion for Microfinance Banks CSR in Education Award",
+        options: [...Array.from({ length: 3 }).map((_, id) => ({ text: "Option " + (id + 1), value: "" }))],
+      },
+      {
+        label: "Nominate  Champion for Emerging Telecommunications CSR in Education Award",
+        options: [...Array.from({ length: 3 }).map((_, id) => ({ text: "Option " + (id + 1), value: "" }))],
+      },
+      {
+        label: "Nominate  Champion for Technology and Software CSR in Education Award",
+        options: [...Array.from({ length: 3 }).map((_, id) => ({ text: "Option " + (id + 1), value: "" }))],
+      },
+      {
+        label: "Nominate  Champion for Real Estate Development CSR in Education Award ",
+        options: [...Array.from({ length: 3 }).map((_, id) => ({ text: "Option " + (id + 1), value: "" }))],
+      },
+      {
+        label: "Nominate  Champion for Commercial Retail CSR in Education Award",
+        options: [...Array.from({ length: 3 }).map((_, id) => ({ text: "Option " + (id + 1), value: "" }))],
+      },
+    ],
+  },
+  {
+    id: 3,
+    data: [
+      {
+        label: "Nominate Best Faith Based Champion for Educational Innovation and Community Impact Award",
+        options: [{ text: "Redeemed Christian Church of God", value: "" }],
+      },
+      {
+        label: "Nominate Best Faith Based Champion for Infrastructure and Resource Development Award",
+        options: [{ text: "Redeemed Christian Church of God", value: "" }],
+      },
+      {
+        label: "Nominate Best Faith Based Champion for Health and Wellness Educational Initiatives Award",
+        options: [{ text: "Redeemed Christian Church of God", value: "" }],
+      },
+      {
+        label: "Nominate Best Faith Based Champion for Scholarship and Moral Education Award",
+        options: [
+          { text: "Redeemed Christian Church of God", value: "" },
+          { text: "Jehovah Witness", value: "" },
+          { text: "Catholic Church of Epiphany", value: "" },
+          { text: "Muslim", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Faith Based Champion for Interfaith Educational Cooperation Award",
+        options: [
+          { text: "Redeemed Christian Church of God", value: "" },
+          { text: "Jehovah Witness", value: "" },
+          { text: "Catholic Church of Epiphany", value: "" },
+          { text: "Muslim", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 4,
+    data: [
+      {
+        label: "Nominate Best Education Initiative in North Central Zone Award (Ministry of Education)",
+        options: [{ text: "Northwest Initiative", value: "" }],
+      },
+      {
+        label: "Nominate Best Education Initiative in North East Zone Award (Ministry of Education)",
+        options: [{ text: "Northwest Initiative", value: "" }],
+      },
+      {
+        label: "Nominate Best Education Initiative in North West Zone Award (Ministry of Education)",
+        options: [{ text: "Northwest Initiative", value: "" }],
+      },
+      {
+        label: "Nominate Best Education Initiative in South East Zone Award (Ministry of Education)",
+        options: [{ text: "Northwest Initiative", value: "" }],
+      },
+      {
+        label: "Best Education Initiative in South South Zone Award (Ministry of Education)",
+        options: [{ text: "Northwest Initiative", value: "" }],
+      },
+      {
+        label: "Nominate Best Education Initiative in South West Zone Award (Ministry of Education)",
+        options: [{ text: "Northwest Initiative", value: "" }],
+      },
+      {
+        label: `Nominate for  National Level Recognition: "Best Ministry of Education in Nigeria"`,
+        options: [{ text: "Northwest Initiative", value: "" }],
+      },
+    ],
+  },
+  {
+    id: 5,
+    data: [
+      {
+        label: "Nominate Best Public Sec. School for Innovative Teaching and Learning Practices Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for Student Performance and Academic Excellence Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for Community Engagement and Outreach Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for  Infrastructure and Resource Development Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for Extracurricular Activities and Holistic Education Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 6,
+    data: [
+      {
+        label: "Nominate Best Public Sec. School for Innovative Teaching and Learning Practices Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for Student Performance and Academic Excellence Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for Community Engagement and Outreach Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for  Infrastructure and Resource Development Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for Extracurricular Activities and Holistic Education Award",
+        options: [
+          { text: "Gbagada General School", value: "" },
+          { text: "Shomolu General School", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 7,
+    data: [
+      {
+        label: "Nominate Best Global Partnership for International Embassy Contributions Award",
+        options: [
+          { text: "ABC Global", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Global Partnership for Outstanding International NGO Contribution to Nigerian Education",
+        options: [
+          { text: "ABC Global", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Global Partnership for Bilateral Organization Collaboration Award",
+        options: [
+          { text: "ABC Global", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for  Infrastructure and Resource Development Award",
+        options: [
+          { text: "ABC Global", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Public Sec. School for Extracurricular Activities and Holistic Education Award",
+        options: [
+          { text: "ABC Global", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 8,
+    data: [
+      {
+        label: "Nominate Champion for Diaspora Skills Transfer and Capacity Building Award",
+        options: [
+          { text: "United Nations Initiative", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Diaspora CSR and Educational Development Award",
+        options: [
+          { text: "United Nations Initiative", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Diaspora Advocacy for Educational Policy Award",
+        options: [
+          { text: "United Nations Initiative", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Diaspora Support for Continuous Learning and Adult Education Award",
+        options: [
+          { text: "United Nations Initiative", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Diaspora Engagement in Environmental and Sustainability Education Award",
+        options: [
+          { text: "United Nations Initiative", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 9,
+    data: [
+      {
+        label: "Nominate  Political Leader for Legislative Excellence in Education Award (2013-2023)",
+        options: [
+          { text: "United Nations Foundation", value: "" },
+          { text: "Farida Charity", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Political Leader for Educational Infrastructure Enhancement Award (2013-2023)",
+        options: [
+          { text: "United Nations Foundation", value: "" },
+          { text: "Farida Charity", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Political Leader for Advocacy for Educational Equity Award (2013-2023)",
+        options: [
+          { text: "Abubakar Kudus", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Political Leader for Innovation in Education Financing Award (2013-2023)",
+        options: [
+          { text: "Abubakar Kudus", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Political Leader for Scholarship Program Development Award (2013-2023)",
+        options: [
+          { text: "Abubakar Kudus", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Political Leader for Environmental and Sustainability Education Award (2013-2023)",
+        options: [
+          { text: "Abubakar Kudus", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Political Leader for Educational Policy Reform Award (2013-2023)",
+        options: [
+          { text: "Abubakar Kudus", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Political Leader for Community Engagement and Outreach in Education Award (2013-2023)",
+        options: [
+          { text: "Abubakar Kudus", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate  Political Leader for Technology Integration in Education Award (2013-2023)",
+        options: [
+          { text: "Abubakar Kudus", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Political Leader for Adult Education and Lifelong Learning Initiatives Award (2013-2023)",
+        options: [
+          { text: "Abubakar Kudus", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 10,
+    data: [
+      {
+        label: "Nominate Best Tertiary Institute for Academic Excellence and Innovation Award",
+        options: [
+          { text: "University of Lagos", value: "" },
+          { text: "University of Ibadan", value: "" },
+          { text: "OPEN University", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Tertiary Institute for Research and Development Award",
+        options: [
+          { text: "University of Lagos", value: "" },
+          { text: "University of Ibadan", value: "" },
+          { text: "OPEN University", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Tertiary Institute for Community Engagement and Social Responsibility Award",
+        options: [
+          { text: "University of Lagos", value: "" },
+          { text: "University of Ibadan", value: "" },
+          { text: "OPEN University", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Tertiary Institute for Sustainable Campus Initiatives Award",
+        options: [
+          { text: "University of Lagos", value: "" },
+          { text: "University of Ibadan", value: "" },
+          { text: "OPEN University", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Tertiary Institute for Global Collaboration and Partnership Award",
+        options: [
+          { text: "University of Lagos", value: "" },
+          { text: "University of Ibadan", value: "" },
+          { text: "OPEN University", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Tertiary Institute for Student Development and Support Award",
+        options: [
+          { text: "University of Lagos", value: "" },
+          { text: "University of Ibadan", value: "" },
+          { text: "OPEN University", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 11,
+    data: [
+      {
+        label: "Nominate Best Research Institute for Innovative Educational Technology Research Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Research Institute for Agricultural Education and Research Impact Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Research Institute for Community Engagement and Education Development Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Research Institute for Environmental and Sustainability Education Research Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Research Institute for Health and Medical Education Research Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label:
+          "Nominate Best Research Institute for Science, Technology, Engineering, and Mathematics (STEM) Education Research Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Research Institute for Policy and Educational Reform Research Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Research Institute for Other Specialized Institutes Research Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 12,
+    data: [
+      {
+        label: "Nominate Champion for Innovative STEM Teaching Methods Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for STEM Educational Content Development Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for STEM Advocacy and Community Outreach Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Technology Integration in STEM Education Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best Research Institute for Health and Medical Education Research Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for STEM Research and Innovation Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Women and Girls in STEM Education Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 13,
+    data: [
+      {
+        label: "Nominate Champion for Visual Arts and Educational Impact Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Performing Arts and Education Enrichment Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Literary Arts and Educational Narrative Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Film and Media for Educational Advancement Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Digital Arts and Online Educational Resources Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Creative Advocacy and Educational Campaigns Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion forBest Nollywood Educational Movie of the Year",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 14,
+    data: [
+      {
+        label: "Nominate Best for Traditional Rulers' Educational Leadership Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best for Philanthropic Educational Initiative Award (Nigeria and Africa",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best for African American Educational Support Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best for Innovative Educational Infrastructure and Technology Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Best for Scholarship and Educational Funding Champion Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 15,
+    data: [
+      {
+        label: "Nominate Champion for Digital Classroom Solutions",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for E-Learning Platform Development",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Champion for Tech-Enabled Learning Resources for Underserved Communities",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 16,
+    data: [
+      {
+        label: "Nominate Media Champion for Print Media Educational Excellence Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Media Champion for Radio Educational Program Excellence Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
+        ],
+      },
+      {
+        label: "Nominate Media Champion for Television Educational Content Award",
+        options: [
+          { text: "Option 1", value: "" },
+          { text: "Option 2", value: "" },
         ],
       },
     ],
