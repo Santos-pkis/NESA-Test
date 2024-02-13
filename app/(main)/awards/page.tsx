@@ -1,6 +1,6 @@
 import Image from "next/image";
 import CategorySlide from "@/components/Common/Slide/category";
-import { aboutLeftCategories, aboutRightCategories } from "@/lib/data/category";
+import { rightCategories, leftCategories } from "@/lib/data/category";
 import TypeOfAwards from "@/components/UI/About/type-of-awards";
 import FAQs from "@/components/Common/Others/faq";
 import { aboutFaq } from "@/lib/data/faq";
@@ -22,8 +22,8 @@ const Page = () => {
             </div>
 
             <div className="space-y-4 mt-8">
-              <CategorySlide categories={aboutLeftCategories} />
-              <CategorySlide categories={aboutRightCategories} direction="right" />
+              <CategorySlide categories={rightCategories} />
+              <CategorySlide categories={leftCategories} direction="right" />
 
               <div className="grid place-content-center font-medium">
                 <button

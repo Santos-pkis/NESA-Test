@@ -15,16 +15,16 @@ export const navlinks: NavLink[] = [
       { label: "Voting", path: "/voting" },
     ],
   },
-  {
-    label: "Media",
-    path: "/media",
-    children: [
-      { label: "News and Stories", path: "/news" },
-      { label: "NESA Award Dinner", path: "/award-dinner" },
-      { label: "Video and Photo Gallery", path: "/gallery" },
-      { label: "Live Events", path: "/events" },
-    ],
-  },
+  // {
+  //   label: "Media",
+  //   path: "/media",
+  //   children: [
+  //     { label: "News and Stories", path: "/news" },
+  //     { label: "NESA Award Dinner", path: "/award-dinner" },
+  //     { label: "Video and Photo Gallery", path: "/gallery" },
+  //     { label: "Live Events", path: "/events" },
+  //   ],
+  // },
   {
     label: "N.E.S.A",
     path: "/about",
