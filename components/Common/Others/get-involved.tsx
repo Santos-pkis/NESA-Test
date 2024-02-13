@@ -193,8 +193,8 @@ const GetInvolved = () => {
   return (
     <div className="container text-center bg-darkBrown text-white md:rounded-2xl rounded-md space-y-4 md:px-12 py-16">
       <p className="md:text-lg uppercase">How to get Involved</p>
-      <p className="md:text-5xl sm:text-4xl text-3xl text-center mx-auto max-w-2xl font-semibold">
-        Etiam nulla lectus amet nunc molestie at vulputate.
+      <p className="md:text-5xl sm:text-4xl text-3xl text-center mx-auto px-10 font-semibold">
+        Recognizing players who contributed to the growth of the Nigerian education sector and fostering innovations
       </p>
       <div className="pt-6">
         <div className="flex items-center flex-wrap gap-6 justify-center">
