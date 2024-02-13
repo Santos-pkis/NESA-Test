@@ -1,6 +1,5 @@
-import CategoriesDetailsHeader from "@/components/UI/Categories/Details/header";
-import { allCategories } from "@/lib/data/category";
-import { redirect } from "next/navigation";
+import CategoriesDetails from "@/components/UI/Categories/Details/header";
+import { allCategories, categoryDetails } from "@/lib/data/category";
 
 type Context = { params: { id: string } };
 
@@ -9,16 +8,10 @@ export const dynamicParams = true;
 const CategoryDetails = ({ params }: Context) => {
   const idAsInt = parseInt(params.id);
 
-  // if (idAsInt < 1 || idAsInt > 16) redirect("/categories");
-
   const category = allCategories.find((el) => el.id === idAsInt);
+  const details = categoryDetails.find((el) => el.id === idAsInt);
 
-  return (
-    <>
-      <CategoriesDetailsHeader id={idAsInt} category={category} />
-      <main></main>
-    </>
-  );
+  return <CategoriesDetails id={idAsInt} category={category} details={details} />;
 };
 
 export default CategoryDetails;

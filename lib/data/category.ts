@@ -136,8 +136,68 @@ export const allCategories = [...leftCategories, ...rightCategories];
 
 // DETAILS DATA
 
-type CategoryDetailOption = {};
+type Option = {
+  text: string;
+  value: string;
+};
 
-type CategoryDetail = CategoryDetailOption & Category;
+type CategoryDetailOption = {
+  label: string;
+  placeholder?: string;
+  options: Option[];
+};
 
-const categoryDetails: CategoryDetail[] = [];
+export type CategoryDetails = {
+  id: number;
+  data: CategoryDetailOption[];
+};
+
+export const categoryDetails: CategoryDetails[] = [
+  {
+    id: 1,
+    data: [
+      {
+        label: "Nominate Best NGO for Inclusive Education and Literacy Award",
+        options: [
+          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
+          { text: "Farida Charity", value: "faridaCharity" },
+        ],
+      },
+      {
+        label: "Nominate Best NGO for Continuous Learning and Adult Education Award",
+        options: [
+          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
+          { text: "Farida Charity", value: "faridaCharity" },
+        ],
+      },
+      {
+        label: "Nominate Best NGO for Environmental Education and Sustainability Award",
+        options: [
+          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
+          { text: "Farida Charity", value: "faridaCharity" },
+        ],
+      },
+      {
+        label: "Nominate Best NGO for Educational Advocacy Services Award",
+        options: [
+          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
+          { text: "Farida Charity", value: "faridaCharity" },
+        ],
+      },
+      {
+        label: "Nominate Best NGO for Innovation in Educational Policy Advocacy Award",
+        options: [
+          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
+          { text: "Farida Charity", value: "faridaCharity" },
+        ],
+      },
+      {
+        label: "Nominate Best NGO for SDG Alignment and Global Education Award",
+        options: [
+          { text: "United Nations Foundation", value: "unitedNationsFoundation" },
+          { text: "Farida Charity", value: "faridaCharity" },
+        ],
+      },
+    ],
+  },
+];
