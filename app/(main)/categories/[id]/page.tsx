@@ -1,4 +1,4 @@
-import CategoriesDetails from "@/components/UI/Categories/Details/header";
+import CategoriesDetails from "@/components/UI/Categories/Details";
 import { allCategories, categoryDetails } from "@/lib/data/category";
 
 type Context = { params: { id: string } };

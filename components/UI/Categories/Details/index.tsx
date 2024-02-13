@@ -53,7 +53,7 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
                   </h1>
                 </div>
 
-                <p>{category.detailsDescription ?? category.description}</p>
+                <p className="text-sm md:text-base">{category.detailsDescription ?? category.description}</p>
 
                 <div className="flex items-center gap-4 justify-center md:justify-start">
                   <button
@@ -86,7 +86,7 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
 
       <main>
         <div className="container pb-10">
-          <h2 className="text-deepGold my-6 font-bold text-4xl text-center">
+          <h2 className="text-deepGold my-6 font-bold md:text-4xl text-2xl text-center">
             Nominate your Educational champion in these sub-category
           </h2>
 
@@ -95,7 +95,7 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
               <div className="space-y-8">
                 {details.data.map((data, id) => (
                   <div key={id} className="space-y-2">
-                    <div className="flex items-center gap-3 font-bold text-xl">
+                    <div className="flex items-center gap-3 font-bold md:text-xl text-lg">
                       <p>{id + 1}.</p>
                       <p>{data.label}</p>
                     </div>
@@ -114,7 +114,12 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
                   </div>
                 ))}
                 <div className="pt-8">
-                  <button className="w-full bg-deepGold text-black font-semibold py-5 rounded-lg">
+                  <button
+                    className="w-full bg-deepGold text-black font-semibold py-5 rounded-lg"
+                    onClick={() => (
+                      toast.success("submitted successfully.", { id: "success" }), router.push("/categories")
+                    )}
+                  >
                     Submit Nominations
                   </button>
                 </div>

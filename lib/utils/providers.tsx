@@ -19,9 +19,8 @@ const Providers: React.FC<PropsWithChildren> = ({ children }) => {
       minWidth: "250px",
     },
     duration: 2000,
-    position: "bottom-right",
+    position: "top-right",
   };
-
 
   return (
     <AuthProvider>
