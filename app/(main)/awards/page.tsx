@@ -13,97 +13,96 @@ const Page = () => {
       <AwardHeader />
 
       <main>
-        <div className="py-8">
-          <section>
-            <div className="container">
-              <h2 className="font-bold max-w-2xl text-darkGold text-3xl">
-                15 Prestigious award categories recognizing impact in the Nigerian education system
-              </h2>
-            </div>
-
-            <div className="space-y-4 mt-8">
-              <CategorySlide categories={rightCategories} />
-              <CategorySlide categories={leftCategories} direction="right" />
-
-              <div className="grid place-content-center font-medium">
-                <button
-                  className="mt-6 px-6 py-3 rounded-lg text-darkBrown text-sm"
-                  style={{ background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)" }}
-                >
-                  View All Categories
-                </button>
+        <section className="bg-[#FFF5E0] py-20">
+          <div className="container grid md:grid-cols-2 items-center">
+            <div className="grid place-content-center">
+              <div className="w-[25rem] aspect-square h-auto rounded-lg bg-deepGold">
+                <Image
+                  src={"/images/medal.png"}
+                  alt="timeline"
+                  width={300}
+                  height={300}
+                  className="object-contain w-full h-full"
+                />
               </div>
             </div>
-          </section>
 
-          <section className="bg-darkBrown py-12 text-white mt-20">
-            <div className="container grid md:grid-cols-2 items-center">
-              <div className="grid place-content-center">
-                <Image src={"/images/bg/contest.png"} alt="timeline" width={400} height={400} />
-              </div>
-
-              <div className="space-y-6 p-8">
-                <h3 className="text-4xl font-bold text-midGold">Two Prestigious awards awaits in every category</h3>
-                <p className="text-white/90">
-                  Through the selection process, our judges meticulously examine nominees, choosing a winner from each
-                  subcategory to be honored with the esteemed &lsquo;Platinum Award.&lsquo; These winners progress to
-                  the final stage within their respective categories, where the ultimate victor in each group claims
-                  success and is honored with the prestigious &lsquo;Blue Garnet Award,&lsquo; marking the pinnacle of
-                  excellence.
-                </p>
-                <button
-                  className="px-6 py-3 rounded-lg text-darkBrown text-sm"
-                  style={{ background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)" }}
-                >
-                  View full Award Bracket
-                </button>
-              </div>
+            <div className="space-y-6 p-8 text-center md:text-start">
+              <h3 className="text-4xl font-bold text-midGold">Two Prestigious awards awaits in every category</h3>
+              <p>
+                Through the selection process, our judges meticulously examine nominees, choosing a winner from each
+                subcategory to be honored with the esteemed &lsquo;Platinum Award.&lsquo; These winners progress to the
+                final stage within their respective categories, where the ultimate victor in each group claims success
+                and is honored with the prestigious &lsquo;Blue Garnet Award,&lsquo; marking the pinnacle of excellence.
+              </p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* awards */}
-          <TypeOfAwards />
+        <section>
+          <div className="container mt-12">
+            <h2 className="font-bold max-w-2xl text-darkGold text-3xl">
+              15 Prestigious award categories recognizing impact in the Nigerian education system
+            </h2>
+          </div>
 
-          {/* faq */}
-          <section className="mt-20">
-            <div className="container">
-              <div className="space-y-3 max-w-4xl">
-                <h3 className="font-bold text-2xl">Frequently Asked Questions</h3>
-                <p className="text-[#757575]">
-                  Pellentesque cras adipiscing tempus libero vel nullam mauris tellus. Aliquam ultrices tellus consequat
-                  amet, lectus aliquam est in neque.
-                </p>
-                <button className="px-5 py-3 rounded-md from-midGold to-deepGold bg-gradient-to-r to-d text-black font-semibold text-sm">
-                  Visit FAQs
-                </button>
-              </div>
+          <div className="space-y-4 mt-8">
+            <CategorySlide categories={rightCategories} />
+            <CategorySlide categories={leftCategories} direction="right" />
 
-              <FAQs data={aboutFaq} variant="2" />
+            <div className="grid place-content-center font-medium">
+              <button
+                className="mt-6 px-6 py-3 rounded-lg text-darkBrown text-sm"
+                style={{ background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)" }}
+              >
+                View All Categories
+              </button>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section className="my-20 space-y-10">
-            <h4 className="text-center text-4xl font-bold text-darkGold">N.E.S.A Award Panel Judges</h4>
-            <div className="flex items-center justify-center">
-              <div className="flex items-center gap-4 overflow-x-hidden">
-                {Array.from({ length: 4 }).map((_, id) => (
-                  <div key={id} className="h-[20rem] aspect-[5/7] text-whiteGold w-auto bg-darkGold p-4 relative">
-                    <div className="absolute bottom-3 left-3">
-                      <p className="text-midGold font-semibold">Judge Name</p>
-                      <p>Role / Position</p>
-                      <div className="flex items-center gap-2">
-                        <Socials />
-                      </div>
+        {/* awards */}
+        <TypeOfAwards />
+
+        {/* faq */}
+        <section className="mt-20">
+          <div className="container">
+            <div className="space-y-3 max-w-4xl">
+              <h3 className="font-bold text-2xl">Frequently Asked Questions</h3>
+              <p className="text-[#757575]">
+                Pellentesque cras adipiscing tempus libero vel nullam mauris tellus. Aliquam ultrices tellus consequat
+                amet, lectus aliquam est in neque.
+              </p>
+              <button className="px-5 py-3 rounded-md from-midGold to-deepGold bg-gradient-to-r to-d text-black font-semibold text-sm">
+                Visit FAQs
+              </button>
+            </div>
+
+            <FAQs data={aboutFaq} variant="2" />
+          </div>
+        </section>
+
+        <section className="my-20 space-y-10">
+          <h4 className="text-center text-4xl font-bold text-darkGold">N.E.S.A Award Panel Judges</h4>
+          <div className="flex items-center justify-center">
+            <div className="flex items-center gap-4 overflow-x-hidden">
+              {Array.from({ length: 4 }).map((_, id) => (
+                <div key={id} className="h-[20rem] aspect-[5/7] text-whiteGold w-auto bg-darkGold p-4 relative">
+                  <div className="absolute bottom-3 left-3">
+                    <p className="text-midGold font-semibold">Judge Name</p>
+                    <p>Role / Position</p>
+                    <div className="flex items-center gap-2">
+                      <Socials />
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* panel of judges */}
-            <Panel />
-          </section>
-        </div>
+          {/* panel of judges */}
+          <Panel />
+        </section>
       </main>
     </>
   );
