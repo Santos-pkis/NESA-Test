@@ -60,38 +60,28 @@ const Page = () => {
           </div>
         </section>
 
-        <section className="relative py-10">
-          <Image
-            src={"/images/logos/big_logo.png"}
-            alt="logo"
-            width={800}
-            height={800}
-            className="absolute -bottom-16 left-0 -z-[1] md:opacity-40 opacity-0 duration-300"
-          />
+        <section className="relative py-20">
+          <div className="space-y-6 container">
+            <h3 className="_under_border font-bold text-darkGold">ABOUT NEW EDUCATION STANDARD AWARDS:</h3>
+            <p className="font-bold md:text-5xl text-4xl">
+              Championing Education <br /> Excellence in Africa
+            </p>
 
-          <div className="container grid md:grid-cols-2 md:gap-16 gap-12 items-center">
-            <div className="grid place-content-center">
-              <Image src={"/images/bg/education.png"} alt="dark background" width={600} height={600} />
-            </div>
-            <div className="space-y-6">
-              <h3 className="_under_border font-bold text-darkGold">ABOUT NEW EDUCATION STANDARD AWARDS:</h3>
-              <p className="font-bold md:text-5xl text-4xl">Championing Education Excellence Since 2013...</p>
+            <div className="space-y-6 text-lg">
+              <p className="text-black">
+                <span className="font-bold">New Education Standard Award Africa (NESA Africa)</span> is an initiative
+                designed to recognize, celebrate and foster educational excellence and innovation across the African
+                continent.
+              </p>
 
-              <div className="space-y-6">
-                <p>
-                  NESA&apos;s is a Santo&apos;s initiative born in 2013 with a singular mission: to elevate education in
-                  Nigeria. Our vision extends far beyond the realm of recognition. While acknowledging and celebrating
-                  excellence is a crucial aspect, our ultimate goal is to contribute to the creation of a transformative
-                  educational landscape.{" "}
-                </p>
+              <p>
+                Rooted in the vision of enhancing the quality of education and making it accessible to all,{" "}
+                <span className="font-bold">NESA Africa</span> operates with the mission of spotlighting significant
+                contributions by individuals, organizations, educational institutions, and other stakeholders towards
+                achieving these goals.
+              </p>
 
-                <p>
-                  We envision a Nigeria where education becomes a force of empowerment, a cornerstone for societal
-                  progress and individual growth.
-                </p>
-
-                <button className={primaryBtn}>Learn More</button>
-              </div>
+              <button className={primaryBtn}>Learn More</button>
             </div>
           </div>
         </section>
@@ -210,17 +200,8 @@ const Page = () => {
         </section>
 
         <section>
-          <div className="container">
-            <div className="space-y-3 max-w-4xl py-20">
-              <h3 className="font-bold text-2xl">Frequently Asked Questions</h3>
-              <p className="text-[#757575]">
-                Pellentesque cras adipiscing tempus libero vel nullam mauris tellus. Aliquam ultrices tellus consequat
-                amet, lectus aliquam est in neque.
-              </p>
-              <button className="px-5 py-3 rounded-md from-midGold to-deepGold bg-gradient-to-r to-d text-black font-semibold text-sm">
-                Visit FAQs
-              </button>
-            </div>
+          <div className="container py-20">
+            <h3 className="font-bold md:text-4xl text-3xl">Frequently Asked Questions</h3>
 
             <FAQs data={homeFaq} />
           </div>
