@@ -1,5 +1,6 @@
 import TestimoniesShowcase from "@/components/UI/Testimonies/showcase";
 import "../../../public/styles/fade.css";
+import Image from "next/image";
 
 const Page = () => {
   return (
@@ -26,16 +27,17 @@ const Page = () => {
         </div>
       </header>
       <main>
-        <div className="min-h-[10rem]">
-          {/* <Image
+        <div className="-mt-[35rem] md:block hidden">
+          <Image
             className="w-full"
             src={"/images/testimonies/world_map.svg"}
             alt="world map"
             width={1000}
             height={1000}
-          /> */}
+          />
         </div>
 
+        <div className="md:-mt-[30rem]"></div>
         <TestimoniesShowcase />
       </main>
     </>

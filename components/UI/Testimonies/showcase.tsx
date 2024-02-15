@@ -1,9 +1,32 @@
 "use client";
 import useSlider from "@/lib/hooks/useSlider";
 import { ChevronLeft, ChevronRight, User } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const TestimoniesShowcase = () => {
-  const { sliderRef, moveLeft, moveRight } = useSlider(800);
+  const [slideAmount, setSlideAmount] = useState(800);
+  const { sliderRef, moveLeft, moveRight } = useSlider(slideAmount);
+
+  useEffect(() => {
+    const currentWidth = window.innerWidth;
+
+    if (currentWidth <= 768) {
+      setSlideAmount(480);
+    }
+
+    const handleResize = () => {
+      const newWidth = window.innerWidth;
+      if (newWidth <= 768) {
+        setSlideAmount(480);
+      } else {
+        setSlideAmount(800);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="bg-[#fff5e0] py-28 space-y-16">
