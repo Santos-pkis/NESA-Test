@@ -22,7 +22,7 @@ export const navlinks: NavLink[] = [
       { label: "NESA 2023", path: "/about" },
       { label: "Partners", path: "/partners" },
       { label: "Get Involved", path: "#" },
-      { label: "Join Us Now", path: "#" },
+      { label: "Join Us Now", path: "/join-us" },
     ],
   },
 ];
