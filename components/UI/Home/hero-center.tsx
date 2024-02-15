@@ -39,8 +39,8 @@ const HeroCenter = () => {
           >
             {new Array(3).fill(null).map((_, id) => (
               <p key={id} className={`text-lg py-1 ${styles["head-scroll-text"]}`}>
-                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts from January 20th, 2024, Get
-                ready to nominate your Education Champion!
+                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts March 15th, 2024. Get ready to
+                nominate your Education Champion!
               </p>
             ))}
           </motion.div>
@@ -49,13 +49,13 @@ const HeroCenter = () => {
       <div className="flex items-center justify-center h-[calc(100%-200px)] invisible" ref={ref}>
         <div className="container flex items-end justify-between md:mt-0 mt-8">
           <div className="max-w-6xl mx-auto">
-            <div className="space-y-7">
+            <div className="space-y-5">
               <div className="overflow-hidden">
-                <h1 className="lg:text-2xl md:text-xl text-lg _h_text">Welcome to NESA Nigeria 2023 Awards</h1>
+                <h1 className="xl:text-2xl lg:text-xl md:text-lg _h_text">Welcome to NESA Nigeria 2023 Awards</h1>
               </div>
               <div className="overflow-hidden">
-                <p className="font-bold lg:text-7xl md:text-6xl sm:text-5xl text-4xl text-[#d9a53c] _h_text">
-                  A Decade of Educational Excellence & Transformation
+                <p className="font-bold lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-[#d9a53c] _h_text">
+                  Recognizing a Decade of Educational Excellence and Transformation in Nigeria
                 </p>
               </div>
               <div className="overflow-hidden">
@@ -66,7 +66,11 @@ const HeroCenter = () => {
             </div>
 
             <div className="flex items-center md:gap-6 gap-4 text-sm md:text-base justify-center mt-8 overflow-hidden">
-              <button className={`${primaryBtn} _h_button bg-midGold`}>Vote Now</button>
+              <div>
+                <Link href={"/categories"}>
+                  <button className={`${primaryBtn} _h_button bg-midGold`}>Nominate Now</button>
+                </Link>
+              </div>
               <div>
                 <Link href={"/about"}>
                   <button className="border-[#e0aa3e] px-5 font-semibold _h_button py-3 rounded-md border-2 bg-[#191307]">

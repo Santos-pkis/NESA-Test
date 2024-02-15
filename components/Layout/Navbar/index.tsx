@@ -75,13 +75,10 @@ const Navbar = () => {
                       </div>
 
                       <div
-                        className={`absolute ${styles["nav-link-child"]} top-full -right-1/2 duration-300 overflow-hidden shadow-xl text-sm min-w-[15rem] bg-white rounded-md`}
+                        className={`absolute ${styles["nav-link-child"]} top-full -right-[152px] duration-300 overflow-hidden shadow-xl text-sm min-w-[15rem] bg-darkGold text-white rounded-md`}
                       >
                         {link.children.map((child, id) => (
-                          <div
-                            key={id}
-                            className="text-center hover:bg-deepGold duration-200 px-5 text-darkGold hover:text-white"
-                          >
+                          <div key={id} className="hover:bg-deepGold duration-200 px-5">
                             <Link href={child.path} className={"w-full"}>
                               <div className="py-3">{child.label}</div>
                             </Link>
