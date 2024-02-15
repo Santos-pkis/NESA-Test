@@ -53,7 +53,7 @@
 
   .head-scroll-text {
     display: inline-block;
-    animation: scroll 15s linear infinite;
+    animation: scroll 20s linear infinite;
   }
 }
 
@@ -78,10 +78,10 @@
 
 // left direction
 .scroll-el {
-  animation: scroll 20s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 // right direction
 .scroll-right {
-  animation: scroll 20s linear infinite reverse;
+  animation: scroll 30s linear infinite reverse;
 }

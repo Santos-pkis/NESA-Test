@@ -103,7 +103,7 @@ const Page = () => {
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
                   <h4 className="font-bold text-3xl">
                     Nominate Your Education Champion{" "}
-                    <span className="md:hidden text-deepGold">--- 15th January 2024</span>
+                    <span className="md:hidden text-deepGold">--- 15th March 2024</span>
                   </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
@@ -113,31 +113,31 @@ const Page = () => {
                     <li>
                       Nomination Starts on the <span className="font-bold text-deepGold">15th March 2024</span>
                     </li>
-                    <li>The Same organisation or candidate can be nominated under various award category</li>
+                    <li>The Same organization or candidate can be nominated under various award category</li>
                     <li>
                       Confirmation of submission: Once you nominate under any category, you would proceed to the Thank
                       you page from where you can invite others to nominate or simply navigate back to exploring other
                       awards category
                     </li>
-                    <li>You can also decide to nominate yourself or your organisation as-well</li>
+                    <li>You can also decide to nominate yourself or your organization as-well</li>
                   </ul>
                 </div>
 
                 <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-                  <p className="font-extrabold text-xl">15th</p>
-                  <p className="font-semibold">January 2024</p>
+                  <p className="font-extrabold text-2xl">15th</p>
+                  <p className="font-semibold text-2xl">March 2024</p>
                 </div>
               </div>
               <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
                   <h4 className="font-bold text-3xl">
                     Nomination closes & Internal Screening Proceeds{" "}
-                    <span className="md:hidden text-deepGold">--- 15th January 2024</span>
+                    <span className="md:hidden text-deepGold">--- March - April 2024</span>
                   </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
-                      Nomination process ends followed by internal screening to ensure compliance with the criteria and
-                      requirements
+                      Nomination process closes <span className="text-deepGold font-bold">30th of March 2024</span>{" "}
+                      followed by internal screening to ensure compliance with the criteria and requirements
                     </li>
                     <li>
                       Shortlisted Nominees would be reached out to and requested to upload detailed educational impact
@@ -148,21 +148,21 @@ const Page = () => {
                 </div>
 
                 <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-                  <p className="font-extrabold text-xl">Feb - March</p>
-                  <p className="font-semibold">2024</p>
+                  <p className="font-extrabold text-2xl">March - April</p>
+                  <p className="font-semibold text-2xl">2024</p>
                 </div>
               </div>
               <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
                   <h4 className="font-bold text-3xl">
-                    Public Voting Proceeds <span className="md:hidden text-deepGold">--- 15th January 2024</span>
+                    Public Voting Proceeds <span className="md:hidden text-deepGold">--- 15th March 2024</span>
                   </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
                       General Public Voting for the Shortlisted candidate proceeds. Note that Public Votes contributes
-                      only 50% to he final results of each category. The Voting Portal would be open on 15th April 2024
-                      so the public can their votes and Voting Ends{" "}
-                      <span className="font-bold text-deepGold">26th April 2024</span>
+                      only 50% to he final results of each category. The Voting Portal would be open on{" "}
+                      <span className="font-bold text-deepGold">17th April 2024</span> so the public can their votes and
+                      Voting Ends <span className="font-bold text-deepGold">28th April 2024</span>
                     </li>
                     <li>
                       Once Public Votes is concluded, the panel of Judges would also cast their votes contributing the
@@ -172,15 +172,15 @@ const Page = () => {
                 </div>
 
                 <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-                  <p className="font-extrabold text-xl">Feb - March</p>
-                  <p className="font-semibold">2024</p>
+                  <p className="font-extrabold text-2xl">07th - 28th</p>
+                  <p className="font-semibold text-2xl">April 2024</p>
                 </div>
               </div>
               <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
                   <h4 className="font-bold text-3xl">
                     The Award Ceremony and Winner Announcements{" "}
-                    <span className="md:hidden text-deepGold">--- 15th January 2024</span>
+                    <span className="md:hidden text-deepGold">--- 15th March 2024</span>
                   </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
@@ -191,8 +191,8 @@ const Page = () => {
                 </div>
 
                 <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-                  <p className="font-extrabold text-xl">5th</p>
-                  <p className="font-semibold">May 2024</p>
+                  <p className="font-extrabold text-2xl">5th</p>
+                  <p className="font-semibold text-2xl">May 2024</p>
                 </div>
               </div>
             </div>

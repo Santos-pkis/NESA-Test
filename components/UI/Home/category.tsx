@@ -1,7 +1,7 @@
 "use client";
 import CategorySlide from "@/components/Common/Slide/category";
 import styles from "@/components/Common/Slide/style.module.scss";
-import { homeCategories } from "@/lib/data/category";
+import { allCategories } from "@/lib/data/category";
 
 const Category = () => {
   return (
@@ -16,7 +16,7 @@ const Category = () => {
         </div>
 
         <div className={`overflow-hidden flex items-center relative space-x-4 ${styles["award_con"]}`}>
-          <CategorySlide categories={homeCategories} />
+          <CategorySlide categories={allCategories} />
         </div>
       </div>
     </section>
