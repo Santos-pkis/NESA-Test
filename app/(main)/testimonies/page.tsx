@@ -1,6 +1,7 @@
 import TestimoniesShowcase from "@/components/UI/Testimonies/showcase";
 import "../../../public/styles/fade.css";
 import Image from "next/image";
+import GradientBtn from "@/components/Common/Button/gradient-btn";
 
 const Page = () => {
   return (
@@ -27,17 +28,19 @@ const Page = () => {
         </div>
       </header>
       <main>
-        <div className="-mt-[35rem] md:block hidden">
+        <div className="container mb-10">
           <Image
-            className="w-full"
-            src={"/images/testimonies/world_map.svg"}
+            className="w-full scale-[1.8]"
+            src={"/images/testimonies/mapish.svg"}
             alt="world map"
             width={1000}
             height={1000}
           />
+          <div className="flex items-center justify-center -mt-16">
+            <GradientBtn text="Request to Host NESA AFRICA" />
+          </div>
         </div>
 
-        <div className="md:-mt-[30rem]"></div>
         <TestimoniesShowcase />
       </main>
     </>

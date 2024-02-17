@@ -7,10 +7,6 @@ import { AnimatePresence } from "framer-motion";
 const ModalProvider: FC<PropsWithChildren> = ({ children }) => {
   const { visible } = useModal();
 
-  useEffect(() => {
-    console.log(visible);
-  }, [visible]);
-
   return (
     <>
       {/* <AnimatePresence initial={false} mode="wait">

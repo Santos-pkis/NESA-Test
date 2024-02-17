@@ -14,15 +14,14 @@ const step1Variant = {
     opacity: 1,
     transition: { ...transition, delay: 1 },
   },
-  exit: { opacity: 0, x: "-5%" },
+  exit: { opacity: 0 },
 };
 
 const step2Variant = {
-  initial: { opacity: 0, x: "5%" },
+  initial: { opacity: 0 },
   animate: {
     opacity: 1,
     transition,
-    x: 0,
   },
   exit: { opacity: 0 },
 };

@@ -10,11 +10,17 @@ import { Category } from "@/lib/types/global";
 import toast from "react-hot-toast";
 import { CategoryDetails, allCategories } from "@/lib/data/category";
 import Link from "next/link";
+import { useModal } from "@/lib/store/modal";
+import Modal from "@/components/Common/Modal";
+import ThanksForVoting from "./thanks-for-voting";
 
 type Props = { id: number; category: Category | undefined; details: CategoryDetails | undefined };
 
 const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
   const router = useRouter();
+  const { showModal, hideModal, visible } = useModal();
+
+  const showModClick = () => showModal(<ThanksForVoting />);
 
   if (!category) {
     toast.error("category not found");
@@ -24,6 +30,8 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
 
   return (
     <>
+      <Modal visible={visible} onClose={hideModal}></Modal>
+
       <header>
         <div className={`md:min-h-[48rem] min-h-screen bg-zinc-200 text-white relative`}>
           <div className="absolute top-0 left-0 h-full w-full">
@@ -116,9 +124,7 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
                 <div className="pt-8">
                   <button
                     className="w-full bg-deepGold text-black font-semibold py-5 rounded-lg"
-                    onClick={() => (
-                      toast.success("submitted successfully.", { id: "success" }), router.push("/categories")
-                    )}
+                    onClick={showModClick}
                   >
                     Submit Nominations
                   </button>
