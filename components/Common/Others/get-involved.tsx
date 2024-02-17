@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Modal from "../Modal";
 
 const transition = { duration: 0.1, ease: "easeInOut" };
 
@@ -187,31 +188,37 @@ const GetInvolvedModalContent = () => {
 };
 
 const GetInvolved = () => {
-  const { showModal } = useModal();
+  const { showModal, visible, hideModal } = useModal();
   const partnerWithUsClickHandler = () => showModal(<GetInvolvedModalContent />);
 
   return (
-    <div className="container text-center bg-darkBrown text-white md:rounded-2xl rounded-md space-y-4 md:px-12 py-16">
-      <p className="md:text-lg uppercase">How to get Involved</p>
-      <p className="md:text-5xl sm:text-4xl text-3xl text-center mx-auto px-10 font-semibold">
-        Recognizing players who contributed to the growth of the Nigerian education sector and fostering innovations
-      </p>
-      <div className="pt-6">
-        <div className="flex items-center flex-wrap gap-6 justify-center">
-          <button
-            className="flex-shrink-0 self-start w-fit px-5 text-sm font-semibold py-3 rounded-md text-black"
-            style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
-            onClick={partnerWithUsClickHandler}
-          >
-            Partner With Us
-          </button>
-          <button className="flex group items-center px-5 text-sm font-semibold py-3 gap-3 rounded-md border border-white">
-            <span>Donate to Projects</span>
-            <ChevronRight size={14} className="group-hover:translate-x-1 duration-200" />
-          </button>
+    <>
+      <AnimatePresence initial={false} mode="wait">
+        {visible && <Modal visible={visible} key={"modal-"} onClose={hideModal} />}
+      </AnimatePresence>
+
+      <div className="container text-center bg-darkBrown text-white md:rounded-2xl rounded-md space-y-4 md:px-12 py-16">
+        <p className="md:text-lg uppercase">How to get Involved</p>
+        <p className="md:text-5xl sm:text-4xl text-3xl text-center mx-auto px-10 font-semibold">
+          Recognizing players who contributed to the growth of the Nigerian education sector and fostering innovations
+        </p>
+        <div className="pt-6">
+          <div className="flex items-center flex-wrap gap-6 justify-center">
+            <button
+              className="flex-shrink-0 self-start w-fit px-5 text-sm font-semibold py-3 rounded-md text-black"
+              style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
+              onClick={partnerWithUsClickHandler}
+            >
+              Partner With Us
+            </button>
+            <button className="flex group items-center px-5 text-sm font-semibold py-3 gap-3 rounded-md border border-white">
+              <span>Donate to Projects</span>
+              <ChevronRight size={14} className="group-hover:translate-x-1 duration-200" />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -79,7 +79,7 @@ const Navbar = () => {
                       >
                         {link.children.map((child, id) => (
                           <div key={id} className="hover:bg-deepGold duration-200 px-5">
-                            <Link href={child.path} className={"w-full"}>
+                            <Link href={child.path} target={child.external ? "_blank" : "_self"} className={"w-full"}>
                               <div className="py-3">{child.label}</div>
                             </Link>
                           </div>

@@ -19,6 +19,7 @@ export const navlinks: NavLink[] = [
     label: "N.E.S.A",
     path: "/about",
     children: [
+      { label: "NESA Africa", path: "https://nesa.africa/", external: true },
       { label: "NESA 2023", path: "/about" },
       { label: "Partners", path: "/partners" },
       { label: "Get Involved", path: "#" },
