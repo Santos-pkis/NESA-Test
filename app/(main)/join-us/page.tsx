@@ -1,3 +1,4 @@
+import BasicHeader from "@/components/Common/Hero/basic-1";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 
@@ -36,24 +37,7 @@ Whether you're an individual, organization or expert in your field, we welcome y
 const Page = () => {
   return (
     <>
-      <header className="relative">
-        <Image
-          src={"/images/join/join_us_hero.png"}
-          alt="hero image"
-          width={1024}
-          height={800}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        />
-
-        <div className={`md:min-h-[35rem] min-h-screen text-white relative flex items-center`}>
-          <div className="container text-center md:mt-10">
-            <div className="space-y-5">
-              <h1 className="font-bold md:text-5xl text-4xl text-deepGold">Join the NESA 2023 Community!</h1>
-              <p>Explore Opportunities to Make a Difference</p>
-            </div>
-          </div>
-        </div>
-      </header>
+      <BasicHeader heading="Join the NESA 2023 Community!" description="Explore Opportunities to Make a Difference" />
       <main>
         <div className="my-20 container space-y-20">
           {contents.map((content, id) => (
