@@ -1,8 +1,11 @@
-type Career = {
+// careers
+export type Career = {
   id: number | string;
   image: string;
   title: string;
 };
+
+export type CareerCategory = Career & { description: string };
 
 const careers: Career[] = [
   {
@@ -38,3 +41,15 @@ const careers: Career[] = [
 ];
 
 export default careers;
+
+export const careerCategories: CareerCategory[] = [
+  {
+    ...careers[0],
+    description:
+      "the Administrative and Business Development Services Team. We are the driving force that ensures seamless operations and strategic growth for the success of this groundbreaking initiative. Our dedicated team is committed to excellence, working tirelessly to provide robust administrative support and spearhead business development efforts.",
+  },
+];
+
+// jobs
+export type JobType = "full-time" | "part-time" | "contract" | "remote" | "intern";
+export type Job = { image: string; position: string; description: string; lagos: string; type: JobType };
