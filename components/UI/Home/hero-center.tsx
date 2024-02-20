@@ -46,8 +46,8 @@ const HeroCenter = () => {
           </motion.div>
         </motion.div>
       </div>
-      <div className="flex items-center justify-center h-[calc(100%-200px)] invisible" ref={ref}>
-        <div className="container flex items-end justify-between md:mt-0 mt-8">
+      <div className="flex items-center justify-center invisible" ref={ref}>
+        <div className="container flex items-end justify-between mt-8">
           <div className="max-w-6xl mx-auto">
             <div className="space-y-5">
               <div className="overflow-hidden">
@@ -55,12 +55,21 @@ const HeroCenter = () => {
               </div>
               <div className="overflow-hidden">
                 <p className="font-bold lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-[#d9a53c] _h_text">
-                  Recognizing a Decade of Educational Excellence and Transformation in Nigeria
+                  Join Us in Recognizing the Efforts and Contributions of Nigeria and African Champions&apos; in
+                  Achieving the Vision of Education for All from 2013 to 2023 as a Decade of Educational Excellence and
+                  Transformation in Nigeria and Africa
                 </p>
               </div>
               <div className="overflow-hidden">
                 <p className="md:text-xl sm:text-lg _h_text">
-                  A flagship initiative under NESA Africa by Santos Creations Educational Foundation
+                  A flagship initiative under NESA Africa by{" "}
+                  <Link
+                    href={"https://santoscreations.org/"}
+                    target="_blank"
+                    className="border-b duration-300 hover:border-white/20"
+                  >
+                    Santos Creations Educational Foundation
+                  </Link>
                 </p>
               </div>
             </div>
