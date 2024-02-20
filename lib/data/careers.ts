@@ -9,7 +9,7 @@ export type CareerCategory = Career & { description: string };
 
 const careers: Career[] = [
   {
-    id: "1",
+    id: "admin-and-business",
     image: "/images/careers/admin.png",
     title: "Administrative and Business Development Services Team",
   },

@@ -1,12 +1,12 @@
 import CareerCategoryHeader from "@/components/Common/Hero/career-category";
-import { CareerCategory, careerCategories } from "@/lib/data/carees";
+import { CareerCategory, careerCategories } from "@/lib/data/careers";
 import Image from "next/image";
 
 export const dynamicParams = true;
 
-type Props = { params: { categoryId: string } };
+export type CareerProps = { params: { categoryId: string } };
 
-const Page = ({ params: { categoryId } }: Props) => {
+const Page = ({ params: { categoryId } }: CareerProps) => {
   const category = careerCategories.find((el) => el.id === categoryId) as CareerCategory;
 
   return (

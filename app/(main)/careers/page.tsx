@@ -1,5 +1,5 @@
 import BasicHeader from "@/components/Common/Hero/basic-1";
-import careers from "@/lib/data/carees";
+import careers from "@/lib/data/careers";
 import Image from "next/image";
 
 const Page = () => {

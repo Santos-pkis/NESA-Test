@@ -1,4 +1,4 @@
-import { Career, CareerCategory } from "@/lib/data/carees";
+import { Career, CareerCategory } from "@/lib/data/careers";
 import Image from "next/image";
 
 const CareerCategoryHeader: React.FC<CareerCategory | undefined> = (category) => {
