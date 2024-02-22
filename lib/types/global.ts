@@ -10,7 +10,19 @@ export interface Faq {
   answer: string;
 }
 
-// footer
+// CONTENT
+export interface ImgTitleDesc {
+  image: string;
+  title: string;
+  description: string;
+}
+
+export interface ListWithOption {
+  title: string;
+  options: string[];
+}
+
+// FOOTER
 export interface FooterData {
   heading: string;
   children: {

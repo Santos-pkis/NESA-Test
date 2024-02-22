@@ -1,3 +1,5 @@
+import { ImgTitleDesc, ListWithOption } from "../types/global";
+
 type Sponsor = {
   title: string;
   description: string;
@@ -58,12 +60,9 @@ export const benefits: Benefit[] = [
 ];
 
 // BECOME A MEMBER
-type Tier = {
-  title: string;
-  options: string[];
-};
+type Tier = ListWithOption;
 
-type UnderTier = Tier;
+type UnderTier = ListWithOption;
 
 export const tiers: Tier[] = [
   {
@@ -130,6 +129,93 @@ export const moreUnderTiers: UnderTier[] = [
       "Total funds raised through memberships.",
       "Distribution efficiency of funds to various projects and operational needs.",
       "Impact assessment of funded projects and educational grants.",
+    ],
+  },
+];
+
+// JOIN US
+
+type JoinUsType = {
+  heading: string;
+  body: string;
+  image: string;
+  ctaText: string;
+  path: string;
+};
+
+export const joinUsContents: JoinUsType[] = [
+  {
+    heading: "JOIN US BY BECOMING A MEMBER",
+    body: `By becoming a member, you not only unlock exclusive benefits but also stay at the forefront of educational innovation. Join a community of forward-thinkers committed to spearheading the transformation of education in Nigeria. Your membership is a key to shaping the future of learning!"`,
+    image: "/images/join/pic1.png",
+    ctaText: "Become a Member",
+    path: "/become-a-member",
+  },
+  {
+    heading: "VOLUNTEER FOR NESA",
+    body: ` As a volunteer for NESA 2023, you have the power to contribute your time and skills to create an unforgettable experience. 
+
+Be an essential part of the team that orchestrates a memorable event dedicated to advancing education in Nigeria. Your commitment can spark a positive revolution`,
+    image: "/images/join/pic2.png",
+    ctaText: "Volunteer Now",
+    path: "/volunteer",
+  },
+  {
+    heading: "INTERN WITH US",
+    body: `Our internships provide real-world experience in educational program management, event coordination, and research. Interns 
+
+    at NESA Africa will not only contribute to our mission but also develop professional skills that will serve them in their future careers.`,
+    image: "/images/join/pic4.png",
+    ctaText: "Continue",
+    path: "/intern-with-us",
+  },
+  {
+    heading: "WORK WITH US",
+    body: `Become an integral part of our passionate team! Explore diverse opportunities to collaborate and contribute to the resounding success of NESA 2023. 
+
+Whether you're an individual, organization or expert in your field, we welcome you to explore meaningful ways to shape the educational landscape together. Your expertise can be the driving force behind our collective success`,
+    image: "/images/join/pic3.png",
+    ctaText: "Explore Careers",
+    path: "/careers",
+  },
+];
+
+// VOLUNTEER
+export const volunteerCategories: ImgTitleDesc[] = [
+  {
+    image: "project-based.png",
+    description: "Participate in educational projects, contributing to their development and execution",
+    title: "Project-Based Volunteering",
+  },
+  {
+    image: "operational-support.png",
+    description: "Assist in SCEF's day-to-day operations, including administrative tasks and community outreach.",
+    title: "Operational Support Volunteering:",
+  },
+  {
+    image: "volunteer-teaching.png",
+    description:
+      "Engage directly in educational programs, delivering quality education and impacting student learning across Africa.",
+    title: "Volunteer Teaching",
+  },
+];
+
+export const volunteerFeatures: UnderTier[] = [
+  {
+    title: "Features and Functionalities:",
+    options: [
+      "A structured application and selection process for volunteers.",
+      "	Comprehensive orientation and training for all volunteers.",
+      "Matching system to align volunteers with roles that suit their skills and interests.",
+      "Continuous support and feedback mechanism for volunteer development.",
+    ],
+  },
+  {
+    title: "Goals and Objectives:",
+    options: [
+      "To effectively utilize volunteer skills and enthusiasm in enhancing SCEF's educational projects and operations.",
+      "To provide volunteers with enriching experiences that contribute to SCEF's goals and their personal development.",
+      "To foster a sense of community and commitment among volunteers towards SCEF's mission.",
     ],
   },
 ];
