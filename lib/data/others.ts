@@ -167,7 +167,7 @@ Be an essential part of the team that orchestrates a memorable event dedicated t
     at NESA Africa will not only contribute to our mission but also develop professional skills that will serve them in their future careers.`,
     image: "/images/join/pic4.png",
     ctaText: "Continue",
-    path: "/intern-with-us",
+    path: "/interns",
   },
   {
     heading: "WORK WITH US",
