@@ -6,6 +6,7 @@ import styles from "@/components/Common/Slide/style.module.scss";
 import { motion } from "framer-motion";
 import { opacityTrans } from "@/lib/utils/transitions";
 import Link from "next/link";
+import SantosLink from "@/components/Common/Links/santos";
 
 const HeroCenter = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -62,14 +63,7 @@ const HeroCenter = () => {
               </div>
               <div className="overflow-hidden">
                 <p className="md:text-xl sm:text-lg _h_text">
-                  A flagship initiative under NESA Africa by{" "}
-                  <Link
-                    href={"https://santoscreations.org/"}
-                    target="_blank"
-                    className="border-b duration-300 hover:border-white/20"
-                  >
-                    Santos Creations Educational Foundation
-                  </Link>
+                  A flagship initiative under NESA Africa by <SantosLink />
                 </p>
               </div>
             </div>

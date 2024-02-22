@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { raleway } from "@/lib/utils/font";
+import { inter } from "@/lib/utils/font";
 import "../public/globals.css";
 import Navbar from "@/components/Layout/Navbar";
 import Providers from "@/lib/utils/providers";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={raleway.className}>
+      <body className={inter.className}>
         <Providers>
           <Navbar />
           {children}

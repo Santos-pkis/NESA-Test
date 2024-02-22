@@ -1,12 +1,14 @@
 import BasicHeader from "@/components/Common/Hero/basic-1";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Data = {
   heading: string;
   body: string;
   image: string;
   ctaText: string;
+  path: string;
 };
 
 const contents: Data[] = [
@@ -15,6 +17,7 @@ const contents: Data[] = [
     body: `By becoming a member, you not only unlock exclusive benefits but also stay at the forefront of educational innovation. Join a community of forward-thinkers committed to spearheading the transformation of education in Nigeria. Your membership is a key to shaping the future of learning!"`,
     image: "/images/join/pic1.png",
     ctaText: "Become a Member",
+    path: "/",
   },
   {
     heading: "VOLUNTEER FOR NESA",
@@ -23,6 +26,7 @@ const contents: Data[] = [
 Be an essential part of the team that orchestrates a memorable event dedicated to advancing education in Nigeria. Your commitment can spark a positive revolution`,
     image: "/images/join/pic2.png",
     ctaText: "Volunteer Now",
+    path: "/",
   },
   {
     heading: "WORK WITH US",
@@ -30,7 +34,8 @@ Be an essential part of the team that orchestrates a memorable event dedicated t
 
 Whether you're an individual, organization or expert in your field, we welcome you to explore meaningful ways to shape the educational landscape together. Your expertise can be the driving force behind our collective success`,
     image: "/images/join/pic3.png",
-    ctaText: "Explore Opportunities",
+    ctaText: "Explore Careers",
+    path: "/careers",
   },
 ];
 
@@ -54,10 +59,14 @@ const Page = () => {
               <div className="space-y-6">
                 <h3 className="font-semibold md:text-5xl text-4xl">{content.heading}</h3>
                 <p className="whitespace-pre-line text-zinc-500">{content.body}</p>
-                <button className="flex items-center text-blue-500 font-bold gap-2">
-                  <span>{content.ctaText}</span>
-                  <ChevronRight size={18} />
-                </button>
+                <div>
+                  <Link href={content.path}>
+                    <button className="flex items-center text-blue-500 font-bold gap-2">
+                      <span>{content.ctaText}</span>
+                      <ChevronRight size={18} />
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
