@@ -56,3 +56,80 @@ export const benefits: Benefit[] = [
       "Connect with key figures from the government, educational sector, corporate Nigeria, and international organizations in an exclusive setting.",
   },
 ];
+
+// BECOME A MEMBER
+type Tier = {
+  title: string;
+  options: string[];
+};
+
+type UnderTier = Tier;
+
+export const tiers: Tier[] = [
+  {
+    title: "Silver Membership",
+    options: [
+      "Access to SCEF newsletters and updates.",
+      "Invitations to select SCEF events and webinars.",
+      "SCEF membership certificate.",
+    ],
+  },
+  {
+    title: "Platinum Membership",
+    options: [
+      "All benefits of Silver Membership.",
+      "Early access to new SCEF programs and initiatives.",
+      "Opportunities to participate in policy discussion forums.",
+    ],
+  },
+  {
+    title: "Gold Membership",
+    options: [
+      "All benefits of Platinum Membership.",
+      "Exclusive invitations to SCEF's high-profile events and galas.",
+      "Recognition in SCEF publications and on the website.",
+    ],
+  },
+  {
+    title: "Blue Garnet Membership (Corporate)",
+    options: [
+      "All benefits of Gold Membership.",
+      "Corporate logo featured on SCEF's partner page.",
+      "Opportunities for joint initiatives and co-branding with SCEF.",
+    ],
+  },
+];
+
+export const moreUnderTiers: UnderTier[] = [
+  {
+    title: "Features and Functionalities:",
+    options: [
+      "Financial contributions from members, allocated to SCEF operations and projects.",
+      "A transparent system for the distribution of funds, with set percentages allocated to operations, project support, and educational grants.",
+      "Regular financial statements and impact reports for members.",
+    ],
+  },
+  {
+    title: "Goals and Objectives:",
+    options: [
+      "	To establish a sustainable financial base for SCEF's operations and projects.",
+      "To create a transparent and accountable system for financial contributions.",
+      "	To enable SCEF to extend more educational grants to deserving candidates and projects.",
+    ],
+  },
+  {
+    title: "Allocation of Funds:",
+    options: [
+      "A specified percentage of each membership contribution allocatedto operational costs.",
+      "Remaining funds distributed among various SCEF projects, including direct support and educational grants",
+    ],
+  },
+  {
+    title: "Performance Metrics:",
+    options: [
+      "Total funds raised through memberships.",
+      "Distribution efficiency of funds to various projects and operational needs.",
+      "Impact assessment of funded projects and educational grants.",
+    ],
+  },
+];

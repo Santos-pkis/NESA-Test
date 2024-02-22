@@ -1,5 +1,6 @@
 import SantosLink from "@/components/Common/Links/santos";
 import { additionalOpportunities, benefits, sponsors } from "@/lib/data/others";
+import { raleway } from "@/lib/utils/font";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,7 @@ const Page = () => {
     <>
       <header className="md:min-h-[40rem] min-h-screen bg-[#17120a] text-white flex items-center justify-center">
         <div className="max-w-3xl mx-auto text-center space-y-2">
-          <h1 className="font-extrabold text-deepGold md:text-5xl sm:text-4xl text-3xl">
+          <h1 className={`${raleway.className} font-bold text-deepGold md:text-5xl sm:text-4xl text-3xl`}>
             NESA 2023 Award Dinner: An Evening of Excellence
           </h1>
           <p className="text-lg">

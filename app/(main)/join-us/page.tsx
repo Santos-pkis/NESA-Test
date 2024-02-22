@@ -17,7 +17,7 @@ const contents: Data[] = [
     body: `By becoming a member, you not only unlock exclusive benefits but also stay at the forefront of educational innovation. Join a community of forward-thinkers committed to spearheading the transformation of education in Nigeria. Your membership is a key to shaping the future of learning!"`,
     image: "/images/join/pic1.png",
     ctaText: "Become a Member",
-    path: "/",
+    path: "/become-a-member",
   },
   {
     heading: "VOLUNTEER FOR NESA",

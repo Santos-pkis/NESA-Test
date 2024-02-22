@@ -9,3 +9,8 @@ export const inter = localFont({
   src: "../../assets/fonts/Inter-VariableFont.ttf",
   display: "swap",
 });
+
+export const manrope = localFont({
+  src: "../../assets/fonts/Manrope-VariableFont_wght.ttf",
+  display: "swap",
+});
