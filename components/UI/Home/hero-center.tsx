@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { opacityTrans } from "@/lib/utils/transitions";
 import Link from "next/link";
 import SantosLink from "@/components/Common/Links/santos";
+import { inter } from "@/lib/utils/font";
 
 const HeroCenter = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -55,7 +56,9 @@ const HeroCenter = () => {
                 <h1 className="xl:text-2xl lg:text-xl md:text-lg _h_text">Welcome to NESA Nigeria 2023 Awards</h1>
               </div>
               <div className="overflow-hidden">
-                <p className="font-bold lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-[#d9a53c] _h_text">
+                <p
+                  className={`font-bold lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-[#d9a53c] _h_text ${inter.className}`}
+                >
                   Join Us in Recognizing the Efforts and Contributions of Nigeria and African Champions&apos; in
                   Achieving the Vision of Education for All from 2013 to 2023 as a Decade of Educational Excellence and
                   Transformation in Nigeria and Africa
