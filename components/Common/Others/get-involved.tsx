@@ -8,7 +8,7 @@ import Modal from "../Modal";
 
 const transition = { duration: 0.1, ease: "easeInOut" };
 
-const step1Variant = {
+export const step1Variant = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
@@ -17,7 +17,7 @@ const step1Variant = {
   exit: { opacity: 0 },
 };
 
-const step2Variant = {
+export const step2Variant = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,

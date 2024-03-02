@@ -8,6 +8,7 @@ import FAQs from "@/components/Common/Others/faq";
 import { homeFaq } from "@/lib/data/faq";
 
 const Page = () => {
+  
   return (
     <>
       <header>
