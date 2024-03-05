@@ -140,19 +140,53 @@ const Navbar = () => {
 
       <aside
         className={`${
-          sidebarOpen ? "w-full" : "w-0"
-        } fixed top-0 right-0 min-h-screen bg-black/90 text-white select-none flex duration-200 items-center justify-center z-[2000] overflow-hidden`}
+          sidebarOpen ? "h-full" : "h-0"
+        } fixed top-0 left-0 w-full bg-black/95 backdrop-blur-sm text-white select-none flex duration-300 ease-out items-center justify-center z-[2000] overflow-hidden`}
       >
         <motion.div {...fromRight} className="absolute right-8 top-8 cursor-pointer">
           <X size={28} onClick={() => setSidebarOpen(!sidebarOpen)} />
         </motion.div>
 
-        <motion.ul {...opacityTrans} className="flex flex-col gap-6 text-center text-lg">
+        <motion.ul
+          {...opacityTrans}
+          className="flex divide-y-2 divide-white/30 flex-col text-center justify-center text-lg"
+        >
           {navlinks.map((link, id) => (
-            <motion.li variants={fromTop} key={id} onClick={() => setSidebarOpen(false)}>
-              <Link href={link.path} className={link.path === pathname ? "font-bold" : "font-normal"}>
-                {link.label}
-              </Link>
+            <motion.li variants={fromTop} key={id} className="py-3">
+              {link.children ? (
+                <div
+                  className={`cursor-pointer group ${
+                    link.path === pathname ? "font-semibold" : "font-normal duration-200"
+                  } ${styles["nav-link"]}`}
+                >
+                  <div className="flex items-center gap-1 justify-center group-hover:font-bold">
+                    <span>{link.label}</span>
+                    <ChevronDown size={18} className={`duration-300 group-hover:rotate-180`} />
+                  </div>
+
+                  <div className={`duration-300 overflow-hidden text-sm group-hover:h-full h-0`}>
+                    {link.children.map((child, id) => (
+                      <div
+                        key={id}
+                        className="hover:text-deepGold duration-200 px-5"
+                        onClick={() => setSidebarOpen(false)}
+                      >
+                        <Link href={child.path} target={child.external ? "_blank" : "_self"} className={"w-full"}>
+                          <div className="py-3">{child.label}</div>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  href={link.path}
+                  className={link.path === pathname ? "font-semibold" : "font-normal duration-200"}
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )}
             </motion.li>
           ))}
         </motion.ul>
