@@ -51,7 +51,7 @@ const HeroCenter = () => {
       <div className="flex items-center justify-center invisible" ref={ref}>
         <div className="container flex items-end justify-between mt-8">
           <div className="max-w-6xl mx-auto">
-            <div className="space-y-5">
+            <div className="space-y-10 mt-4">
               <div className="overflow-hidden">
                 <h1 className="xl:text-2xl lg:text-xl md:text-lg _h_text">Welcome to NESA Nigeria 2023 Awards</h1>
               </div>
@@ -59,14 +59,19 @@ const HeroCenter = () => {
                 <p
                   className={`font-bold lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-[#d9a53c] _h_text ${inter.className}`}
                 >
-                  Join Us in Recognizing the Efforts and Contributions of Nigeria and African Champions&apos; in
-                  Achieving the Vision of Education for All from 2013 to 2023 as a Decade of Educational Excellence and
-                  Transformation in Nigeria and Africa
+                  A Decade of Educational Excellence & Transformation
                 </p>
               </div>
               <div className="overflow-hidden">
-                <p className="md:text-xl sm:text-lg _h_text">
-                  A flagship initiative under NESA Africa by <SantosLink />
+                <p className="md:text-xl sm:text-lg _h_text flex flex-col gap-2">
+                  <span>
+                    Join Us in Recognizing the Efforts and Contributions of Nigeria and African Champions&apos; in
+                    Achieving the Vision of Education for All from 2013 to 2023 as a Decade of Educational Excellence
+                    and Transformation in Nigeria and Africa
+                  </span>
+                  <span className="font-semibold italic text-midGold text-sm">
+                    A flagship initiative under NESA Africa by <SantosLink />
+                  </span>
                 </p>
               </div>
             </div>
