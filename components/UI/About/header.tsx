@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { opacityFromBottomV, parent } from "@/lib/utils/variants";
+import { toTopV, parentV } from "@/lib/utils/variants";
 
 const AboutHeader = () => {
   return (
@@ -22,12 +22,12 @@ const AboutHeader = () => {
 
         <div className="w-full h-full flex items-center absolute top-0 left-0 overflow-hidden md:pt-20 pt-28">
           <motion.div
-            variants={parent}
+            variants={parentV}
             initial="initial"
             animate="animate"
             className="container grid md:grid-cols-2 gap-16 items-center -mt-6"
           >
-            <motion.div variants={opacityFromBottomV} key={"header-1"} className="flex items-center justify-center">
+            <motion.div variants={toTopV} key={"header-1"} className="flex items-center justify-center">
               <div className="md:w-4/5 grid place-content-center md:aspect-square aspect-video h-auto border-4 border-primaryGold rounded-xl relative overflow-hidden">
                 <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
 
@@ -36,7 +36,7 @@ const AboutHeader = () => {
                 </div>
               </div>
             </motion.div>
-            <motion.div variants={opacityFromBottomV} key={"header-2"}>
+            <motion.div variants={toTopV} key={"header-2"}>
               <div className="space-y-2">
                 <h1 className="md:text-5xl text-4xl font-bold text-midGold">About NESA</h1>
                 <p className="font-semibold md:text-2xl text-xl">The Founding Story</p>

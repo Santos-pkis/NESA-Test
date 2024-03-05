@@ -51,7 +51,7 @@ const HeroCenter = () => {
       <div className="flex items-center justify-center invisible" ref={ref}>
         <div className="container flex items-end justify-between mt-8">
           <div className="max-w-6xl mx-auto">
-            <div className="space-y-10 mt-4">
+            <div className="space-y-10 mt-8">
               <div className="overflow-hidden">
                 <h1 className="xl:text-2xl lg:text-xl md:text-lg _h_text">Welcome to NESA Nigeria 2023 Awards</h1>
               </div>

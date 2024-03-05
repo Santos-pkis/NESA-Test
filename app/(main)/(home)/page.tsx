@@ -6,9 +6,9 @@ import { primaryBtn } from "@/lib/helpers";
 import Partners from "@/components/Common/Slide/partners";
 import FAQs from "@/components/Common/Others/faq";
 import { homeFaq } from "@/lib/data/faq";
+import AboutNewEducation from "@/components/UI/Home/about-new";
 
 const Page = () => {
-  
   return (
     <>
       <header>
@@ -61,31 +61,7 @@ const Page = () => {
           </div>
         </section>
 
-        <section className="relative py-20">
-          <div className="space-y-6 container">
-            <h3 className="_under_border font-bold text-darkGold">ABOUT NEW EDUCATION STANDARD AWARDS:</h3>
-            <p className="font-bold md:text-5xl text-4xl">
-              Championing Education <br /> Excellence in Africa
-            </p>
-
-            <div className="space-y-6 text-lg">
-              <p className="text-black">
-                <span className="font-bold">New Education Standard Award Africa (NESA Africa)</span> is an initiative
-                designed to recognize, celebrate and foster educational excellence and innovation across the African
-                continent.
-              </p>
-
-              <p>
-                Rooted in the vision of enhancing the quality of education and making it accessible to all,{" "}
-                <span className="font-bold">NESA Africa</span> operates with the mission of spotlighting significant
-                contributions by individuals, organizations, educational institutions, and other stakeholders towards
-                achieving these goals.
-              </p>
-
-              <button className={primaryBtn}>Learn More</button>
-            </div>
-          </div>
-        </section>
+        <AboutNewEducation />
 
         <section className="relative text-white">
           <Image

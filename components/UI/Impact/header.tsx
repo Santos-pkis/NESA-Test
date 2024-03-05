@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { opacityV, parent } from "@/lib/utils/variants";
+import { opacityV, parentV } from "@/lib/utils/variants";
 import Image from "next/image";
 
 const ImpactHeader = () => {
@@ -22,7 +22,7 @@ const ImpactHeader = () => {
 
         <div className="w-full h-full flex items-center absolute top-0 left-0 pt-12">
           <div className="container">
-            <motion.div variants={parent} initial="initial" animate="animate" className="space-y-6 text-center py-8">
+            <motion.div variants={parentV} initial="initial" animate="animate" className="space-y-6 text-center py-8">
               <motion.div variants={opacityV} className="space-y-2">
                 <h1 className="font-bold md:text-5xl text-4xl text-midGold md:leading-[1.4]">IMPACT @ NESA AFRICA</h1>
                 <p className="max-w-2xl mx-auto text-center">
