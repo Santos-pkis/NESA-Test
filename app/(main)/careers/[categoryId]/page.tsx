@@ -23,7 +23,7 @@ const Page = ({ params: { categoryId } }: CareerProps) => {
           </div>
 
           <div className="mt-5">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
               {Array.from({ length: 9 }).map((_, id) => (
                 <div key={id} className="p-3 bg-[#fff5e0] space-y-2">
                   <div className="max-h-[12rem] overflow-hidden">

@@ -24,8 +24,8 @@ const CareerCategoryHeader: React.FC<CareerCategory | undefined> = (category) =>
           </div>
         </div>
       </div> */}
-      <div className="w-full md:min-h-[35rem] min-h-screen grid grid-cols-7">
-        <div className="col-span-4 relative">
+      <div className="w-full md:min-h-[35rem] min-h-screen grid xl:grid-cols-7 md:grid-cols-2">
+        <div className="xl:col-span-4 relative">
           <Image
             src={"/images/careers/header_.jpg"}
             alt="hero image"
@@ -39,7 +39,7 @@ const CareerCategoryHeader: React.FC<CareerCategory | undefined> = (category) =>
           </div>
         </div>
 
-        <div className="col-span-3 bg-[#1f1f20] px-16 flex items-center text-white md:pt-10">
+        <div className="xl:col-span-3 bg-[#1f1f20] px-16 flex items-center text-white md:pt-10">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold">{title}</h2>
             <p>{description}</p>
