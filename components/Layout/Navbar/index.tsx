@@ -15,6 +15,8 @@ const Navbar = () => {
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  const controlMenu = (action: boolean) => setSidebarOpen(action);
+
   useEffect(() => {
     if (sidebarOpen) {
       document.body.style.overflow = "hidden";
@@ -147,51 +149,59 @@ const Navbar = () => {
           <X size={28} onClick={() => setSidebarOpen(!sidebarOpen)} />
         </motion.div>
 
-        <motion.ul
-          {...opacityTrans}
-          className="flex divide-y-2 divide-white/30 flex-col text-center justify-center text-lg"
-        >
-          {navlinks.map((link, id) => (
-            <motion.li variants={fromTop} key={id} className="py-3">
-              {link.children ? (
-                <div
-                  className={`cursor-pointer group ${
-                    link.path === pathname ? "font-semibold" : "font-normal duration-200"
-                  } ${styles["nav-link"]}`}
-                >
-                  <div className="flex items-center gap-1 justify-center group-hover:font-bold">
-                    <span>{link.label}</span>
-                    <ChevronDown size={18} className={`duration-300 group-hover:rotate-180`} />
-                  </div>
-
-                  <div className={`duration-300 overflow-hidden text-sm group-hover:h-full h-0`}>
-                    {link.children.map((child, id) => (
-                      <div
-                        key={id}
-                        className="hover:text-deepGold duration-200 px-5"
-                        onClick={() => setSidebarOpen(false)}
-                      >
-                        <Link href={child.path} target={child.external ? "_blank" : "_self"} className={"w-full"}>
-                          <div className="py-3">{child.label}</div>
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  href={link.path}
-                  className={link.path === pathname ? "font-semibold" : "font-normal duration-200"}
-                  onClick={() => setSidebarOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              )}
-            </motion.li>
-          ))}
-        </motion.ul>
+        <MobileSideMenu controlMenu={controlMenu} />
       </aside>
     </>
+  );
+};
+
+const MobileSideMenu: React.FC<{ controlMenu: (action: boolean) => void }> = ({ controlMenu }) => {
+  const pathname = usePathname();
+
+  const [activeDrop, setActiveDrop] = useState<number | null>(null);
+
+  const toggleDrop = (id: number) => setActiveDrop((prev) => (prev === id ? null : id));
+
+  return (
+    <motion.ul
+      {...opacityTrans}
+      className="flex divide-y-2 divide-white/30 flex-col text-center justify-center text-lg"
+    >
+      {navlinks.map((link, id) => (
+        <motion.li variants={fromTop} key={id} className="py-3" onClick={() => toggleDrop(id)}>
+          {link.children ? (
+            <div
+              className={`cursor-pointer group ${
+                link.path === pathname ? "font-semibold" : "font-normal duration-200"
+              } ${styles["nav-link"]}`}
+            >
+              <div className="flex items-center gap-1 justify-center group-hover:font-bold">
+                <span>{link.label}</span>
+                <ChevronDown size={18} className={`duration-300 ${activeDrop === id && "rotate-180"}`} />
+              </div>
+
+              <div className={`duration-300 overflow-hidden text-sm ${activeDrop === id ? "h-[12rem]" : "h-0"}`}>
+                {link.children.map((child, id) => (
+                  <div key={id} className="hover:text-deepGold duration-200 px-5" onClick={() => controlMenu(false)}>
+                    <Link href={child.path} target={child.external ? "_blank" : "_self"} className={"w-full"}>
+                      <div className="py-3">{child.label}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <Link
+              href={link.path}
+              className={link.path === pathname ? "font-semibold" : "font-normal duration-200"}
+              onClick={() => controlMenu(false)}
+            >
+              {link.label}
+            </Link>
+          )}
+        </motion.li>
+      ))}
+    </motion.ul>
   );
 };
 
