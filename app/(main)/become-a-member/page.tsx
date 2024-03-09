@@ -1,6 +1,7 @@
 import TitleDescriptionHeader from "@/components/Common/Hero/basic-title-description";
 import { moreUnderTiers, tiers } from "@/lib/data/others";
 import { Group } from "lucide-react";
+import Image from "next/image";
 
 const Page = () => {
   return (
@@ -21,7 +22,7 @@ const Page = () => {
         </div>
 
         <div className="mt-16 space-y-10 container">
-          <div className="grid-cols-3 grid gap-10">
+          <div className="grid-cols-3 md:grid gap-10">
             <div className="space-y-5">
               {tiers.map((tier, id) => (
                 <div
@@ -40,14 +41,20 @@ const Page = () => {
                 </div>
               ))}
             </div>
-            <div className="col-span-2 grid place-content-center border rounded-lg text-black">
-              <p>Image Here</p>
+            <div className="col-span-2 relative overflow-hidden grid place-content-center border rounded-lg text-black">
+              <Image
+                src={"/images/become-a-member.png"}
+                width={600}
+                height={900}
+                className="absolute top-0 left-0 w-full h-full object-cover"
+                alt=""
+              />
             </div>
           </div>
 
-          <div className="space-y-5">
+          <div className="md:space-y-8 space-y-16">
             {moreUnderTiers.map((item, id) => (
-              <div key={id} className="p-6 space-y-3">
+              <div key={id} className="md:p-6 space-y-3">
                 <p className="md:text-3xl text-2xl font-semibold">{item.title}</p>
                 <ul className="ml-8 list-disc space-y-1 text-zinc-600">
                   {item.options.map((option, id) => (
