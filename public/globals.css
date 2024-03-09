@@ -48,10 +48,15 @@ html {
   height: 4px;
   width: 60%;
   left: 78px;
-  background-color: #ffb92e;
+  background-color: #ffb92ed1;
   border-radius: 5px;
 }
 
 .hide_scroll::-webkit-scrollbar {
   display: none;
+}
+
+input:focus,
+button:focus {
+  outline: none;
 }

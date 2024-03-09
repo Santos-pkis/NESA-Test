@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { manrope } from "@/lib/utils/font";
 import "../public/globals.css";
-import Navbar from "@/components/Layout/Navbar";
 import Providers from "@/lib/utils/providers";
-import Footer from "@/components/Layout/Footer";
 
 export const metadata: Metadata = {
   title: "NESA 2024",
@@ -14,11 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={manrope.className}>
-        <Providers>
-          <Navbar />
-          {children}
-          <Footer />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
