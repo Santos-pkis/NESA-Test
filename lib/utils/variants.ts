@@ -25,3 +25,9 @@ export const toTopV: Variants = {
   animate: { opacity: 1, y: 0, transition },
   exit: { opacity: 0, y: "5%" },
 };
+
+export const scaleV: Variants = {
+  initial: { scale: 0 },
+  animate: { scale: 1, transition },
+  exit: { scale: 0 },
+};

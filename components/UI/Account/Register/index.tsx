@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
-import { opacityV } from "@/lib/utils/variants";
+import { opacityV, scaleV } from "@/lib/utils/variants";
 
 type Inputs = {
   fullName: string;
@@ -38,7 +38,10 @@ const RegisterContent = () => {
 
   return (
     <main className="flex items-center justify-center min-h-screen bg-[#ffb92e2b] pt-[6rem] pb-[2rem]">
-      <div className="bg-white sm:w-[34rem] w-[98%] min-h-[30rem] overflow-hidden shadow-xl rounded p-8 relative">
+      <motion.div
+        {...scaleV}
+        className="bg-white sm:w-[34rem] w-[98%] min-h-[30rem] overflow-hidden shadow-xl rounded p-8 relative"
+      >
         {loading && (
           <AnimatePresence mode="wait">
             <motion.div
@@ -155,7 +158,7 @@ const RegisterContent = () => {
             Login
           </Link>
         </p>
-      </div>
+      </motion.div>
     </main>
   );
 };
