@@ -196,7 +196,10 @@ const GetInvolved = () => {
         {visible && <Modal visible={visible} key={"modal-"} onClose={hideModal} />}
       </AnimatePresence>
 
-      <div className="container text-center bg-darkBrown text-white md:rounded-2xl rounded-md space-y-4 md:px-12 py-16">
+      <div
+        className="container text-center bg-darkBrown text-white md:rounded-2xl rounded-md space-y-4 md:px-12 py-16"
+        id="get-involved"
+      >
         <p className="md:text-lg uppercase">How to get Involved</p>
         <p className="md:text-5xl sm:text-4xl text-3xl text-center mx-auto px-10 font-semibold">
           Recognizing players who contributed to the growth of the Nigerian education sector and fostering innovations

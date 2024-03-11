@@ -1,7 +1,10 @@
-import TestimoniesShowcase from "@/components/UI/Testimonies/showcase";
-import "../../../public/styles/fade.css";
-import Image from "next/image";
-import GradientBtn from "@/components/Common/Button/gradient-btn";
+"use client";
+
+import { useState } from "react";
+
+const shortDescription = `Welcome to New Education Standard Award Africa (NESA Africa), where we honor the collective journey towards educational excellence and transformation across Nigeria and Africa over the past decade. At NESA Africa, we are poised to celebrate the monumental efforts and contributions of organizations, individuals, companies, and institutions that have significantly advanced our journey towards the universal goal of education for all.
+
+Over the span of ten years, from 2013 to 2023, Nigeria, alongside the broader African continent, has experienced transformative shifts in education, brought to life by the dedication of countless stakeholders. These changes range from improvements in educational infrastructures and curricula to the implementation of impactful Corporate Social Responsibility (CSR) projects, each effort contributing to a shared objective of enhancing education for every child in Nigeria and across Africa.`;
 
 const description = `Welcome to New Education Standard Award Africa (NESA Africa), where we honor the collective journey towards educational excellence and transformation across Nigeria and Africa over the past decade. At NESA Africa, we are poised to celebrate the monumental efforts and contributions of organizations, individuals, companies, and institutions that have significantly advanced our journey towards the universal goal of education for all.
 
@@ -17,49 +20,34 @@ Welcome to NESA Africa, where every recognition marks a significant milestone in
 ________________________________________
 `;
 
-const Page = () => {
-  return (
-    <>
-      <header className="md:min-h-[70rem] min-h-screen bg-[#1e1e1e] text-white flex items-center pt-28 md:pt-10">
-        <div className="container space-y-8">
-          <h1 className="lg:text-6xl md:text-5xl text-4xl font-bold text-deepGold">
-            NESA AFRICA: Igniting Excellence in African Education
-          </h1>
-          <div className="space-y-5 md:text-lg whitespace-pre-line">
-            {description}
-            {/* <p>
-              In a land rich with diversity, innovation, and untapped potential, NESA AFRICA seeks to showcase the
-              incredible stories, initiatives, and transformative endeavors that are making an indelible impact. Our
-              initiative is more than an accolade; it&apos;s a movement, a rallying call for change, and an ode to those
-              dedicated to uplifting education to new heights.
-            </p>
-            <p>
-              IWe believe that within the vast expanse of Africa lies an untapped wealth of educational brilliance,
-              waiting to be recognized and celebrated. NESA AFRICA is the conduit through which these stories find their
-              stage, inspiring others to join the ranks of those committed to reshaping the narrative of education on
-              our continent.
-            </p> */}
-          </div>
-        </div>
-      </header>
-      <main>
-        <div className="container mb-10">
-          <Image
-            className="w-full scale-[1.8]"
-            src={"/images/testimonies/mapish.svg"}
-            alt="world map"
-            width={1000}
-            height={1000}
-          />
-          <div className="flex items-center justify-center -mt-16">
-            <GradientBtn text="Request to Host NESA AFRICA" />
-          </div>
-        </div>
+const NesaAfricaHeader = () => {
+  const [expanded, setExpanded] = useState(false);
 
-        <TestimoniesShowcase />
-      </main>
-    </>
+  return (
+    <header
+      className={`${
+        !expanded ? "md:min-h-[50rem]" : "md:min-h-[70rem]"
+      } min-h-screen bg-[#1e1e1e] text-white z-[100] flex items-center pt-28 md:pt-10`}
+    >
+      <div className="container space-y-8">
+        <h1 className="lg:text-6xl md:text-5xl text-4xl font-bold text-deepGold">
+          NESA AFRICA: Igniting Excellence in African Education
+        </h1>
+        <div className={`space-y-5 inline-block md:text-lg whitespace-pre-line`}>
+          {expanded ? description : shortDescription}
+        </div>
+        {!expanded ? (
+          <button className="text-midGold" onClick={() => setExpanded(true)}>
+            Read More
+          </button>
+        ) : (
+          <button className="text-midGold" onClick={() => setExpanded(false)}>
+            See Less
+          </button>
+        )}
+      </div>
+    </header>
   );
 };
 
-export default Page;
+export default NesaAfricaHeader;

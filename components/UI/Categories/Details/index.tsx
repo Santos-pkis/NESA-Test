@@ -56,7 +56,7 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
               <motion.div variants={toTopV} className="space-y-6 max-w-3xl">
                 <div className="space-y-1">
                   <p className="font-semibold text-sm text-white">Nominate an Education Champion!</p>
-                  <h1 className="font-bold md:text-5xl text-4xl text-midGold md:leading-[1.4]">
+                  <h1 className="font-extrabold md:text-5xl text-4xl text-midGold md:leading-[1.4]">
                     CATEGORY {id}: <br /> {category?.title}
                   </h1>
                 </div>

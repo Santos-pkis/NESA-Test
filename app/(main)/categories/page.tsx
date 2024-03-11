@@ -30,7 +30,7 @@ const Page = () => {
                           className="bg-[#e0aa3e] w-fit px-5 text-sm font-semibold py-3 rounded-lg text-black"
                           style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
                         >
-                          View Nominies
+                          Nominate
                         </button>
                       </Link>
                     </div>
