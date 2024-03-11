@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
-import { opacityV, scaleV } from "@/lib/utils/variants";
+import { scaleV } from "@/lib/utils/variants";
+import FullWidthLoader from "@/components/Common/Loaders/full-width";
+import toast from "react-hot-toast";
 
 type Inputs = {
   fullName: string;
@@ -17,7 +19,7 @@ type Inputs = {
 const RegisterContent = () => {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm<Inputs>();
 
@@ -30,7 +32,9 @@ const RegisterContent = () => {
     setLoading(true);
     try {
       await new Promise((resolve) => setTimeout(() => resolve(null), 3000));
+      toast.success("Account created successfully");
     } catch {
+      toast.error("An error occurred.");
     } finally {
       setLoading(false);
     }
@@ -44,12 +48,7 @@ const RegisterContent = () => {
       >
         {loading && (
           <AnimatePresence mode="wait">
-            <motion.div
-              {...opacityV}
-              className="absolute top-0 left-0 w-full h-full backdrop-blur-md flex items-center justify-center"
-            >
-              <div className="md:size-20 size-12 rounded-full border-8 border-transparent border-t-midGold animate-spin"></div>
-            </motion.div>
+            <FullWidthLoader />
           </AnimatePresence>
         )}
 
@@ -136,16 +135,20 @@ const RegisterContent = () => {
                     <Eye size={18} onClick={toggleShowPassword} className="cursor-pointer" />
                   )}
                 </div>
-                {errors.password && <p className="text-sm text-red-400">{errors.password.message}</p>}
+                {errors.password ? (
+                  <p className="text-sm text-red-400">{errors.password.message}</p>
+                ) : (
+                  <p className="text-sm text-zinc-500 italic">Must include a symbol and digit.</p>
+                )}
               </div>
             </div>
             <div className="space-x-2 font-bold text-sm">
               <button className="px-4 py-[9px] border-[3px] border-midGold text-midGold">Back To Category</button>
               <input
                 type="submit"
-                className="px-4 py-[9px] bg-midGold text-zinc-600 cursor-pointer"
+                className="px-4 py-[9px] bg-midGold text-zinc-600 duration-200 cursor-pointer disabled:opacity-50"
                 value={"Create Account"}
-                disabled={loading}
+                disabled={!isValid}
               />
             </div>
           </div>

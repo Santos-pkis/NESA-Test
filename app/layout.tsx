@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { manrope } from "@/lib/utils/font";
 import "../public/globals.css";
-import Providers from "@/lib/utils/providers";
+import Providers from "@/lib/providers/providers";
 
 export const metadata: Metadata = {
   title: "NESA 2024",
