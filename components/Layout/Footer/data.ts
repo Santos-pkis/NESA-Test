@@ -25,7 +25,7 @@ export const footerData: FooterData[] = [
   {
     heading: "Contact Us",
     children: [
-      { path: "", label: "nesa@gmail.com" },
+      { path: "", label: "nesa.africa@gmail.com" },
       { path: "", label: "+234-567-987-0768" },
       // { path: "", label: "+234-567-987-0768" },
       { path: "", label: "Lagos, Nigeria" },

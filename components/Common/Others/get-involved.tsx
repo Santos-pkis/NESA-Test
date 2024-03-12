@@ -214,7 +214,7 @@ const GetInvolved = () => {
               Partner With Us
             </button>
             <button className="flex group items-center px-5 text-sm font-semibold py-3 gap-3 rounded-md border border-white">
-              <span>Donate to Projects</span>
+              <span>Sponsor an Award</span>
               <ChevronRight size={14} className="group-hover:translate-x-1 duration-200" />
             </button>
           </div>
