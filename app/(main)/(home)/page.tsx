@@ -80,7 +80,7 @@ const Page = () => {
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
                   <h4 className="font-bold text-3xl">
                     Nominate Your Education Champion{" "}
-                    <span className="md:hidden text-deepGold">--- 15th March 2024</span>
+                    <span className="md:hidden text-deepGold">--- 1st September 2024</span>
                   </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
@@ -88,7 +88,7 @@ const Page = () => {
                       the Award Category . Then nominate your Education Champion in each sub-category
                     </li>
                     <li>
-                      Nomination Starts on the <span className="font-bold text-deepGold">15th March 2024</span>
+                      Nomination Starts on the <span className="font-bold text-deepGold">1st September 2024</span>
                     </li>
                     <li>The Same organization or candidate can be nominated under various award category</li>
                     <li>
@@ -101,19 +101,19 @@ const Page = () => {
                 </div>
 
                 <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-                  <p className="font-extrabold text-2xl">15th</p>
-                  <p className="font-semibold text-2xl">March 2024</p>
+                  <p className="font-extrabold text-2xl">1st</p>
+                  <p className="font-semibold text-2xl">Sep 2024</p>
                 </div>
               </div>
               <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
                   <h4 className="font-bold text-3xl">
                     Nomination closes & Internal Screening Proceeds{" "}
-                    <span className="md:hidden text-deepGold">--- March - April 2024</span>
+                    <span className="md:hidden text-deepGold">--- 15th September 2024</span>
                   </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
-                      Nomination process closes <span className="text-deepGold font-bold">30th of March 2024</span>{" "}
+                      Nomination process closes <span className="text-deepGold font-bold">15th of September 2024</span>{" "}
                       followed by internal screening to ensure compliance with the criteria and requirements
                     </li>
                     <li>
@@ -125,21 +125,21 @@ const Page = () => {
                 </div>
 
                 <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-                  <p className="font-extrabold text-2xl">March - April</p>
+                  <p className="font-extrabold text-2xl">15th Sep</p>
                   <p className="font-semibold text-2xl">2024</p>
                 </div>
               </div>
               <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
                   <h4 className="font-bold text-3xl">
-                    Public Voting Proceeds <span className="md:hidden text-deepGold">--- 15th March 2024</span>
+                    Public Voting Proceeds <span className="md:hidden text-deepGold">--- 1st October 2024</span>
                   </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
                       General Public Voting for the Shortlisted candidate proceeds. Note that Public Votes contributes
                       only 50% to he final results of each category. The Voting Portal would be open on{" "}
-                      <span className="font-bold text-deepGold">17th April 2024</span> so the public can their votes and
-                      Voting Ends <span className="font-bold text-deepGold">28th April 2024</span>
+                      <span className="font-bold text-deepGold">1st October 2024</span> so the public can their votes
+                      and Voting Ends <span className="font-bold text-deepGold">7th October 2024</span>
                     </li>
                     <li>
                       Once Public Votes is concluded, the panel of Judges would also cast their votes contributing the
@@ -149,15 +149,15 @@ const Page = () => {
                 </div>
 
                 <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-                  <p className="font-extrabold text-2xl">07th - 28th</p>
-                  <p className="font-semibold text-2xl">April 2024</p>
+                  <p className="font-extrabold text-2xl">1st - 7th</p>
+                  <p className="font-semibold text-2xl">Oct 2024</p>
                 </div>
               </div>
               <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
                 <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
                   <h4 className="font-bold text-3xl">
                     The Award Ceremony and Winner Announcements{" "}
-                    <span className="md:hidden text-deepGold">--- 15th March 2024</span>
+                    <span className="md:hidden text-deepGold">--- 16th October 2024</span>
                   </h4>
                   <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
                     <li>
@@ -168,8 +168,8 @@ const Page = () => {
                 </div>
 
                 <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-                  <p className="font-extrabold text-2xl">5th</p>
-                  <p className="font-semibold text-2xl">May 2024</p>
+                  <p className="font-extrabold text-2xl">16th</p>
+                  <p className="font-semibold text-2xl">Oct 2024</p>
                 </div>
               </div>
             </div>
