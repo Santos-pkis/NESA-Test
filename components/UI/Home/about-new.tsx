@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const AboutNewEducation = () => {
   return (
-    <section className="relative py-20">
+    <section className="relative py-36">
       <DivParentInView className="space-y-6 container">
         <motion.h3 variants={toTopV} className="_under_border font-bold text-darkGold">
           ABOUT NEW EDUCATION STANDARD AWARDS:
