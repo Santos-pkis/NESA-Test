@@ -22,7 +22,7 @@ export const navlinks: NavLink[] = [
       { label: "NESA Africa", path: "/nesa-africa" },
       { label: "NESA 2023", path: "/about" },
       { label: "Partners", path: "/partners" },
-      { label: "Voting", path: "/voting" },
+      // { label: "Voting", path: "/voting" },
       { label: "Join Us Now", path: "/join-us" },
     ],
   },
