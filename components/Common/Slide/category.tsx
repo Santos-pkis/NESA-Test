@@ -1,6 +1,7 @@
 import { Category } from "@/lib/types/global";
 import Image from "next/image";
 import styles from "./style.module.scss";
+import Link from "next/link";
 
 interface Props {
   categories: Category[];
@@ -13,16 +14,12 @@ const CategorySlide: React.FC<Props> = ({ categories, direction, contained }) =>
     <div className={`overflow-hidden flex items-center relative space-x-4 ${styles["award_con"]}`}>
       {!contained ? (
         <>
-          {Array.from({ length: 7 }).map((_, id) => (
-            <Block categories={categories} key={id} direction={direction} />
-          ))}
-        </>
-      ) : (
-        <>
           {Array.from({ length: 3 }).map((_, id) => (
             <Block categories={categories} key={id} direction={direction} />
           ))}
         </>
+      ) : (
+        <Block categories={categories} direction={direction} />
       )}
     </div>
   );
@@ -43,7 +40,7 @@ const Block: React.FC<{ categories: Category[]; direction?: "left" | "right" }> 
       {categories.map((category, id) => (
         <div
           key={id}
-          className={`h-[26rem] aspect-[5.5/7] w-auto rounded-2xl bg-darkGold overflow-hidden text-white relative`}
+          className={`md:h-[28rem] h-[26rem] aspect-[5.5/7] w-auto rounded-2xl bg-darkGold overflow-hidden text-white relative`}
         >
           <div className="absolute top-0 left-0 w-full h-full bg-[#181818a8]"></div>
 
@@ -56,9 +53,16 @@ const Block: React.FC<{ categories: Category[]; direction?: "left" | "right" }> 
               <p className="font-bold text-xl uppercase">{category.title}</p>
               <p className="font-light leading-[1.8]">{category.description}</p>
 
-              {/* <button className="border-[#e0aa3e] w-full text-sm font-semibold py-2 rounded-lg border-2 bg-[#191307]">
-              Nominate your NGO champion
-            </button> */}
+              <div>
+                <Link href={`/categories/${category.id}`}>
+                  <button
+                    className="bg-[#e0aa3e] w-fit px-5 text-sm font-semibold py-3 rounded-lg text-black"
+                    style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
+                  >
+                    Nominate
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

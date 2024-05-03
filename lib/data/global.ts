@@ -5,33 +5,29 @@ export const navlinks: NavLink[] = [
     label: "Home",
     path: "/",
   },
+
   {
     label: "Awards",
-    path: "/categories",
+    path: "/awards",
     children: [
-      { label: "Awards", path: "/awards" },
-      { label: "Categories", path: "/categories" },
-      { label: "Nomination Process", path: "/nomination" },
-      { label: "Voting", path: "/voting" },
-    ],
-  },
-  {
-    label: "Media",
-    path: "/media",
-    children: [
-      { label: "News and Stories", path: "/news" },
-      { label: "NESA Award Dinner", path: "/award-dinner" },
-      { label: "Video and Photo Gallery", path: "/gallery" },
-      { label: "Live Events", path: "/events" },
+      { label: "About NESA", path: "/awards" },
+      { label: "Nomination Process", path: "/categories" },
+      { label: "Award Dinner", path: "/award-dinner" },
     ],
   },
   {
     label: "N.E.S.A",
     path: "/about",
     children: [
-      { label: "About NESA", path: "/about" },
+      { label: "NESA Africa", path: "/nesa-africa" },
+      { label: "NESA 2023", path: "/about" },
       { label: "Partners", path: "/partners" },
-      { label: "Quarterly Intervention Programme", path: "/intervention-programme" },
+      // { label: "Voting", path: "/voting" },
+      { label: "Join Us Now", path: "/join-us" },
     ],
+  },
+  {
+    label: "Media",
+    path: "/nesa-media",
   },
 ];

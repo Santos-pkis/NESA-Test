@@ -1,6 +1,8 @@
 export interface Category {
+  id: number;
   title: string;
   description: string;
+  detailsDescription?: string;
 }
 
 export interface Faq {
@@ -8,7 +10,19 @@ export interface Faq {
   answer: string;
 }
 
-// footer
+// CONTENT
+export interface ImgTitleDesc {
+  image: string;
+  title: string;
+  description: string;
+}
+
+export interface ListWithOption {
+  title: string;
+  options: string[];
+}
+
+// FOOTER
 export interface FooterData {
   heading: string;
   children: {
@@ -26,6 +40,7 @@ export interface Social {
 export interface NavLink {
   label: string;
   path: string;
+  external?: boolean;
   children?: NavLink[];
 }
 

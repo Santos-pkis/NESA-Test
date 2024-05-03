@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { raleway } from "@/lib/utils/font";
+import { manrope } from "@/lib/utils/font";
 import "../public/globals.css";
-import Navbar from "@/components/Layout/Navbar";
-import Providers from "@/lib/utils/providers";
-import Footer from "@/components/Layout/Footer";
+import Providers from "@/lib/providers/providers";
 
 export const metadata: Metadata = {
   title: "NESA 2024",
@@ -13,12 +11,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={raleway.className}>
-        <Providers>
-          <Navbar />
-          {children}
-          <Footer />
-        </Providers>
+      <body className={manrope.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

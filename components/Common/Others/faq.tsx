@@ -44,7 +44,7 @@ const FAQs: React.FC<{ data: Faq[]; variant?: "1" | "2" }> = ({ data: faqData, v
                   className="text-semiGrey text-sm md:text-base overflow-hidden"
                   key={id}
                 >
-                  <p>{data.answer}</p>
+                  <p className="whitespace-pre-line">{data.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>

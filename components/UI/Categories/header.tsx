@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { opacityFromBottomV, parent } from "@/lib/utils/variants";
+import { toTopV, parentV } from "@/lib/utils/variants";
 
 const CategoriesHeader = () => {
   return (
@@ -22,12 +22,12 @@ const CategoriesHeader = () => {
 
         <div className="w-full h-full flex items-center absolute top-0 left-0 md:pt-12 pt-28 text-center md:text-start">
           <motion.div
-            variants={parent}
+            variants={parentV}
             initial="initial"
             animate="animate"
             className="container grid md:grid-cols-2 gap-6 md:gap-0 items-center"
           >
-            <motion.div variants={opacityFromBottomV} className="space-y-6">
+            <motion.div variants={toTopV} className="space-y-6">
               <h1 className="font-bold md:text-5xl text-4xl text-midGold md:leading-[1.4]">
                 The NESA Award Categories
               </h1>
@@ -35,10 +35,7 @@ const CategoriesHeader = () => {
               <p>15 categories to nominate your champions from.</p>
             </motion.div>
 
-            <motion.div
-              variants={opacityFromBottomV}
-              className="grid place-content-center opacity-40 duration-300 md:opacity-100"
-            >
+            <motion.div variants={toTopV} className="grid place-content-center opacity-40 duration-300 md:opacity-100">
               <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
             </motion.div>
           </motion.div>

@@ -8,33 +8,81 @@ const Page = () => {
     <>
       <AboutHeader />
       <main>
-        <div className="container md:grid flex flex-col-reverse gap-6 md:gap-0 md:grid-cols-2 items-center py-16">
-          <div className="space-y-4">
-            <h3 className="_under_border font-bold text-sm uppercase">WHY NESA AFRICA</h3>
-            <div className="space-y-8">
-              <div>
-                <p className="font-bold text-2xl">Mission</p>
-                <p className="md:pr-8 font-medium leading-7">
-                  To ignite transforming change in Nigeria&apos;s EDucation sector, fostering an ecosystem where
-                  education, excellence is recognized and celebrated
-                </p>
-              </div>
-              <div>
-                <p className="font-bold text-2xl">Vision</p>
-                <p className="md:pr-8 font-medium leading-7">
-                  To acknowledge and encourage significant contributions that enhances the quality of education in
-                  Nigeria, motivating stakeholders to invest, innovate and engage in uplifting the country&apos;s
-                  educational standards.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="w-fit ml-auto">
+        <section className="container">
+          <div className="md:grid flex flex-col-reverse gap-6 md:gap-0 md:grid-cols-2 items-center py-16">
+            <div className="w-fit mr-auto">
               <Image src={"/images/about/mission.png"} className="mt-5" alt="mission" width={500} height={500} />
             </div>
+            <div className="space-y-4">
+              <h3 className="_under_border font-bold text-sm uppercase">WHY NESA AFRICA</h3>
+              <div className="space-y-8">
+                <div>
+                  <p className="font-bold text-2xl">Mission</p>
+                  <p className="md:pr-8 font-medium leading-7">
+                    To ignite transforming change in Nigeria&apos;s EDucation sector, fostering an ecosystem where
+                    education, excellence is recognized and celebrated
+                  </p>
+                </div>
+                <div>
+                  <p className="font-bold text-2xl">Vision</p>
+                  <p className="md:pr-8 font-medium leading-7">
+                    To acknowledge and encourage significant contributions that enhances the quality of education in
+                    Nigeria, motivating stakeholders to invest, innovate and engage in uplifting the country&apos;s
+                    educational standards.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div className="md:grid-cols-2 grid md:gap-16 gap-10 mt-10 mb-20">
+            <div className="space-y-6 font-medium leading-7">
+              <div className="px-6 py-10 from-[#ffd174] bg-gradient-to-r">
+                <p>
+                  In the span of a decade, Nigeria has seen transformative changes in education, thanks to the
+                  collective efforts of dedicated stakeholders.
+                </p>
+              </div>
+              <div className="px-6 py-10 from-[#d5ff7c] to-[#f3ffd8] bg-gradient-to-r">
+                <p>
+                  From enhancing educational infrastructures and curricula to implementing sustainable Corporate Social
+                  Responsibility (CSR) projects, the contributions have been diverse yet singular in their
+                  goal—improving education for every Nigerian child.
+                </p>
+              </div>
+              <div className="px-6 py-10 from-[#e167ff] to-[#f8ddff] bg-gradient-to-r">
+                <p>
+                  NESA Africa&apos;s award categories are thoughtfully curated to honor the wide spectrum of efforts
+                  that have contributed to this educational metamorphosis.
+                </p>
+              </div>
+              <div className="px-6 py-10 from-[#e6b961] to-[#f2e7d2] bg-gradient-to-r">
+                <p>
+                  NESA Africa&apos;s award categories are thoughtfully curated to honor the wide spectrum of efforts
+                  that have contributed to this educational metamorphosis.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-6 font-medium leading-7 bg-[#FFC2474D] py-8 px-6 self-start">
+              <p className="font-bold text-2xl text-darkGold">As you prepare to vote through our website....</p>
+              <p>
+                You&apos;ll find the inspiring stories of our nominees—their challenges, their successes, and the
+                enduring impact of their work. It&apos;s a testament to what can be achieved when commitment meets
+                action in the realm of education
+              </p>
+              <p>
+                Join us as we embark on this celebratory journey, recognizing a decade of educational champions
+                excellence and transformation in Nigeria. Through these stories of achievement and progress, NESA Africa
+                aims to inspire continued effort and dedication towards an inclusive and quality education system across
+                Nigeria and the broader African continent.
+              </p>
+              <p>
+                Welcome to NESA Africa, where every recognition marks a milestone in our shared journey towards a
+                brighter educational future.
+              </p>
+            </div>
+          </div>
+        </section>
 
         <section className="py-[10rem] mb-[5rem] text-white relative">
           <Image
