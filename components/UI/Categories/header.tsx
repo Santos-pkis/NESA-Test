@@ -1,16 +1,18 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { toTopV, parentV } from "@/lib/utils/variants";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { toTopV, parentV } from '@/lib/utils/variants';
 
 const CategoriesHeader = () => {
   return (
     <header>
-      <div className={`md:min-h-[35rem] min-h-screen bg-zinc-200 text-white relative`}>
+      <div
+        className={`md:min-h-[35rem] min-h-screen bg-zinc-200 text-white relative`}
+      >
         <div className="absolute top-0 left-0 h-full w-full">
           <Image
-            src={"/images/bg/about_.png"}
+            src={'/images/bg/about_.png'}
             alt="hero image"
             width={1240}
             height={800}
@@ -35,8 +37,16 @@ const CategoriesHeader = () => {
               <p>15 categories to nominate your champions from.</p>
             </motion.div>
 
-            <motion.div variants={toTopV} className="grid place-content-center opacity-40 duration-300 md:opacity-100">
-              <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
+            <motion.div
+              variants={toTopV}
+              className="grid place-content-center opacity-40 duration-300 md:opacity-100"
+            >
+              <Image
+                src={'/images/logos/big_logo.png'}
+                alt="logo"
+                width={500}
+                height={500}
+              />
             </motion.div>
           </motion.div>
         </div>

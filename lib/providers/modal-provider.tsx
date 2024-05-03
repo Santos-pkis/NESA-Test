@@ -9,10 +9,6 @@ const ModalProvider: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <>
-      {/* <AnimatePresence initial={false} mode="wait">
-        {visible && <Modal visible={visible} key={"modal-"} />}
-      </AnimatePresence> */}
-
       {children}
     </>
   );
