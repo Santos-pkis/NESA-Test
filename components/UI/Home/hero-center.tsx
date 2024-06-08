@@ -12,20 +12,20 @@ import { inter } from "@/lib/utils/font";
 const HeroCenter = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const cxt = gsap.context(() => {
-      const timeline = gsap.timeline();
+  // useLayoutEffect(() => {
+  //   const cxt = gsap.context(() => {
+  //     const timeline = gsap.timeline();
 
-      if (!ref.current) return;
+  //     if (!ref.current) return;
 
-      timeline
-        .set(ref.current, { visibility: "visible" })
-        .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
-        .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } });
-    }, ref);
+  //     timeline
+  //       .set(ref.current, { visibility: "visible" })
+  //       .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
+  //       .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } });
+  //   }, ref);
 
-    return () => cxt.revert();
-  }, []);
+  //   return () => cxt.revert();
+  // }, []);
 
   return (
     <>
@@ -41,14 +41,14 @@ const HeroCenter = () => {
           >
             {new Array(3).fill(null).map((_, id) => (
               <p key={id} className={`text-lg py-1 ${styles["head-scroll-text"]}`}>
-                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts September 15th, 2024. Get ready to
-                nominate your Education Champion!
+                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts September 15th, 2024. Get ready
+                to nominate your Education Champion!
               </p>
             ))}
           </motion.div>
         </motion.div>
       </div>
-      <div className="flex items-center justify-center invisible" ref={ref}>
+      <div className="flex" ref={ref}>
         <div className="container flex items-end justify-between mt-8">
           <div className="max-w-6xl mx-auto">
             <div className="space-y-10 mt-8">
@@ -76,7 +76,7 @@ const HeroCenter = () => {
               </div>
             </div>
 
-            <div className="flex items-center md:gap-6 gap-4 text-sm md:text-base justify-center mt-8 overflow-hidden">
+            <div className="flex items-center md:gap-6 gap-4 text-sm md:text-base mt-8 overflow-hidden">
               <div>
                 <Link href={"/categories"}>
                   <button className={`${primaryBtn} _h_button bg-midGold`}>Nominate Now</button>

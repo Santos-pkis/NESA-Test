@@ -5,7 +5,7 @@ import styles from "@/components/Common/Slide/style.module.scss";
 const HomeHeader = () => {
   return (
     <header>
-      <div className={`min-h-[58rem]  z-[4] bg-zinc-200 text-white relative ${styles.homeHeader}`}>
+      <div className={`min-h-[58rem] z-[4] bg-zinc-200 text-white relative ${styles.homeHeader}`}>
         <div className="absolute top-0 left-0 h-full w-full">
           <Image
             src={"/images/bg/home_back.png"}
