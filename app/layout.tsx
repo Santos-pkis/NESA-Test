@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { manrope } from "@/lib/utils/font";
+import { montserrat } from "@/lib/utils/font";
 import "../public/globals.css";
 import Providers from "@/lib/providers/providers";
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={manrope.className}>
+      <body className={montserrat.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -7,7 +7,9 @@ import { motion } from "framer-motion";
 import { opacityTrans } from "@/lib/utils/transitions";
 import Link from "next/link";
 import SantosLink from "@/components/Common/Links/santos";
-import { inter } from "@/lib/utils/font";
+import { FaStar } from "react-icons/fa6";
+import Image from "next/image";
+import Button from "@/components/Common/Button";
 
 const HeroCenter = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -48,49 +50,36 @@ const HeroCenter = () => {
           </motion.div>
         </motion.div>
       </div>
-      <div className="flex" ref={ref}>
-        <div className="container flex items-end justify-between mt-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="space-y-10 mt-8">
-              <div className="overflow-hidden">
-                <h1 className="xl:text-2xl lg:text-xl md:text-lg _h_text">Welcome to NESA Nigeria 2023 Awards</h1>
-              </div>
-              <div className="overflow-hidden">
-                <p
-                  className={`font-bold lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-[#d9a53c] _h_text ${inter.className}`}
-                >
-                  A Decade of Educational Excellence & Transformation
-                </p>
-              </div>
-              <div className="overflow-hidden">
-                <p className="md:text-xl sm:text-lg _h_text flex flex-col gap-2">
-                  <span>
-                    Join Us in Recognizing the Efforts and Contributions of Nigeria and African Champions&apos; in
-                    Achieving the Vision of Education for All from 2013 to 2023 as a Decade of Educational Excellence
-                    and Transformation in Nigeria and Africa
-                  </span>
-                  <span className="font-semibold italic text-midGold text-sm">
-                    A flagship initiative under NESA Africa by <SantosLink />
-                  </span>
-                </p>
-              </div>
+
+      <div className="grid grid-cols-2 items-center gap-2 container py-20">
+        <div>
+          <div className="space-y-5 text-left">
+            <div className="flex items-center gap-2 text-primaryGold">
+              <FaStar />
+              <p className="text-lg">The NESA Africa Awards 2024</p>
+              <FaStar />
             </div>
 
-            <div className="flex items-center md:gap-6 gap-4 text-sm md:text-base mt-8 overflow-hidden">
-              <div>
-                <Link href={"/categories"}>
-                  <button className={`${primaryBtn} _h_button bg-midGold`}>Nominate Now</button>
-                </Link>
-              </div>
-              <div>
-                <Link href={"/about"}>
-                  <button className="border-[#e0aa3e] px-5 font-semibold _h_button py-3 rounded-md border-2 bg-[#191307]">
-                    What&apos;s NESA?
-                  </button>
-                </Link>
-              </div>
+            <h1 className="font-bold text-4xl text-primaryGold">Celebrating Educational Excellence Across Africa</h1>
+
+            <p>
+              Join Us in Recognizing Excellence & Nominate Outstanding Individuals and Organizations for the Prestigious
+              New Education Standard Awards, and be inspired by their stories.
+            </p>
+
+            <p className="text-primaryGold">
+              A flagship initiative under <SantosLink />
+            </p>
+
+            <div className="flex items-center gap-2">
+              <Button text="View Categories" variant="filled" className="rounded-full" />
+              <Button text="Nominate Now" className="rounded-full" />
             </div>
           </div>
+        </div>
+
+        <div className="grid place-content-center">
+          <Image src={"/images/nesa-award.png"} alt="" width={300} height={300} />
         </div>
       </div>
     </>
