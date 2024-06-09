@@ -9,7 +9,7 @@ const Page = () => {
     <>
       <HomeHeader />
       <main className="pb-8">
-        <Category />
+        {/* <Category /> */}
         {/* <HomePartners /> */}
         <AboutNewEducation />
         <Timeline />

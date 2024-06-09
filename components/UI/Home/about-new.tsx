@@ -8,32 +8,22 @@ import Image from "next/image";
 const AboutNewEducation = () => {
   return (
     <>
-      <section className="relative py-36">
-        <Image
-          src={"/images/logos/big_logo.png"}
-          alt="logo"
-          width={800}
-          height={800}
-          className="absolute -bottom-16 left-0 -z-[1] opacity-40"
-        />
-
+      <section className="relative bg-[#fff5e0]">
         <div className="container grid md:grid-cols-2 gap-16 items-center">
-          <div className="grid place-content-center">
-            <Image src={"/images/bg/education.png"} alt="dark background" width={600} height={600} />
-          </div>
           <DivParentInView className="space-y-6 container">
             <motion.h3 variants={toTopV} className="_under_border font-bold text-darkGold">
-              ABOUT NEW EDUCATION STANDARD AWARDS:
+              About NESA Africa
             </motion.h3>
-            <motion.p variants={toTopV} className="font-bold md:text-5xl text-4xl">
+
+            <motion.p variants={toTopV} className="font-bold text-4xl">
               Championing Education <br /> Excellence in Africa
             </motion.p>
 
             <DivParentInView className="space-y-6 text-lg">
               <motion.p variants={toTopV} className="text-black">
-                <span className="font-bold">New Education Standard Award Africa (NESA Africa)</span> is an initiative
-                designed to recognize, celebrate and foster educational excellence and innovation across the African
-                continent.
+                <span className="text-primaryGold">New Education Standard Award Africa (NESA Africa) 2024</span> is an
+                initiative designed to recognize and honor outstanding achievements in the educational sector across the
+                Africa.
               </motion.p>
 
               <motion.p variants={toTopV}>
@@ -46,6 +36,9 @@ const AboutNewEducation = () => {
               <button className={primaryBtn}>Learn More</button>
             </DivParentInView>
           </DivParentInView>
+          <div className="grid place-content-center">
+            <Image src={"/images/about-vid.png"} alt="dark background" width={600} height={600} />
+          </div>
         </div>
       </section>
     </>

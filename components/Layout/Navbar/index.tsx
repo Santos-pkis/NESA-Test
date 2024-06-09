@@ -109,7 +109,7 @@ const Navbar = () => {
             {!pathname.startsWith("/categories/") ? (
               <motion.button
                 variants={fromTop}
-                className="text-[#17120a] xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-full"
+                className="text-[#17120a] xl:py-3 px-3 py-2 xl:text-base text-sm rounded-full"
                 style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
               >
                 Nominate Now
