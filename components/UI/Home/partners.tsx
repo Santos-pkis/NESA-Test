@@ -1,12 +1,12 @@
+import Button from "@/components/Common/Button";
 import Partners from "@/components/Common/Slide/partners";
-import { primaryBtn } from "@/lib/helpers";
 import Image from "next/image";
 
 const HomePartners = () => {
   return (
-    <section className="py-[10rem] mb-[5rem] text-white relative">
+    <section className="py-[7rem] mb-[5rem] text-white relative">
       <Image
-        src={"/images/bg/back_.jpeg"}
+        src={"/images/bg/timeline.png"}
         alt="dark background"
         className="w-full h-full object-cover -z-[2] absolute top-0 left-0"
         width={1024}
@@ -16,10 +16,10 @@ const HomePartners = () => {
       <div className="bg-[#15110999] absolute top-0 left-0 w-full -z-[1] h-full"></div>
 
       <div className="space-y-8 container">
-        <p className="text-white text-center text-2xl font-medium">Meet our Key Partners Powering Education Together</p>
+        <p className="text-white text-center text-4xl font-semibold">Meet Our Key Partners </p>
 
         <div>
-          <div className={"relative whitespace-nowrap md:container overflow-hidden md:border-x-2"}>
+          <div className={"relative whitespace-nowrap md:container overflow-hidden"}>
             <Partners />
             <Partners />
             <Partners />
@@ -27,7 +27,7 @@ const HomePartners = () => {
         </div>
 
         <div className="grid place-content-center">
-          <button className={primaryBtn + " bg-midGold"}>Partner with us</button>
+          <Button text="Partner with us" variant="filled" size="medium" />
         </div>
       </div>
     </section>

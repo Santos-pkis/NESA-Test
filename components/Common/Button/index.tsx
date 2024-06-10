@@ -64,7 +64,7 @@ const Button: FC<Props> = (props) => {
       mainClass += "px-4 py-[6px] text-xs ";
       break;
     case "small":
-      mainClass += "px-6 py-[8px] text-sm ";
+      mainClass += "px-6 py-[10px] text-sm ";
       break;
     case "medium":
       mainClass += "px-6 py-3 ";
