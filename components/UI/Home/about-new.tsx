@@ -8,7 +8,7 @@ import Image from "next/image";
 const AboutNewEducation = () => {
   return (
     <>
-      <section className="relative bg-[#fff5e0]">
+      <section className="relative bg-[#fff5e0] py-10">
         <div className="container grid md:grid-cols-2 gap-16 items-center">
           <DivParentInView className="space-y-6 container">
             <motion.h3 variants={toTopV} className="_under_border font-bold text-darkGold">

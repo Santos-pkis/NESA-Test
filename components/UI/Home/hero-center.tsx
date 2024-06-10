@@ -51,10 +51,10 @@ const HeroCenter = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-2 items-center gap-2 container py-20">
+      <div className="grid md:grid-cols-2 items-center gap-2 container py-20">
         <div>
-          <div className="space-y-5 text-left">
-            <div className="flex items-center gap-2 text-primaryGold">
+          <div className="space-y-5 md:text-left text-center">
+            <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold">
               <FaStar />
               <p className="text-lg">The NESA Africa Awards 2024</p>
               <FaStar />

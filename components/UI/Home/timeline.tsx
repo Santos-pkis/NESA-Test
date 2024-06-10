@@ -1,5 +1,48 @@
 import Image from "next/image";
 
+const data: {
+  range: string;
+  year: string;
+  title: string;
+  list: string[];
+}[] = [
+  {
+    range: "July - August",
+    year: "2024",
+    title: "Nominate Your Education Champion",
+    list: [
+      "Launch of the nomination process on the NNESA digital platform. Inviting entries from eligible participants across various categories",
+      "Continuous collection of nominations, allowing participants to submit their applications along with supporting documents and evidence of work.",
+    ],
+  },
+  {
+    range: "August",
+    year: "2024",
+    title: "Nomination closes & Internal Screening Proceeds",
+    list: [
+      "Closure of the nomination process followed by initial screening to ensure compliance with the criteria and requirements",
+    ],
+  },
+  {
+    range: "September",
+    year: "2024",
+    title: "Public Voting Proceeds & Judging Period",
+    list: [
+      "Shortlisted nominees will be requested to upload detailed presentations or portfolios on the NNESA digital platform for pre- screening by the judges",
+      "A panel of judges reviews the submissions to determine the recipients of the Platinum Awards in each cate",
+    ],
+  },
+  {
+    range: "Oct - Nov",
+    year: "2024",
+    title: "The Award Ceremony and Winner Announcements",
+    list: [
+      "Final preparations for the awards ceremony, including logistics, guest management, and media arrangements.",
+      "Hosting the grand awards ceremony, announcing the winners, and celebrating their achievement on Oct 16, 2024",
+    ],
+  },
+];
+
 const Timeline = () => {
   return (
     <section className="relative text-white py-16">
@@ -11,105 +54,28 @@ const Timeline = () => {
         height={1580}
       />
 
-      <div className="container py-[4rem]">
-        <h3 className="_under_border font-bold text-lg hidden md:block">NESA NIGERIA 2023 AWARD TIMELINES</h3>
+      <div className="container py-[4rem] space-y-8">
+        <h3 className="_under_border font-bold text-xl hidden md:block">NESA Africa 2024 Award Timelines</h3>
 
-        <div className="space-y-2">
-          <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
-            <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
-              <h4 className="font-bold text-3xl">
-                Nominate Your Education Champion <span className="md:hidden text-deepGold">--- 1st September 2024</span>
-              </h4>
-              <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
-                <li>
-                  Click the “NOMINATE NOW” button to access the nomination page where you have access to then select the
-                  Award Category . Then nominate your Education Champion in each sub-category
-                </li>
-                <li>
-                  Nomination Starts on the <span className="font-bold text-deepGold">1st September 2024</span>
-                </li>
-                <li>The Same organization or candidate can be nominated under various award category</li>
-                <li>
-                  Confirmation of submission: Once you nominate under any category, you would proceed to the Thank you
-                  page from where you can invite others to nominate or simply navigate back to exploring other awards
-                  category
-                </li>
-                <li>You can also decide to nominate yourself or your organization as-well</li>
-              </ul>
-            </div>
+        <div className="space-y-8">
+          {data.map((item, id) => (
+            <div key={id} className="grid grid-cols-7 items-center">
+              <div className="flex-shrink-0 col-span-2">
+                <p className="text-2xl font-bold">{item.range}</p>
+                <p className="text-2xl font-bold">{item.year}</p>
+              </div>
 
-            <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-              <p className="font-extrabold text-2xl">1st</p>
-              <p className="font-semibold text-2xl">Sep 2024</p>
-            </div>
-          </div>
-          <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
-            <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
-              <h4 className="font-bold text-3xl">
-                Nomination closes & Internal Screening Proceeds{" "}
-                <span className="md:hidden text-deepGold">--- 15th September 2024</span>
-              </h4>
-              <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
-                <li>
-                  Nomination process closes <span className="text-deepGold font-bold">15th of September 2024</span>{" "}
-                  followed by internal screening to ensure compliance with the criteria and requirements
-                </li>
-                <li>
-                  Shortlisted Nominees would be reached out to and requested to upload detailed educational impact
-                  portfolios or presentation so the judges can review them.
-                </li>
-                <li>Public Announcement of the Candidates shortlisted to each Category Awards.</li>
-              </ul>
-            </div>
+              <div className="col-span-5 border-l-4 pl-4 border-primaryGold">
+                <h4 className="text-2xl font-medium">{item.title}</h4>
 
-            <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-              <p className="font-extrabold text-2xl">15th Sep</p>
-              <p className="font-semibold text-2xl">2024</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  {item.list.map((list, id) => (
+                    <li key={id}>{list}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-          <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
-            <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
-              <h4 className="font-bold text-3xl">
-                Public Voting Proceeds <span className="md:hidden text-deepGold">--- 1st October 2024</span>
-              </h4>
-              <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
-                <li>
-                  General Public Voting for the Shortlisted candidate proceeds. Note that Public Votes contributes only
-                  50% to he final results of each category. The Voting Portal would be open on{" "}
-                  <span className="font-bold text-deepGold">1st October 2024</span> so the public can their votes and
-                  Voting Ends <span className="font-bold text-deepGold">7th October 2024</span>
-                </li>
-                <li>
-                  Once Public Votes is concluded, the panel of Judges would also cast their votes contributing the
-                  remaining 50% to determine Final Winners of each category.
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-              <p className="font-extrabold text-2xl">1st - 7th</p>
-              <p className="font-semibold text-2xl">Oct 2024</p>
-            </div>
-          </div>
-          <div className="flex md:flex-row flex-col-reverse md:items-center md:gap-[15rem] gap-4">
-            <div className="mt-6 space-y-3 border-b-[3px] border-white/70 pb-10">
-              <h4 className="font-bold text-3xl">
-                The Award Ceremony and Winner Announcements{" "}
-                <span className="md:hidden text-deepGold">--- 16th October 2024</span>
-              </h4>
-              <ul className="list-disc ml-6 space-y-4 text-[#f3f3f3]">
-                <li>
-                  The winners will be announced, and their extraordinary contributions will be celebrated in style at
-                  the New Standard Education Award Dinner Ceremony
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex-shrink-0 md:text-end text-start space-y-1 hidden md:block">
-              <p className="font-extrabold text-2xl">16th</p>
-              <p className="font-semibold text-2xl">Oct 2024</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
