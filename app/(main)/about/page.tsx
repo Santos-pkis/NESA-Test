@@ -9,6 +9,7 @@ import Image from "next/image";
 
 const Page = () => {
   const { sliderRef: ref, moveLeft, moveRight } = useSlider();
+  const { sliderRef: ref2, moveLeft: ml2, moveRight: mr2 } = useSlider();
 
   return (
     <>
@@ -151,7 +152,7 @@ const Page = () => {
               <div className="relative">
                 {/* left arrow */}
                 <div
-                  className="size-12 cursor-pointer rounded-full bg-black/50 duration-300 hover:bg-black text-white grid place-content-center absolute -left-2 top-[40%]"
+                  className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute -left-2 top-[40%]"
                   onClick={moveLeft}
                 >
                   <ChevronLeft />
@@ -190,7 +191,7 @@ const Page = () => {
 
                 {/* right arrow */}
                 <div
-                  className="size-12 cursor-pointer rounded-full bg-black/50 duration-300 hover:bg-black text-white grid place-content-center absolute -right-2 top-[40%]"
+                  className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute -right-2 top-[40%]"
                   onClick={moveRight}
                 >
                   <ChevronRight />
@@ -211,15 +212,15 @@ const Page = () => {
                 <div className="relative">
                   {/* left arrow */}
                   <div
-                    className="size-12 cursor-pointer rounded-full bg-black/50 duration-300 hover:bg-black text-white grid place-content-center absolute -left-2 top-[40%]"
-                    onClick={moveLeft}
+                    className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute -left-2 top-[40%]"
+                    onClick={ml2}
                   >
                     <ChevronLeft />
                   </div>
 
                   <div
                     className={`flex items-center gap-8 overflow-x-auto container hide_scroll scroll-smooth`}
-                    ref={ref}
+                    ref={ref2}
                   >
                     {panel.map((judge, id) => (
                       <div
@@ -250,8 +251,8 @@ const Page = () => {
 
                   {/* right arrow */}
                   <div
-                    className="size-12 cursor-pointer rounded-full bg-black/50 duration-300 hover:bg-black text-white grid place-content-center absolute -right-2 top-[40%]"
-                    onClick={moveRight}
+                    className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute -right-2 top-[40%]"
+                    onClick={mr2}
                   >
                     <ChevronRight />
                   </div>

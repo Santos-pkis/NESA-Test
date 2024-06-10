@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { toTopV, parentV } from "@/lib/utils/variants";
+import { toTopV, parentV, opacityV } from "@/lib/utils/variants";
 
 const data = [
   { heading: "15k+", name: "Students Reached" },
@@ -69,7 +69,7 @@ const AboutHeader = () => {
               </motion.div>
             </div>
 
-            <div className="container rounded-2xl relative overflow-hidden">
+            <motion.div {...opacityV} className="container rounded-2xl relative overflow-hidden">
               <Image
                 src={"/images/about-vid-cover.png"}
                 alt="cover"
@@ -77,7 +77,7 @@ const AboutHeader = () => {
                 height={800}
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
