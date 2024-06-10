@@ -5,6 +5,7 @@ import HomeFaq from "@/components/UI/Home/faq";
 import HomeHeader from "@/components/UI/Home/header";
 import HomePartners from "@/components/UI/Home/partners";
 import Judges from "@/components/UI/Home/judges";
+import GetInvolved from "@/components/UI/Home/get-involved";
 
 const Page = () => {
   return (
@@ -16,6 +17,7 @@ const Page = () => {
         <HomePartners />
         <Category />
         <Judges />
+        <GetInvolved />
         <Timeline />
         <HomeFaq />
       </main>
