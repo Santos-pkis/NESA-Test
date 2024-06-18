@@ -1,4 +1,5 @@
 "use client";
+import Button from "@/components/Common/Button";
 import { primaryBtn } from "@/lib/helpers";
 import { DivParentInView } from "@/lib/utils/framer-transitions";
 import { toTopV } from "@/lib/utils/variants";
@@ -33,7 +34,7 @@ const AboutNewEducation = () => {
                 achieving these goals.
               </motion.p>
 
-              <button className={primaryBtn}>Learn More</button>
+              <Button text="Learn More" variant="filled" />
             </DivParentInView>
           </DivParentInView>
           <div className="grid place-content-center">
