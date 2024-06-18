@@ -38,11 +38,10 @@ const Button: FC<Props> = (props) => {
 
   switch (variant) {
     case "filled":
-      mainClass += "bg-primaryGold text-black hover:bg-primaryGold/80 ";
+      mainClass += "bg-gradient-to-r from-[#febf44] to-[#ed9d19] text-[#191307] ";
       break;
     case "outline":
-      mainClass +=
-        "bg-transparent border border-zinc-500/50 hover:border-primaryGold text-primaryGold disabled:border-zinc-500/50 ";
+      mainClass += "bg-transparent border border-[#f4ac2b] text-primaryGold disabled:border-zinc-500/50 ";
       break;
     case "destructive":
       mainClass +=

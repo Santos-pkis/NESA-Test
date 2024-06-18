@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { fromLeft, fromRight, fromTop, opacityTrans, parentTrans, parentTransActivate } from "@/lib/utils/transitions";
+import { fromLeft, fromRight, fromTop, opacityTrans, parentTransActivate } from "@/lib/utils/transitions";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navlinks } from "@/lib/data/global";
@@ -51,20 +51,16 @@ const Navbar = () => {
     <>
       <nav className="bg-[#17120a] fixed top-0 left-0 w-full duration-[400ms] z-[1000]" ref={ref}>
         <div className="container py-4 lg:grid flex justify-between items-center grid-cols-3 text-white">
-          <motion.div {...fromLeft}>
+          <motion.div>
             <Link href={"/"}>
               <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} id="nav_logo" />
             </Link>
           </motion.div>
 
           <div className="flex items-center justify-center">
-            <motion.ul
-              variants={parentTrans}
-              {...parentTransActivate}
-              className="hidden items-center gap-12 font-medium text-lg lg:flex"
-            >
+            <motion.ul {...parentTransActivate} className="hidden items-center gap-12 font-medium text-lg lg:flex">
               {navlinks.map((link, id) => (
-                <motion.li variants={fromTop} key={id} className="">
+                <motion.li key={id} className="">
                   {link.children ? (
                     <div
                       className={`cursor-pointer ${
@@ -101,26 +97,18 @@ const Navbar = () => {
             </motion.ul>
           </div>
 
-          <motion.div
-            variants={parentTrans}
-            {...parentTransActivate}
-            className="lg:flex hidden items-center gap-6 font-semibold justify-end"
-          >
+          <motion.div {...parentTransActivate} className="lg:flex hidden items-center gap-6 font-semibold justify-end">
             {!pathname.startsWith("/categories/") ? (
               <motion.button
-                variants={fromTop}
-                className="text-[#17120a] xl:py-3 px-3 py-2 xl:text-base text-sm rounded-full"
+                className="text-[#17120a] xl:py-3 px-3 py-1 text-sm rounded-full"
                 style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
               >
-                Nominate Now
+                Register now
               </motion.button>
             ) : (
               <div>
                 <Link href={"/categories"}>
-                  <motion.button
-                    variants={fromTop}
-                    className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base border text-sm rounded-full text-white"
-                  >
+                  <motion.button className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base border text-sm rounded-full text-white">
                     Go Back to Category
                   </motion.button>
                 </Link>
@@ -134,7 +122,7 @@ const Navbar = () => {
             </motion.button> */}
           </motion.div>
 
-          <motion.div {...fromRight} className="block lg:hidden cursor-pointer">
+          <motion.div className="block lg:hidden cursor-pointer">
             <Menu className="text-white" onClick={() => setSidebarOpen(!sidebarOpen)} />
           </motion.div>
         </div>
@@ -145,7 +133,7 @@ const Navbar = () => {
           sidebarOpen ? "h-full" : "h-0"
         } fixed top-0 left-0 w-full bg-black/95 backdrop-blur-sm text-white select-none flex duration-300 ease-out items-center justify-center z-[2000] overflow-hidden`}
       >
-        <motion.div {...fromRight} className="absolute right-8 top-8 cursor-pointer">
+        <motion.div className="absolute right-8 top-8 cursor-pointer">
           <X size={28} onClick={() => setSidebarOpen(!sidebarOpen)} />
         </motion.div>
 
