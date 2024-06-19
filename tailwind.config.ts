@@ -13,7 +13,7 @@ const config: Config = {
     },
     extend: {
       colors: {
-        primaryGold: "#e0aa3e",
+        primaryGold: "#f3a928",
         primaryGoldLight: "#f8f295",
         deepGold: "#FFB92E",
         midGold: "#FFC247",

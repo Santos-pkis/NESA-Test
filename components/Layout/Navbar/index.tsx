@@ -58,12 +58,15 @@ const Navbar = () => {
           </motion.div>
 
           <div className="flex items-center justify-center">
-            <motion.ul {...parentTransActivate} className="hidden items-center gap-12 font-medium text-lg lg:flex">
+            <motion.ul
+              {...parentTransActivate}
+              className="hidden items-center gap-12 font-medium text-lg  relative lg:flex"
+            >
               {navlinks.map((link, id) => (
                 <motion.li key={id} className="">
                   {link.children ? (
                     <div
-                      className={`cursor-pointer ${
+                      className={`cursor-pointer relative ${
                         link.path === pathname ? "font-semibold" : "font-normal duration-200"
                       } ${styles["nav-link"]}`}
                     >
@@ -73,7 +76,7 @@ const Navbar = () => {
                       </div>
 
                       <div
-                        className={`absolute ${styles["nav-link-child"]} top-full -right-[152px] duration-300 overflow-hidden shadow-xl text-sm min-w-[15rem] bg-darkGold text-white rounded-md`}
+                        className={`absolute ${styles["nav-link-child"]} top-full  duration-300 overflow-hidden shadow-xl text-sm min-w-[15rem] bg-darkGold text-white rounded-md`}
                       >
                         {link.children.map((child, id) => (
                           <div key={id} className="hover:bg-deepGold duration-200 px-5">

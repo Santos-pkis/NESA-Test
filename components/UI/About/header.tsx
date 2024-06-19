@@ -16,7 +16,7 @@ const AboutHeader = () => {
       <div className={`min-h-[70rem] bg-zinc-200 text-white relative py-10`}>
         <div className="absolute top-0 left-0 h-full w-full">
           <Image
-            src={"/images/bg/about_.png"}
+            src={"/images/header.png"}
             alt="hero image"
             width={1240}
             height={800}
