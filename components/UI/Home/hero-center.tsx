@@ -7,6 +7,7 @@ import SantosLink from "@/components/Common/Links/santos";
 import { FaStar } from "react-icons/fa6";
 import Image from "next/image";
 import Button from "@/components/Common/Button";
+import CountdownTimer from "@/components/Common/Others/counter";
 
 const HeroCenter = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -39,9 +40,9 @@ const HeroCenter = () => {
             className={`space-x-8 border-y-[2.5px] overflow-hidden border-[#d9a53c] ${styles["head-scroll-con"]} bg-transparent`}
           >
             {new Array(3).fill(null).map((_, id) => (
-              <p key={id} className={`text-lg py-1 ${styles["head-scroll-text"]}`}>
-                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts September 15th, 2024. Get ready
-                to nominate your Education Champion!
+              <p key={id} className={`py-1 ${styles["head-scroll-text"]}`}>
+                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts July, 2024 to Septmeber. Get
+                ready to nominate your Education Champion!
               </p>
             ))}
           </motion.div>
@@ -57,7 +58,7 @@ const HeroCenter = () => {
               <FaStar />
             </div>
 
-            <h1 className="font-bold text-4xl text-primaryGold leading-[1.6]">
+            <h1 className="font-bold text-4xl bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
               Celebrating Educational Excellence Across Africa
             </h1>
 
@@ -81,6 +82,8 @@ const HeroCenter = () => {
           <Image src={"/images/nesa-mg.png"} alt="" width={300} height={300} />
         </div>
       </div>
+
+      <CountdownTimer />
     </>
   );
 };
