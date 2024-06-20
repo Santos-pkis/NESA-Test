@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { montserrat } from "@/lib/utils/font";
+import { montserrat, poppins } from "@/lib/utils/font";
 import "../public/globals.css";
 import Providers from "@/lib/providers/providers";
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body className={poppins.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

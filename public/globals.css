@@ -48,6 +48,10 @@ body::-webkit-scrollbar {
   border-radius: 5px;
 }
 
+._under_border_center {
+  position: relative;
+}
+
 ._under_border_center::after {
   content: "";
   position: absolute;

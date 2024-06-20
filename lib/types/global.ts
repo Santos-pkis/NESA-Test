@@ -1,5 +1,10 @@
 export interface Category {
-  id: number;
+  heading: string;
+  children: CategoryChild[];
+}
+
+export interface CategoryChild {
+  id: number | string;
   title: string;
   description: string;
   detailsDescription?: string;
@@ -49,3 +54,19 @@ export interface Panel {
   name: string;
   position: string;
 }
+
+type Option = {
+  text: string;
+  value: string;
+};
+
+type CategoryDetailOption = {
+  label: string;
+  placeholder?: string;
+  options: Option[];
+};
+
+export type CategoryDetails = {
+  id: number;
+  data: CategoryDetailOption[];
+};

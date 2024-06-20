@@ -28,11 +28,11 @@ const Button: FC<Props> = (props) => {
     disabled = false,
     loading = false,
     iconPosition = "right",
-    rounded = "lg",
+    rounded = "full",
     fullWidth = false,
     ...rest
   } = props;
-  let mainClass = `rounded-full font-semibold duration-300 ${
+  let mainClass = `rounded-${rounded ?? "full"} font-semibold duration-300 ${
     fullWidth ? "w-full flex items-center justify-center gap-3" : "w-auto flex items-center gap-2"
   } disabled:opacity-40 disabled:cursor-not-allowed ${inter.className} `;
 

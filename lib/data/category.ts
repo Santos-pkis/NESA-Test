@@ -1,6 +1,6 @@
-import { Category } from "../types/global";
+import { Category, CategoryChild, CategoryDetails } from "../types/global";
 
-export const homeCategories: Category[] = [
+export const homeCategories: CategoryChild[] = [
   {
     id: 1,
     title: "FAITH-BASED ORGANIZATION COCNTRIBUTIONS TO EDUCATION",
@@ -18,7 +18,7 @@ export const homeCategories: Category[] = [
   },
 ];
 
-export const leftCategories: Category[] = [
+export const leftCategories: CategoryChild[] = [
   {
     id: 1,
     title: "NGO Educational Champion of the Decade",
@@ -73,7 +73,7 @@ export const leftCategories: Category[] = [
   },
 ];
 
-export const rightCategories: Category[] = [
+export const rightCategories: CategoryChild[] = [
   {
     id: 9,
     title: "Political Leadership in Education Champion of the Decade",
@@ -134,23 +134,33 @@ export const rightCategories: Category[] = [
 
 export const allCategories = [...leftCategories, ...rightCategories];
 
-// DETAILS DATA
-
-type Option = {
-  text: string;
-  value: string;
+export const blueGarnetCategories: Category = {
+  heading: "The Blue Garnet Award Categories",
+  //   children: [
+  //     {
+  //       id: crypto.randomUUID(),
+  //       title: "NGO Contribution to Education in Nigeria ",
+  //       description: `Celebrates NGOs that have made significant improvements in educational
+  // access, quality, and innovation from 2013-2024.`,
+  //     },
+  //     {
+  //       id: 3,
+  //       title: "Corporate Social Responsibility (CSR) In Education",
+  //       description: `Honoring corporate social responsibility by banks , telecommunications, and other sectors, and showing their  impactful CSR initiatives that have ...`,
+  //     },
+  //   ],
+  children: allCategories,
 };
 
-type CategoryDetailOption = {
-  label: string;
-  placeholder?: string;
-  options: Option[];
-};
-
-export type CategoryDetails = {
-  id: number;
-  data: CategoryDetailOption[];
-};
+export const howToNominate: string[] = [
+  "Visit NESA AFRICA or Santos Creations Educational Foundation.",
+  "Choose your preferred award category, which usually has subcategories",
+  " Submit the details of your nominee (name, Organization and contact details)",
+  "Provide a brief description of th nominees qualifications and achievements.",
+  "Upload any supporting document that support the nomination (e.g, testimonials, reports, certificates,..)",
+  "Submit your nominations , review every information before submission",
+  "Wait for an on-screen confirmation message acknowledging successful nomination",
+];
 
 export const categoryDetails: CategoryDetails[] = [
   {
