@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const NesaAfricaHeader = () => {
   return (
-    <header className={`bg-[#1e1e1e] min-h-[40rem] text-white z-[100] flex items-center pt-28 md:pt-10`}>
+    <header className={`bg-[#17120a] min-h-[40rem] text-white z-[100] flex items-center pt-28 md:pt-10`}>
       <div className="container grid md:grid-cols-2 gap-4 py-20 items-center">
         <div className="space-y-8 text-center md:text-start">
           <h1 className="text-4xl font-bold text-deepGold leading-[1.6]">

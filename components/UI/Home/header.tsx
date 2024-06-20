@@ -16,7 +16,7 @@ const HomeHeader = () => {
           />
         </div>
 
-        <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-tl from-transparent via-[#f7b23258] to-transparent"></div>
+        <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent"></div>
 
         <div className="absolute top-0 left-0 h-full w-full text-center pt-[3rem]">
           <HeroCenter />
