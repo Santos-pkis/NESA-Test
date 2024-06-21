@@ -6,15 +6,15 @@ import { toTopV, parentV } from "@/lib/utils/variants";
 import React from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { Category } from "@/lib/types/global";
+import { CategoryChild, CategoryDetails } from "@/lib/types/global";
 import toast from "react-hot-toast";
-import { CategoryDetails, allCategories } from "@/lib/data/category";
+import { allCategories } from "@/lib/data/category";
 import Link from "next/link";
 import { useModal } from "@/lib/store/modal";
 import Modal from "@/components/Common/Modal";
 import ThanksForVoting from "./thanks-for-voting";
 
-type Props = { id: number; category: Category | undefined; details: CategoryDetails | undefined };
+type Props = { id: number; category: CategoryChild | undefined; details: CategoryDetails | undefined };
 
 const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
   const router = useRouter();
