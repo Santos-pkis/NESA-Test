@@ -1,10 +1,10 @@
-import { Category } from "@/lib/types/global";
+import { CategoryChild } from "@/lib/types/global";
 import Image from "next/image";
 import styles from "./style.module.scss";
 import Link from "next/link";
 
 interface Props {
-  categories: Category[];
+  categories: CategoryChild[];
   direction?: "left" | "right";
   contained?: boolean;
 }
@@ -25,7 +25,7 @@ const CategorySlide: React.FC<Props> = ({ categories, direction, contained }) =>
   );
 };
 
-const Block: React.FC<{ categories: Category[]; direction?: "left" | "right" }> = ({ categories, direction }) => {
+const Block: React.FC<{ categories: CategoryChild[]; direction?: "left" | "right" }> = ({ categories, direction }) => {
   const determineDirection = (): string => {
     switch (direction) {
       case "right":
