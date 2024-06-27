@@ -10,7 +10,7 @@ import GetInvolved from "@/components/UI/Home/get-involved";
 const Page = () => {
   return (
     <>
-      <HomeHeader />
+      {/* <HomeHeader /> */}
       <main className="pb-8">
         {/* <HomePartners /> */}
         <AboutNewEducation />

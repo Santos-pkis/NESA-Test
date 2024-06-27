@@ -41,8 +41,9 @@ const HeroCenter = () => {
           >
             {new Array(3).fill(null).map((_, id) => (
               <p key={id} className={`py-1 ${styles["head-scroll-text"]}`}>
-                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts July, 2024 to Septmeber. Get
-                ready to nominate your Education Champion!
+                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination
+                Starts July, 2024 to Septmeber. Get ready to nominate your
+                Education Champion!
               </p>
             ))}
           </motion.div>
@@ -58,13 +59,14 @@ const HeroCenter = () => {
               <FaStar />
             </div>
 
-            <h1 className="font-bold text-4xl bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
+            <h1 className="font-[600] text-[38rem] leading-[4rem] bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
               Celebrating Educational Excellence Across Africa
             </h1>
 
             <p>
-              Join Us in Recognizing Excellence & Nominate Outstanding Individuals and Organizations for the Prestigious
-              New Education Standard Awards, and be inspired by their stories.
+              Join Us in Recognizing Excellence & Nominate Outstanding
+              Individuals and Organizations for the Prestigious New Education
+              Standard Awards, and be inspired by their stories.
             </p>
 
             <p className="text-primaryGold">
@@ -72,7 +74,11 @@ const HeroCenter = () => {
             </p>
 
             <div className="flex items-center gap-2 justify-center md:justify-start">
-              <Button text="View Categories" variant="filled" className="rounded-full" />
+              <Button
+                text="View Categories"
+                variant="filled"
+                className="rounded-full"
+              />
               <Button text="Nominate Now" className="rounded-full" />
             </div>
           </div>
