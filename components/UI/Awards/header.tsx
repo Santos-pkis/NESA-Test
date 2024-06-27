@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { opacityFromBottomV, parent } from "@/lib/utils/variants";
+import { toTopV, parentV } from "@/lib/utils/variants";
 
 const AwardHeader = () => {
   return (
@@ -22,12 +22,12 @@ const AwardHeader = () => {
 
         <div className="w-full h-full flex items-center absolute top-0 left-0 md:pt-12 sm:pt-52 pt-56">
           <motion.div
-            variants={parent}
+            variants={parentV}
             initial="initial"
             animate="animate"
             className="container grid md:grid-cols-2 items-center"
           >
-            <motion.div variants={opacityFromBottomV} className="space-y-6">
+            <motion.div variants={toTopV} className="space-y-6">
               <h1 className="font-bold lg:text-5xl text-4xl text-midGold lg:leading-[1.4]">
                 Nigeria Education Standard Award: The award of the decade
               </h1>
@@ -39,10 +39,7 @@ const AwardHeader = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              variants={opacityFromBottomV}
-              className="grid place-content-center opacity-40 md:opacity-100 duration-300"
-            >
+            <motion.div variants={toTopV} className="grid place-content-center opacity-40 md:opacity-100 duration-300">
               <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
             </motion.div>
           </motion.div>

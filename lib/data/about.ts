@@ -3,22 +3,17 @@ import { Panel } from "../types/global";
 export const panel: Panel[] = [
   {
     image: "/images/about/judges/j1.png",
-    name: "Council Name",
+    name: "Engr. Dr Babashola Santos",
     position: "Founder/President",
   },
   {
     image: "/images/about/judges/j2.png",
-    name: "Council Name",
-    position: "Executive Director",
+    name: "Hon. Farida Prevail",
+    position: "Head of Events",
   },
   {
     image: "/images/about/judges/j3.png",
     name: "Council Name",
     position: "Programs Manager",
-  },
-  {
-    image: "/images/about/judges/j4.png",
-    name: "Council Name",
-    position: "TeamLead",
   },
 ];

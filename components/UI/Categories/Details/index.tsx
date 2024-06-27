@@ -2,19 +2,25 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { opacityFromBottomV, parent } from "@/lib/utils/variants";
+import { toTopV, parentV } from "@/lib/utils/variants";
 import React from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { Category } from "@/lib/types/global";
+import { CategoryChild, CategoryDetails } from "@/lib/types/global";
 import toast from "react-hot-toast";
-import { CategoryDetails, allCategories } from "@/lib/data/category";
+import { allCategories } from "@/lib/data/category";
 import Link from "next/link";
+import { useModal } from "@/lib/store/modal";
+import Modal from "@/components/Common/Modal";
+import ThanksForVoting from "./thanks-for-voting";
 
-type Props = { id: number; category: Category | undefined; details: CategoryDetails | undefined };
+type Props = { id: number; category: CategoryChild | undefined; details: CategoryDetails | undefined };
 
 const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
   const router = useRouter();
+  const { showModal, hideModal, visible } = useModal();
+
+  const showModClick = () => showModal(<ThanksForVoting />);
 
   if (!category) {
     toast.error("category not found");
@@ -24,6 +30,8 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
 
   return (
     <>
+      <Modal visible={visible} onClose={hideModal}></Modal>
+
       <header>
         <div className={`md:min-h-[48rem] min-h-screen bg-zinc-200 text-white relative`}>
           <div className="absolute top-0 left-0 h-full w-full">
@@ -40,15 +48,15 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
 
           <div className="w-full h-full flex items-center absolute top-0 left-0 md:pt-12 pt-28 text-center md:text-start">
             <motion.div
-              variants={parent}
+              variants={parentV}
               initial="initial"
               animate="animate"
               className="container flex justify-between gap-6 md:gap-0 items-center"
             >
-              <motion.div variants={opacityFromBottomV} className="space-y-6 max-w-3xl">
+              <motion.div variants={toTopV} className="space-y-6 max-w-3xl">
                 <div className="space-y-1">
                   <p className="font-semibold text-sm text-white">Nominate an Education Champion!</p>
-                  <h1 className="font-bold md:text-5xl text-4xl text-midGold md:leading-[1.4]">
+                  <h1 className="font-extrabold md:text-5xl text-4xl text-midGold md:leading-[1.4]">
                     CATEGORY {id}: <br /> {category?.title}
                   </h1>
                 </div>
@@ -74,7 +82,7 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
               </motion.div>
 
               <motion.div
-                variants={opacityFromBottomV}
+                variants={toTopV}
                 className="md:grid hidden place-content-center opacity-40 duration-300 md:opacity-100"
               >
                 <Image src={"/images/logos/big_logo.png"} alt="logo" width={500} height={500} />
@@ -116,9 +124,7 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
                 <div className="pt-8">
                   <button
                     className="w-full bg-deepGold text-black font-semibold py-5 rounded-lg"
-                    onClick={() => (
-                      toast.success("submitted successfully.", { id: "success" }), router.push("/categories")
-                    )}
+                    onClick={showModClick}
                   >
                     Submit Nominations
                   </button>

@@ -1,29 +1,31 @@
 "use client";
-import { primaryBtn } from "@/lib/helpers";
 import { useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
 import styles from "@/components/Common/Slide/style.module.scss";
 import { motion } from "framer-motion";
 import { opacityTrans } from "@/lib/utils/transitions";
-import Link from "next/link";
+import SantosLink from "@/components/Common/Links/santos";
+import { FaStar } from "react-icons/fa6";
+import Image from "next/image";
+import Button from "@/components/Common/Button";
+import CountdownTimer from "@/components/Common/Others/counter";
 
 const HeroCenter = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const cxt = gsap.context(() => {
-      const timeline = gsap.timeline();
+  // useLayoutEffect(() => {
+  //   const cxt = gsap.context(() => {
+  //     const timeline = gsap.timeline();
 
-      if (!ref.current) return;
+  //     if (!ref.current) return;
 
-      timeline
-        .set(ref.current, { visibility: "visible" })
-        .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
-        .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } });
-    }, ref);
+  //     timeline
+  //       .set(ref.current, { visibility: "visible" })
+  //       .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
+  //       .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } });
+  //   }, ref);
 
-    return () => cxt.revert();
-  }, []);
+  //   return () => cxt.revert();
+  // }, []);
 
   return (
     <>
@@ -35,49 +37,53 @@ const HeroCenter = () => {
         >
           <motion.div
             {...opacityTrans}
-            className={`space-x-8 border-y-[2.5px] overflow-hidden border-[#d9a53c] ${styles["head-scroll-con"]}`}
+            className={`space-x-8 border-y-[2.5px] overflow-hidden border-[#d9a53c] ${styles["head-scroll-con"]} bg-transparent`}
           >
             {new Array(3).fill(null).map((_, id) => (
-              <p key={id} className={`text-lg py-1 ${styles["head-scroll-text"]}`}>
-                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts from January 20th, 2024, Get
+              <p key={id} className={`py-1 ${styles["head-scroll-text"]}`}>
+                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts July, 2024 to Septmeber. Get
                 ready to nominate your Education Champion!
               </p>
             ))}
           </motion.div>
         </motion.div>
       </div>
-      <div className="flex items-center justify-center h-[calc(100%-200px)] invisible" ref={ref}>
-        <div className="container flex items-end justify-between md:mt-0 mt-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="space-y-7">
-              <div className="overflow-hidden">
-                <h1 className="lg:text-2xl md:text-xl text-lg _h_text">Welcome to NESA Nigeria 2023 Awards</h1>
-              </div>
-              <div className="overflow-hidden">
-                <p className="font-bold lg:text-7xl md:text-6xl sm:text-5xl text-4xl text-[#d9a53c] _h_text">
-                  A Decade of Educational Excellence & Transformation
-                </p>
-              </div>
-              <div className="overflow-hidden">
-                <p className="md:text-xl sm:text-lg _h_text">
-                  A flagship initiative under NESA Africa by Santos Creations Educational Foundation
-                </p>
-              </div>
+
+      <div className="grid md:grid-cols-2 items-center md:gap-2 gap-12 container py-20">
+        <div>
+          <div className="space-y-5 md:text-left text-center">
+            <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold">
+              <FaStar />
+              <p className="text-lg">The NESA Africa Awards 2024</p>
+              <FaStar />
             </div>
 
-            <div className="flex items-center md:gap-6 gap-4 text-sm md:text-base justify-center mt-8 overflow-hidden">
-              <button className={`${primaryBtn} _h_button bg-midGold`}>Vote Now</button>
-              <div>
-                <Link href={"/about"}>
-                  <button className="border-[#e0aa3e] px-5 font-semibold _h_button py-3 rounded-md border-2 bg-[#191307]">
-                    What&apos;s NESA?
-                  </button>
-                </Link>
-              </div>
+            <h1 className="font-bold text-4xl bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
+              Celebrating Educational Excellence Across Africa
+            </h1>
+
+            <p>
+              Join Us in Recognizing Excellence & Nominate Outstanding Individuals and Organizations for the Prestigious
+              New Education Standard Awards, and be inspired by their stories.
+            </p>
+
+            <p className="text-primaryGold">
+              A flagship initiative under <SantosLink />
+            </p>
+
+            <div className="flex items-center gap-2 justify-center md:justify-start">
+              <Button text="View Categories" variant="filled" className="rounded-full" />
+              <Button text="Nominate Now" className="rounded-full" />
             </div>
           </div>
         </div>
+
+        <div className="grid place-content-center">
+          <Image src={"/images/nesa-mg.png"} alt="" width={300} height={300} />
+        </div>
       </div>
+
+      <CountdownTimer />
     </>
   );
 };

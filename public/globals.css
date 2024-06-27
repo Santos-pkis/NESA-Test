@@ -4,10 +4,6 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-html,
-body {
   overflow-x: hidden;
 }
 
@@ -18,6 +14,14 @@ body {
 
 ::-webkit-scrollbar {
   width: 4px;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar {
+  display: block;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -42,4 +46,28 @@ body {
   left: 0;
   background-color: #ffb92e;
   border-radius: 5px;
+}
+
+._under_border_center {
+  position: relative;
+}
+
+._under_border_center::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 4px;
+  width: 60%;
+  left: 78px;
+  background-color: #ffb92ed1;
+  border-radius: 5px;
+}
+
+.hide_scroll::-webkit-scrollbar {
+  display: none;
+}
+
+input:focus,
+button:focus {
+  outline: none;
 }

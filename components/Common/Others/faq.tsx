@@ -3,8 +3,9 @@ import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { Faq } from "@/lib/types/global";
+import { homeFaq } from "@/lib/data/faq";
 
-const FAQs: React.FC<{ data: Faq[]; variant?: "1" | "2" }> = ({ data: faqData, variant }) => {
+const FAQs: React.FC<{ data?: Faq[]; variant?: "1" | "2" }> = ({ data: faqData = homeFaq, variant }) => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const toggleFaq = (id: number) => {
@@ -20,7 +21,7 @@ const FAQs: React.FC<{ data: Faq[]; variant?: "1" | "2" }> = ({ data: faqData, v
     <div
       className={`${
         !variant || variant === "1" ? "bg-[#fbf4e6]" : "bg-[#e2dcce]"
-      } my-8 md:py-20 py-12 select-none px-12 rounded-lg`}
+      } my-8 py-12 select-none px-12 rounded-2xl`}
     >
       <div>
         {faqData.map((data, id) => (
@@ -44,7 +45,7 @@ const FAQs: React.FC<{ data: Faq[]; variant?: "1" | "2" }> = ({ data: faqData, v
                   className="text-semiGrey text-sm md:text-base overflow-hidden"
                   key={id}
                 >
-                  <p>{data.answer}</p>
+                  <p className="whitespace-pre-line">{data.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>

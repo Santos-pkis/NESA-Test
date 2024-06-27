@@ -1,5 +1,10 @@
 export interface Category {
-  id: number;
+  heading: string;
+  children: CategoryChild[];
+}
+
+export interface CategoryChild {
+  id: number | string;
   title: string;
   description: string;
   detailsDescription?: string;
@@ -10,7 +15,19 @@ export interface Faq {
   answer: string;
 }
 
-// footer
+// CONTENT
+export interface ImgTitleDesc {
+  image: string;
+  title: string;
+  description: string;
+}
+
+export interface ListWithOption {
+  title: string;
+  options: string[];
+}
+
+// FOOTER
 export interface FooterData {
   heading: string;
   children: {
@@ -28,6 +45,7 @@ export interface Social {
 export interface NavLink {
   label: string;
   path: string;
+  external?: boolean;
   children?: NavLink[];
 }
 
@@ -36,3 +54,19 @@ export interface Panel {
   name: string;
   position: string;
 }
+
+type Option = {
+  text: string;
+  value: string;
+};
+
+type CategoryDetailOption = {
+  label: string;
+  placeholder?: string;
+  options: Option[];
+};
+
+export type CategoryDetails = {
+  id: number;
+  data: CategoryDetailOption[];
+};

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { opacityFromBottomV, parent } from "@/lib/utils/variants";
+import { toTopV, parentV } from "@/lib/utils/variants";
 
 const PartnersHeader = () => {
   return (
@@ -20,11 +20,11 @@ const PartnersHeader = () => {
         <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
         <div className="w-full h-full flex items-center justify-center absolute top-0 left-0 overflow-hidden">
-          <motion.div variants={parent} initial="initial" animate="animate" className="text-center space-y-4">
-            <motion.h1 variants={opacityFromBottomV} className="font-bold md:text-6xl text-5xl">
+          <motion.div variants={parentV} initial="initial" animate="animate" className="text-center space-y-4">
+            <motion.h1 variants={toTopV} className="font-bold md:text-6xl text-5xl">
               Partnerships and <br className="hidden md:block" /> Collaborations @ NESA Africa
             </motion.h1>
-            <motion.p variants={opacityFromBottomV}>
+            <motion.p variants={toTopV}>
               Recognizing players who contributed to the growth of the Nigerian <br /> education sector and fostering
               innovations
             </motion.p>

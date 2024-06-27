@@ -119,7 +119,7 @@ const Page = () => {
                       className="flex-shrink-0 self-start w-fit px-5 text-sm font-semibold py-3 rounded-lg text-black"
                       style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
                     >
-                      Donate to this Project
+                      Sponsor an Award
                     </button>
                   </div>
                 ))}

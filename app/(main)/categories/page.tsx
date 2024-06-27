@@ -1,5 +1,7 @@
+import Button from "@/components/Common/Button";
+import FAQs from "@/components/Common/Others/faq";
 import CategoriesHeader from "@/components/UI/Categories/header";
-import { allCategories } from "@/lib/data/category";
+import { allCategories, howToNominate } from "@/lib/data/category";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,36 +11,54 @@ const Page = () => {
       <CategoriesHeader />
 
       <main>
-        <div className="container py-20">
-          <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
-            {allCategories.map((data, id) => (
-              <div key={id} className={`h-[26rem] w-auto rounded-2xl bg-darkGold overflow-hidden text-white relative`}>
-                <div className="absolute top-0 left-0 w-full h-full bg-[#181818a8]"></div>
+        <div className="bg-[#fff5e0] space-y-20 py-20">
+          <div className="container space-y-3">
+            <p className="text-2xl font-medium _under_border">How to Nominate Your Champion</p>
 
-                <div className="py-8 px-6 absolute top-0 left-0 w-full h-full">
-                  <div className="flex flex-col justify-between h-full">
-                    <div className="w-16 h-16">
-                      <Image src={"/images/logos/small_logo.png"} alt="medal" width={200} height={200} />
-                    </div>
+            <ul className="space-y-4">
+              {howToNominate.map((how, id) => (
+                <li key={id} className="flex items-center gap-2">
+                  <div className="size-4 bg-midGold rounded-full"></div>
+                  <p className="font-medium text-lg">{how}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                    <p className="font-bold text-xl uppercase">{data.title}</p>
-                    <p className="font-light leading-[1.8]">{data.description}</p>
+          <div className="container space-y-10">
+            <p className="text-3xl text-center _under_border_center w-fit mx-auto">The Blue Garnet Award Categories</p>
 
-                    <div>
-                      <Link href={`/categories/${data.id}`}>
-                        <button
-                          className="bg-[#e0aa3e] w-fit px-5 text-sm font-semibold py-3 rounded-lg text-black"
-                          style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
-                        >
-                          View Nominies
-                        </button>
-                      </Link>
+            <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
+              {allCategories.map((data, id) => (
+                <div
+                  key={id}
+                  className={`min-h-[20rem] rounded-[2.3rem] bg-[#191307] overflow-hidden text-white relative`}
+                >
+                  <div className="px-4 py-6 w-full h-full">
+                    <div className="flex flex-col justify-between gap-5 h-full">
+                      <div className="overflow-hidden rounded-xl md:h-[14rem] h-[10rem]">
+                        <Image src={"/images/nesa-card.png"} alt="card cover" width={400} height={200} />
+                      </div>
+
+                      <p className="text-xl md:text-2xl">{data.title}</p>
+                      <p className="leading-[1.8] line-clamp-4">{data.description}</p>
+
+                      <div>
+                        <Link href={`/categories/${data.id}`}>
+                          <Button text="See Sub-Categories" fullWidth variant="filled" rounded="lg" size="medium" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+        </div>
+
+        <div className="container space-y-8 py-12">
+          <p className="text-2xl font-medium _under_border">Frequently Asked Questions</p>
+          <FAQs />
         </div>
       </main>
     </>

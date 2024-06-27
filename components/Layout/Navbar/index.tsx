@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { fromLeft, fromRight, fromTop, opacityTrans, parentTrans, parentTransActivate } from "@/lib/utils/transitions";
+import { fromLeft, fromRight, fromTop, opacityTrans, parentTransActivate } from "@/lib/utils/transitions";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navlinks } from "@/lib/data/global";
@@ -14,6 +14,8 @@ const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const controlMenu = (action: boolean) => setSidebarOpen(action);
 
   useEffect(() => {
     if (sidebarOpen) {
@@ -49,7 +51,7 @@ const Navbar = () => {
     <>
       <nav className="bg-[#17120a] fixed top-0 left-0 w-full duration-[400ms] z-[1000]" ref={ref}>
         <div className="container py-4 lg:grid flex justify-between items-center grid-cols-3 text-white">
-          <motion.div {...fromLeft}>
+          <motion.div>
             <Link href={"/"}>
               <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} id="nav_logo" />
             </Link>
@@ -57,15 +59,14 @@ const Navbar = () => {
 
           <div className="flex items-center justify-center">
             <motion.ul
-              variants={parentTrans}
               {...parentTransActivate}
-              className="hidden items-center gap-12 font-medium text-lg lg:flex"
+              className="hidden items-center gap-12 font-medium text-lg  relative lg:flex"
             >
               {navlinks.map((link, id) => (
-                <motion.li variants={fromTop} key={id} className="">
+                <motion.li key={id} className="">
                   {link.children ? (
                     <div
-                      className={`cursor-pointer ${
+                      className={`cursor-pointer relative ${
                         link.path === pathname ? "font-semibold" : "font-normal duration-200"
                       } ${styles["nav-link"]}`}
                     >
@@ -75,14 +76,11 @@ const Navbar = () => {
                       </div>
 
                       <div
-                        className={`absolute ${styles["nav-link-child"]} top-full -right-1/2 duration-300 overflow-hidden shadow-xl text-sm min-w-[15rem] bg-white rounded-md`}
+                        className={`absolute ${styles["nav-link-child"]} top-full  duration-300 overflow-hidden shadow-xl text-sm min-w-[15rem] bg-darkGold text-white rounded-md`}
                       >
                         {link.children.map((child, id) => (
-                          <div
-                            key={id}
-                            className="text-center hover:bg-deepGold duration-200 px-5 text-darkGold hover:text-white"
-                          >
-                            <Link href={child.path} className={"w-full"}>
+                          <div key={id} className="hover:bg-deepGold duration-200 px-5">
+                            <Link href={child.path} target={child.external ? "_blank" : "_self"} className={"w-full"}>
                               <div className="py-3">{child.label}</div>
                             </Link>
                           </div>
@@ -102,26 +100,18 @@ const Navbar = () => {
             </motion.ul>
           </div>
 
-          <motion.div
-            variants={parentTrans}
-            {...parentTransActivate}
-            className="lg:flex hidden items-center gap-6 font-semibold justify-end"
-          >
+          <motion.div {...parentTransActivate} className="lg:flex hidden items-center gap-6 font-semibold justify-end">
             {!pathname.startsWith("/categories/") ? (
               <motion.button
-                variants={fromTop}
-                className="text-[#17120a] xl:px-4 xl:py-3 px-3 py-2 xl:text-base text-sm rounded-lg"
+                className="text-[#17120a] xl:py-3 px-3 py-1 text-sm rounded-full"
                 style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
               >
-                Nominate Now
+                Register now
               </motion.button>
             ) : (
               <div>
                 <Link href={"/categories"}>
-                  <motion.button
-                    variants={fromTop}
-                    className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base border text-sm rounded-lg text-white"
-                  >
+                  <motion.button className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base border text-sm rounded-full text-white">
                     Go Back to Category
                   </motion.button>
                 </Link>
@@ -135,7 +125,7 @@ const Navbar = () => {
             </motion.button> */}
           </motion.div>
 
-          <motion.div {...fromRight} className="block lg:hidden cursor-pointer">
+          <motion.div className="block lg:hidden cursor-pointer">
             <Menu className="text-white" onClick={() => setSidebarOpen(!sidebarOpen)} />
           </motion.div>
         </div>
@@ -143,24 +133,66 @@ const Navbar = () => {
 
       <aside
         className={`${
-          sidebarOpen ? "w-full" : "w-0"
-        } fixed top-0 right-0 min-h-screen bg-black/90 text-white select-none flex duration-200 items-center justify-center z-[2000] overflow-hidden`}
+          sidebarOpen ? "h-full" : "h-0"
+        } fixed top-0 left-0 w-full bg-black/95 backdrop-blur-sm text-white select-none flex duration-300 ease-out items-center justify-center z-[2000] overflow-hidden`}
       >
-        <motion.div {...fromRight} className="absolute right-8 top-8 cursor-pointer">
+        <motion.div className="absolute right-8 top-8 cursor-pointer">
           <X size={28} onClick={() => setSidebarOpen(!sidebarOpen)} />
         </motion.div>
 
-        <motion.ul {...opacityTrans} className="flex flex-col gap-6 text-center text-lg">
-          {navlinks.map((link, id) => (
-            <motion.li variants={fromTop} key={id} onClick={() => setSidebarOpen(false)}>
-              <Link href={link.path} className={link.path === pathname ? "font-bold" : "font-normal"}>
-                {link.label}
-              </Link>
-            </motion.li>
-          ))}
-        </motion.ul>
+        <MobileSideMenu controlMenu={controlMenu} />
       </aside>
     </>
+  );
+};
+
+const MobileSideMenu: React.FC<{ controlMenu: (action: boolean) => void }> = ({ controlMenu }) => {
+  const pathname = usePathname();
+
+  const [activeDrop, setActiveDrop] = useState<number | null>(null);
+
+  const toggleDrop = (id: number) => setActiveDrop((prev) => (prev === id ? null : id));
+
+  return (
+    <motion.ul
+      {...opacityTrans}
+      className="flex divide-y-2 divide-white/30 flex-col text-center justify-center text-lg"
+    >
+      {navlinks.map((link, id) => (
+        <motion.li variants={fromTop} key={id} className="py-3" onClick={() => toggleDrop(id)}>
+          {link.children ? (
+            <div
+              className={`cursor-pointer group ${
+                link.path === pathname ? "font-semibold" : "font-normal duration-200"
+              } ${styles["nav-link"]}`}
+            >
+              <div className="flex items-center gap-1 justify-center group-hover:font-bold">
+                <span>{link.label}</span>
+                <ChevronDown size={18} className={`duration-300 ${activeDrop === id && "rotate-180"}`} />
+              </div>
+
+              <div className={`duration-300 overflow-hidden text-sm ${activeDrop === id ? "h-[12rem]" : "h-0"}`}>
+                {link.children.map((child, id) => (
+                  <div key={id} className="hover:text-deepGold duration-200 px-5" onClick={() => controlMenu(false)}>
+                    <Link href={child.path} target={child.external ? "_blank" : "_self"} className={"w-full"}>
+                      <div className="py-3">{child.label}</div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <Link
+              href={link.path}
+              className={link.path === pathname ? "font-semibold" : "font-normal duration-200"}
+              onClick={() => controlMenu(false)}
+            >
+              {link.label}
+            </Link>
+          )}
+        </motion.li>
+      ))}
+    </motion.ul>
   );
 };
 

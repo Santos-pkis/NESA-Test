@@ -14,6 +14,11 @@ interface AwardType {
 
 const awardDescriptionData: AwardType[] = [
   {
+    selector: "certificate-of-recognition",
+    tab: "CERTIFICATE OF RECOGNITION",
+    heading: "Certificate of Recognition Award",
+  },
+  {
     selector: "platinum",
     tab: "PLATINUM AWARD",
     heading: "The Platinum Award",
@@ -22,11 +27,6 @@ const awardDescriptionData: AwardType[] = [
     selector: "blue-garnet",
     tab: "BLUE GARNET AWARD",
     heading: "The Blue Garnet Award",
-  },
-  {
-    selector: "certificate-of-recognition",
-    tab: "CERTIFICATE OF RECOGNITION",
-    heading: "Certificate of Recognition Award",
   },
 ];
 
@@ -57,8 +57,10 @@ const TypeOfAwards = () => {
               <div
                 key={id}
                 onClick={() => setSelected(data.selector)}
-                className={`py-4 rounded-xl cursor-pointer text-center duration-300 font-semibold ${
-                  selected === data.selector ? "text-deepGold bg-secondaryDark" : "bg-whiteGold text-darkBrown"
+                className={`py-4 rounded-xl cursor-pointer text-center border duration-300 font-bold ${
+                  selected === data.selector
+                    ? "text-deepGold bg-secondaryDark border-transparent"
+                    : "text-primaryGold border-primaryGold"
                 }`}
               >
                 <p className="uppercase">{data.tab}</p>

@@ -6,6 +6,7 @@ import FAQs from "@/components/Common/Others/faq";
 import { aboutFaq } from "@/lib/data/faq";
 import Panel from "@/components/UI/About/panel";
 import AwardHeader from "@/components/UI/Awards/header";
+import Link from "next/link";
 
 const Page = () => {
   return (
@@ -51,12 +52,16 @@ const Page = () => {
             <CategorySlide categories={leftCategories} direction="right" />
 
             <div className="grid place-content-center font-medium">
-              <button
-                className="mt-6 px-6 py-3 rounded-lg text-darkBrown text-sm"
-                style={{ background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)" }}
-              >
-                View All Categories
-              </button>
+              <div>
+                <Link href={"/categories"}>
+                  <button
+                    className="mt-6 px-6 py-3 rounded-lg text-darkBrown text-sm"
+                    style={{ background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)" }}
+                  >
+                    View All Categories
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -67,17 +72,7 @@ const Page = () => {
         {/* faq */}
         <section className="mt-20">
           <div className="container">
-            <div className="space-y-3 max-w-4xl">
-              <h3 className="font-bold text-2xl">Frequently Asked Questions</h3>
-              <p className="text-[#757575]">
-                Pellentesque cras adipiscing tempus libero vel nullam mauris tellus. Aliquam ultrices tellus consequat
-                amet, lectus aliquam est in neque.
-              </p>
-              <button className="px-5 py-3 rounded-md from-midGold to-deepGold bg-gradient-to-r to-d text-black font-semibold text-sm">
-                Visit FAQs
-              </button>
-            </div>
-
+            <h3 className="font-bold md:text-4xl text-3xl">Frequently Asked Questions</h3>
             <FAQs data={aboutFaq} variant="2" />
           </div>
         </section>
@@ -87,7 +82,10 @@ const Page = () => {
           <div className="flex items-center justify-center">
             <div className="flex items-center gap-4 overflow-x-hidden">
               {Array.from({ length: 4 }).map((_, id) => (
-                <div key={id} className="h-[20rem] aspect-[5/7] text-whiteGold w-auto bg-darkGold p-4 relative">
+                <div
+                  key={id}
+                  className="h-[20rem] aspect-[5/7] text-whiteGold w-auto bg-darkGold rounded-lg p-4 relative"
+                >
                   <div className="absolute bottom-3 left-3">
                     <p className="text-midGold font-semibold">Judge Name</p>
                     <p>Role / Position</p>
