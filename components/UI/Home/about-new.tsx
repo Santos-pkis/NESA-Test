@@ -12,15 +12,15 @@ const AboutNewEducation = () => {
       <section className="relative bg-[#fff5e0] py-10">
         <div className="container grid md:grid-cols-2 gap-16 items-center">
           <DivParentInView className="space-y-6 container">
-            <motion.h3 variants={toTopV} className="_under_border font-bold text-darkGold">
+            <motion.h3 variants={toTopV} className="_under_border font-bold text-darkGold md:text-2xl sm:text-lg">
               About NESA Africa
             </motion.h3>
 
-            <motion.p variants={toTopV} className="font-bold text-4xl">
+            <motion.p variants={toTopV} className="font-medium md:text-[2.6rem] text-4xl">
               Championing Education <br /> Excellence in Africa
             </motion.p>
 
-            <DivParentInView className="space-y-6 text-lg">
+            <DivParentInView className="space-y-6 text-lg md:text-xl">
               <motion.p variants={toTopV} className="text-black">
                 <span className="text-primaryGold">New Education Standard Award Africa (NESA Africa) 2024</span> is an
                 initiative designed to recognize and honor outstanding achievements in the educational sector across the

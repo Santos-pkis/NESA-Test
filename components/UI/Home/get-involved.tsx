@@ -30,8 +30,8 @@ const GetInvolved = () => {
     <section className="bg-[#fff5e0] py-16">
       <div className="container">
         <div className="space-y-10">
-          <div className="space-y-2">
-            <h3 className="_under_border font-bold text-2xl">Get Involved</h3>
+          <div className="space-y-4">
+            <h3 className="_under_border font-semibold text-2xl">Get Involved</h3>
             <p className="md:text-2xl text-lg">
               Becoming a member of NESA can help you fulfil your desire to improve the world by giving back to the
               community in your own unique way.
@@ -57,7 +57,7 @@ const GetInvolved = () => {
                 </div>
 
                 <div className={`space-y-3 ${id % 2 !== 0 ? "col-start-1 row-start-1" : ""}`}>
-                  <h4 className="font-bold text-3xl">{data.heading}</h4>
+                  <h4 className="font-semibold text-3xl">{data.heading}</h4>
                   <p className="">{data.description}</p>
                   <button className="flex text-primaryGold items-center gap-2">
                     <p>{data.cta}</p>

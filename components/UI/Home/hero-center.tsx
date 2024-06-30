@@ -58,11 +58,11 @@ const HeroCenter = () => {
               <FaStar />
             </div>
 
-            <h1 className="font-bold text-4xl bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
+            <h1 className="font-bold text-5xl bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
               Celebrating Educational Excellence Across Africa
             </h1>
 
-            <p>
+            <p className="md:text-lg">
               Join Us in Recognizing Excellence & Nominate Outstanding Individuals and Organizations for the Prestigious
               New Education Standard Awards, and be inspired by their stories.
             </p>
