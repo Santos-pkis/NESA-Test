@@ -42,7 +42,7 @@ const GetInvolved = () => {
             {involveData.map((data, id) => (
               <div
                 key={id}
-                className="p-8 grid grid-cols-2 gap-10 items-center text-[#f3f3f3] bg-[#191307] rounded-2xl"
+                className={`p-8 sm:grid grid-cols-2 gap-10 items-center text-[#f3f3f3] bg-[#191307] rounded-2xl flex flex-col`}
               >
                 {/* { id % 2 === 0 ? <></> : <></>} */}
 
