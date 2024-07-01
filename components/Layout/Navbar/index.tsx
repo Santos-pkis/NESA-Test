@@ -4,7 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { fromLeft, fromRight, fromTop, opacityTrans, parentTransActivate } from "@/lib/utils/transitions";
+import {
+  fromLeft,
+  fromRight,
+  fromTop,
+  opacityTrans,
+  parentTransActivate,
+} from "@/lib/utils/transitions";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navlinks } from "@/lib/data/global";
@@ -14,7 +20,7 @@ const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  console.log(pathname);
   const controlMenu = (action: boolean) => setSidebarOpen(action);
 
   useEffect(() => {
@@ -49,38 +55,59 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-[#17120a] fixed top-0 left-0 w-full duration-[400ms] z-[1000]" ref={ref}>
-        <div className="container py-4 lg:grid flex justify-between items-center grid-cols-3 text-white">
+      <nav
+        className="bg-[#17120a] fixed h-[5rem] px-[2.5rem] flex items-center justify-center top-0 left-0 w-full duration-[400ms] z-[1000]"
+        ref={ref}
+      >
+        <div className="container lg:grid flex justify-between items-center grid-cols-3 text-white">
           <motion.div>
             <Link href={"/"}>
-              <Image src={"/svgs/logo.svg"} alt="nesa logo" width={150} height={150} id="nav_logo" />
+              <Image
+                src={"/svgs/logo.svg"}
+                alt="nesa logo"
+                width={150}
+                height={150}
+                id="nav_logo"
+              />
             </Link>
           </motion.div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex text-[1.125rem] leading-[1.75rem] font-[400] items-center justify-center">
             <motion.ul
               {...parentTransActivate}
-              className="hidden items-center gap-12 font-medium text-lg  relative lg:flex"
+              className="hidden items-center gap-12 font-medium text-lg relative lg:flex"
             >
               {navlinks.map((link, id) => (
                 <motion.li key={id} className="">
                   {link.children ? (
                     <div
                       className={`cursor-pointer relative ${
-                        link.path === pathname ? "font-semibold" : "font-normal duration-200"
+                        link.path === pathname
+                          ? "font-semibold bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text"
+                          : "font-normal duration-200"
                       } ${styles["nav-link"]}`}
                     >
                       <div className="flex items-center gap-2">
                         <span>{link.label}</span>
-                        <ChevronDown size={18} className={`duration-300 ${styles["chevron"]}`} />
+                        <ChevronDown
+                          size={18}
+                          className={`duration-300 ${styles["chevron"]}`}
+                        />
                       </div>
 
                       <div
                         className={`absolute ${styles["nav-link-child"]} top-full  duration-300 overflow-hidden shadow-xl text-sm min-w-[15rem] bg-darkGold text-white rounded-md`}
                       >
                         {link.children.map((child, id) => (
-                          <div key={id} className="hover:bg-deepGold duration-200 px-5">
-                            <Link href={child.path} target={child.external ? "_blank" : "_self"} className={"w-full"}>
+                          <div
+                            key={id}
+                            className="hover:bg-deepGold duration-200 px-2"
+                          >
+                            <Link
+                              href={child.path}
+                              target={child.external ? "_blank" : "_self"}
+                              className={"w-full"}
+                            >
                               <div className="py-3">{child.label}</div>
                             </Link>
                           </div>
@@ -90,7 +117,11 @@ const Navbar = () => {
                   ) : (
                     <Link
                       href={link.path}
-                      className={link.path === pathname ? "font-semibold" : "font-normal duration-200"}
+                      className={
+                        link.path === pathname
+                          ? "font-semibold bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text hover:bg-deepGold duration-200 px-2"
+                          : "font-normal duration-200"
+                      }
                     >
                       {link.label}
                     </Link>
@@ -100,11 +131,16 @@ const Navbar = () => {
             </motion.ul>
           </div>
 
-          <motion.div {...parentTransActivate} className="lg:flex hidden items-center gap-6 font-semibold justify-end">
+          <motion.div
+            {...parentTransActivate}
+            className="lg:flex hidden items-center gap-6 font-semibold justify-end"
+          >
             {!pathname.startsWith("/categories/") ? (
               <motion.button
-                className="text-[#17120a] xl:py-3 px-3 py-1 text-sm rounded-full"
-                style={{ background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)` }}
+                className="text-[#17120a] xl:py-3 px-6 py-1 font-[500] text-sm rounded-[1rem]"
+                style={{
+                  background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
+                }}
               >
                 Register now
               </motion.button>
@@ -126,7 +162,10 @@ const Navbar = () => {
           </motion.div>
 
           <motion.div className="block lg:hidden cursor-pointer">
-            <Menu className="text-white" onClick={() => setSidebarOpen(!sidebarOpen)} />
+            <Menu
+              className="text-white"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+            />
           </motion.div>
         </div>
       </nav>
@@ -146,12 +185,15 @@ const Navbar = () => {
   );
 };
 
-const MobileSideMenu: React.FC<{ controlMenu: (action: boolean) => void }> = ({ controlMenu }) => {
+const MobileSideMenu: React.FC<{ controlMenu: (action: boolean) => void }> = ({
+  controlMenu,
+}) => {
   const pathname = usePathname();
 
   const [activeDrop, setActiveDrop] = useState<number | null>(null);
 
-  const toggleDrop = (id: number) => setActiveDrop((prev) => (prev === id ? null : id));
+  const toggleDrop = (id: number) =>
+    setActiveDrop((prev) => (prev === id ? null : id));
 
   return (
     <motion.ul
@@ -159,22 +201,46 @@ const MobileSideMenu: React.FC<{ controlMenu: (action: boolean) => void }> = ({ 
       className="flex divide-y-2 divide-white/30 flex-col text-center justify-center text-lg"
     >
       {navlinks.map((link, id) => (
-        <motion.li variants={fromTop} key={id} className="py-3" onClick={() => toggleDrop(id)}>
+        <motion.li
+          variants={fromTop}
+          key={id}
+          className="py-3"
+          onClick={() => toggleDrop(id)}
+        >
           {link.children ? (
             <div
               className={`cursor-pointer group ${
-                link.path === pathname ? "font-semibold" : "font-normal duration-200"
+                link.path === pathname
+                  ? "font-semibold"
+                  : "font-normal duration-200"
               } ${styles["nav-link"]}`}
             >
               <div className="flex items-center gap-1 justify-center group-hover:font-bold">
                 <span>{link.label}</span>
-                <ChevronDown size={18} className={`duration-300 ${activeDrop === id && "rotate-180"}`} />
+                <ChevronDown
+                  size={18}
+                  className={`duration-300 ${
+                    activeDrop === id && "rotate-180"
+                  }`}
+                />
               </div>
 
-              <div className={`duration-300 overflow-hidden text-sm ${activeDrop === id ? "h-[12rem]" : "h-0"}`}>
+              <div
+                className={`duration-300 overflow-hidden text-sm ${
+                  activeDrop === id ? "h-[12rem]" : "h-0"
+                }`}
+              >
                 {link.children.map((child, id) => (
-                  <div key={id} className="hover:text-deepGold duration-200 px-5" onClick={() => controlMenu(false)}>
-                    <Link href={child.path} target={child.external ? "_blank" : "_self"} className={"w-full"}>
+                  <div
+                    key={id}
+                    className="hover:text-deepGold duration-200 px-5"
+                    onClick={() => controlMenu(false)}
+                  >
+                    <Link
+                      href={child.path}
+                      target={child.external ? "_blank" : "_self"}
+                      className={"w-full"}
+                    >
                       <div className="py-3">{child.label}</div>
                     </Link>
                   </div>
@@ -184,7 +250,11 @@ const MobileSideMenu: React.FC<{ controlMenu: (action: boolean) => void }> = ({ 
           ) : (
             <Link
               href={link.path}
-              className={link.path === pathname ? "font-semibold" : "font-normal duration-200"}
+              className={
+                link.path === pathname
+                  ? "font-semibold"
+                  : "font-normal duration-200"
+              }
               onClick={() => controlMenu(false)}
             >
               {link.label}
