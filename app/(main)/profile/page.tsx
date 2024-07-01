@@ -42,7 +42,7 @@ const Page = () => {
         <div className="pt-24 sm:pt-32 flex flex-col items-center space-y-4 sm:space-y-8 w-full max-w-5xl">
           <InfoSection title="Personal Information" data={personalInfo} />
           <InfoSection title="Billing Information" data={billingInfo} />
-          <InfoSection title="Settings" data={settings} noEdit />
+          <InfoSection title="Settings" data={settings} noEdit={true} />
 
           {/* Logout Button */}
           <div className="flex justify-center mt-4 sm:mt-6 mb-8 sm:mb-12">
@@ -61,8 +61,14 @@ const Page = () => {
   );
 };
 
+interface InfoSectionProps {
+  title: string;
+  data: Record<string, string>;
+  noEdit?: boolean;
+}
+
 // InfoSection Component
-const InfoSection = ({ title, data, noEdit }) => {
+const InfoSection: React.FC<InfoSectionProps> = ({ title, data, noEdit = false }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleEdit = () => {
@@ -115,7 +121,7 @@ const InfoSection = ({ title, data, noEdit }) => {
 };
 
 // Data Objects
-const personalInfo = {
+const personalInfo: Record<string, string> = {
   "First name": "Mujeeb",
   "Last name": "Azeez",
   "Email address": "mujeebazeez@gmail.com",
@@ -124,14 +130,14 @@ const personalInfo = {
   "Address": "10B Adeola Odeku Street, Apartment 3C, Victoria Island, Lagos State"
 };
 
-const billingInfo = {
+const billingInfo: Record<string, string> = {
   "Card Holder": "Mujeeb Azeez",
   "Payment method": "Africoin / Card",
   "Card Number": "4129 1051 0935 6730",
   "Billing Address": "10B Adeola Odeku Street, Apartment 3C, Victoria Island, Lagos State"
 };
 
-const settings = {
+const settings: Record<string, string> = {
   "Email address": "mujeebazeez@gmail.com",
   "Phone number": "+234 8194739570",
   "Occupation": "Doctor",
