@@ -59,7 +59,7 @@ const HeroCenter = () => {
               <FaStar />
             </div>
 
-            <h1 className="font-[600] text-[38rem] leading-[4rem] bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
+            <h1 className="font-bold text-4xl bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
               Celebrating Educational Excellence Across Africa
             </h1>
 

@@ -14,8 +14,8 @@ const Category = () => {
       <div className="space-y-5 py-10">
         <div className="container flex items-center justify-between">
           <div className="space-y-5">
-            <h2 className="_under_border font-bold text-xl text-darkGold">Nomination Categories</h2>
-            <p className="font-bold text-gray-800 text-2xl">Celebrate the unsung heroes and NOMINATE today!!</p>
+            <h2 className="_under_border font-medium md:text-2xl sm:text-lg text-darkGold">Nomination Categories</h2>
+            <p className="text-gray-800 text-2xl">Celebrate the unsung heroes and NOMINATE today!!</p>
           </div>
 
           <Button text="See all Categories" variant="filled" />
