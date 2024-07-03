@@ -1,10 +1,9 @@
 "use client";
 
-import ProfileCard from "@/components/UI/Categories/DetailProfile";
-import NominateCard from "@/components/UI/Categories/NominateCard";
-import { allCategories } from "@/lib/data/category";
 import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import NominateCard from "../Categories/NominateCard";
+import { allCategories } from "@/lib/data/category";
 
 const page = () => {
   const router = useRouter();
@@ -20,17 +19,15 @@ const page = () => {
         <div className="mt-[1rem]">
           <div className="relative">
             <h1 className="mb-[2rem] font-[500] text-[2rem] leading-[3rem]">
-              The Nominee Profiles
+              The NGO Award Sub-Categories
             </h1>
             <span className="bg-gradient-to-r from-[#febf44] to-[#ed9d19] h-[5px] w-[140px] absolute top-[42px] left-0"></span>
           </div>
 
           <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
-            {Array(12)
-              .fill("")
-              .map((data, id) => (
-                <ProfileCard data={data} key={id} />
-              ))}
+            {allCategories.map((data, id) => (
+              <NominateCard data={data} key={id} />
+            ))}
           </div>
         </div>
       </div>

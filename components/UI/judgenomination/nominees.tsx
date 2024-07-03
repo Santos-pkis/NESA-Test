@@ -1,11 +1,10 @@
 "use client";
 
-import NominateCard from "@/components/UI/Categories/NominateCard";
-import { allCategories } from "@/lib/data/category";
 import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import ProfileCard from "../Categories/DetailProfile";
 
-const page = () => {
+const Nominees = () => {
   const router = useRouter();
   return (
     <main>
@@ -19,15 +18,17 @@ const page = () => {
         <div className="mt-[1rem]">
           <div className="relative">
             <h1 className="mb-[2rem] font-[500] text-[2rem] leading-[3rem]">
-              The NGO Award Sub-Categories
+              The Nominee Profiles
             </h1>
             <span className="bg-gradient-to-r from-[#febf44] to-[#ed9d19] h-[5px] w-[140px] absolute top-[42px] left-0"></span>
           </div>
 
           <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
-            {allCategories.map((data, id) => (
-              <NominateCard data={data} key={id} />
-            ))}
+            {Array(12)
+              .fill("")
+              .map((data, id) => (
+                <ProfileCard data={data} key={id} />
+              ))}
           </div>
         </div>
       </div>
@@ -35,4 +36,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Nominees;

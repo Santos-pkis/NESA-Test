@@ -13,7 +13,7 @@ const ProfileCard = ({ key, data }: { key: any; data: any }) => {
         <div className="flex flex-col justify-between gap-5 h-full">
           <div className="overflow-hidden rounded-xl h-[auto]">
             <Image
-              src={"/images/join/pic3.png"}
+              src={"/images/join/nominee.png"}
               alt="card cover"
               className="w-[100%] h-[auto]"
               width={360}

@@ -1,6 +1,6 @@
 "use client";
 
-import JudgePage from '@/components/UI/judgenomination/judge';
+import JudgePage from "@/components/UI/judgenomination/judge";
 
 const MainPage = () => {
   return (

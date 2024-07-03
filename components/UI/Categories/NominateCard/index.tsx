@@ -1,9 +1,11 @@
 import Button from "@/components/Common/Button";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const NominateCard = ({ key, data }: { key: any; data: any }) => {
+  const router = useRouter();
   return (
     <div
       key={key}
@@ -29,16 +31,17 @@ const NominateCard = ({ key, data }: { key: any; data: any }) => {
           </p>
 
           <div>
-            <Link href={`/nominate/details`}>
-              <Button
-                text="See Nominees"
-                fullWidth
-                variant="filled"
-                rounded="lg"
-                size="medium"
-                onClick={() => ""}
-              />
-            </Link>
+            <Button
+              text="See Nominees"
+              fullWidth
+              variant="filled"
+              rounded="lg"
+              size="medium"
+              onClick={() => {
+                console.log("Button clicked");
+                router.push("/judge/sub-category/nominees");
+              }}
+            />
           </div>
         </div>
       </div>
