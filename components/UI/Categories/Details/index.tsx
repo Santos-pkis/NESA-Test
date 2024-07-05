@@ -79,6 +79,7 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
                       .fill("")
                       .map((e, i) => (
                         <div
+                          key={i}
                           className={`rounded-full h-4 w-4 ${
                             i == 0 ? "bg-midGold h-5 w-5" : "bg-zinc-400"
                           }`}
