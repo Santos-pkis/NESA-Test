@@ -23,7 +23,7 @@ const NominateCard = ({ key, data }: { key: any; data: any }) => {
             />
           </div>
 
-          <p className="text-[1.5rem] leading-[1.9rem] font-[500]">
+          <p className="text-[1.375rem] leading-[1.9rem] font-[500]">
             {data.title}
           </p>
           <p className="text-[1.125rem] leading-[1.5rem] font-[400] line-clamp-4">

@@ -39,14 +39,14 @@ const ProfileCard = ({ key, data }: { key: any; data: any }) => {
           </p>
 
           <div>
-            <Link href={``}>
+            <Link href={`/judge/sub-category/nominees/nomineeId`}>
               <Button
                 text="Review"
                 fullWidth
                 variant="filled"
                 rounded="lg"
                 size="medium"
-                onClick={() => ""}
+                // onClick={() => ""}
               />
             </Link>
           </div>

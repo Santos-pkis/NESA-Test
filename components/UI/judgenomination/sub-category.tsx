@@ -5,11 +5,7 @@ import { useRouter } from "next/navigation";
 import NominateCard from "../Categories/NominateCard";
 import { allCategories } from "@/lib/data/category";
 
-<<<<<<< HEAD
-const SubCategory = () => {
-=======
 const page = () => {
->>>>>>> c32538b5b57dd6f1eb5eb8cdc41b7482b02bbf5c
   const router = useRouter();
   return (
     <main>
@@ -39,8 +35,4 @@ const page = () => {
   );
 };
 
-<<<<<<< HEAD
-export default SubCategory;
-=======
 export default page;
->>>>>>> c32538b5b57dd6f1eb5eb8cdc41b7482b02bbf5c
