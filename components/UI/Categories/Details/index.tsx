@@ -57,23 +57,23 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
               variants={parentV}
               initial="initial"
               animate="animate"
-              className="container flex justify-center mt-[5.625rem] text-center gap-6 md:gap-0 items-center"
+              className="container flex justify-center mt-[2.5rem] lg:mt-[5.625rem] text-center gap-6 md:gap-0 items-center"
             >
               <motion.div variants={toTopV} className="space-y-6 w-full h-fit">
-                <div className="space-y-1 px-[3rem]">
-                  <h1 className="font-[500] text-[2rem] leading-[3rem] text-white">
+                <div className="space-y-1 lg:px-[3rem]">
+                  <h1 className="font-[500] text-[1.8rem] lg:text-[2rem] leading-[3rem] text-white">
                     Category {id} <br />
-                    <span className="font-[600] text-[2.5rem] leading-[4rem] bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
+                    <span className="font-[600] text-[2rem] lg:text-[2.5rem] leading-10 lg:leading-[4rem] bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
                       {category?.title}
                     </span>
                   </h1>
                 </div>
 
-                <p className="font-[400] px-[3rem] text-[1.5rem] leading-[2.25rem] text-center">
+                <p className="font-[400] lg:px-[3rem] lg:text-[1.5rem] text-[1.2rem] leading-[1.8rem] lg:leading-[2.25rem] text-center lg:text-start">
                   {category.detailsDescription ?? category.description}
                 </p>
 
-                <div className="flex items-center justify-between pt-[5.625rem]">
+                <div className="flex items-center justify-between pt-[2rem] lg:pt-[5.625rem]">
                   <div className="flex items-center gap-2">
                     {Array(4)
                       .fill("")
