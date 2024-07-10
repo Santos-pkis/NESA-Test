@@ -38,8 +38,10 @@ const JudgeProfile = () => {
           <p className="mb-4">dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change.</p>
           
           <h3 className="text-lg mb-2">Achievements:</h3>
-          <p className="mb-4">dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.</p>
-          
+          <p className="mb-4">
+  dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen&apos;s innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.
+</p>
+
           <h3 className="text-lg mb-2">Certificates</h3>
           <div className="flex space-x-4 mb-4">
             <Image src="/images/certificate1.png" alt="Certificate 1" width={100} height={100} />

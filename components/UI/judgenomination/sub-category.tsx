@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import NominateCard from "../Categories/NominateCard";
 import { allCategories } from "@/lib/data/category";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   return (
     <main>
@@ -35,4 +35,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

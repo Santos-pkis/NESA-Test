@@ -58,7 +58,7 @@ const Footer = () => {
             </div>
 
             <p className="text-[#191307] text-sm font-light leading-relaxed tracking-wide">
-  Stay in the loop with the latest updates! Subscribe to our newsletter for exclusive insights, exciting announcements, and all things NESA 2024. Don't miss a beat{" "}
+  Stay in the loop with the latest updates! Subscribe to our newsletter for exclusive insights, exciting announcements, and all things NESA 2024. Don&apos;t miss a beat{" "}
 </p>
 
           </div>
