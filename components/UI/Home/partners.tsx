@@ -18,6 +18,9 @@ const HomePartners = () => {
       <div className="space-y-8 container">
         <p className="text-white text-center text-4xl font-semibold">Meet Our Key Partners </p>
 
+        {/* Upper horizontal line with fading ends */}
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent opacity-50"></div>
+
         <div>
           <div className={"relative whitespace-nowrap md:container overflow-hidden"}>
             <Partners />
@@ -25,6 +28,9 @@ const HomePartners = () => {
             <Partners />
           </div>
         </div>
+
+        {/* Lower horizontal line with fading ends */}
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent opacity-50"></div>
 
         <div className="grid place-content-center">
           <Button text="Partner with us" variant="filled" size="medium" />

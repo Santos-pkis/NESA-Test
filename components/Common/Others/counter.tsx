@@ -45,7 +45,7 @@ const renderer: CountdownRendererFn = ({ hours, minutes, completed, days }) => {
 const CountdownTimer = () => {
   return (
     <div className="space-y-8 -mt-10 md:mt-0">
-      <Countdown date={new Date(2024, 6, 10)} renderer={renderer} zeroPadTime={2} />
+      <Countdown date={new Date(2024, 7, 1)} renderer={renderer} zeroPadTime={2} />
     </div>
   );
 };
