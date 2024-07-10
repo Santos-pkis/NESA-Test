@@ -28,8 +28,8 @@ const AboutHeader = () => {
 
         <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
 
-        <div className="w-full h-fit mt-[5rem] lg:mt-[6rem] justify-center flex items-center absolute top-0 left-0 overflow-hidden md:pt-20 pt-28 space-y-16">
-          <div className="space-y-16">
+        <div className="w-full h-fit mt-[5rem] lg:mt-[6rem] justify-center flex items-center absolute top-0 left-0 overflow-hidden md:pt-20 pt-28">
+          <div className="space-y-28 pb-4">
             <div>
               <motion.div
                 variants={parentV}
@@ -92,15 +92,19 @@ const AboutHeader = () => {
 
             <motion.div
               {...opacityV}
-              className="container rounded-2xl relative overflow-hidden"
+              className="w-[1280px] h-[500px] mb-4 rounded-2xl relative overflow-hidden outline outline-4 outline-midGold"
             >
-              <Image
-                src={"/images/about-vid-cover.png"}
-                alt="cover"
-                width={800}
-                height={800}
-                className="w-full h-full object-cover"
-              />
+              <video
+                src={"/images/about.mp4"}
+                width={1280}
+                height={500}
+                autoPlay
+                loop
+                muted={false}
+                controls={false}
+                playsInline
+                className="w-full h-auto max-w-[1280px] object-cover"
+              ></video>
             </motion.div>
             <div className="flex lg:hidden items-center divide-x-2 divide-primaryGold">
               {data.map((item, id) => (

@@ -1,6 +1,7 @@
 "use client";
 
 import PlayIcon from "@/components/Common/Icons/play";
+import { opacityV } from "@/lib/utils/variants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
@@ -79,11 +80,22 @@ const TypeOfAwards = () => {
                   key={data.selector}
                   className="space-y-8"
                 >
-                  <div className="min-h-[10rem] md:min-h-[30rem] aspect-video md:aspect-auto bg-[#121212] rounded-2xl grid place-content-center">
-                    <div className="cursor-pointer">
-                      <PlayIcon />
-                    </div>
-                  </div>
+                  <motion.div
+                    {...opacityV}
+                    className="w-[100%] h-[500px] mb-4 rounded-2xl relative overflow-hidden outline outline-4 outline-midGold"
+                  >
+                    <video
+                      src={"/images/about.mp4"}
+                      width={1280}
+                      height={500}
+                      autoPlay
+                      loop
+                      muted={false}
+                      controls={false}
+                      playsInline
+                      className="w-full h-auto max-w-[100%] object-cover"
+                    ></video>
+                  </motion.div>
 
                   <div className="space-y-4">
                     <p className="font-semibold text-3xl text-darkGold">
