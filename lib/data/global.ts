@@ -5,19 +5,29 @@ export const navlinks: NavLink[] = [
     label: "Home",
     path: "/",
   },
+  {
+    label: "About",
+    path: "/about",
+    children: [
+      { label: "About Us", path: "/about" },
+      { label: "About NESA", path: "/about-nesa" },
+      { label: "About Judges", path: "/about-judges" },
+    ],
+  },
 
   {
     label: "Awards",
-    path: "/awards",
+    path: "#",
+    // path: "/awards",
     children: [
-      { label: "About NESA", path: "/about" },
       { label: "Nomination Process", path: "/categories" },
       { label: "Award Dinner", path: "/award-dinner" },
     ],
   },
   {
     label: "N.E.S.A",
-    path: "/about",
+    path: "#",
+    // path: "/about",
     children: [
       { label: "NESA Africa", path: "/nesa-africa" },
       { label: "NESA 2023", path: "/awards" },
@@ -28,6 +38,7 @@ export const navlinks: NavLink[] = [
   },
   {
     label: "Media",
-    path: "/nesa-media",
+    path: "#",
+    // path: "/nesa-media",
   },
 ];

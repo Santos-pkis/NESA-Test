@@ -75,19 +75,19 @@ const Navbar = () => {
           <div className="flex text-[1.125rem] leading-[1.75rem] font-[400] items-center justify-center">
             <motion.ul
               {...parentTransActivate}
-              className="hidden items-center gap-12 font-medium text-lg relative lg:flex"
+              className="hidden w-fit items-center gap-12 font-medium text-lg relative lg:flex"
             >
               {navlinks.map((link, id) => (
                 <motion.li key={id} className="">
-                  {link.children ? (
+                  {link.children && link.label === "About" ? (
                     <div
-                      className={`cursor-pointer relative ${
+                      className={`cursor-pointer relative whitespace-nowrap font-[400] text-[1rem] leadig-[1.6rem] ${
                         link.path === pathname
                           ? "font-semibold bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text"
                           : "font-normal duration-200"
                       } ${styles["nav-link"]}`}
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center whitespace-nowrap gap-2">
                         <span>{link.label}</span>
                         <ChevronDown
                           size={18}
@@ -133,9 +133,25 @@ const Navbar = () => {
 
           <motion.div
             {...parentTransActivate}
-            className="lg:flex hidden items-center gap-6 font-semibold justify-end"
+            className="lg:flex hidden items-center gap-4 font-semibold justify-end"
           >
-            {!pathname.startsWith("/categories/") ? (
+            <motion.button
+              className="text-[#17120a] w-[7rem] flex justify-center items-center xl:py-3 px-6 py-1 font-[500] text-sm rounded-[1rem]"
+              style={{
+                background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
+              }}
+            >
+              Login
+            </motion.button>{" "}
+            <motion.button
+              className="text-[#17120a] w-[7rem] flex justify-center items-center xl:py-3 px-6 py-1 font-[500] text-sm rounded-[1rem]"
+              style={{
+                background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
+              }}
+            >
+              Sign Up
+            </motion.button>
+            {/* {!pathname.startsWith("/categories/") ? (
               <motion.button
                 className="text-[#17120a] xl:py-3 px-6 py-1 font-[500] text-sm rounded-[1rem]"
                 style={{
@@ -152,7 +168,7 @@ const Navbar = () => {
                   </motion.button>
                 </Link>
               </div>
-            )}
+            )} */}
             {/* <motion.button
               variants={fromTop}
               className="xl:px-4 xl:py-3 px-3 py-2 xl:text-base border text-sm rounded-lg text-white"
