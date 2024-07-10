@@ -4,7 +4,13 @@ import AboutHeader from "@/components/UI/About/header";
 import { panel } from "@/lib/data/about";
 import { allCategories } from "@/lib/data/category";
 import useSlider from "@/lib/hooks/useSlider";
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Linkedin } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Linkedin,
+} from "lucide-react";
 import Image from "next/image";
 
 const Page = () => {
@@ -15,59 +21,90 @@ const Page = () => {
     <>
       <AboutHeader />
       <main>
-        <section className="bg-[#fff5e0] py-[10rem]">
+        <section className="bg-[#fff5e0] py-[4rem] lg:py-[7rem]">
           <div className="container">
             <div className="space-y-4">
-              <h3 className="_under_border font-bold text-sm uppercase">Why NESA Africa</h3>
+              {/* <h3 className="_under_border font-bold text-sm uppercase">Why NESA Africa</h3> */}
+              <div className="mb-[2rem] relative">
+                <h1 className=" font-[500] text-[2rem] leading-[3rem]">
+                  Why NESA Africa
+                </h1>
+                <span className="bg-gradient-to-r from-[#febf44] to-[#ed9d19] h-[5px] w-[140px] absolute top-[42px] left-0"></span>
+              </div>
               <div className="space-y-16">
-                <div className="grid place-content-center sm:grid-cols-2 items-center">
+                <div className="grid place-content-center gap-[2rem] sm:grid-cols-2 items-center">
                   <div className="grid place-content-center">
-                    <Image src={"/images/about/mission.png"} alt="mission" width={400} height={400} />
+                    <Image
+                      src={"/images/about/mission.png"}
+                      alt="mission"
+                      width={400}
+                      height={400}
+                    />
                   </div>
                   <div className="space-y-4">
-                    <p className="text-3xl">Mission</p>
-                    <p className="md:pr-8 font-medium leading-7">
-                      To ignite transforming change in Nigeria&apos;s EDucation sector, fostering an ecosystem where
-                      education, excellence is recognized and celebrated
+                    <p className="text-[2rem] lg:text-[2.5rem] font-[500] leading-[3rem]">
+                      Mission
+                    </p>
+                    <p className="text-[1.2rem] lg:text-[1.4rem] font-[300] leading-[2rem]">
+                      To ignite transforming change in Nigeria&apos;s EDucation
+                      sector, fostering an ecosystem where education, excellence
+                      is recognized and celebrated
                     </p>
                   </div>
                 </div>
                 <div className="sm:grid flex flex-col-reverse place-content-center sm:grid-cols-2 items-center">
                   <div className="space-y-4">
-                    <p className="text-3xl">Vision</p>
-                    <p className="md:pr-8 font-medium leading-7">
-                      Our vision is to acknowledge and encourage every effort that enhances the quality of education in
-                      Nigeria and across Africa, motivating stakeholders to invest, innovate, and participate in
-                      uplifting educational standards. Our goal is a future where every child has access to high-quality
-                      education, contributing effectively to society
+                    <p className="text-[2rem] lg:text-[2.5rem] font-[500] leading-[3rem]">
+                      Vision
+                    </p>
+                    <p className="text-[1.2rem] lg:text-[1.4rem] font-[300] leading-[2rem]">
+                      Our vision is to acknowledge and encourage every effort
+                      that enhances the quality of education in Nigeria and
+                      across Africa, motivating stakeholders to invest,
+                      innovate, and participate in uplifting educational
+                      standards. Our goal is a future where every child has
+                      access to high-quality education, contributing effectively
+                      to society
                     </p>
                   </div>
                   <div className="grid place-content-center">
-                    <Image src={"/images/about/vision.png"} alt="mission" width={400} height={400} />
+                    <Image
+                      src={"/images/about/vision.png"}
+                      alt="mission"
+                      width={400}
+                      height={400}
+                    />
                   </div>
                 </div>
-                <div className="grid place-content-center gap-10 sm:grid-cols-2 items-center">
-                  <div className="p-10 space-y-5 bg-[#ffc247] rounded-2xl">
-                    <p>
-                      Join us as we embark on this celebratory journey, recognizing a decade of educational champions
-                      excellence and transformation in Nigeria. Through these stories of achievement and progress, NESA
-                      Africa aims to inspire continued effort and dedication towards an inclusive and quality education
-                      system across Nigeria and the broader African continent.
+                <div className="grid place-content-center lg:gap-10 sm:grid-cols-2 items-center">
+                  <div className="lg:p-10 p-5 space-y-5 bg-[#ffc247] rounded-2xl">
+                    <p className="text-[1.2rem] lg:text-[1.4rem] font-[300] leading-[2rem]">
+                      Join us as we embark on this celebratory journey,
+                      recognizing a decade of educational champions excellence
+                      and transformation in Nigeria. Through these stories of
+                      achievement and progress, NESA Africa aims to inspire
+                      continued effort and dedication towards an inclusive and
+                      quality education system across Nigeria and the broader
+                      African continent.
                     </p>
-                    <p>
-                      Welcome to NESA Africa, where every recognition marks a milestone in our shared journey towards a
-                      brighter educational future.
+                    <p className="text-[1.2rem] lg:text-[1.4rem] font-[300] leading-[2rem]">
+                      Welcome to NESA Africa, where every recognition marks a
+                      milestone in our shared journey towards a brighter
+                      educational future.
                     </p>
                   </div>
-                  <div className="space-y-4">
-                    <p>
-                      In the span of a decade, Nigeria has seen transformative changes in education, thanks to the
-                      collective efforts of dedicated stakeholders.
+                  <div className="space-y-4 mt-8 lg:mt-0">
+                    <p className="text-[1.2rem] lg:text-[1.4rem] font-[300] leading-[2rem]">
+                      In the span of a decade, Nigeria has seen transformative
+                      changes in education, thanks to the collective efforts of
+                      dedicated stakeholders.
                     </p>
-                    <p>
-                      From enhancing educational infrastructures and curricula to implementing sustainable Corporate
-                      Social Responsibility (CSR) projects, the contributions have been diverse yet singular in their
-                      goal—improving education for every Nigerian child.
+                    <p className="text-[1.2rem] lg:text-[1.4rem] font-[300] leading-[2rem]">
+                      From enhancing educational infrastructures and curricula
+                      to implementing sustainable Corporate Social
+                      Responsibility (CSR) projects, the contributions have been
+                      diverse yet singular in their goal—improving education for
+                      every Nigerian child.
                     </p>
                   </div>
                 </div>
@@ -76,7 +113,7 @@ const Page = () => {
           </div>
         </section>
 
-        <section className="py-[10rem] mb-[5rem] text-white relative">
+        <section className="py-[5rem] lg:py mb-[5rem] text-white relative">
           <Image
             src={"/images/bg/back_.jpeg"}
             alt="dark background"
@@ -88,23 +125,39 @@ const Page = () => {
           <div className="bg-[#15110999] absolute top-0 left-0 w-full -z-[1] h-full"></div>
 
           <div className="space-y-5 container">
-            <h3 className="_under_border font-bold max-h-[23rem] text-sm uppercase">What We Do</h3>
-            <p className="font-bold text-4xl text-midGold">Learn About Our Work</p>
-            <p className="text-lg font-medium md:pr-10">
-              Addressing Educational Challenges In a country facing infrastructural deficits, outdated curricula, and
-              educator motivation issues, NESA Nigeria strives to encourage government bodies, NGOs, UN agencies, CSR
-              initiatives, and private entities to play pivotal roles in improving education.
+            <div className="mb-[2rem] relative">
+              <h1 className=" font-[500] text-[2rem] leading-[3rem]">
+                What We Do
+              </h1>
+              <span className="bg-gradient-to-r from-[#febf44] to-[#ed9d19] h-[5px] w-[140px] absolute top-[42px] left-0"></span>
+            </div>
+            <p className="text-[2.5rem] font-[500] leading-[3.75rem] bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
+              Learn About Our Work
+            </p>
+            <p className="text-[1.2rem] lg:text-[1.4rem] font-[300] leading-[2rem] mb-4">
+              Addressing Educational Challenges In a country facing
+              infrastructural deficits, outdated curricula, and educator
+              motivation issues, NESA Nigeria strives to encourage government
+              bodies, NGOs, UN agencies, CSR initiatives, and private entities
+              to play pivotal roles in improving education.
             </p>
             <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
               <div className="p-10 rounded-lg bg-[#fadda9] text-darkGold space-y-5">
-                <h4 className="font-bold text-2xl">Quarterly Crowdfunding Programme</h4>
+                <h4 className="font-bold text-2xl">
+                  Quarterly Crowdfunding Programme
+                </h4>
                 <p>
-                  The New Nigeria Education Standard Award, stands at the forefront of educational transformation in
-                  Nigeria recognizing and celebrating remarkable contributions in the educational sector
+                  The New Nigeria Education Standard Award, stands at the
+                  forefront of educational transformation in Nigeria recognizing
+                  and celebrating remarkable contributions in the educational
+                  sector
                 </p>
               </div>
               {Array.from({ length: 2 }).map((_, id) => (
-                <div key={id} className="rounded-lg max-h-[23rem] overflow-hidden relative">
+                <div
+                  key={id}
+                  className="rounded-lg max-h-[23rem] overflow-hidden relative"
+                >
                   <Image
                     src={"/images/about/we_do.png"}
                     alt="what we do"
@@ -125,7 +178,9 @@ const Page = () => {
                 {Array.from({ length: 4 }).map((_, id) => (
                   <div
                     key={id}
-                    className={`w-3 h-3 rounded-full bg-white cursor-pointer ${id === 0 ? "bg-primaryGold" : ""}`}
+                    className={`w-3 h-3 rounded-full bg-white cursor-pointer ${
+                      id === 0 ? "bg-primaryGold" : ""
+                    }`}
                   ></div>
                 ))}
               </div>
@@ -141,25 +196,32 @@ const Page = () => {
           </div>
         </section>
 
-        <div className="py-10">
+        <div className="py-4 lg:py-6">
           <div className="space-y-1 container">
-            <h3 className="font-medium text-2xl pb-4">Meet the Passionate Individuals Leading NESA</h3>
-            <p className="_under_border font-bold max-h-[23rem] text-sm uppercase">Executives</p>
+            <h3 className=" font-[600] text-[2rem] leading-[3rem]">
+              Meet the Passionate Individuals Leading NESA
+            </h3>
+            <div className="mb-[2rem] relative">
+              <h1 className=" font-[500] text-[1.8rem] leading-[3rem]">
+                Executives
+              </h1>
+              <span className="bg-gradient-to-r from-[#febf44] to-[#ed9d19] h-[5px] w-[140px] absolute top-[42px] left-0"></span>
+            </div>
           </div>
 
           <div className="mt-5">
-            <div className="container px-10 space-y-10">
+            <div className="mx-auto space-y-10">
               <div className="relative">
                 {/* left arrow */}
                 <div
-                  className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute -left-2 top-[40%]"
+                  className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute left-[5%] top-[35%]"
                   onClick={moveLeft}
                 >
                   <ChevronLeft />
                 </div>
 
                 <div
-                  className={`flex items-center gap-8 overflow-x-auto container hide_scroll scroll-smooth`}
+                  className={`w-full mx-auto justify-center flex items-center gap-8 overflow-x-auto  hide_scroll scroll-smooth`}
                   ref={ref}
                 >
                   {panel.map((judge, id) => (
@@ -181,7 +243,9 @@ const Page = () => {
 
                           <div className="space-y-1">
                             <p className="font-bold text-xl">{judge.name}</p>
-                            <p className="font-light leading-[1.8]">{judge.position}</p>
+                            <p className="font-light leading-[1.8]">
+                              {judge.position}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -191,7 +255,7 @@ const Page = () => {
 
                 {/* right arrow */}
                 <div
-                  className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute -right-2 top-[40%]"
+                  className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute right-[5%] top-[35%]"
                   onClick={moveRight}
                 >
                   <ChevronRight />
@@ -201,25 +265,34 @@ const Page = () => {
                   {Array.from({ length: 5 }).map((_, id) => (
                     <div
                       key={id}
-                      className={`w-3 h-3 cursor-pointer rounded-full ${id === 0 ? "bg-darkGold" : "bg-zinc-300"}`}
+                      className={`w-3 h-3 cursor-pointer rounded-full ${
+                        id === 0 ? "bg-darkGold" : "bg-zinc-300"
+                      }`}
                     ></div>
                   ))}
                 </div>
               </div>
 
               <div className="space-y-4">
-                <p className="_under_border font-bold max-h-[23rem] text-sm uppercase">Volunteers</p>
+                <div className="space-y-1 container">
+                  <div className="mb-[2rem] relative">
+                    <h1 className=" font-[500] text-[1.8rem] leading-[3rem]">
+                      Volunteers
+                    </h1>
+                    <span className="bg-gradient-to-r from-[#febf44] to-[#ed9d19] h-[5px] w-[140px] absolute top-[42px] left-0"></span>
+                  </div>
+                </div>
                 <div className="relative">
                   {/* left arrow */}
                   <div
-                    className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute -left-2 top-[40%]"
+                    className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute left-[5%] top-[35%]"
                     onClick={ml2}
                   >
                     <ChevronLeft />
                   </div>
 
                   <div
-                    className={`flex items-center gap-8 overflow-x-auto container hide_scroll scroll-smooth`}
+                    className={`w-full mx-auto justify-center flex items-center gap-8 overflow-x-auto  hide_scroll scroll-smooth`}
                     ref={ref2}
                   >
                     {panel.map((judge, id) => (
@@ -241,7 +314,9 @@ const Page = () => {
 
                             <div className="space-y-1">
                               <p className="font-bold text-xl">{judge.name}</p>
-                              <p className="font-light leading-[1.8]">{judge.position}</p>
+                              <p className="font-light leading-[1.8]">
+                                {judge.position}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -251,7 +326,7 @@ const Page = () => {
 
                   {/* right arrow */}
                   <div
-                    className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute -right-2 top-[40%]"
+                    className="size-12 cursor-pointer rounded-full bg-black/50 z-[100] duration-300 hover:bg-black text-white grid place-content-center absolute right-[5%] top-[35%]"
                     onClick={mr2}
                   >
                     <ChevronRight />
@@ -261,7 +336,9 @@ const Page = () => {
                     {Array.from({ length: 5 }).map((_, id) => (
                       <div
                         key={id}
-                        className={`w-3 h-3 cursor-pointer rounded-full ${id === 0 ? "bg-darkGold" : "bg-zinc-300"}`}
+                        className={`w-3 h-3 cursor-pointer rounded-full ${
+                          id === 0 ? "bg-darkGold" : "bg-zinc-300"
+                        }`}
                       ></div>
                     ))}
                   </div>
@@ -269,9 +346,15 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="container flex items-center rounded-2xl justify-between bg-[#191307] gap-10 py-4 mt-10">
-              <div className="p-10 flex flex-col space-y-10 text-white min-h-[24rem]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">
+            <div className="lg:container mx-6 flex items-center flex-col lg:flex-row rounded-2xl justify-between bg-[#191307] lg:gap-10 py-4 mb-8 mt-10">
+              <div className="lg:p-10 p-6 flex flex-col space-y-10 text-white lg:min-h-[24rem]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="45"
+                  height="45"
+                  viewBox="0 0 45 45"
+                  fill="none"
+                >
                   <path
                     fillRule="evenodd"
                     clipRule="evenodd"
@@ -283,9 +366,11 @@ const Page = () => {
                 <div className="space-y-4">
                   <p className="font-bold text-midGold">GIVE MONEY</p>
 
-                  <p className="font-semibold text-4xl max-w-lg">Will you change the life of an African Child today?</p>
+                  <p className="lg:font-semibold text-[1.4rem] lg:text-4xl max-w-lg">
+                    Will you change the life of an African Child today?
+                  </p>
 
-                  <p className="font-medium opacity-90">
+                  <p className="lg:font-medium font-[400] text-[0.875rem] lg:text-[1rem] opacity-90">
                     Invest in people, invest in their growth <br />
                     Invest in a stronger educational standard
                   </p>
@@ -293,8 +378,21 @@ const Page = () => {
 
                 <Button text="Donate Now" variant="filled" className="w-fit" />
               </div>
-              <div className="hidden md:block">
-                <Image src={"/images/examples/gallery/g3.png"} alt="image" width={400} height={400} />
+              <div className="block">
+                <Image
+                  src={"/images/examples/gallery/g3.png"}
+                  alt="image"
+                  className="hidden lg:flex lg:h-[400px] lg:w-[400px]"
+                  width={400}
+                  height={400}
+                />{" "}
+                <Image
+                  src={"/images/examples/gallery/g3p.png"}
+                  alt="image"
+                  className="lg:hidden flex lg:h-[230px] lg:w-[300px]"
+                  width={300}
+                  height={230}
+                />
               </div>
               {/* <div className="p-10 flex flex-col space-y-10 bg-[#1e1e1e] text-white min-h-[26rem]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45" fill="none">

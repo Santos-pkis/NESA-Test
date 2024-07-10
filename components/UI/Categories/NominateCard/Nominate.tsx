@@ -39,7 +39,7 @@ const Nominate = ({ key, data }: { key: any; data: any }) => {
               size="medium"
               onClick={() => {
                 console.log("Button clicked");
-                router.push("/categories/2/2");
+                router.push(`/categories/${data.id}/${data.id}`);
               }}
             />
           </div>

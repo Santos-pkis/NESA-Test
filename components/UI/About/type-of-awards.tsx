@@ -43,16 +43,18 @@ const TypeOfAwards = () => {
     <section className="my-20 md:px-28">
       <div className="container">
         <div className="space-y-8">
-          <h3 className="font-bold text-4xl text-darkBrown">
-            Excellence unfolds across three distinguished tiers within the N.E.S.A Awards
+          <h3 className="font-[600] text-4xl text-darkBrown">
+            Excellence unfolds across three distinguished tiers within the
+            N.E.S.A Awards
           </h3>
           <p>
-            The Nigeria Standard Awards is committed to honoring every nominee, ensuring recognition and appreciation,
-            irrespective of winning. To achieve this, we&#39;ve designed three tiers of awards, guaranteeing
+            The Nigeria Standard Awards is committed to honoring every nominee,
+            ensuring recognition and appreciation, irrespective of winning. To
+            achieve this, we&#39;ve designed three tiers of awards, guaranteeing
             acknowledgment and celebration for all nominees contributions.
           </p>
 
-          <div className="grid md:grid-cols-3 sm:grid-cols-2 md:gap-6 gap-3">
+          <div className="w-full grid md:grid-cols-3 sm:grid-cols-2 md:gap-6 gap-3">
             {awardDescriptionData.map((data, id) => (
               <div
                 key={id}
@@ -72,7 +74,11 @@ const TypeOfAwards = () => {
             {awardDescriptionData
               .filter((data) => data.selector === selected)
               .map((data) => (
-                <motion.div {...variants} key={data.selector} className="space-y-8">
+                <motion.div
+                  {...variants}
+                  key={data.selector}
+                  className="space-y-8"
+                >
                   <div className="min-h-[10rem] md:min-h-[30rem] aspect-video md:aspect-auto bg-[#121212] rounded-2xl grid place-content-center">
                     <div className="cursor-pointer">
                       <PlayIcon />
@@ -80,12 +86,17 @@ const TypeOfAwards = () => {
                   </div>
 
                   <div className="space-y-4">
-                    <p className="font-semibold text-3xl text-darkGold">{data.heading}</p>
+                    <p className="font-semibold text-3xl text-darkGold">
+                      {data.heading}
+                    </p>
                     <p>
-                      {data.heading} signifies acknowledgment of specific excellence within the sub-categories under
-                      each main category. Recipients of {data.heading} experience increased visibility and recognition
-                      in their specialized areas, positioning them as experts and leaders. This recognition extends
-                      beyond the immediate community, establishing the awardees as noteworthy contributors with
+                      {data.heading} signifies acknowledgment of specific
+                      excellence within the sub-categories under each main
+                      category. Recipients of {data.heading} experience
+                      increased visibility and recognition in their specialized
+                      areas, positioning them as experts and leaders. This
+                      recognition extends beyond the immediate community,
+                      establishing the awardees as noteworthy contributors with
                       influence in their chosen fields.
                     </p>
                   </div>
@@ -93,10 +104,13 @@ const TypeOfAwards = () => {
                   <div className="space-y-2">
                     <p className="font-semibold">Criteria:</p>
                     <p>
-                      Nominees for {data.heading} are organizations and individuals nominated and voted for in the
-                      sub-categories under each main category. The criteria are tailored to identify outstanding
-                      achievements and noteworthy contributions within these specialized areas. The highest-voted
-                      nominee in each sub-category is awarded {data.heading}, representing excellence and innovation
+                      Nominees for {data.heading} are organizations and
+                      individuals nominated and voted for in the sub-categories
+                      under each main category. The criteria are tailored to
+                      identify outstanding achievements and noteworthy
+                      contributions within these specialized areas. The
+                      highest-voted nominee in each sub-category is awarded{" "}
+                      {data.heading}, representing excellence and innovation
                       within their respective fields.
                     </p>
                   </div>
