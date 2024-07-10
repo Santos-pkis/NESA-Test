@@ -57,16 +57,16 @@ const Footer = () => {
               </button>
             </div>
 
-            <p className="text-[#191307] text-sm">
-              Gravida sed justo, justo, id est et. Amet tristique convallis sed porttitor nullam eu ut. Duis et odio
-              aliquam bibendum. Metus et lectus id viverra fringilla magna morbi.{" "}
-            </p>
+            <p className="text-[#191307] text-sm font-light leading-relaxed tracking-wide">
+  Stay in the loop with the latest updates! Subscribe to our newsletter for exclusive insights, exciting announcements, and all things NESA 2024. Don't miss a beat{" "}
+</p>
+
           </div>
         </div>
 
         <div className="container border-t-2 border-white/10 pt-8">
           <div className="flex items-center md:justify-between gap-7 md:gap-0 md:flex-row flex-col">
-            <p>nesa@africa</p>
+            <p>Nesa©2024</p>
 
             <div className="flex items-center gap-6">
               {bottomLinks.map((data, id) => (
