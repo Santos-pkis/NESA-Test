@@ -144,13 +144,14 @@ const Page = () => {
             <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
               <div className="p-10 rounded-lg bg-[#fadda9] text-darkGold space-y-5">
                 <h4 className="font-bold text-2xl">
-                  Quarterly Crowdfunding Programme
+                  Educational Programs and Initiatives{" "}
                 </h4>
                 <p>
-                  The New Nigeria Education Standard Award, stands at the
-                  forefront of educational transformation in Nigeria recognizing
-                  and celebrating remarkable contributions in the educational
-                  sector
+                  We develop and deploy educational programs that range from
+                  basic literacy to advanced digital skills. Our initiative are
+                  tailored to meet local needs and delivered through
+                  collaborations with local communities, government and
+                  international partners.
                 </p>
               </div>
               {Array.from({ length: 2 }).map((_, id) => (
@@ -159,15 +160,17 @@ const Page = () => {
                   className="rounded-lg max-h-[23rem] overflow-hidden relative"
                 >
                   <Image
-                    src={"/images/about/we_do.png"}
+                    src={`/images/bg/card${id}.png`}
                     alt="what we do"
                     className="w-full h-full object-cover"
                     width={300}
                     height={300}
                   />
-                  <div className="absolute top-0 left-0 w-full h-full bg-black/30 p-10 text-center">
-                    <p className="text-xl font-semibold absolute bottom-10 left-0">
-                      Annual Recognition of Educational Champions
+                  <div className="absolute top-0 left-0 w-full h-full bg-black/40 p-10 text-center">
+                    <p className="text-xl px-6 lg:text-left text-center font-semibold absolute bottom-6 left-0">
+                      {id === 0
+                        ? "Technology Integration In Education"
+                        : "Research and Development"}{" "}
                     </p>
                   </div>
                 </div>
@@ -346,7 +349,7 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="lg:container mx-6 flex items-center flex-col lg:flex-row rounded-2xl justify-between bg-[#191307] lg:gap-10 py-4 mb-8 mt-10">
+            <div className="lg:container mx-6 flex items-center flex-col lg:flex-row rounded-2xl justify-between bg-[#191307] lg:gap-10 p-10 mb-8 mt-10">
               <div className="lg:p-10 p-6 flex flex-col space-y-10 text-white lg:min-h-[24rem]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -376,13 +379,17 @@ const Page = () => {
                   </p>
                 </div>
 
-                <Button text="Donate Now" variant="filled" className="w-fit" />
+                <Button
+                  text="Donate Now"
+                  variant="filled"
+                  className="w-fit rounded-[0.25rem] font-[400]"
+                />
               </div>
-              <div className="block">
+              <div className="block p-0">
                 <Image
                   src={"/images/examples/gallery/g3.png"}
                   alt="image"
-                  className="hidden lg:flex lg:h-[400px] lg:w-[400px]"
+                  className="hidden lg:flex lg:h-[442px] lg:w-[478px] p-0"
                   width={400}
                   height={400}
                 />{" "}
