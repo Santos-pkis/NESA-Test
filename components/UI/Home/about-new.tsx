@@ -1,4 +1,5 @@
 "use client";
+
 import Button from "@/components/Common/Button";
 import { primaryBtn } from "@/lib/helpers";
 import { DivParentInView } from "@/lib/utils/framer-transitions";
@@ -12,34 +13,57 @@ const AboutNewEducation = () => {
       <section className="relative bg-[#fff5e0] py-10">
         <div className="container grid md:grid-cols-2 gap-16 items-center">
           <DivParentInView className="space-y-6 container">
-            <motion.h3 variants={toTopV} className="_under_border font-bold text-darkGold">
+            <motion.h3
+              variants={toTopV}
+              className="_under_border font-bold text-darkGold md:text-2xl sm:text-lg"
+            >
               About NESA Africa
             </motion.h3>
 
-            <motion.p variants={toTopV} className="font-bold text-4xl">
+            <motion.p
+              variants={toTopV}
+              className="font-medium md:text-[2.6rem] text-4xl"
+            >
               Championing Education <br /> Excellence in Africa
             </motion.p>
 
-            <DivParentInView className="space-y-6 text-lg">
+            <DivParentInView className="space-y-6 text-lg md:text-xl">
               <motion.p variants={toTopV} className="text-black">
-                <span className="text-primaryGold">New Education Standard Award Africa (NESA Africa) 2024</span> is an
-                initiative designed to recognize and honor outstanding achievements in the educational sector across the
-                Africa.
+                <span className="text-primaryGold">
+                  New Education Standard Award Africa (NESA Africa) 2024
+                </span>{" "}
+                is an initiative designed to recognize and honor outstanding
+                achievements in the educational sector across the Africa.
               </motion.p>
 
               <motion.p variants={toTopV}>
-                Rooted in the vision of enhancing the quality of education and making it accessible to all,{" "}
-                <span className="font-bold">NESA Africa</span> operates with the mission of spotlighting significant
-                contributions by individuals, organizations, educational institutions, and other stakeholders towards
-                achieving these goals.
+                Rooted in the vision of enhancing the quality of education and
+                making it accessible to all,{" "}
+                <span className="font-bold">NESA Africa</span> operates with the
+                mission of spotlighting significant contributions by
+                individuals, organizations, educational institutions, and other
+                stakeholders towards achieving these goals.
               </motion.p>
 
               <Button text="Learn More" variant="filled" />
             </DivParentInView>
           </DivParentInView>
           <div className="grid place-content-center">
-            <Image src={"/images/about-vid.png"} alt="dark background" width={600} height={600} />
-          </div>
+          <video
+  src={"/images/about.mp4"}
+  width={900}
+  height={900}
+  autoPlay
+  loop
+  muted={false}
+  controls
+  playsInline
+  className="w-full h-auto max-w-[900px]"
+>
+  <track kind="captions" />
+  Your browser does not support the video tag.
+</video>
+</div>
         </div>
       </section>
     </>

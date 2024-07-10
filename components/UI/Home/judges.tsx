@@ -21,7 +21,7 @@ const Judges = () => {
 
         <div className="container text-white space-y-16 py-10">
           <div className="space-y-2">
-            <h3 className="_under_border font-bold text-2xl">Meet The Judges</h3>
+            <h3 className="_under_border font-semibold text-2xl">Meet The Judges</h3>
             <p className="text-2xl">Get to know the NESA Judges, their background, and acheivements</p>
           </div>
 
