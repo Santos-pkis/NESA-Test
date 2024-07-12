@@ -9,23 +9,22 @@ export const navlinks: NavLink[] = [
     label: "About",
     path: "/about",
     children: [
-      { label: "About Us", path: "/about" },
-      { label: "About NESA", path: "/about-nesa" },
+      { label: "About NESA", path: "/about" },
+      { label: "About NESA Award 2024", path: "/about-nesa" },
       { label: "About Judges", path: "/about-judges" },
     ],
   },
 
   {
     label: "Awards",
-    path: "#",
-    // path: "/awards",
+    path: "/awards",
     children: [
       { label: "Nomination Process", path: "/categories" },
-      { label: "Award Dinner", path: "/award-dinner" },
+      // { label: "Award Dinner", path: "/award-dinner" },
     ],
   },
   {
-    label: "N.E.S.A",
+    label: "Get Involved",
     path: "#",
     // path: "/about",
     children: [
