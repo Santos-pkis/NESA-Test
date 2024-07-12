@@ -80,10 +80,7 @@ const TypeOfAwards = () => {
                   key={data.selector}
                   className="space-y-8"
                 >
-                  <motion.div
-                    {...opacityV}
-                    className="w-[100%] h-[500px] mb-4 rounded-2xl relative overflow-hidden outline outline-4 outline-midGold"
-                  >
+                  <div className="h-[520px] w-[1280px] flex justify-center mx-auto">
                     <video
                       src={"/images/about.mp4"}
                       width={1280}
@@ -91,11 +88,11 @@ const TypeOfAwards = () => {
                       autoPlay
                       loop
                       muted={false}
-                      controls={false}
+                      controls
                       playsInline
-                      className="w-full h-auto max-w-[100%] object-cover"
+                      className="w-full h-auto max-w-[1280px] mx-auto  object-cover"
                     ></video>
-                  </motion.div>
+                  </div>
 
                   <div className="space-y-4">
                     <p className="font-semibold text-3xl text-darkGold">

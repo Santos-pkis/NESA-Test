@@ -90,10 +90,11 @@ const AboutHeader = () => {
               </motion.div>
             </div>
 
-            <motion.div
+            {/* <motion.div
               {...opacityV}
               className="w-[1280px] h-[500px] mb-4 rounded-2xl relative overflow-hidden outline outline-4 outline-midGold"
-            >
+            > */}
+            <div className="h-[520px] w-[1280px] flex justify-center mx-auto">
               <video
                 src={"/images/about.mp4"}
                 width={1280}
@@ -101,11 +102,12 @@ const AboutHeader = () => {
                 autoPlay
                 loop
                 muted={false}
-                controls={false}
+                controls
                 playsInline
-                className="w-full h-auto max-w-[1280px] object-cover"
+                className="w-full h-auto max-w-[1280px] mx-auto  object-cover"
               ></video>
-            </motion.div>
+            </div>
+            {/* </motion.div> */}
             <div className="flex lg:hidden items-center divide-x-2 divide-primaryGold">
               {data.map((item, id) => (
                 <div

@@ -31,19 +31,19 @@ const ImpactHeader = () => {
                   entities to play pivotal roles in improving education
                 </p>
               </motion.div>
-              <motion.div
-                variants={opacityV}
-                className="max-w-2xl mx-auto border-2 border-midGold cursor-pointer rounded-lg max-h-[25rem] overflow-hidden grid place-content-center mt-10 relative"
-              >
-                <Image
-                  src={"/images/bg/video.png"}
-                  alt="hero image"
-                  width={900}
-                  height={800}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            </motion.div>
+             <div className="h-[520px] w-[1280px] flex justify-center mx-auto">
+              <video
+                src={"/images/about.mp4"}
+                width={1280}
+                height={500}
+                autoPlay
+                loop
+                muted={false}
+                controls
+                playsInline
+                className="w-full h-auto max-w-[1280px] mx-auto  object-cover"
+              ></video>
+            </div>
           </div>
         </div>
       </div>

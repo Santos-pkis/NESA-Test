@@ -56,7 +56,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className="bg-[#17120a] fixed h-[5rem] px-[2.5rem] flex items-center justify-center top-0 left-0 w-full duration-[400ms] z-[1000]"
+        className="bg-[#17120a] fixed h-[5rem] px-[2.5rem] flex items-center justify-between top-0 left-0 w-full duration-[400ms] z-[1000]"
         ref={ref}
       >
         <div className="container lg:grid flex justify-between items-center grid-cols-3 text-white">
@@ -72,14 +72,15 @@ const Navbar = () => {
             </Link>
           </motion.div>
 
-          <div className="flex text-[1.125rem] leading-[1.75rem] font-[400] items-center justify-center">
+          <div className="flex w-[40rem] text-[1.125rem] leading-[1.75rem] font-[400] items-center justify-center">
             <motion.ul
               {...parentTransActivate}
               className="hidden w-fit items-center gap-12 font-medium text-lg relative lg:flex"
             >
               {navlinks.map((link, id) => (
                 <motion.li key={id} className="">
-                  {link.children && link.label === "About" ? (
+                  {link.children &&
+                  (link.label === "About" || link.label === "Awards") ? (
                     <div
                       className={`cursor-pointer relative whitespace-nowrap font-[400] text-[1rem] leadig-[1.6rem] ${
                         link.path === pathname
@@ -133,7 +134,7 @@ const Navbar = () => {
 
           <motion.div
             {...parentTransActivate}
-            className="lg:flex hidden items-center gap-4 font-semibold justify-end"
+            className="lg:flex hidden w-fit items-center gap-4 font-semibold ml-[17.75rem] justify-end"
           >
             <motion.button
               className="text-[#17120a] w-[7rem] flex justify-center items-center xl:py-3 px-6 py-1 font-[500] text-sm rounded-[1rem]"
