@@ -7,7 +7,7 @@ const NesaAfricaHeader = () => {
     <header
       className={`bg-[#17120a] min-h-[40rem] text-white z-[100] flex items-center pt-28 md:pt-10`}
     >
-      <div className="container grid md:grid-cols-2 gap-4 px-4 lg:px-8 py-20 items-center">
+      <div className="container grid md:grid-cols-2 gap-4 px-2 lg:px-8 py-20 items-center">
         <div className="space-y-8 text-center md:text-start">
           <div className="space-y-1 lg:text-left text-center">
             <h1 className="text-[2.5rem] font-[500] leading-[3.5rem] mb-4 bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">

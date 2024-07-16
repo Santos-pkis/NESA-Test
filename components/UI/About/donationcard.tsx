@@ -4,18 +4,18 @@ import Button from '@/components/Common/Button';
 
 const DonationCard = () => {
   return (
-    <div className="bg-[#FFF5E0] p-8">
-      <div className="bg-[#191307] text-white rounded-3xl flex flex-col lg:flex-row justify-between items-center mx-auto p-8 max-w-[1400px]">
+    <div className="bg-[#FFF5E0] p-4 sm:p-8 md:p-12 lg:p-16">
+      <div className="bg-[#191307] text-white rounded-3xl flex flex-col lg:flex-row justify-between items-center mx-auto p-6 sm:p-8 max-w-[1400px] relative">
 
         {/* Left Section */}
-        <div className="lg:w-1/2 lg:pr-8 mt-[-70px]">
-          <div className="flex flex-col items-start space-y-6">
-            <div className="flex flex-col items-center space-y-2">
+        <div className="w-full lg:w-1/2 lg:pr-8 z-10">
+          <div className="flex flex-col items-start space-y-4 sm:space-y-6">
+            <div className="flex flex-col items-start space-y-2">
               <Image src="/images/Avatar.png" alt="Icon" width={50} height={24} className="mb-2" />
               <p className="font-bold text-[#F0B561] text-sm">GIVE MONEY</p>
             </div>
             
-            <h2 className="font-bold text-2xl lg:text-3xl xl:text-4xl max-w-lg">
+            <h2 className="font-bold text-xl sm:text-2xl lg:text-3xl xl:text-4xl max-w-lg">
               Will You Change The Life of An African Child Today?
             </h2>
 
@@ -28,14 +28,14 @@ const DonationCard = () => {
             <Button
               text="Donate Now"
               variant="filled"
-              className="w-fit rounded-full font-medium text-sm bg-[#F0B561] text-[#191307] px-6 py-3 mt-6"
+              className="w-fit rounded-full font-medium text-sm bg-[#F0B561] text-[#191307] px-6 py-3 mt-4"
             />
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="lg:w-1/2 h-full flex items-center justify-center">
-          <div className="relative w-full lg:w-[400px] h-[400px] rounded-2xl overflow-hidden">
+        <div className="w-full lg:w-1/2 h-[200px] sm:h-[300px] lg:h-[400px] mt-6 lg:mt-0">
+          <div className="relative w-full h-full rounded-2xl overflow-hidden">
             <Image
               src="/images/examples/gallery/g3.png"
               alt="African child writing"

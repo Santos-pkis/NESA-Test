@@ -41,26 +41,26 @@ const TypeOfAwards = () => {
   const [selected, setSelected] = useState<Selector>("platinum");
 
   return (
-    <section className="my-20 md:px-28">
-      <div className="container">
-        <div className="space-y-8">
-          <h3 className="font-[600] text-4xl text-darkBrown">
+    <section className="my-10 md:my-20 px-4 md:px-8 lg:px-28">
+      <div className="container mx-auto">
+        <div className="space-y-6 md:space-y-8">
+          <h3 className="font-[600] text-2xl md:text-3xl lg:text-4xl text-darkBrown">
             Excellence unfolds across three distinguished tiers within the
             N.E.S.A Awards
           </h3>
-          <p>
+          <p className="text-sm md:text-base">
             The Nigeria Standard Awards is committed to honoring every nominee,
             ensuring recognition and appreciation, irrespective of winning. To
             achieve this, we&#39;ve designed three tiers of awards, guaranteeing
             acknowledgment and celebration for all nominees contributions.
           </p>
 
-          <div className="w-full grid md:grid-cols-3 sm:grid-cols-2 md:gap-6 gap-3">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
             {awardDescriptionData.map((data, id) => (
               <div
                 key={id}
                 onClick={() => setSelected(data.selector)}
-                className={`py-4 rounded-xl cursor-pointer text-center border duration-300 font-bold ${
+                className={`py-3 md:py-4 rounded-xl cursor-pointer text-center border duration-300 font-bold text-sm md:text-base ${
                   selected === data.selector
                     ? "text-deepGold bg-secondaryDark border-transparent"
                     : "text-primaryGold border-primaryGold"
@@ -78,27 +78,26 @@ const TypeOfAwards = () => {
                 <motion.div
                   {...variants}
                   key={data.selector}
-                  className="space-y-8"
+                  className="space-y-6 md:space-y-8"
                 >
-                  <div className="h-[520px] w-[1280px] flex justify-center mx-auto">
-                    <video
-                      src={"/images/about.mp4"}
-                      width={1280}
-                      height={500}
-                      autoPlay
-                      loop
-                      muted={false}
-                      controls
-                      playsInline
-                      className="w-full h-auto max-w-[1280px] mx-auto  object-cover"
-                    ></video>
-                  </div>
-
-                  <div className="space-y-4">
-                    <p className="font-semibold text-3xl text-darkGold">
+                 <div className="w-full max-w-[1400px] mx-auto overflow-hidden rounded-2xl">
+  <div className="aspect-video sm:aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] xl:aspect-[28/9]">
+    <video
+      src={"/images/about.mp4"}
+      autoPlay
+      loop
+      muted={false}
+      controls
+      playsInline
+      className="w-full h-full object-cover rounded-2xl"
+    ></video>
+  </div>
+</div>
+                  <div className="space-y-3 md:space-y-4">
+                    <p className="font-semibold text-xl md:text-2xl lg:text-3xl text-darkGold">
                       {data.heading}
                     </p>
-                    <p>
+                    <p className="text-sm md:text-base">
                       {data.heading} signifies acknowledgment of specific
                       excellence within the sub-categories under each main
                       category. Recipients of {data.heading} experience
@@ -111,8 +110,8 @@ const TypeOfAwards = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <p className="font-semibold">Criteria:</p>
-                    <p>
+                    <p className="font- text-sm md:text-base">Criteria:</p>
+                    <p className="text-sm md:text-base">
                       Nominees for {data.heading} are organizations and
                       individuals nominated and voted for in the sub-categories
                       under each main category. The criteria are tailored to
