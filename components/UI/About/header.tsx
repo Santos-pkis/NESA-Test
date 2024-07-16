@@ -1,130 +1,79 @@
-"use client";
-
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { toTopV, parentV, opacityV } from "@/lib/utils/variants";
 
 const data = [
   { heading: "15k+", name: "Students Reached" },
-  { heading: "500+", name: "Students Reached" },
-  { heading: "300+", name: "Students Reached" },
+  { heading: "500+", name: "Partners" },
+  { heading: "300+", name: "Awarded Leaders" },
 ];
 
 const AboutHeader = () => {
   return (
-    <header>
-      <div
-        className={`min-h-[80rem] h-fit w-full bg-zinc-200 text-white relative py-10`}
-      >
-        <div className="absolute top-0 left-0 h-full w-full">
-          <Image
-            src={"/images/header.png"}
-            alt="hero image"
-            width={1240}
-            height={800}
-            className="w-full h-full object-cover"
-          />
-        </div>
+    <header className="relative min-h-screen text-white py-10 px-4 md:px-8 lg:px-16 overflow-hidden">
+      {/* Background Image */}
+      <Image
+        src="/images/hero.jpeg"
+        alt="Background"
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+        className="z-0"
+      />
 
-        <div className="bg-[#15110999] absolute top-0 left-0 w-full h-full"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[#191307CC] z-10"></div>
 
-        <div className="w-full h-fit mt-[5rem] lg:mt-[6rem] justify-center flex items-center absolute top-0 left-0 overflow-hidden md:pt-20 pt-28">
-          <div className="space-y-28 pb-4">
-            <div>
-              <motion.div
-                variants={parentV}
-                initial="initial"
-                animate="animate"
-                className="container grid md:grid-cols-2 gap-16 lg:px-8 px-4 items-center -mt-6"
-              >
-                <motion.div
-                  variants={toTopV}
-                  key={"header-2"}
-                  className="space-y-28"
-                >
-                  <div className="space-y-1 lg:text-left text-center">
-                    <h1 className="text-[2.5rem] font-[500] leading-[4.5rem] bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
-                      About Us
-                    </h1>
-                    <p className="font-medium text-[1.75rem] leading-[3rem]">
-                      The Founding Story
-                    </p>
-                  </div>
+      {/* Content */}
+      <div className="relative z-20 max-w-7xl mx-auto">
+        <motion.div
+          variants={parentV}
+          initial="initial"
+          animate="animate"
+          className="flex flex-col md:flex-row gap-8 md:gap-16 pt-16 md:pt-24"
+        >
+          <motion.div variants={toTopV} className="md:w-1/2">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
+              About Us
+            </h1>
+            <p className="text-2xl md:text-3xl mt-2">The Founding Story</p>
 
-                  <div className="lg:flex hidden items-center divide-x-2 divide-primaryGold">
-                    {data.map((item, id) => (
-                      <div
-                        key={id}
-                        className="flex flex-col items-center justify-center px-4 text-center"
-                      >
-                        <p className="text-[1.8rem] font-[600] leading-[3.125rem] bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
-                          {item.heading}
-                        </p>
-                        <p className="font-medium text-[1rem] leading-[1.5rem]">
-                          {item.name}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  variants={toTopV}
-                  key={"header-1"}
-                  className="flex lg:text-left text-center flex-col justify-between gap-8 md:text-lg"
-                >
-                  <p className="font-[300] text-[1.2rem] lg:text-[1.25rem] leading-[2rem]">
-                    New Education Standard Award Africa (NESA Africa) is an
-                    initiative designed to recognize, celebrate, and foster
-                    educational excellence and innovation across the African
-                    continent. Rooted in the vision of enhancing the quality of
-                    education and making it accessible to all.
-                  </p>
-                  <p className="font-[300] text-[1.2rem] lg:text-[1.25rem] leading-[2rem]">
-                    NESA Africa operates with the mission of spotlighting
-                    significant contributions by individuals, organizations,
-                    educational institutions, and other stakeholders towards
-                    achieving these goals.
-                  </p>
-                </motion.div>
-              </motion.div>
-            </div>
-
-            {/* <motion.div
-              {...opacityV}
-              className="w-[1280px] h-[500px] mb-4 rounded-2xl relative overflow-hidden outline outline-4 outline-midGold"
-            > */}
-            <div className="h-[520px] w-[1280px] flex justify-center mx-auto">
-              <video
-                src={"/images/about.mp4"}
-                width={1280}
-                height={500}
-                autoPlay
-                loop
-                muted={false}
-                controls
-                playsInline
-                className="w-full h-auto max-w-[1280px] mx-auto  object-cover"
-              ></video>
-            </div>
-            {/* </motion.div> */}
-            <div className="flex lg:hidden items-center divide-x-2 divide-primaryGold">
+            <div className="flex justify-between items-center mt-8">
               {data.map((item, id) => (
-                <div
-                  key={id}
-                  className="flex flex-col items-center justify-center px-4 text-center"
-                >
-                  <p className="text-[2rem] font-[600] leading-[3.125rem] bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
-                    {item.heading}
-                  </p>
-                  <p className="font-medium text-[1rem] leading-[1.5rem]">
-                    {item.name}
-                  </p>
+                <div key={id} className="text-center flex items-center">
+                  <div className="flex flex-col items-center">
+                    <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
+                      {item.heading}
+                    </p>
+                    <p className="text-sm md:text-base mt-1">{item.name}</p>
+                  </div>
+                  {id < data.length - 1 && (
+                    <div className="w-px h-12 bg-gradient-to-r from-[#FFC247] to-[#E48900] mx-2 md:mx-4"></div>
+                  )}
                 </div>
               ))}
             </div>
+          </motion.div>
+
+          <motion.div variants={toTopV} className="md:w-1/2">
+            <p className="text-base md:text-lg mb-4">
+              New Education Standard Award Africa (NESA Africa) is an initiative designed to recognize, celebrate, and foster educational excellence and innovation across the African continent. Rooted in the vision of enhancing the quality of education and making it accessible to all.
+            </p>
+            <p className="text-base md:text-lg">
+              NESA Africa operates with the mission of spotlighting significant contributions by individuals, organizations, educational institutions, and other stakeholders towards achieving these goals.
+            </p>
+          </motion.div>
+        </motion.div>
+
+        <motion.div variants={opacityV} className="mt-12 relative overflow-hidden">
+          <div className="relative w-full mx-auto max-w-[1200px] h-[300px] md:h-auto">
+            <video
+              src="/images/about.mp4"
+              className="w-full h-full object-cover rounded-md"
+              controls
+            />
           </div>
-        </div>
+        </motion.div>
       </div>
     </header>
   );

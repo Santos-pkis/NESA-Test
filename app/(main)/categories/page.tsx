@@ -28,22 +28,30 @@ const Page = () => {
           <div className="container space-y-10">
             <p className="text-3xl text-center _under_border_center w-fit mx-auto">The Blue Garnet Award Categories</p>
 
-            <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
-              {allCategories.map((data, id) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+              {allCategories.slice(0, 15).map((data, id) => (
                 <div
                   key={id}
-                  className={`min-h-[20rem] rounded-[2.3rem] bg-[#191307] overflow-hidden text-white relative`}
+                  className="w-full max-w-md min-h-[12rem] rounded-[2.3rem] bg-[#191307] overflow-hidden text-white relative flex flex-col justify-between"
                 >
-                  <div className="px-4 py-6 w-full h-full">
-                    <div className="flex flex-col justify-between gap-5 h-full">
-                      <div className="overflow-hidden rounded-xl md:h-[14rem] h-[10rem]">
-                        <Image src={"/images/nesa-card.png"} alt="card cover" width={400} height={200} />
+                  <div className="px-4 py-6 w-full h-full flex flex-col justify-between gap-5">
+                    <div className="overflow-hidden rounded-xl md:h-[14rem] h-[10rem] flex-shrink-0">
+                      <Image
+                        src={"/images/nesa-card.png"}
+                        alt="card cover"
+                        width={400}
+                        height={200}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+
+                    <div className="flex-grow flex flex-col justify-between">
+                      <div>
+                        <p className="text-xl md:text-2xl">{data.title}</p>
+                        <p className="leading-[1.8] line-clamp-4">{data.description}</p>
                       </div>
 
-                      <p className="text-xl md:text-2xl">{data.title}</p>
-                      <p className="leading-[1.8] line-clamp-4">{data.description}</p>
-
-                      <div>
+                      <div className="mt-4">
                         <Link href={`/categories/${data.id}`}>
                           <Button text="See Sub-Categories" fullWidth variant="filled" rounded="lg" size="medium" />
                         </Link>

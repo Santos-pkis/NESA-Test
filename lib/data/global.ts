@@ -9,8 +9,8 @@ export const navlinks: NavLink[] = [
     label: "About",
     path: "/about",
     children: [
-      { label: "About NESA", path: "/about" },
-      { label: "About NESA Award 2024", path: "/about-nesa" },
+      { label: "About NESA-Africa", path: "/about" },
+      { label: "About NESA-Africa/Nigeria-2024 Award", path: "/about-nesa" },
       { label: "About Judges", path: "/about-judges" },
     ],
   },
@@ -18,8 +18,9 @@ export const navlinks: NavLink[] = [
   {
     label: "Awards",
     path: "/awards",
+    
     children: [
-      { label: "Nomination Process", path: "/categories" },
+      //{ label: "Nomination Process", path: "/categories" },
       // { label: "Award Dinner", path: "/award-dinner" },
     ],
   },
