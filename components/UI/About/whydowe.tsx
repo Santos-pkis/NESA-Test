@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const WhatWeDo = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -76,7 +77,11 @@ const WhatWeDo = () => {
                 </div>
               ) : (
                 <div className="relative h-full">
-                  <img src={initiative.imagePath} alt={initiative.title} className="w-full h-full object-cover" />
+                  {initiative.imagePath && typeof window !== "undefined" ? (
+                    <Image src={initiative.imagePath} alt={initiative.title} layout="fill" objectFit="cover" />
+                  ) : (
+                    <div className="w-full h-full bg-gray-400"></div> // Placeholder or fallback for undefined imagePath or SSR/SSG
+                  )}
                   <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                   <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 text-white">
                     <h3 className="font-semibold text-lg md:text-xl">{initiative.title}</h3>

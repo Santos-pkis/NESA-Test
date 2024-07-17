@@ -1,10 +1,11 @@
 "use client";
 import { Star } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TestimoniesShowcase = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
   const baseTestimonies = [
     {
       text: "As the founder of an education-focused NGO, joining NESA Africa has been a game-changer. The network, resources, and collaborative spirit have amplified our impact. NESA Africa is not just an initiative; it's a force for positive change in Ghana and across Africa.",
@@ -35,6 +36,13 @@ const TestimoniesShowcase = () => {
   // Create 8 testimonials by duplicating the base set
   const testimonies = [...baseTestimonies, ...baseTestimonies];
 
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize(); // Set initial width
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const moveSlide = (direction: string) => {
     setCurrentSlide((prev) => {
       if (direction === 'next') {
@@ -56,7 +64,7 @@ const TestimoniesShowcase = () => {
         </div>
 
         <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
-          {testimonies.slice(currentSlide, currentSlide + (window.innerWidth >= 768 ? 2 : 1)).map((testimony, index) => (
+          {testimonies.slice(currentSlide, currentSlide + (windowWidth >= 768 ? 2 : 1)).map((testimony, index) => (
             <div key={index} className="w-full md:w-[480px] h-auto md:h-[280px] rounded-2xl border-2 border-[#FFC247] p-4 md:p-6 flex flex-col justify-between">
               <p className="text-sm leading-tight mb-4">{testimony.text}</p>
               <div>
