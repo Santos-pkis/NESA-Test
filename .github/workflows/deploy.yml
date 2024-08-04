@@ -3,7 +3,8 @@ name: Node CICD
 on:
   push:
     branches:
-      - master 
+      - master
+
 jobs:
   deploy-production:
     runs-on: ubuntu-latest
@@ -11,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 18.x
 
@@ -30,8 +31,9 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SSH_PROD_HOST }}
           REMOTE_USER: ${{ secrets.SSH_PROD_USERNAME }}
-          TARGET: ${{ secrets.TARGET_MAIN}}
+          TARGET: ${{ secrets.TARGET_MAIN }}
           SCRIPT_AFTER: |
-            cd  ${{ secrets.TARGET_MAIN}}
+            cd ${{ secrets.TARGET_MAIN }}
+            npm install --legacy-peer-deps
             npm run build
             pm2 restart all
