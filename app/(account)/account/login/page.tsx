@@ -1,5 +1,9 @@
-import LoginContent from "@/components/UI/Account/Login";
+import LoginPage from "@/components/UI/Account/Login";
 
-const Page = () => <LoginContent />;
-
-export default Page;
+export default function Home() {
+    return (
+      <main>
+        <LoginPage />
+      </main>
+    )
+  }

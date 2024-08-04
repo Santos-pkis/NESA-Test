@@ -1,12 +1,6 @@
-import AccountNavbar from "@/components/UI/Account/Navbar";
-
+// app/auth/layout.tsx (if you want to keep the layout file)
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <>
-      <AccountNavbar />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };
 
 export default Layout;

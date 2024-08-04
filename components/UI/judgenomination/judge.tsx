@@ -4,134 +4,259 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 
-interface AwardCategoryProps {
+interface Category {
   title: string;
   description: string;
-  router: any;
+  subCategories?: SubCategory[];
 }
 
-const categories = [
+interface SubCategory {
+  title: string;
+  description: string;
+  nominees?: Nominee[];
+}
+
+interface Nominee {
+  name: string;
+  image: string;
+  achievement: string;
+}
+
+  const categories = [
+    {
+      title: "Africa Lifetime Education Icon Special Recognition Award",
+      description: "The Africa Lifetime Education Icon Special Recognition Award is the pinnacle of the NESA-Africa awards and the Santos Creations Educational Foundation. Envisioned as the Africa education advocacy Nobel award recognition, this prestigious accolade honors individuals from around the world who have dedicated their lives to advancing sustainable education for all in Africa, aligning with the United Nations Sustainable Development Goal 4 (SDG 4) - Quality Education.",
+      subCategories: [
+        {
+          title: "Africa Education Philanthropy Icon Of The Decade (2014-2024)",
+          description: "Honors significant philanthropic contributions that have improved educational access and quality, advancing SDG 4's targets.",
+          nominees: [
+            { name: "Aliko Dangote", image: "/images/aliko-dangote.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Mo Ibrahim", image: "/images/mo-ibrahim.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Strive Masiyiwa", image: "/images/strive-masiyiwa.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Strive Masiyiwa", image: "/images/strive-masiyiwa.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Strive Masiyiwa", image: "/images/strive-masiyiwa.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Strive Masiyiwa", image: "/images/strive-masiyiwa.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+
+          ]
+        },
+        {
+          title: "Literary And New Curriculum Advocate Africa Education Icon Of The Decade (2014-2024)",
+          description: "Recognizes influential literary works and new curricula that address critical educational needs and challenges, fostering quality education.",
+          nominees: [
+            { name: "Ngũgĩ wa Thiong'o", image: "/images/ngugi-wa-thiongo.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Chinua Achebe", image: "/images/chinua-achebe.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Mariama Bâ", image: "/images/mariama-ba.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+          ]
+        },
+        {
+          title: "Africa Technical Educator Icon Of The Decade (2014-2024)",
+          description: "Celebrates pioneers in technical education and skills training, fostering entrepreneurship and innovation, supporting SDG 4's goals of inclusive and equitable education.",
+          nominees: [
+            { name: "Patrick Awuah", image: "/images/patrick-awuah.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Nabil Nuwashi", image: "/images/nabil-nuwashi.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+            { name: "Fred Swaniker", image: "/images/fred-swaniker.jpg", achievement: "Significant contributions to improving rural education, particularly for girls, demonstrating a significant impact on their community." },
+          ]
+        }
+      ]
+    },
   {
-    title: "NGO Contribution To Education in Nigeria",
+    title: "The Overall Best NGO Contribution to Achieving Education for All in Nigeria 2024",
     description:
-      "Celebrates NGOs that have made significant improvements in educational access, quality, and innovations in Nigeria.",
+      "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
   },
   {
-    title: "Corporate Social Responsibility (CSR) in Education",
+    title: "Africa Diaspora association Educational Impact Projects Recognition Award in Africa",
     description:
-      "Honoring CSR by banks, telecoms, and other sectors, showing commitment to educational development.",
+      "Honoring the significant contributions made by diaspora organizations towards achieving \"Education for all\" across the African Continent.",
   },
   {
-    title: "Faith-Based Organization Contribution to Education",
+    title: "The Overall Best CSR for Education in Nigeria Award 2024",
     description:
-      "Honors faith-based organizations that significantly contributed to educational, moral, and community development.",
+      "Honoring corporate social responsibility by banks, telecommunications, and other sectors, and showing their impactful CSR initiatives that have ...",
   },
   {
-    title: "State Government Education Initiatives",
+    title: "CSR for Education special recognition award in Africa 2024",
     description:
-      "Acknowledges state governments demonstrating outstanding commitment and results in education from 2013 - 2024.",
+      "Recognize the most outstanding educational technology companies that have made significant contributions to advancing education in Africa through...",
   },
   {
-    title: "Nigeria Tertiary Institution",
+    title: "Best EduTech Organization in Nigeria and Africa 2024",
     description:
-      "Awards the tertiary institution excelling in academic excellence, community engagement, and student support with ICT infrastructure.",
+      "Acknowledges state governments that have demonstrated exemplary commitment and results in advancing education from 2013-2024.",
   },
   {
-    title: "Education In Schools",
+    title: "Overall best educational friendly state in Nigeria 2024",
     description:
-      "Recognizes secondary schools for fostering innovation in education and student support with ICT infrastructure.",
+      "Awards the tertiary institution that stands out in academic excellence, community engagement, and student support with notable ICT infrastructure.",
   },
   {
-    title: "Research Institutions",
+    title: "The best library in Nigerian tertiary institutions award 2024",
     description:
-      "Recognizes research institutes for their exceptional contributions to educational research and development in Nigeria.",
+      "Recognizes libraries that have made exceptional contributions and excellence to educational research and innovation, thus shaping future educational strategies.",
   },
   {
-    title: "Media Organization and Houses",
+    title: "The Overall Best Research and Development Contribution by Tertiary Institutions in Nigeria",
     description:
-      "Recognizes media for educational awareness and coverage, effectively amplifying educational issues and achievements.",
+      "Recognizing media role in educational awareness and innovation. Awards media houses and organizations that effectively contribute to educational development.",
   },
   {
-    title: "International Contributors to Education in Nigeria",
+    title: "The Overall Best Media Organization in Nigeria with Outstanding Education Focus",
     description:
-      "Honoring international sectors showing commitment to educational development through corporate social responsibility.",
+      "Honors exceptional media/news award programs for educational collaborations and contributes to Nigeria educational development.",
   },
   {
-    title: "Nigerian Associations Abroad",
+    title: "International and Bilateral Contributors to Education in Nigeria Recognition award 2024",
     description:
-      "Celebrates the diaspora's contributions to supporting and enhancing education in Nigeria.",
+      "Honoring international bodies for their impactful cooperative efforts that significantly impact the educational sector.",
   },
   {
-    title: "Political Leadership in Education",
+    title: "Christian faith organization Educational Champion of the Decade Award",
     description:
-      "Honoring educational initiatives by lawmakers, for legislative efforts that significantly impact the education sector.",
+      "Recognizing Christian faith-based organizations for their outstanding contributions to education advancement.",
   },
   {
-    title: "Special Recognition Awards",
+    title: "Islamic faith organization Educational Champion of the Decade Award in Nigeria (2013-2024)",
     description:
-      "Recognizing philanthropy and leadership for their outstanding contributions to education.",
+      "Celebrating Islamic faith-based organizations for their crucial role in advancing and diversifying educational opportunities.",
   },
   {
-    title: "Creative Arts Industry Contribution to Education",
+    title: "Recognition for the best educational support by a Political leaders in Nigeria 2024",
     description:
-      "Celebrates arts organizations for enriching and diversifying educational experiences through creative initiatives.",
+      "Award for both state and federal government officials who have championed STEM education and technological advancement in learning.",
   },
   {
-    title: "Support for Education in Science and Technology",
+    title: "Creative arts Industry contribution to education in Nigeria 2024",
     description:
-      "Awards tech-based and STEM initiatives for championing STEM education and technological advancements in learning.",
+      "Recognizing efforts towards advancing education through creative arts and dedication to achieving quality education under SDG 4 objectives.",
   },
   {
-    title: "Excellence in Promoting SDG 4 Achievement",
+    title: "Support for education in STEM in Nigeria 2024",
     description:
-      "Recognizes efforts towards achieving SDG 4, for dedication to quality education under SDG 4.",
+      "Celebrating initiatives by any organization for creative arts role in education and promoting hands-on learning experiences.",
   },
 ];
+const AwardCategory: React.FC<{
+  category: Category;
+  onSelectCategory: (category: Category) => void;
+  isFirst?: boolean;
+}> = ({ category, onSelectCategory, isFirst = false }) => {
+  const truncateDescription = (text: string, maxLength: number): string => {
+    if (text.length <= maxLength) return text;
+    return text.substr(0, maxLength) + '...';
+  };
 
-const AwardCategory: React.FC<AwardCategoryProps> = ({
-  title,
-  description,
-  router,
-}) => (
-  <div className="bg-[#191307] text-white p-2 rounded-3xl flex flex-col justify-between h-full">
-    <div>
-      <div className="w-full mb-2 p-4">
-        <Image
-          className="w-full"
-          src="/images/nesa-card.png"
-          alt="NESA Logo"
-          width={250}
-          height={0}
-        />
+  const truncatedDescription = truncateDescription(category.description, isFirst ? 300 : 100);
+
+  return (
+    <div
+      className={`bg-[#191307] text-white rounded-3xl flex ${
+        isFirst ? 'flex-col lg:flex-row' : 'flex-col'
+      } justify-between`}
+      style={{
+        width: '100%',
+        maxWidth: isFirst ? '1280px' : '412px',
+        height: 'auto',
+      }}
+    >
+      <div className={`${isFirst ? 'w-full lg:w-1/2' : 'w-full'} p-6 flex justify-center items-center`}>
+        <div className="relative" style={{
+          width: isFirst ? '600px' : '364px',
+          height: isFirst ? '400px' : '191px',
+          maxWidth: '100%',
+          aspectRatio: isFirst ? '600 / 400' : '364 / 191'
+        }}>
+          <Image
+            src="/images/nesa-card2.png"
+            alt="NESA Logo"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       </div>
-      <div className="p-2">
-        <h3 className="text-lg font-bold mb-2">{title}</h3>
-        <p className="text-sm mb-4" style={{ whiteSpace: "pre-line" }}>
-          {description}
-        </p>
+      <div
+        className={`${
+          isFirst ? 'w-full lg:w-1/2' : 'w-full'
+        } p-6 flex flex-col justify-between`}
+      >
+        <div>
+          <h3 className="text-xl font-bold mb-2">{category.title}</h3>
+          <p className="text-sm mb-4">{truncatedDescription}</p>
+        </div>
+        <div className="mt-auto">
+          <button
+            onClick={() => onSelectCategory(category)}
+            className="w-full py-2 px-4 rounded-lg font-medium"
+            style={{
+              background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
+              color: 'black',
+            }}
+          >
+            See Sub-Categories
+          </button>
+        </div>
       </div>
     </div>
-    <div className="p-2">
-      <button
-        onClick={() => {
-          console.log("Button clicked");
-          router.push("/judge/sub-category");
-        }}
-        className="w-full mt-auto py-2 px-4 rounded-lg font-medium"
-        style={{
-          background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
-          color: "black",
-        }}
-      >
-        See Sub-Categories
+  );
+};
+
+const SubCategory: React.FC<{
+  subCategory: SubCategory;
+  onSelectSubCategory: (subCategory: SubCategory) => void;
+}> = ({ subCategory, onSelectSubCategory }) => {
+  return (
+    <div className="bg-[#191307] text-white rounded-3xl flex flex-col justify-between" style={{ width: '100%', maxWidth: '412px', height: 'auto' }}>
+      <div className="w-full p-6 flex justify-center items-center">
+        <div className="relative" style={{ width: '364px', height: '191px', maxWidth: '100%', aspectRatio: '364 / 191' }}>
+          <Image src="/images/nesa-card2.png" alt="NESA Logo" layout="fill" objectFit="contain" />
+        </div>
+      </div>
+      <div className="w-full p-6 flex flex-col justify-between">
+        <div>
+          <h3 className="text-xl font-bold mb-2">{subCategory.title}</h3>
+          <p className="text-sm mb-4">{subCategory.description}</p>
+        </div>
+        <div className="mt-auto">
+          <button
+            onClick={() => onSelectSubCategory(subCategory)}
+            className="w-full py-2 px-4 rounded-lg font-medium"
+            style={{
+              background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
+              color: 'black',
+            }}
+          >
+            Nominate
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Nominee: React.FC<{ nominee: Nominee }> = ({ nominee }) => {
+  return (
+    <div className="bg-[#191307] text-white rounded-3xl p-4 flex flex-col justify-between" style={{ width: '412.33px', height: '540px' }}>
+      <div>
+        <div className="relative w-full mb-4" style={{ width: '364.33px', height: '240px' }}>
+          <Image src={nominee.image} alt={nominee.name} layout="fill" objectFit="cover" className="rounded-2xl" />
+        </div>
+        <h3 className="text-xl font-bold mb-2">{nominee.name}</h3>
+        <p className="text-sm mb-4">{nominee.achievement}</p>
+      </div>
+      <button className="w-full py-2 px-4 rounded-lg font-medium mt-auto" style={{
+        background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
+        color: 'black',
+      }}>
+        Review
       </button>
     </div>
-  </div>
-);
+  );
+};
 
 const JudgePage: React.FC = () => {
-  const router = useRouter();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+  const [selectedSubCategory, setSelectedSubCategory] = useState<SubCategory | null>(null);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -141,52 +266,116 @@ const JudgePage: React.FC = () => {
     category.title.toLowerCase().includes(search.toLowerCase())
   );
 
+  const handleSelectCategory = (category: Category) => {
+    setSelectedCategory(category);
+    setSelectedSubCategory(null);
+  };
+
+  const handleSelectSubCategory = (subCategory: SubCategory) => {
+    setSelectedSubCategory(subCategory);
+  };
+
+  const handleBack = () => {
+    if (selectedSubCategory) {
+      setSelectedSubCategory(null);
+    } else if (selectedCategory) {
+      setSelectedCategory(null);
+    }
+  };
+
   return (
     <div className="bg-white py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="relative mb-8" style={{ marginBottom: "1rem" }}>
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="relative mb-8">
           <div className="relative">
             <input
               type="text"
               placeholder="Search"
               value={search}
               onChange={handleSearchChange}
-              className="w-[400px] h-[40px] pl-10 pr-4 py-2 rounded-semi"
+              className="w-full max-w-[400px] h-[40px] pl-10 pr-4 py-2 rounded-lg"
               style={{
-                background: "#FFF5E0",
-                padding: "12px 20px 12px 40px",
-                borderRadius: "8px",
-                marginTop: "40px",
-                marginLeft: "10px",
-                gap: "24px",
+                background: '#FFF5E0',
+                padding: '12px 20px 12px 40px',
+                marginTop: '40px',
+                marginLeft: '10px',
               }}
             />
             <IoIosSearch
               className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400"
-              style={{ marginTop: "20px" }}
+              style={{ marginTop: '20px' }}
             />
           </div>
         </div>
+        {selectedCategory && (
+          <button onClick={handleBack} className="mb-4">← Back</button>
+        )}
         <div className="text-center mt-12">
-          <h2 className="text-3xl font-medium mb-1">
-            The Blue Garnet Award Categories
-          </h2>
+          {!selectedCategory && !selectedSubCategory && (
+            <h2 className="text-3xl font-medium mb-1">
+              The Blue Garnet Award Categories
+            </h2>
+          )}
+          {selectedCategory && !selectedSubCategory && (
+            <h2 className="text-3xl font-medium mb-1">
+              {selectedCategory.title}
+            </h2>
+          )}
+          {selectedSubCategory && (
+            <h2 className="text-3xl font-medium mb-1">
+              The Nominee Profiles
+            </h2>
+          )}
           <div
             className="mx-auto mb-8"
             style={{
-              height: "4px",
-              width: "150px",
-              borderRadius: "8px",
-              margin: "0 auto 2rem",
+              height: '4px',
+              width: '150px',
+              borderRadius: '8px',
+              margin: '0 auto 2rem',
               background:
-                "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
+                'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
             }}
           ></div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {filteredCategories.map((category, index) => (
-            <AwardCategory key={index} router={router} {...category} />
-          ))}
+        <div className="flex flex-col items-center gap-6 mt-8">
+          {!selectedCategory && (
+            <>
+              <AwardCategory
+                key={0}
+                category={filteredCategories[0]}
+                onSelectCategory={handleSelectCategory}
+                isFirst={true}
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredCategories.slice(1).map((category, index) => (
+                  <AwardCategory
+                    key={index + 1}
+                    category={category}
+                    onSelectCategory={handleSelectCategory}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+          {selectedCategory && selectedCategory.subCategories && !selectedSubCategory && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {selectedCategory.subCategories.map((subCategory, index) => (
+                <SubCategory
+                  key={index}
+                  subCategory={subCategory}
+                  onSelectSubCategory={handleSelectSubCategory}
+                />
+              ))}
+            </div>
+          )}
+          {selectedSubCategory && selectedSubCategory.nominees && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+              {selectedSubCategory.nominees.map((nominee, index) => (
+                <Nominee key={index} nominee={nominee} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

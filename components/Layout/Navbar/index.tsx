@@ -146,7 +146,7 @@ const DropdownLink = ({ link, pathname }: { link: any; pathname: string }) => (
 
 const AuthButtons = ({ isMobile = false }) => (
   <div className={`flex ${isMobile ? 'flex-col w-full' : 'flex-row'} gap-4`}>
-    <Link href="/login" className={isMobile ? "w-full" : ""}>
+    <Link href="/account/login" className={isMobile ? "w-full" : ""}>
       <motion.button
         className={`text-[#17120a] ${isMobile ? 'w-full' : 'w-[7rem]'} flex justify-center items-center py-2 px-4 font-[500] text-sm rounded-[1rem]`}
         style={{
@@ -156,7 +156,7 @@ const AuthButtons = ({ isMobile = false }) => (
         Login
       </motion.button>
     </Link>
-    <Link href="/signup" className={isMobile ? "w-full" : ""}>
+    <Link href="/account/signup" className={isMobile ? "w-full" : ""}>
       <motion.button
         className={`text-[#17120a] ${isMobile ? 'w-full' : 'w-[7rem]'} flex justify-center items-center py-2 px-4 font-[500] text-sm rounded-[1rem]`}
         style={{
