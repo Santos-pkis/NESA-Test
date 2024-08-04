@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 
@@ -30,18 +30,18 @@ const NGOAwardCategoryPage = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % subcategories.length);
-  };
+  }, [subcategories.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + subcategories.length) % subcategories.length);
-  };
+  }, [subcategories.length]);
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [nextSlide]);
 
   const handleNominate = (categoryTitle: string) => {
     console.log(`Nominated for: ${categoryTitle}`);

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
@@ -47,25 +47,25 @@ const AfricaDiasporaAwardPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % subcategories.length);
-  };
+  }, [subcategories.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + subcategories.length) % subcategories.length);
-  };
+  }, [subcategories.length]);
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [nextSlide]);
 
   const handleNominate = (category: Category) => {
     setSelectedCategory(category);
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory}  />;
+    return <NominationPage category={selectedCategory} />;
   }
 
   return (

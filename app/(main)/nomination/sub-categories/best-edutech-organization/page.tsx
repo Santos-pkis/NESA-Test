@@ -7,7 +7,7 @@ const EduTechAwardCategoryPage = () => {
   const mainCategory = {
     title: "The Overall Best EduTech Organization in Nigeria and Africa 2024",
     description:
-      "This award aim to celebrate and recognize educational excellence across the African continent. The Best EduTech Organization in Nigeria and Africa 2024 award acknowledges the significant contributions of EduTech organizations that have leveraged technology to enhance educational experiences and outcomes. This award highlights the innovative approaches and technological solutions that EduTech organizations have implemented to address educational challenges and improve the quality of education in Nigeria and across Africa.",
+      "This award aims to celebrate and recognize educational excellence across the African continent. The Best EduTech Organization in Nigeria and Africa 2024 award acknowledges the significant contributions of EduTech organizations that have leveraged technology to enhance educational experiences and outcomes. This award highlights the innovative approaches and technological solutions that EduTech organizations have implemented to address educational challenges and improve the quality of education in Nigeria and across Africa.",
   };
 
   const subcategories = [
@@ -40,20 +40,20 @@ const EduTechAwardCategoryPage = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % (subcategories.length + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + subcategories.length + 1) % (subcategories.length + 1)
-    );
-  };
-
   useEffect(() => {
+    const nextSlide = () => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % (subcategories.length + 1));
+    };
+
+    const prevSlide = () => {
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + subcategories.length + 1) % (subcategories.length + 1)
+      );
+    };
+
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [subcategories.length]); // Depend on subcategories.length
 
   const handleNominate = (categoryTitle: string) => {
     console.log(`Nominated for: ${categoryTitle}`);
@@ -92,7 +92,9 @@ const EduTechAwardCategoryPage = () => {
         {/* Carousel Navigation Arrows */}
         <div className="absolute bottom-4 right-4 flex space-x-4">
           <button
-            onClick={prevSlide}
+            onClick={() => setCurrentIndex(
+              (prevIndex) => (prevIndex - 1 + subcategories.length + 1) % (subcategories.length + 1)
+            )}
             className="p-2 rounded transition"
             style={{
               background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
@@ -101,7 +103,9 @@ const EduTechAwardCategoryPage = () => {
             <IoMdArrowBack size={32} color="#191307" />
           </button>
           <button
-            onClick={nextSlide}
+            onClick={() => setCurrentIndex(
+              (prevIndex) => (prevIndex + 1) % (subcategories.length + 1)
+            )}
             className="p-2 rounded transition"
             style={{
               background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",

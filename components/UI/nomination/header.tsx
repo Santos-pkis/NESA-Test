@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'; // Import Image from next/image
 
 const EducationAward = () => {
   return (
@@ -19,9 +20,11 @@ const EducationAward = () => {
         </p>
       </div>
       <div className="logo flex-shrink-0 w-64 h-64 md:w-96 md:h-96 md:-ml-64">
-        <img 
+        <Image 
           src="/images/leftlogo.png" 
           alt="NESA Logo" 
+          width={256} // Set width
+          height={256} // Set height
           className="w-full h-full object-contain"
         />
       </div>

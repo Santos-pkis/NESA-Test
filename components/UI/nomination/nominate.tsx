@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image'; // Import Image from next/image
 
 interface Category {
   title: string;
@@ -76,7 +77,13 @@ const SuccessPopup: React.FC<{ onClose: () => void, onNominateAnother: () => voi
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-3xl p-6 w-full max-w-2xl text-center">
         <button onClick={onClose} className="absolute top-4 right-4 text-2xl">&times;</button>
-        <img src="/images/heroicons-solid/Subtract.png" alt="Success" className="w-20 h-20 mx-auto mb-4" />
+        <Image 
+          src="/images/heroicons-solid/Subtract.png" 
+          alt="Success" 
+          width={80} // Set width
+          height={80} // Set height
+          className="w-20 h-20 mx-auto mb-4"
+        />
         <h2 className="text-3xl font-bold mb-4">Thank you for Nominating!!</h2>
         <p className="mb-6">Your Nomination has been successful and under review, an email will be sent when the nomination is approved.</p>
         <div className="flex space-x-4">

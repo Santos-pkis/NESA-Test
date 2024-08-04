@@ -146,7 +146,7 @@ const CSRInEducationAwardPage = () => {
     useEffect(() => {
         const interval = setInterval(nextSlide, 5000);
         return () => clearInterval(interval);
-    }, []);
+    }, [nextSlide]);
 
     const handleNominate = (category: Category) => {
         setSelectedCategory(category);
@@ -203,28 +203,19 @@ const CSRInEducationAwardPage = () => {
                             <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#FFC247] to-[#E48900]"></span>
                         </h2>
                         <p className="mb-4">
-                            To recognize and honor corporate entities in Nigeria that demonstrate excellence in supporting education through their CSR initiatives. This award celebrates companies that have implemented innovative programs and initiatives to enhance the educational landscape in Nigeria.
+                            To recognize and honor corporate entities across various sectors for their outstanding contributions to the education sector through CSR initiatives.
                         </p>
                     </div>
-
-                    <div>
-                        <h2 className="text-3xl mb-6 relative inline-block">
+                    <div className="mb-12">
+                        <h2 className="text-3xl font-bold mb-6 relative inline-block">
                             Benefits
                             <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#FFC247] to-[#E48900]"></span>
                         </h2>
-                        <ul className="space-y-4">
-                            <li className="flex items-start">
-                                <span className="w-2 h-2 mt-2 mr-2 rounded-full bg-gradient-to-r from-[#FFC247] to-[#E48900] border border-dotted border-[#FFC247]"></span>
-                                <div>
-                                    <strong>Awardees:</strong> Companies receive national recognition for their excellence and contributions to education, increased opportunities for partnerships and collaborations, positive publicity and enhanced reputation, and motivation for continued investment in education-focused CSR initiatives.
-                                </div>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="w-2 h-2 mt-2 mr-2 rounded-full bg-gradient-to-r from-[#FFC247] to-[#E48900] border border-dotted border-[#FFC247]"></span>
-                                <div>
-                                    <strong>Nigeria and Africa:</strong> Encourages more companies to prioritize education in their CSR strategies, leading to improved educational resources and opportunities across the country. It also promotes public-private partnerships in education, inspires innovation in educational support initiatives, and contributes to the achievement of SDG 4 (Quality Education) and other related sustainable development goals.
-                                </div>
-                            </li>
+                        <ul className="list-disc pl-5">
+                            <li>Enhanced corporate reputation and visibility.</li>
+                            <li>Opportunities for networking with other industry leaders.</li>
+                            <li>Recognition for the positive impact on education and community development.</li>
+                            <li>Potential to attract talent and customers through demonstrated commitment to social responsibility.</li>
                         </ul>
                     </div>
                 </div>
@@ -237,7 +228,7 @@ const CSRInEducationAwardPage = () => {
                     <span className="absolute bottom-0 left-0 w-16 h-1 bg-[#FFC247]"></span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {subcategories.slice(1).map((category, index) => (
+                    {subcategories.map((category, index) => (
                         <div key={index} className="bg-[#191307] rounded-3xl overflow-hidden shadow-lg transition-transform hover:scale-105 flex flex-col">
                             <div className="relative h-60 flex items-center justify-center p-6">
                                 <Image

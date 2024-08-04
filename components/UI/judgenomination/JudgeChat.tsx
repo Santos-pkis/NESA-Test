@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { MdPhone, MdVideocam, MdAttachFile, MdArrowBack } from "react-icons/md";
 import { FaMicrophoneAlt } from "react-icons/fa";
+import Image from 'next/image'; // Import Image from next/image
 
 interface Message {
   id: number;
@@ -186,10 +187,12 @@ const ChatInterface: React.FC = () => {
                 className={`flex items-center p-4 hover:bg-gray-100 cursor-pointer border-b border-gray-200 ${selectedChat.id === chat.id ? 'bg-gray-100' : ''}`}
                 onClick={() => handleChatSelect(chat)}
               >
-                <img
+                <Image
                   src={chat.image}
                   alt={chat.name}
-                  className="w-10 h-10 rounded-full mr-3"
+                  width={40} // Set width
+                  height={40} // Set height
+                  className="rounded-full mr-3"
                 />
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold truncate">{chat.name}</p>
@@ -211,10 +214,12 @@ const ChatInterface: React.FC = () => {
                 size={24}
                 onClick={toggleChatList}
               />
-              <img
+              <Image
                 src={selectedChat.image}
                 alt={selectedChat.name}
-                className="w-12 h-12 rounded-full mr-3"
+                width={48} // Set width
+                height={48} // Set height
+                className="rounded-full mr-3"
               />
               <div>
                 <h2 className="font-semibold">{selectedChat.name}</h2>
@@ -232,10 +237,12 @@ const ChatInterface: React.FC = () => {
             {selectedChat.messages.map((message) => (
               <div key={message.id} className={`flex ${message.sender === 'You' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`flex ${message.sender === 'You' ? 'flex-row-reverse' : 'flex-row'} items-end`}>
-                  <img
+                  <Image
                     src={message.sender === 'You' ? "/images/your-profile.jpg" : selectedChat.image}
                     alt={message.sender}
-                    className="w-8 h-8 rounded-full mx-2"
+                    width={32} // Set width
+                    height={32} // Set height
+                    className="rounded-full mx-2"
                   />
                   <div className={`p-3 rounded-lg shadow max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg ${message.sender === 'You' ? 'bg-[#F1F1F1]' : 'bg-[#E1E1E1]'}`}>
                     {selectedChat.isGroup && message.sender !== 'You' && (

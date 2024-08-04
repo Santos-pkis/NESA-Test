@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 
@@ -124,18 +124,18 @@ const CSRAwardCategoryPage = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const nextSlide = () => {
+    const nextSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % subcategories.length);
-    };
+    }, [subcategories.length]);
 
-    const prevSlide = () => {
+    const prevSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + subcategories.length) % subcategories.length);
-    };
+    }, [subcategories.length]);
 
     useEffect(() => {
         const interval = setInterval(nextSlide, 5000);
         return () => clearInterval(interval);
-    }, []);
+    }, [nextSlide]);
 
     const handleNominate = (categoryTitle: string) => {
         console.log(`Nominated for: ${categoryTitle}`);
@@ -154,7 +154,21 @@ const CSRAwardCategoryPage = () => {
                         {subcategories[currentIndex].description}
                     </p>
                 </div>
-                {/* Carousel controls remain the same */}
+                {/* Carousel Indicator Dots */}
+                <div className="absolute bottom-4 left-4 flex space-x-2">
+                    {subcategories.map((_, index) => (
+                        <div key={index} className={`w-3 h-3 rounded-full ${index === currentIndex ? 'bg-[#FFC247]' : 'bg-white'}`}></div>
+                    ))}
+                </div>
+                {/* Carousel Navigation Arrows */}
+                <div className="absolute bottom-4 right-4 flex space-x-4">
+                    <button onClick={prevSlide} className="p-2 rounded transition" style={{ background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)' }}>
+                        <IoMdArrowBack size={32} color="#191307" />
+                    </button>
+                    <button onClick={nextSlide} className="p-2 rounded transition" style={{ background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)' }}>
+                        <IoMdArrowForward size={32} color="#191307" />
+                    </button>
+                </div>
             </div>
 
             {/* Purpose and Benefits Section */}
