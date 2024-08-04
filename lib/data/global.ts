@@ -20,13 +20,13 @@ export const navlinks: NavLink[] = [
     path: "/awards",
     
     children: [
-      //{ label: "Nomination Process", path: "/categories" },
+      { label: "Nomination Process", path: "/nomination" },
       // { label: "Award Dinner", path: "/award-dinner" },
     ],
   },
   {
     label: "Get Involved",
-    path: "#",
+    path: "/getinvolved",
     // path: "/about",
     children: [
       { label: "NESA Africa", path: "/nesa-africa" },

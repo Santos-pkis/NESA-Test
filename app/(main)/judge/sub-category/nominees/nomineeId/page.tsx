@@ -1,4 +1,4 @@
-import NomineeProfile from '@/components/UI/judgenomination/JudgeProfile';
+import NomineeProfile from '@/components/UI/judgenomination/NomineeProfile';
 import ReviewsAndComments from '@/components/UI/judgenomination/ReviewsSection';
 
 const NomineePage = () => {

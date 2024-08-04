@@ -71,3 +71,11 @@ input:focus,
 button:focus {
   outline: none;
 }
+/* In your global CSS or a style block */
+.overflow-x-auto {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
