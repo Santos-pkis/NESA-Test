@@ -1,6 +1,8 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'; // Import Image from next/image
+import PhoneInput from 'react-phone-input-2'; // Import react-phone-input-2
+import 'react-phone-input-2/lib/style.css'; // Import the CSS for the phone input
 
 interface Category {
   title: string;
@@ -42,12 +44,12 @@ const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ details, onClose,
           <ConfirmationField label="Organization they belong to" value={details.organization} />
           <ConfirmationField label="Phone number" value={details.phone} />
           <ConfirmationField label="Social Media Profile" value={details.socialMedia || 'Not provided'} />
-          <ConfirmationField label="Documents" value={details.document ? 'Image Video' : 'Not uploaded'} />
+          <ConfirmationField label="Documents" value={details.document ? 'Image/Video Uploaded' : 'Not uploaded'} />
           <ConfirmationField label="Achievements" value={details.achievements} />
         </div>
         <button
           onClick={onNominate}
-          className="w-full mt-6 text-black  py-3 px-4 rounded-lg"
+          className="w-full mt-6 text-black py-3 px-4 rounded-lg"
           style={{
             background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
           }}
@@ -125,6 +127,10 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handlePhoneChange = (value: string) => {
+    setFormData(prev => ({ ...prev, phone: value }));
+  };
+
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
@@ -181,12 +187,17 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone number</label>
-              <div className="flex">
-                <select className="bg-[#FFF9ED] border-none rounded-l-lg px-3">
-                  <option>+234</option>
-                </select>
-                <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="Enter your phone number" className="flex-grow p-3 rounded-r-lg bg-[#FFF9ED] border-none" />
-              </div>
+              <PhoneInput
+                country={'ng'}
+                value={formData.phone}
+                onChange={handlePhoneChange}
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  autoFocus: false,
+                  className: 'w-full p-3 rounded-lg bg-[#FFF9ED] border-none',
+                }}
+              />
             </div>
             <div className="space-y-6">
               <div>
