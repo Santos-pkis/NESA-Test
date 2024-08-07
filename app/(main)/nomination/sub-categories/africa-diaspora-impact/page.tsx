@@ -13,35 +13,26 @@ interface Category {
 const AfricaDiasporaAwardPage = () => {
   const subcategories: Category[] = [
     {
-      title: "Africa Diaspora association Educational Impact Projects Recognition Award Africa",
+      title: "The Best Diaspora-Led Educational Infrastructure.",
       description: "This Award recognizes and honors the significant contributions made by the Nigerian diaspora towards achieving 'Education for All' in Nigeria. This award, set for the 2023 cycle, aims to celebrate diaspora individuals, groups, or organizations that have made a substantial impact through skills transfer, corporate social responsibility (CSR) initiatives, advocacy, and other educational support back home in Nigeria.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Innovation in Educational Technology Award",
-      description: "Recognizes organizations that have developed innovative technological solutions to enhance learning and education delivery.",
+      title: "The Best Diaspora-Led Educational Infrastructure.",
+      description: "This Award recognizes and honors the significant contributions made by the Nigerian diaspora towards achieving 'Education for All' in Nigeria. This award, set for the 2023 cycle, aims to celebrate diaspora individuals, groups, or organizations that have made a substantial impact through skills transfer, corporate social responsibility (CSR) initiatives, advocacy, and other educational support back home in Nigeria.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Excellence in E-Learning Solutions Award",
+      title: "The Best Diaspora-Led Educational Program Innovation",
       description: "Awards organizations that have created outstanding e-learning platforms or solutions that significantly improve access to education.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best Use of Artificial Intelligence in Education",
+      title: "The Best Diaspora-Led Teacher Training and Support Initiative.",
       description: "Honors organizations that leverage artificial intelligence to personalize learning experiences, improve educational processes, or enhance...",
       image: "/images/nesa-card2.png"
     },
-    {
-      title: "Outstanding Contribution To Digital Literacy Award",
-      description: "Recognizes organizations that have made significant contributions to improving digital literacy among students, teachers, and communities.",
-      image: "/images/nesa-card2.png"
-    },
-    {
-      title: "Best Mobile Learning Solution Award",
-      description: "Awards organizations that have created outstanding e-learning platforms or solutions that significantly improve access to education.",
-      image: "/images/nesa-card2.png"
-    }
+  
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
