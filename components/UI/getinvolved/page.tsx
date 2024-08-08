@@ -5,7 +5,7 @@ const NESACommunityPage = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-[50vh] bg-gray-800 text-white">
+      <section className="relative min-h-[60vh] bg-gray-800 text-white mt-16 sm:mt-20 md:mt-0">
         <Image
           src="/images/nominatehero.jpeg"
           alt="NESA 2023 Community"
@@ -13,9 +13,9 @@ const NESACommunityPage = () => {
           objectFit="cover"
           className="opacity-20"
         />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
-          <h1 className="text-4xl font-bold mb-2">Join the NESA 2023 Community!</h1>
-          <p className="text-lg max-w-2xl">
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 pt-16 sm:pt-20 md:pt-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Join the NESA 2023 Community!</h1>
+          <p className="text-sm sm:text-base md:text-lg max-w-2xl">
             Explore Opportunities to Make a Difference. Join NESA Africa, facilitated by Santos
             Creations Educational Foundation, and become part of a transformative educational
             community!

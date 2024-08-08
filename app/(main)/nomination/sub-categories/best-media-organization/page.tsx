@@ -19,25 +19,21 @@ const MediaEducationalAdvocacyAwardPage = () => {
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Print Media Educational Excellence Award",
+      title: "Best Print Media Educational Advocacy Award",
       description: "Recognizes newspapers, magazines, and other print media houses for outstanding educational journalism, articles, and features.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Radio Educational Program Excellence Award",
+      title: "Best Broadcast Media Educational Advocacy Award",
       description: "Honors radio stations and broadcasters for impactful educational programs, discussions, and campaigns.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Television Educational Content Award",
-      description: "Acknowledges TV stations and networks for high-quality educational shows, documentaries, and news segments.",
-      image: "/images/nesa-card2.png"
-    },
-    {
-      title: "Online Media Educational Innovation Award",
+      title: "Best Digital Media Educational Advocacy Award",
       description: "Honors online media platforms for innovative educational content, e-learning initiatives, and digital campaigns.",
       image: "/images/nesa-card2.png"
-    }
+    },
+    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

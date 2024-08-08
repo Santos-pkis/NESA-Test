@@ -32,6 +32,26 @@ const CreativeArtsRecognitionPage = () => {
       title: "Best Literature And Art Works For Education Award",
       description: "Recognizes writers, literary organizations, and visual artists whose work has significantly contributed to education, particularly in promoting reading, historical understanding, and...",
       image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Visual Arts and Educational Impact Award",
+      description: "Celebrates artists and organizations using visual arts to enrich educational content and experiences.",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Performing Arts and Education Enrichment Award",
+      description: "Honors contributions from the theater, dance, and music sectors in enhancing educational programs.",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Film and Media for Educational Advancement Award",
+      description: "Recognizes writers, literary organizations, and visual artists whose work has significantly contributed to education, particularly in promoting reading, historical understanding, and...",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Creative Advocacy and Educational Campaigns Award",
+      description: "Celebrates creative campaigns that advocate for educational reforms and awareness.",
+      image: "/images/nesa-card2.png"
     }
   ];
 

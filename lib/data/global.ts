@@ -27,14 +27,13 @@ export const navlinks: NavLink[] = [
   {
     label: "Get Involved",
     path: "/getinvolved",
-    // path: "/about",
-    children: [
-      { label: "NESA Africa", path: "/nesa-africa" },
-      { label: "NESA 2023", path: "/awards" },
-      { label: "Partners", path: "/partners" },
+    //children: [
+     // { label: "NESA Africa", path: "/nesa-africa" },
+     // { label: "NESA 2023", path: "/awards" },
+     // { label: "Partners", path: "/partners" },
       // { label: "Voting", path: "/voting" },
-      { label: "Join Us Now", path: "/join-us" },
-    ],
+     // { label: "Join Us Now", path: "/join-us" },
+   // ],
   },
   {
     label: "Media",
