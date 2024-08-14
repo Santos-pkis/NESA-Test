@@ -1,19 +1,7 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import { IoIosSearch, IoIosArrowBack } from "react-icons/io";
-import { categories, Category } from '@/lib/data/awardData';
-
-interface Nominee {
-  name: string;
-  image: string;
-  achievement: string;
-}
-
-interface SubCategory {
-  title: string;
-  description: string;
-  nominees?: Nominee[];
-}
+import { categories, Category, SubCategory, Nominee } from '@/lib/data/awardData';
 
 const AwardCategory: React.FC<{
   category: Category;
@@ -128,6 +116,13 @@ const NomineeComponent: React.FC<{ nominee: Nominee }> = ({ nominee }) => {
           </div>
         </div>
         <h3 className="text-xl font-bold mb-2">{nominee.name}</h3>
+        {(nominee.state || nominee.country) && (
+          <p className="text-sm mb-2 text-gray-400">
+            {nominee.state && nominee.country 
+              ? `${nominee.state}, ${nominee.country}`
+              : nominee.state || nominee.country}
+          </p>
+        )}
         <p className="text-sm mb-4">{nominee.achievement}</p>
       </div>
       <button 
@@ -174,7 +169,7 @@ const JudgePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white py-10 sm:py-20 lg:pt-32"> {/* Added lg:pt-32 for more top padding on large screens */}
+    <div className="bg-white py-10 sm:py-20 lg:pt-32">
       <div className="max-w-7xl mx-auto px-4">
         {/* Hero Section */}
         <div className="mb-12 sm:mb-16">
@@ -249,12 +244,14 @@ const JudgePage: React.FC = () => {
           {!selectedCategory && (
             <>
               <div className="w-full lg:col-span-3">
-                <AwardCategory
-                  key={0}
-                  category={filteredCategories[0]}
-                  onSelectCategory={handleSelectCategory}
-                  isFirst={true}
-                />
+                {filteredCategories.length > 0 && (
+                  <AwardCategory
+                    key={0}
+                    category={filteredCategories[0]}
+                    onSelectCategory={handleSelectCategory}
+                    isFirst={true}
+                  />
+                )}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                 {filteredCategories.slice(1).map((category, index) => (

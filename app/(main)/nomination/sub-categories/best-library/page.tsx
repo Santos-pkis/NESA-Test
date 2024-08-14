@@ -19,25 +19,45 @@ const BestLibraryAwardPage = () => {
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best University Library in Nigeria",
+      title: "Best University Library in Nigeria (Public)",
       description: "This award assesses how effectively states allocate and utilize their educational budget to enhance infrastructure, resources, educator...",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best Polytechnic Library in Nigeria",
+      title: "Best University Library in Nigeria (Private)",
       description: "Recognizes states that have made significant contributions to integrating STEM education and technology into their educational systems.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best College Of Education Library in Nigeria",
+      title: "Best Polytechnic Library in Nigeria (Public)",
       description: "Focuses on states that have implemented innovative teaching methods, developed superior school facilities, offered exceptional sports...",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best College Of Nursing Library in Nigeria",
+      title: "Best College of Education Library in Nigeria (Public)",
       description: "This award assesses how effectively states allocate and utilize their educational budget to enhance infrastructure, resources, educator...",
       image: "/images/nesa-card2.png"
-    }
+    },
+    {
+      title: "Best College of Nursing Library in Nigeria (Public)",
+      description: "Focuses on states that have implemented innovative teaching methods, developed superior school facilities, offered exceptional sports...",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Best Polytechnic Library in Nigeria (Private)",
+      description: "Focuses on states that have implemented innovative teaching methods, developed superior school facilities, offered exceptional sports...",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Best College of Education Library in Nigeria (Private)",
+      description: "Focuses on states that have implemented innovative teaching methods, developed superior school facilities, offered exceptional sports...",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Best College of Nursing Library in Nigeria (Private)",
+      description: "Focuses on states that have implemented innovative teaching methods, developed superior school facilities, offered exceptional sports...",
+      image: "/images/nesa-card2.png"
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

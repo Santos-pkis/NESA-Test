@@ -21,7 +21,7 @@ export const navlinks: NavLink[] = [
     
     children: [
       { label: "Nomination Process", path: "/nomination" },
-      // { label: "Award Dinner", path: "/award-dinner" },
+       { label: "Judge Portal", path: "/judge" },
     ],
   },
   {
