@@ -1126,18 +1126,18 @@ export interface Nominee {
               "image": "/images/libraries/Lagos_State_Polytechnic_Library.png"
             },
             {
-              "name": "Moshood Abiola Polytechnic Library",
+              "name": "Ibadan Polytechnic Library",
               "achievement": "Extensive e-learning resources for technical education.",
               "state": "Ogun",
               "country": "Nigeria",
-              "image": "/images/libraries/Moshood_Abiola_Polytechnic_Library.png"
+              "image": "/images/libraries/Ibadan_Polytechnic_Library.png"
             },
             {
-              "name": "Federal Polytechnic, Ado-Ekiti Library",
+              "name": "Rufus Giwa Polytechnic Library",
               "achievement": "Specialized collections supporting technology and innovation.",
               "state": "Ekiti",
               "country": "Nigeria",
-              "image": "/images/libraries/Federal_Polytechnic_Ado-Ekiti_Library.png"
+              "image": "/images/libraries/Rufus_Giwa_Polytechnic_Library.png"
             },
             {
               "name": "Federal Polytechnic, Bida Library",
@@ -1216,11 +1216,11 @@ export interface Nominee {
                   "image": "/images/libraries/School_of_Nursing_Ahmadu_Bello_University.png"
                 },
                 {
-                  "name": "School of Nursing, University of Benin",
+                  "name": "School of Nursing, University of  Nigeria.",
                   "achievement": "Innovative library programs supporting nursing students.",
                   "state": "Edo State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/School_of_Nursing_University_of_Benin.png"
+                  "image": "/images/libraries/School_of_Nursing_University_of_Nigeria.png"
                 },
                 {
                   "name": "School of Nursing, Federal Medical Centre",
