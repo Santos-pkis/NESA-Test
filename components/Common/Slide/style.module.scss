@@ -19,25 +19,17 @@
 .scroll-con {
   position: relative;
 
-  // &::after {
-  //   @include fade(450px);
-  //   right: 0;
-  //   background: linear-gradient(to left, #15110b 15%, #15110b81, rgba(0, 0, 0, 0));
-  // }
-
-  // &::before {
-  //   @include fade(450px);
-  //   left: 0;
-  //   background: linear-gradient(to right, #15110b 15%, #15110b81, rgba(0, 0, 0, 0));
-  // }
-
   @media (max-width: 768px) {
     &::after {
-      @include fade(150px);
+      @include fade(50px);
+      right: 0;
+      background: linear-gradient(to left, #15110b 15%, #15110b81, rgba(0, 0, 0, 0));
     }
 
     &::before {
-      @include fade(150px);
+      @include fade(50px);
+      left: 0;
+      background: linear-gradient(to right, #15110b 15%, #15110b81, rgba(0, 0, 0, 0));
     }
   }
 }
@@ -57,16 +49,15 @@
   }
 }
 
-// category
 .award_con {
   &::after {
-    @include fade(150px);
+    @include fade(50px);
     right: 0;
     background: linear-gradient(to left, #141007, rgba(0, 0, 0, 0));
   }
 
   &::before {
-    @include fade(150px);
+    @include fade(50px);
     left: 0;
     background: linear-gradient(to right, #141007, rgba(0, 0, 0, 0));
   }
@@ -76,22 +67,17 @@
   }
 
   @media screen and (max-width: 768px) {
-    &::after {
-      @include fade(0px);
-    }
-
+    &::after,
     &::before {
       @include fade(0px);
     }
   }
 }
 
-// left direction
 .scroll-el {
   animation: scroll 80s linear infinite;
 }
 
-// right direction
 .scroll-right {
   animation: scroll 80s linear infinite reverse;
 }

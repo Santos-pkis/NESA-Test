@@ -16,13 +16,13 @@ const HomePartners = () => {
       <div className="bg-[#15110999] absolute top-0 left-0 w-full -z-[1] h-full"></div>
 
       <div className="space-y-8 container">
-        <p className="text-white text-center text-4xl font-semibold">Meet Our Key Partners </p>
+        <p className="text-white text-center text-2xl md:text-4xl font-semibold">Meet Our Key Partners</p>
 
         {/* Upper horizontal line with fading ends */}
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent opacity-50"></div>
 
-        <div>
-          <div className={"relative whitespace-nowrap md:container overflow-hidden"}>
+        <div className="overflow-hidden">
+          <div className="relative whitespace-nowrap">
             <Partners />
             <Partners />
             <Partners />
