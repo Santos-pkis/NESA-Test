@@ -5,19 +5,29 @@ import { motion } from "framer-motion";
 import { toTopV, parentV } from "@/lib/utils/variants";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { CategoryChild, CategoryDetails } from "@/lib/types/global";
 import toast from "react-hot-toast";
 import { useModal } from "@/lib/store/modal";
 import Modal from "@/components/Common/Modal";
 import ThanksForVoting from "./thanks-for-voting";
 import upload from "/public/svgs/upload.svg";
 import { BiInfoCircle } from "react-icons/bi";
-// import bg from "./../../../../public/images/bg/boy.png";
+
+type Category = {
+  id: number;
+  title: string;
+  description: string;
+  detailsDescription?: string;
+};
+
+type CategoryDetail = {
+  id: number;
+  // Add other properties as needed
+};
 
 type Props = {
   id: number;
-  category: CategoryChild | undefined;
-  details: CategoryDetails | undefined;
+  category: Category | undefined;
+  details: CategoryDetail | undefined;
 };
 
 const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
@@ -37,9 +47,7 @@ const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
       <Modal visible={visible} onClose={hideModal}></Modal>
 
       <header>
-        <div
-          className={`md:min-h-[48rem] min-h-screen bg-zinc-200 text-white relative`}
-        >
+        <div className={`md:min-h-[48rem] min-h-screen bg-zinc-200 text-white relative`}>
           <div className="absolute top-0 left-0 h-full w-full">
             <Image
               src={"/images/bg/about_.png"}
@@ -86,25 +94,17 @@ const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
                 Submit Nominee Personal Information
               </h1>
               <span className="bg-gradient-to-r from-[#febf44] to-[#ed9d19] h-[5px] w-[140px] absolute top-[42px] left-0"></span>
-            </div>{" "}
-            <form
-              action=""
-              className="w-full flex flex-col items-center gap-[3rem]"
-            >
+            </div>
+            <form action="" className="w-full flex flex-col items-center gap-[3rem]">
               <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <section>
-                  <label
-                    htmlFor="individual/organization"
-                    className="font-[400] text-[1rem] leading-6"
-                  >
+                  <label htmlFor="individual/organization" className="font-[400] text-[1rem] leading-6">
                     Individual/Organization
                   </label>
                   <input
                     type="text"
                     name="individual/organization"
                     placeholder="Name of Individual or Organization"
-                    //   value={search}
-                    //   onChange={handleSearchChange}
                     className="w-[100%]"
                     style={{
                       background: "#FFF5E0",
@@ -114,18 +114,13 @@ const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
                   />
                 </section>
                 <section>
-                  <label
-                    htmlFor="phone_no"
-                    className="font-[400] text-[1rem] leading-6"
-                  >
+                  <label htmlFor="phone_no" className="font-[400] text-[1rem] leading-6">
                     Phone Number
                   </label>
                   <input
                     type="text"
                     name="phone_no"
                     placeholder="Enter your phone number"
-                    //   value={search}
-                    //   onChange={handleSearchChange}
                     className="w-[100%]"
                     style={{
                       background: "#FFF5E0",
@@ -133,20 +128,15 @@ const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
                       borderRadius: "8px",
                     }}
                   />
-                </section>{" "}
+                </section>
                 <section>
-                  <label
-                    htmlFor="organization"
-                    className="font-[400] text-[1rem] leading-6"
-                  >
+                  <label htmlFor="organization" className="font-[400] text-[1rem] leading-6">
                     Organization
                   </label>
                   <input
                     type="text"
                     name="organization"
                     placeholder="Name of the organization they belong to"
-                    //   value={search}
-                    //   onChange={handleSearchChange}
                     className="w-[100%]"
                     style={{
                       background: "#FFF5E0",
@@ -154,19 +144,14 @@ const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
                       borderRadius: "8px",
                     }}
                   />
-                </section>{" "}
+                </section>
                 <section className="row-span-2">
-                  <label
-                    htmlFor="individual/organization"
-                    className="font-[400] text-[1rem] leading-6"
-                  >
+                  <label htmlFor="individual/organization" className="font-[400] text-[1rem] leading-6">
                     Individual/Organization
                   </label>
                   <textarea
                     name="individual/organization"
                     placeholder="Name of Individual or Organization"
-                    //   value={search}
-                    //   onChange={handleSearchChange}
                     className="w-[100%] h-[88%] outline-none focus:outline-none"
                     rows={6}
                     style={{
@@ -177,18 +162,13 @@ const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
                   />
                 </section>
                 <section className="relative">
-                  <label
-                    htmlFor="document"
-                    className="font-[400] text-[1rem] leading-6"
-                  >
+                  <label htmlFor="document" className="font-[400] text-[1rem] leading-6">
                     Document
                   </label>
                   <input
                     type="file"
                     placeholder="Upload supporting document or video"
                     title="Upload supporting document or video"
-                    //   value={search}
-                    //   onChange={}
                     className="w-[100%]"
                     style={{
                       background: "#FFF5E0",
@@ -196,16 +176,12 @@ const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
                       borderRadius: "8px",
                     }}
                   />
-                  <Image
-                    src={upload}
-                    alt="upload"
-                    className="absolute right-5 top-10"
-                  />
+                  <Image src={upload} alt="upload" className="absolute right-5 top-10" />
                   <span className="flex gap-1 items-center font-[400] text-[0.75rem] text-[#171D2980]">
                     <BiInfoCircle className="text-midGold h-4 w-4" />
                     JPG, PNG, PDF and SVG files only
                   </span>
-                </section>{" "}
+                </section>
               </div>
               <button
                 type="submit"
