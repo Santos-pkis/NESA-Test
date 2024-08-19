@@ -3,9 +3,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
+import { useRouter } from 'next/navigation';
+import NominationPage from '@/components/UI/nomination/nominate';
+
+interface Category {
+  title: string;
+  description: string;
+  image: string;
+}
 
 const NGOAwardCategoryPage = () => {
-  const subcategories = [
+  const router = useRouter();
+  
+  const subcategories: Category[] = [
     {
       title: "The Overall Best NGO Contribution to Achieving Education for All in Nigeria 2024",
       description: "This award aims to celebrate and recognize educational excellence across Africa. The Overall Best NGO Contribution to Achieving Education for All in Nigeria 2024 Award is dedicated to highlighting the outstanding efforts of non-governmental organizations (NGOs) that have made significant contributions to improving education in Nigeria. This award will honor NGOs that have demonstrated exceptional commitment, innovation, and impact in their educational initiatives.",
@@ -29,6 +39,7 @@ const NGOAwardCategoryPage = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % subcategories.length);
@@ -43,10 +54,13 @@ const NGOAwardCategoryPage = () => {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  const handleNominate = (categoryTitle: string) => {
-    console.log(`Nominated for: ${categoryTitle}`);
-    // Implement nomination logic here
+  const handleNominate = (category: Category) => {
+    setSelectedCategory(category);
   };
+
+  if (selectedCategory) {
+    return <NominationPage category={selectedCategory} />;
+  }
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">
@@ -144,7 +158,7 @@ const NGOAwardCategoryPage = () => {
                   <p className="text-gray-300 text-sm mb-4">{category.description}</p>
                 </div>
                 <button
-                  onClick={() => handleNominate(category.title)}
+                  onClick={() => handleNominate(category)}
                   className="w-full bg-[#FFC247] text-black py-2 rounded font-bold hover:bg-[#FFD277] transition mt-auto"
                 >
                   Nominate

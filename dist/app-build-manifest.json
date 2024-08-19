@@ -1,0 +1,60 @@
+{
+  "pages": {
+    "/(main)/nomination/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(main)/nomination/page.js"
+    ],
+    "/(main)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/layout.css",
+      "static/chunks/app/(main)/layout.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/judge/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/judge/page.js"
+    ],
+    "/judge/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/judge/layout.js"
+    ],
+    "/(main)/(home)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/(home)/page.css",
+      "static/chunks/app/(main)/(home)/page.js"
+    ],
+    "/(main)/nomination/sub-categories/africa-lifetime-education-icon/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.js"
+    ],
+    "/(main)/nomination/sub-categories/best-ngo-contribution/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/best-ngo-contribution/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/best-ngo-contribution/page.js"
+    ],
+    "/(main)/nomination/sub-categories/africa-diaspora-impact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/africa-diaspora-impact/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/africa-diaspora-impact/page.js"
+    ],
+    "/(main)/nomination/sub-categories/best-csr-education/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(main)/nomination/sub-categories/best-csr-education/page.js"
+    ]
+  }
+}

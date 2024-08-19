@@ -42,7 +42,7 @@ const HeroCenter = () => {
             {new Array(3).fill(null).map((_, id) => (
               <p key={id} className={`py-1 ${styles["head-scroll-text"]}`}>
                 -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination
-                Starts August 30th 2024. Get ready to nominate your
+                Starts December 30th 2024. Get ready to nominate your
                 Education Champion!
               </p>
             ))}

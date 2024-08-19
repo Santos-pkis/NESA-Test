@@ -1,0 +1,7 @@
+{
+  "/(main)/nomination/sub-categories/africa-lifetime-education-icon/page": "app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.js",
+  "/(main)/(home)/page": "app/(main)/(home)/page.js",
+  "/(main)/nomination/sub-categories/best-ngo-contribution/page": "app/(main)/nomination/sub-categories/best-ngo-contribution/page.js",
+  "/(main)/nomination/sub-categories/africa-diaspora-impact/page": "app/(main)/nomination/sub-categories/africa-diaspora-impact/page.js",
+  "/(main)/nomination/sub-categories/best-csr-education/page": "app/(main)/nomination/sub-categories/best-csr-education/page.js"
+}
