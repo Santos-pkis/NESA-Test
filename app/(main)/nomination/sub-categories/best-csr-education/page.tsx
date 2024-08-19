@@ -2,9 +2,16 @@
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
+import NominationPage from '@/components/UI/nomination/nominate';
+
+interface Category {
+  title: string;
+  description: string;
+  image: string;
+}
 
 const CSRAwardCategoryPage = () => {
-    const subcategories = [
+    const subcategories: Category[] = [
         {
             title: "The Overall Best Corporate Social Responsibility (CSR) in Education in Nigeria Award",
             description: "This Award celebrates the significant contributions of corporate entities across various sectors to the education sector in Nigeria through corporate social responsibility initiatives. This Award highlights the crucial impact and strategic importance of CSR in education.",
@@ -123,6 +130,7 @@ const CSRAwardCategoryPage = () => {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
     const nextSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % subcategories.length);
@@ -137,10 +145,13 @@ const CSRAwardCategoryPage = () => {
         return () => clearInterval(interval);
     }, [nextSlide]);
 
-    const handleNominate = (categoryTitle: string) => {
-        console.log(`Nominated for: ${categoryTitle}`);
-        // Implement nomination logic here
+    const handleNominate = (category: Category) => {
+        setSelectedCategory(category);
     };
+
+    if (selectedCategory) {
+        return <NominationPage category={selectedCategory} />;
+    }
 
     return (
         <div className="min-h-screen bg-[#FFF5E0]">
@@ -223,7 +234,7 @@ const CSRAwardCategoryPage = () => {
             </div>
 
             {/* Sub-Categories Section */}
-            <div className="max-w-6xl mx-auto py-12 px-4">
+           <div className="max-w-6xl mx-auto py-12 px-4">
                 <h2 className="text-3xl font-bold mb-8 relative inline-block">
                     The CSR Award Sub-Categories
                     <span className="absolute bottom-0 left-0 w-16 h-1 bg-[#FFC247]"></span>
@@ -246,7 +257,7 @@ const CSRAwardCategoryPage = () => {
                                     <p className="text-gray-300 text-sm mb-4">{category.description}</p>
                                 </div>
                                 <button
-                                    onClick={() => handleNominate(category.title)}
+                                    onClick={() => handleNominate(category)}
                                     className="w-full bg-[#FFC247] text-black py-2 rounded font-bold hover:bg-[#FFD277] transition mt-auto"
                                 >
                                     Nominate

@@ -1,64 +1,81 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
+import NominationPage from '@/components/UI/nomination/nominate';
+
+interface Category {
+  title: string;
+  description: string;
+  image: string;
+}
 
 const EduTechAwardCategoryPage = () => {
-  const mainCategory = {
+  const mainCategory: Category = {
     title: "The Overall Best EduTech Organization in Nigeria and Africa 2024",
     description:
       "This award aims to celebrate and recognize educational excellence across the African continent. The Best EduTech Organization in Nigeria and Africa 2024 award acknowledges the significant contributions of EduTech organizations that have leveraged technology to enhance educational experiences and outcomes. This award highlights the innovative approaches and technological solutions that EduTech organizations have implemented to address educational challenges and improve the quality of education in Nigeria and across Africa.",
+    image: "/images/nesa-card2.png"
   };
 
-  const subcategories = [
+  const subcategories: Category[] = [
     {
       title: "Innovation In Educational Technology Award",
       description:
         "Recognizes organizations that have developed innovative technological solutions to enhance learning and education delivery",
+      image: "/images/nesa-card2.png"
     },
     {
       title: "Excellence In E-Learning Solutions Award",
       description:
         "Awards organizations that have created outstanding e-learning platforms or solutions that significantly improve access to education.",
+      image: "/images/nesa-card2.png"
     },
     {
       title: "Best Use Of Artificial Intelligence In Education",
       description:
         "Honors organizations that leverage artificial intelligence to personalize learning experiences, improve educational processes, or enhance...",
+      image: "/images/nesa-card2.png"
     },
     {
       title: "Outstanding Contribution To Digital Literacy Award",
       description:
         "Recognizes organizations that have made significant contributions to improving digital literacy among students, teachers, and communities.",
+      image: "/images/nesa-card2.png"
     },
     {
       title: "Best Mobile Learning Solution Award",
       description:
         "Awards organizations that have created outstanding e-learning platforms or solutions that significantly improve access to education.",
+      image: "/images/nesa-card2.png"
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % (subcategories.length + 1));
+  }, [subcategories.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + subcategories.length + 1) % (subcategories.length + 1)
+    );
+  }, [subcategories.length]);
 
   useEffect(() => {
-    const nextSlide = () => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % (subcategories.length + 1));
-    };
-
-    const prevSlide = () => {
-      setCurrentIndex(
-        (prevIndex) => (prevIndex - 1 + subcategories.length + 1) % (subcategories.length + 1)
-      );
-    };
-
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, [subcategories.length]); // Depend on subcategories.length
+  }, [nextSlide]);
 
-  const handleNominate = (categoryTitle: string) => {
-    console.log(`Nominated for: ${categoryTitle}`);
-    // Implement nomination logic here
+  const handleNominate = (category: Category) => {
+    setSelectedCategory(category);
   };
+
+  if (selectedCategory) {
+    return <NominationPage category={selectedCategory} />;
+  }
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">
@@ -92,9 +109,7 @@ const EduTechAwardCategoryPage = () => {
         {/* Carousel Navigation Arrows */}
         <div className="absolute bottom-4 right-4 flex space-x-4">
           <button
-            onClick={() => setCurrentIndex(
-              (prevIndex) => (prevIndex - 1 + subcategories.length + 1) % (subcategories.length + 1)
-            )}
+            onClick={prevSlide}
             className="p-2 rounded transition"
             style={{
               background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
@@ -103,9 +118,7 @@ const EduTechAwardCategoryPage = () => {
             <IoMdArrowBack size={32} color="#191307" />
           </button>
           <button
-            onClick={() => setCurrentIndex(
-              (prevIndex) => (prevIndex + 1) % (subcategories.length + 1)
-            )}
+            onClick={nextSlide}
             className="p-2 rounded transition"
             style={{
               background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
@@ -167,18 +180,16 @@ const EduTechAwardCategoryPage = () => {
           <span className="absolute bottom-0 left-0 w-16 h-1 bg-[#FFC247]"></span>
         </h2>
 
-        {/* Add a map to render subcategory boxes */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {subcategories.map((category, index) => (
             <div
               key={index}
               className="bg-[#191307] rounded-3xl overflow-hidden shadow-lg transition-transform hover:scale-105 flex flex-col"
             >
-              {/* Center the image with padding on small screens */}
               <div className="flex justify-center items-center h-64 p-6 max-sm:px-4 max-sm:py-6">
                 <div className="relative w-full h-full">
                   <Image
-                    src="/images/nesa-card2.png"
+                    src={category.image}
                     alt="NESA AFRICA"
                     layout="intrinsic"
                     width={290}
@@ -197,7 +208,7 @@ const EduTechAwardCategoryPage = () => {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleNominate(category.title)}
+                  onClick={() => handleNominate(category)}
                   className="w-full bg-[#FFC247] text-black py-2 rounded font-bold hover:bg-[#FFD277] transition mt-auto"
                 >
                   Nominate

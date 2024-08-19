@@ -17,44 +17,82 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/judge/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/judge/page.js"
-    ],
-    "/judge/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/judge/layout.js"
-    ],
-    "/(main)/(home)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/(home)/page.css",
-      "static/chunks/app/(main)/(home)/page.js"
-    ],
-    "/(main)/nomination/sub-categories/africa-lifetime-education-icon/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.css",
-      "static/chunks/app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.js"
-    ],
-    "/(main)/nomination/sub-categories/best-ngo-contribution/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/nomination/sub-categories/best-ngo-contribution/page.css",
-      "static/chunks/app/(main)/nomination/sub-categories/best-ngo-contribution/page.js"
-    ],
-    "/(main)/nomination/sub-categories/africa-diaspora-impact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/nomination/sub-categories/africa-diaspora-impact/page.css",
-      "static/chunks/app/(main)/nomination/sub-categories/africa-diaspora-impact/page.js"
-    ],
     "/(main)/nomination/sub-categories/best-csr-education/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/best-csr-education/page.css",
       "static/chunks/app/(main)/nomination/sub-categories/best-csr-education/page.js"
+    ],
+    "/(main)/nomination/sub-categories/csr-education-africa/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/csr-education-africa/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/csr-education-africa/page.js"
+    ],
+    "/(main)/nomination/sub-categories/best-edutech-organization/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/best-edutech-organization/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/best-edutech-organization/page.js"
+    ],
+    "/(main)/nomination/sub-categories/best-educational-state/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/best-educational-state/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/best-educational-state/page.js"
+    ],
+    "/(main)/nomination/sub-categories/best-library/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/best-library/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/best-library/page.js"
+    ],
+    "/(main)/nomination/sub-categories/best-research-development/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/best-research-development/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/best-research-development/page.js"
+    ],
+    "/(main)/nomination/sub-categories/best-media-organization/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/best-media-organization/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/best-media-organization/page.js"
+    ],
+    "/(main)/nomination/sub-categories/international-contributors/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/international-contributors/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/international-contributors/page.js"
+    ],
+    "/(main)/nomination/sub-categories/christian-education-champion/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/christian-education-champion/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/christian-education-champion/page.js"
+    ],
+    "/(main)/nomination/sub-categories/islamic-education-champion/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/islamic-education-champion/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/islamic-education-champion/page.js"
+    ],
+    "/(main)/nomination/sub-categories/best-political-leader/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/best-political-leader/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/best-political-leader/page.js"
+    ],
+    "/(main)/nomination/sub-categories/creative-arts-contribution/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/creative-arts-contribution/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/creative-arts-contribution/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
