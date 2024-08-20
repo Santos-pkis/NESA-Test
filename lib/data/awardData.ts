@@ -1236,11 +1236,11 @@ export interface Nominee {
               "description": "This category recognizes private polytechnic libraries that have shown outstanding support for technical and vocational education.",
               "nominees": [
                 {
-                  "name": "Wellspring College of Hospitality",
+                  "name": "Wavecrest College of Hospitality Library",
                   "achievement": "Exceptional library resources for hospitality education.",
                   "state": "Lagos State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Wellspring_College_of_Hospitality.png"
+                  "image": "/images/libraries/Wavecrest_College_of_Hospitality.png"
                 },
                 {
                   "name": "Heritage Polytechnic Library",
@@ -1250,11 +1250,11 @@ export interface Nominee {
                   "image": "/images/libraries/Heritage_Polytechnic_Library.png"
                 },
                 {
-                  "name": "Grace Polytechnic Library",
+                  "name": "Dorben Polytechnic Library",
                   "achievement": "Innovative library programs supporting vocational studies.",
                   "state": "Ogun State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Grace_Polytechnic_Library.png"
+                  "image": "/images/libraries/Dorben_Polytechnic_Library.png"
                 },
                 {
                   "name": "Crown Polytechnic Library",
@@ -1264,18 +1264,18 @@ export interface Nominee {
                   "image": "/images/libraries/Crown_Polytechnic_Library.png"
                 },
                 {
-                  "name": "Ronik Polytechnic Library",
+                  "name": "Temple Gate Polytechnic Library",
                   "achievement": "Excellent digital resources for polytechnic students.",
                   "state": "Lagos State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Ronik_Polytechnic_Library.png"
+                  "image": "/images/libraries/Temple_Polytechnic_Library.png"
                 },
                 {
-                  "name": "Dorben Polytechnic Library",
+                  "name": "Calvary Polytechnic Library",
                   "achievement": "Comprehensive collection supporting various technical fields.",
                   "state": "Benue State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Dorben_Polytechnic_Library.png"
+                  "image": "/images/libraries/Calvary_Polytechnic_Library.png"
                 },
                 {
                   "name": "Wolex Polytechnic Library",
@@ -1284,13 +1284,7 @@ export interface Nominee {
                   "country": "Nigeria",
                   "image": "/images/libraries/Wolex_Polytechnic_Library.png"
                 },
-                {
-                  "name": "Temple Gate Polytechnic Library",
-                  "achievement": "Exceptional resources for technical and applied sciences.",
-                  "state": "Imo State",
-                  "country": "Nigeria",
-                  "image": "/images/libraries/Temple_Gate_Polytechnic_Library.png"
-                },
+              
                 {
                   "name": "Allover Central Polytechnic Library",
                   "achievement": "Outstanding support for polytechnic research and learning.",
@@ -1299,11 +1293,11 @@ export interface Nominee {
                   "image": "/images/libraries/Allover_Central_Polytechnic_Library.png"
                 },
                 {
-                  "name": "Covenant Polytechnic Library",
+                  "name": "Grace Polytechnic Library",
                   "achievement": "Comprehensive library services for technical education.",
                   "state": "Abia State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Covenant_Polytechnic_Library.png"
+                  "image": "/images/libraries/Grace_Polytechnic_Library.png"
                 }
               ]
             },
@@ -1312,74 +1306,74 @@ export interface Nominee {
               "description": "This category honors private college of education libraries that have excelled in supporting teacher training and educational research.",
               "nominees": [
                 {
-                  "name": "National Teachers College of Primary Education Library",
+                  "name": "Michael Otedola College of Primary Education Library",
                   "achievement": "Exceptional resources for primary education training.",
                   "state": "Enugu State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/National_Teachers_College_of_Primary_Education_Library.png"
+                  "image": "/images/libraries/Michael_Otedola_College_Primary_Education Library.png"
                 },
                 {
-                  "name": "Assanusiyah College of Education Library",
+                  "name": "Alvan Ikoku College of Education Library",
                   "achievement": "Comprehensive support for teacher education programs.",
                   "state": "Oyo State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Assanusiyah_College_of_Education_Library.png"
+                  "image": "/images/libraries/Alvanikoku_College_of_Education_Library.png"
                 },
                 {
-                  "name": "Peaceland College of Education Library",
+                  "name": "Emmanuel Alayande College of Education Library",
                   "achievement": "Innovative library services for education students.",
                   "state": "Enugu State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Peaceland_College_of_Education_Library.png"
+                  "image": "/images/libraries/EmmanuelAlayande_College_of_Education_Library.png"
                 },
                 {
-                  "name": "St Augustine College of Education Library",
+                  "name": "Tai Solarin College of Education Library",
                   "achievement": "Outstanding collection supporting educational research.",
                   "state": "Akwa Ibom State",
+                  "country": "Nigeria",
+                  "image": "/images/libraries/TaiSolarin_College_of_Education_Library.png"
+                },
+                {
+                  "name": "Nwafor Orizu College of Education Library",
+                  "achievement": "Excellent digital resources for teacher training.",
+                  "state": "Lagos State",
+                  "country": "Nigeria",
+                  "image": "/images/libraries/Nwafor_Orizu_College_of_Education_Library.png"
+                },
+                {
+                  "name": "Bishop Ajayi Crowther College of Education Library",
+                  "achievement": "Comprehensive support for educational studies.",
+                  "state": "Ogun State",
+                  "country": "Nigeria",
+                  "image": "/images/libraries/Bishop_Ajayi_Crowther_College_of_Education_Library.png"
+                },
+                {
+                  "name": "St. Augustine College of Education Library",
+                  "achievement": "Innovative programs supporting education students.",
+                  "state": "Kano State",
                   "country": "Nigeria",
                   "image": "/images/libraries/St_Augustine_College_of_Education_Library.png"
                 },
                 {
-                  "name": "Delar College of Education Library",
-                  "achievement": "Excellent digital resources for teacher training.",
-                  "state": "Lagos State",
-                  "country": "Nigeria",
-                  "image": "/images/libraries/Delar_College_of_Education_Library.png"
-                },
-                {
-                  "name": "Yewa Central College of Education Library",
-                  "achievement": "Comprehensive support for educational studies.",
-                  "state": "Ogun State",
-                  "country": "Nigeria",
-                  "image": "/images/libraries/Yewa_Central_College_of_Education_Library.png"
-                },
-                {
-                  "name": "City College of Education Library",
-                  "achievement": "Innovative programs supporting education students.",
-                  "state": "Kano State",
-                  "country": "Nigeria",
-                  "image": "/images/libraries/City_College_of_Education_Library.png"
-                },
-                {
-                  "name": "Ansar-Ud-Deen College of Education Library",
+                  "name": "Cornerstone College of Education Library",
                   "achievement": "Exceptional resources for teacher education and research.",
                   "state": "Oyo State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Ansar-Ud-Deen_College_of_Education_Library.png"
+                  "image": "/images/libraries/Cornerstone_College_of_Education_Library.png"
                 },
                 {
-                  "name": "Havard Wilson College of Education Library",
+                  "name": "Jigawa State College of Education Library",
                   "achievement": "Outstanding support for educational technology and research.",
                   "state": "Lagos State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Havard_Wilson_College_of_Education_Library.png"
+                  "image": "/images/libraries/Jigawa_State_College_of_Education_Library.png"
                 },
                 {
-                  "name": "Calvin Foundation College of Education Library",
+                  "name": "Adamu Augie College of Education Library",
                   "achievement": "Comprehensive library services for education students.",
                   "state": "Ondo State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Calvin_Foundation_College_of_Education_Library.png"
+                  "image": "/images/libraries/Adamu_Augie_College_of_Education_Library.png"
                 }
               ]
             },
@@ -1388,11 +1382,11 @@ export interface Nominee {
               "description": "This category recognizes private nursing college libraries that have demonstrated excellence in supporting nursing education and research.",
               "nominees": [
                 {
-                  "name": "Benedict University School of Nursing Library",
+                  "name": "Babcock University School of Nursing Library",
                   "achievement": "Exceptional nursing education resources and services.",
                   "state": "Edo State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Benedict_University_School_of_Nursing_Library.png"
+                  "image": "/images/libraries/Babcock_University_School_of_Nursing_Library.png"
                 },
                 {
                   "name": "Afe Babalola University School of Nursing Library",
@@ -1408,20 +1402,7 @@ export interface Nominee {
                   "country": "Nigeria",
                   "image": "/images/libraries/Bowen_University_School_of_Nursing_Library.png"
                 },
-                {
-                  "name": "Babcock University College of Nursing Library",
-                  "achievement": "Outstanding nursing and medical library resources.",
-                  "state": "Ogun State",
-                  "country": "Nigeria",
-                  "image": "/images/libraries/Babcock_University_College_of_Nursing_Library.png"
-                },
-                {
-                  "name": "Baze University School of Nursing Library",
-                  "achievement": "Excellent digital resources for nursing education.",
-                  "state": "Federal Capital Territory",
-                  "country": "Nigeria",
-                  "image": "/images/libraries/Baze_University_School_of_Nursing_Library.png"
-                },
+        
                 {
                   "name": "Achievers University School of Nursing Library",
                   "achievement": "Comprehensive collection supporting nursing research.",
@@ -1436,13 +1417,7 @@ export interface Nominee {
                   "country": "Nigeria",
                   "image": "/images/libraries/Igbinedion_University_College_of_Health_Sciences_Library.png"
                 },
-                {
-                  "name": "Mcpherson University School of Nursing Library",
-                  "achievement": "Exceptional support for nursing education and research.",
-                  "state": "Ogun State",
-                  "country": "Nigeria",
-                  "image": "/images/libraries/Mcpherson_University_School_of_Nursing_Library.png"
-                },
+                
                 {
                   "name": "Madonna University School of Nursing Library",
                   "achievement": "Outstanding nursing education resources and services.",
@@ -1451,17 +1426,31 @@ export interface Nominee {
                   "image": "/images/libraries/Madonna_University_School_of_Nursing_Library.png"
                 },
                 {
-                  "name": "Covenant University School of Nursing Library",
+                  "name": "Lead City University School of Nursing Library",
                   "achievement": "Comprehensive library services for nursing students.",
                   "state": "Ogun State",
                   "country": "Nigeria",
-                  "image": "/images/libraries/Covenant_University_School_of_Nursing_Library.png"
+                  "image": "/images/libraries/Lead_City_University_School_of_Nursing_Library.png"
+                },
+                {
+                  "name": "Benson Idahosa University School of Nursing Library",
+                  "achievement": "Comprehensive library services for nursing students.",
+                  "state": "Ogun State",
+                  "country": "Nigeria",
+                  "image": "/images/libraries/Benson_Idahosa_University_School_of_Nursing_Library.png"
+                },
+                {
+                  "name": "Novena University School of Nursing Library",
+                  "achievement": "Comprehensive library services for nursing students.",
+                  "state": "Ogun State",
+                  "country": "Nigeria",
+                  "image": "/images/libraries/Novena_University_School_of_Nursing_Library.png"
                 }
               ]
           
         },
         {
-          "title": "Best College Of Education Library in Nigeria",
+          "title": "Best College Of Education Library in Nigeria (public)",
           "description": "This category recognizes libraries in Colleges of Education that have excelled in supporting teacher training and educational research.",
           "nominees": [
             {
@@ -1479,53 +1468,40 @@ export interface Nominee {
               "image": "/images/libraries/Federal_College_of_Education_Library.png"
             },
             {
-              "name": "College of Education, Ikere Library",
+              "name": "College of Education Oyo Library",
               "achievement": "Innovative resources for modern teacher training.",
               "state": "Ekiti",
               "country": "Nigeria",
-              "image": "/images/libraries/College_of_Education_Ikere_Library.png"
+              "image": "/images/libraries/College_of_Education_Oyo_Library.png"
             },
             {
-              "name": "Alvan Ikoku Federal College of Education Library",
+              "name": "Federal College of Education Library",
               "achievement": "Rich collection supporting educational research and practice.",
-              "state": "Imo",
+              "state": "Akoka",
               "country": "Nigeria",
-              "image": "/images/libraries/Alvan_Ikoku_Federal_College_of_Education_Library.png"
+              "image": "/images/libraries/Federal_College_of_Education_Library.png"
             },
             {
-              "name": "Federal College of Education (Technical) Library",
+              "name": "College of Education, Gindiri Library",
               "achievement": "Specialized resources for technical education and teacher training.",
               "state": "Akoka",
               "country": "Nigeria",
-              "image": "/images/libraries/Federal_College_of_Education_Technical_Library.png"
+              "image": "/images/libraries/College_of_Education_Gindiri_Library.png"
             },
             {
-              "name": "College of Education, Zuba Library",
+              "name": "Federal College of Education Library",
               "achievement": "Modern facilities supporting educational technology integration.",
               "state": "FCT",
               "country": "Nigeria",
-              "image": "/images/libraries/College_of_Education_Zuba_Library.png"
+              "image": "/images/libraries/Federal_College_of_Education_Library.png"
             },
+    
             {
-              "name": "Tai Solarin College of Education Library",
-              "achievement": "Extensive digital resources for teacher education.",
-              "state": "Ogun",
-              "country": "Nigeria",
-              "image": "/images/libraries/Tai_Solarin_College_of_Education_Library.png"
-            },
-            {
-              "name": "Federal College of Education, Obudu Library",
-              "achievement": "Comprehensive collection supporting diverse education specialties.",
-              "state": "Cross River",
-              "country": "Nigeria",
-              "image": "/images/libraries/Federal_College_of_Education_Obudu_Library.png"
-            },
-            {
-              "name": "College of Education, Oro Library",
+              "name": "College of Education, Ekiadolor Libra",
               "achievement": "Innovative learning spaces for future educators.",
-              "state": "Kwara",
+              "state": "Benin",
               "country": "Nigeria",
-              "image": "/images/libraries/College_of_Education_Oro_Library.png"
+              "image": "/images/libraries/College_of_Education_Ekiadolor_Libra.png"
             },
             {
               "name": "College of Education, Warri Library",
@@ -2215,10 +2191,86 @@ export interface Nominee {
         }
       ]
     },
-    
     {
-      title: "Support for education in STEM in Nigeria 2024",
-      description:
-        "Celebrating initiatives by any organization for creative arts role in education and promoting hands-on learning experiences.",
-    },
+      "title": "Support for education in STEM in Nigeria 2024",
+      "description": "Celebrating initiatives by any organization for creative arts role in education and promoting hands-on learning experiences.",
+      "subCategories": [
+        {
+          "title": "The Best Innovative STEM Curriculum Development in Nigeria",
+          "description": "Recognizes educators and institutions employing innovative teaching methods in STEM education",
+          "nominees": [
+            {
+              "name": "University of Lagos",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/university_of_lagos.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.'"
+            },
+            {
+              "name": " Covenant University",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Covenant_University.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Lagos State Model College",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Lagos_State_Model_College.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Federal Government College Enugu",
+              "state": "Enugu",
+              "country": "Nigeria",
+              "image": "/images/stem/Federal_Government_College_Enugu.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Nigerian Turkish International Coll",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Nigerian_Turkish_International_Coll.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "British International School Lagos",
+              "state": "Plateau",
+              "country": "Nigeria",
+              "image": "/images/stem/British_International_School_Lagos.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "University of Nigeria, Nsukka",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/University_of_Nigeria_Nsukka.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": "STEM Nigeria Initiative",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/STEM_Nigeria_Initiative.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Centre for Mathematics and Science",
+              "state": "Kebbi",
+              "country": "Nigeria",
+              "image": "/images/stem/Centre_for_Mathematics_and_Science.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": "Nigerian Educational Research and ",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Nigerian_Educational_Research.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            }
+          ]
+        }
+      ]
+    }
   ];
