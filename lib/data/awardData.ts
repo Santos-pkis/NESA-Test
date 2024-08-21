@@ -1630,10 +1630,89 @@ export interface Nominee {
   
   
     {
-      title: "International and Bilateral Contributors to Education in Nigeria Recognition award 2024",
+      title: "Overall Best Global Education Excellence Award for Facilitating the Achievement of Education for All in Nigeria (2020-2024)",
       description:
         "Honoring international bodies for their impactful cooperative efforts that significantly impact the educational sector.",
+        "subCategories": [
+        {
+          "title": "The Best Innovative STEM Curriculum Development in Nigeria",
+          "description": "Recognizes educators and institutions employing innovative teaching methods in STEM education",
+          "nominees": [
+            {
+              "name": "University of Lagos",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/university_of_lagos.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.'"
+            },
+            {
+              "name": " Covenant University",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Covenant_University.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Lagos State Model College",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Lagos_State_Model_College.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Federal Government College Enugu",
+              "state": "Enugu",
+              "country": "Nigeria",
+              "image": "/images/stem/Federal_Government_College_Enugu.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Nigerian Turkish International Coll",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Nigerian_Turkish_International_Coll.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "British International School Lagos",
+              "state": "Plateau",
+              "country": "Nigeria",
+              "image": "/images/stem/British_International_School_Lagos.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "University of Nigeria, Nsukka",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/University_of_Nigeria_Nsukka.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": "STEM Nigeria Initiative",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/STEM_Nigeria_Initiative.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Centre for Mathematics and Science",
+              "state": "Kebbi",
+              "country": "Nigeria",
+              "image": "/images/stem/Centre_for_Mathematics_and_Science.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": "Nigerian Educational Research and ",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Nigerian_Educational_Research.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            }
+          ]
+          },
+        ]
     },
+
     {
       title: "Christian faith organization Educational Champion of the Decade Award",
       description:
@@ -2270,7 +2349,167 @@ export interface Nominee {
               "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
             }
           ]
+        },
+        {
+          "title": "The Best STEM Outreach and Community Engagement in Nigeria",
+          "description": "Recognizes educators and institutions employing innovative teaching methods in STEM education",
+          "nominees": [
+            {
+              "name": "STEM Café",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/STEM_Café.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.'"
+            },
+            {
+              "name": " Junior Achievement Nigeria ",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Junior_Achievement_Nigeria.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Lagos State Model College",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Lagos_State_Model_College.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Teach for Nigeria",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Teach_for_Nigeria.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Abuja Science and Technology Park",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Abuja_Science_and_Technology_Park.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Yaba College of Technology",
+              "state": "Plateau",
+              "country": "Nigeria",
+              "image": "/images/stem/Yaba_College_of_Technology.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "TechQuest STEM Academy",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/TechQuest_STEM_Academy.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": "Lagos State Ministry of Education",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Lagos_State_Ministry_of_Education.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "SkillNG",
+              "state": "Kebbi",
+              "country": "Nigeria",
+              "image": "/images/stem/SkillNG.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": " Nigerian Society of Engineers ",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Nigerian_Society_of_Engineers.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": " African Science Academy ",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/African_Science_Academy.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            }
+          ]
+        },
+        {
+          "title": "The Best Technology Integration in STEM Education in Nigeria",
+          "description": "Recognizes educators and institutions employing innovative teaching methods in STEM education",
+          "nominees": [
+            {
+              "name": "American University of Nigeria",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/American_University_of_Nigeria.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.'"
+            },
+            {
+              "name": " Green Springs School ",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Green_Springs_School.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Obafemi Awolowo University",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Obafemi_Awolowo_University.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "University of Ibadan",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/University_of_Ibadan.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Afe Babalola University",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Afe_Babalola_University.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Bridge International Academies",
+              "state": "Plateau",
+              "country": "Nigeria",
+              "image": "/images/stem/Bridge_International_Academies.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "CodeLagos",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/CodeLagos.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": "Edves",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/Edves.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
+            },
+            {
+              "name": "Andela Learning Community",
+              "state": "Kebbi",
+              "country": "Nigeria",
+              "image": "/images/stem/Andela_Learning_Community.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            },
+            {
+              "name": "STEM METS Resources ",
+              "state": "Lagos",
+              "country": "Nigeria",
+              "image": "/images/stem/STEM_METS_Resources.png",
+              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
+            }
+          ]
         }
+
       ]
     }
   ];

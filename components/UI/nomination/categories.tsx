@@ -134,7 +134,7 @@ const BlueGarnetAwards: React.FC = () => {
       subCategoryPath: "/nomination/sub-categories/best-media-organization"
     },
     {
-      title: "International and Bilateral Contributors to Education in Nigeria Recognition award 2024",
+      title: "Overall Best Global Education Excellence Award for Facilitating the Achievement of Education for All in Nigeria (2020-2024)",
       description: "Honoring international bodies for their impactful cooperative efforts that significantly impact the educational sector.",
       subCategoryPath: "/nomination/sub-categories/international-contributors"
     },

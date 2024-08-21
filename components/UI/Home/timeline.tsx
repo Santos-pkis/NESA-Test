@@ -34,7 +34,7 @@ const data: {
     ],
   },
   {
-    range: "Oct - Nov",
+    range: "Oct - Dec",
     year: "2024",
     title: "The Award Ceremony and Winner Announcements",
     list: [
