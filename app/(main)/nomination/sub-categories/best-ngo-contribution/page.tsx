@@ -35,7 +35,18 @@ const NGOAwardCategoryPage = () => {
       title: "Outstanding Donation Of Education Aid By NGO",
       description: "Celebrates NGOs that provide substantial educational aid, which can include scholarships, funding for educational programs, support for teachers, and other forms of financial assistance.",
       image: "/images/nesa-card2.png"
-    }
+    },
+    {
+      title: "Youth Empowerment Through Educational Services by an NGO in Nigeria",
+      description: "Recognizes NGOs that have implemented innovative programs to empower youth through education and skill development.",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Women and Girls' Empowerment in Education by an NGO in Nigeria",
+      description: "Honors NGOs that have made significant contributions to empowering women and girls through educational initiatives.",
+      image: "/images/nesa-card2.png"
+    },
+
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

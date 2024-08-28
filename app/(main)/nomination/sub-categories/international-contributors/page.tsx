@@ -19,17 +19,32 @@ const InternationalBilateralAwardPage = () => {
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best Financial Contribution To Education Award",
+      title: "Best International Embassy Contribution to Education in Nigeria (2020-2024)",
       description: "This category recognizes political leaders who have initiated or significantly expanded scholarship programs, providing financial support to students in need.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best Technical Assistance And Capacity Building Award",
+      title: "Best Bilateral Organization Education Support Initiative in Nigeria (2020-2024)",
       description: "This category honors political leaders who have made substantial investments in educational infrastructure, including technology and training programs to enhance teaching and learning capabilities.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best Educational Partnership And Collaboration Award",
+      title: "Best International NGO Education Support Service in Nigeria (2020-2024)",
+      description: "This category recognizes political leaders who have fostered significant partnerships and collaborations that have led to improved educational outcomes, including the construction and renovation of schools.",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Best Educational Grant-Giving Organization in Nigeria (2020-2024)",
+      description: "This category recognizes political leaders who have fostered significant partnerships and collaborations that have led to improved educational outcomes, including the construction and renovation of schools.",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Best International Airline Education Support Initiative in Nigeria (2020-2024)",
+      description: "This category recognizes political leaders who have fostered significant partnerships and collaborations that have led to improved educational outcomes, including the construction and renovation of schools.",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Best Leadership Training Organization in Nigeria (2020-2024)",
       description: "This category recognizes political leaders who have fostered significant partnerships and collaborations that have led to improved educational outcomes, including the construction and renovation of schools.",
       image: "/images/nesa-card2.png"
     }

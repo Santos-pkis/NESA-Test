@@ -19,30 +19,26 @@ const ChristianFaithEducationAwardPage = () => {
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Educational Innovation And Community Impact Award",
+      title: "Best Educational Infrastructure Development by a Christian Organization Contribution to Achieving Education for All in Nigeria NESA-Award/Nigeria 2024",
       description: "Recognizes Christian organizations for innovative educational programs and impactful community engagement.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Infrastructure And Resource Development Award",
+      title: "Best Scholarship Program by a Christian Organization Contribution to Achieving Education for All in Nigeria NESA-Award/Nigeria 2024",
       description: "Acknowledges Christian groups for their significant contributions to educational infrastructure and resources.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Scholarship And Moral Education Award",
+      title: "Best Holistic Educational Support by a Christian Organization Contribution to Achieving Education for All in Nigeria NESA-Award/Nigeria 2024",
       description: "Celebrates Christian entities that offer scholarships and moral education based on Christian teachings.",
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Interfaith Educational Cooperation Award",
+      title: "Best Advocacy for Educational Reforms and Awareness Campaigns by a Christian Organization Contribution to Achieving Education for All in Nigeria NESA-Award/Nigeria 2024",
       description: "Salutes joint efforts by Christian and Islamic groups to promote interfaith dialogue and understanding through education, fostering a unified approach.",
       image: "/images/nesa-card2.png"
     },
-    {
-      title: "Health And Wellness Educational Initiatives Award",
-      description: "Highlights Christian organizations' efforts in promoting comprehensive health education.",
-      image: "/images/nesa-card2.png"
-    }
+    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

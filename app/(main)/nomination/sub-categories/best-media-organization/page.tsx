@@ -24,12 +24,17 @@ const MediaEducationalAdvocacyAwardPage = () => {
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Best Broadcast Media Educational Advocacy Award",
+      title: "Television Educational Content Award",
       description: "Honors radio stations and broadcasters for impactful educational programs, discussions, and campaigns.",
       image: "/images/nesa-card2.png"
     },
     {
       title: "Best Digital Media Educational Advocacy Award",
+      description: "Honors online media platforms for innovative educational content, e-learning initiatives, and digital campaigns.",
+      image: "/images/nesa-card2.png"
+    },
+    {
+      title: "Radio Educational Program Excellence Award",
       description: "Honors online media platforms for innovative educational content, e-learning initiatives, and digital campaigns.",
       image: "/images/nesa-card2.png"
     },
