@@ -2510,547 +2510,124 @@ export interface Nominee {
         "Award for both state and federal government officials who have championed STEM education and technological advancement in learning.",
     },
     {
-      "title": "Creative Arts Industry Contribution to Education in Nigeria 2024",
-      "description": "Recognizing efforts towards advancing education through creative arts and dedication to achieving quality education under SDG 4 objectives.",
-      "subCategories": [
+      title: "Creative Arts Industry Contribution to Education in Nigeria 2024",
+      description: "Recognizing efforts towards advancing education through creative arts and dedication to achieving quality education under SDG 4 objectives.",
+      subCategories: [
         {
-          "title": "Best Nollywood Production and Artiste for Educational Content Award",
-          "description": "This category celebrates Nollywood productions and artistes that have created significant educational content, advancing the quality of education and awareness in Nigeria.",
-          "nominees": [
-            {
-              "name": "Kunle Afolayan",
-              "achievement": "Created impactful educational films that highlight societal issues and promote education.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Kunle_Afolayan.png"
-            },
-            {
-              "name": "Genevieve Nnaji",
-              "achievement": "Produced and acted in films that empower women and advocate for educational opportunities.",
-              "state": "Imo State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Genevieve_Nnaji.png"
-            },
-            {
-              "name": "Tunde Kelani",
-              "achievement": "Contributed to cultural education through film, preserving and promoting indigenous languages and traditions.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Tunde_Kelani.png"
-            },
-            {
-              "name": "Ijeoma Grace Agu",
-              "achievement": "Highlighted social issues related to education through her roles, inspiring change.",
-              "state": "Anambra State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Ijeoma_Grace_Agu.png"
-            },
-            {
-              "name": "Femi Odugbemi",
-              "achievement": "Produced documentaries focusing on educational reform and advocacy in Nigeria.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Femi_Odugbemi.png"
-            },
-            {
-              "name": "Niyi Akinmolayan",
-              "achievement": "Used film to promote STEM education, particularly through animated features.",
-              "state": "Ekiti State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Niyi_Akinmolayan.png"
-            },
-            {
-              "name": "Kemi Adetiba",
-              "achievement": "Directed films that address gender inequality and advocate for girls' education.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Kemi_Adetiba.png"
-            },
-            {
-              "name": "Bolanle Austen-Peters",
-              "achievement": "Promoted African culture and history through theatrical productions that are educational.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Bolanle_Austen-Peters.png"
-            },
-            {
-              "name": "Ramsey Nouah",
-              "achievement": "Acted in and directed films that emphasize the importance of education and personal growth.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Ramsey_Nouah.png"
-            },
-            {
-              "name": "Adesua Etomi",
-              "achievement": "Advocated for youth empowerment through education in her public and cinematic work.",
-              "state": "Edo State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Adesua_Etomi.png"
-            }
+          title: "Best Nollywood Production and Artiste for Educational Content Award",
+          description: "This category celebrates Nollywood productions and artistes that have created significant educational content, advancing the quality of education and awareness in Nigeria.",
+          nominees: [
+            { name: "Kunle Afolayan", image: "/images/creativeart/Kunle_Afolayan.png", achievement: "Created a film that addresses Nigeria's colonial history and its impact on society. Used historical narratives to educate audiences." },
+            { name: "Genevieve Nnaji", image: "/images/creativeart/Genevieve_Nnaji.png", achievement: "Directed and starred in a film that highlights gender equality and entrepreneurship in Nigeria. Promoted educational themes of female empowerment." },
+            { name: "Tunde Kelani", image: "/images/creativeart/Tunde_Kelani.png", achievement: "Produced a film that educates audiences on Yoruba culture and the life of a Nigerian musician, Ayinla Omowura. Preserved and promoted cultural heritage." },
+            { name: "Ijeoma Grace Agu", image: "/images/creativeart/Ijeoma_Grace_Agu.png", achievement: "Acted in a film that discusses migration, identity, and self-discovery. Relevant to educational and social discussions. Engaged audiences in critical thinking." },
+            { name: "Femi Odugbemi", image: "/images/creativeart/Femi_Odugbemi.png", achievement: "Directed a film that explores the lives of young people in Lagos, focusing on issues of social mobility and education. Used storytelling to inspire change." },
+            { name: "Niyi Akinmolayan", image: "/images/creativeart/Niyi_Akinmolayan.png", achievement: "Directed a film that addresses corporate ethics, law, and gender issues in the workplace. Educated audiences on the complexities of professional life." },
+            { name: "Kemi Adetiba", image: "/images/creativeart/Kemi_Adetiba.png", achievement: "Directed a film that explores themes of power, leadership, and societal structures in Nigeria. Engaged viewers in critical discussions about governance." },
+            { name: "Bolanle Austen-Peters", image: "/images/creativeart/Bolanle_Austen-Peters.png", achievement: "Directed a film that highlights the intersection of wealth, education, and societal expectations in Lagos. Provided educational insights into social dynamics." },
+            { name: "Ramsey Nouah", image: "/images/creativeart/Ramsey_Nouah.png", achievement: "Directed and acted in a film that explores themes of greed, ambition, and the consequences of unethical decisions. Educated audiences on moral dilemmas." },
+            { name: "Adesua Etomi", image: "/images/creativeart/Adesua_Etomi.png", achievement: "Starred in a film that addresses education, cultural diversity, and the importance of youth empowerment in Northern Nigeria. Used her platform to promote social change." }
           ]
         },
         {
-          "title": "Best Music Industry Contribution to Education Award",
-          "description": "This award honors musicians and organizations in the music industry that have made significant contributions to education, either through educational content or advocacy for educational reforms.",
-          "nominees": [
-            {
-              "name": "Asa",
-              "achievement": "Created music that inspires and educates, addressing social issues such as education and empowerment.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Asa.png"
-            },
-            {
-              "name": "2Baba",
-              "achievement": "Founded initiatives focused on improving access to education for underprivileged children.",
-              "state": "Benue State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/2Baba.png"
-            },
-            {
-              "name": "Yemi Alade",
-              "achievement": "Used her platform to advocate for girls' education across Africa.",
-              "state": "Abia State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Yemi_Alade.png"
-            },
-            {
-              "name": "Falz",
-              "achievement": "Incorporated themes of education and societal reform into his music.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Falz.png"
-            },
-            {
-              "name": "Simi",
-              "achievement": "Released songs that promote the importance of education and self-worth.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Simi.png"
-            },
-            {
-              "name": "Teni",
-              "achievement": "Used her music to challenge stereotypes and promote inclusive education.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Teni.png"
-            },
-            {
-              "name": "Burna Boy",
-              "achievement": "Advocated for educational reform and youth empowerment through his lyrics.",
-              "state": "Rivers State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Burna_Boy.png"
-            },
-            {
-              "name": "Banky W",
-              "achievement": "Focused on educational advocacy through his music and political engagement.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Banky_W.png"
-            },
-            {
-              "name": "Cobhams Asuquo",
-              "achievement": "Contributed to educational content through music production and mentorship.",
-              "state": "Cross River State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Cobhams_Asuquo.png"
-            },
-            {
-              "name": "Darey Art Alade",
-              "achievement": "Promoted cultural education through music, inspiring the younger generation.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Darey_Art_Alade.png"
-            }
+          title: "Best Music Industry Contribution to Education Award",
+          description: "This award honors musicians and organizations in the music industry that have made significant contributions to education, either through educational content or advocacy for educational reforms.",
+          nominees: [
+            { name: "Asa", image: "/images/creativeart/Asa.png", achievement: "Created a song that addresses social issues, including the importance of education in achieving societal progress. Raised awareness about education's role in development." },
+            { name: "2Baba (2Face Idibia)", image: "/images/creativeart/2Baba.png", achievement: "Produced music that promotes peace, unity, and the importance of education in achieving these goals. Engaged audiences in discussions about social progress." },
+            { name: "Yemi Alade", image: "/images/creativeart/Yemi_Alade.png", achievement: "Created music that celebrates African identity and the importance of education in cultural preservation. Promoted the value of education in maintaining heritage." },
+            { name: "Falz", image: "/images/creativeart/Falz.png", achievement: "Produced a song that critically examines Nigeria's social and educational challenges. Used music to spark conversations about educational reform." },
+            { name: "Simi", image: "/images/creativeart/Simi.png", achievement: "Created music that highlights the role of education in women's empowerment and societal progress. Encouraged the education and advancement of women." },
+            { name: "Teni", image: "/images/creativeart/Teni.png", achievement: "Released a song that celebrates personal achievement through hard work and education. Inspired young people to pursue education." },
+            { name: "Burnaboy", image: "/images/creativeart/Burna_Boy.png", achievement: "Produced music that addresses economic challenges and the role of education in achieving financial independence. Encouraged youth to value education." },
+            { name: "Banky W", image: "/images/creativeart/Banky_W.png", achievement: "Created music that advocates for the importance of education in building strong, resilient communities. Promoted education as a tool for social change." },
+            { name: "Cobhams Asuquo", image: "/images/creativeart/Cobhams_Asuquo.png", achievement: "Produced a song that emphasizes the value of education in overcoming life's challenges. Motivated young people to pursue education despite obstacles." },
+            { name: "Darey Art Alade", image: "/images/creativeart/Darey_Art_Alade.png", achievement: "Released music that tells stories of struggle and success, highlighting the role of education. Encouraged resilience and perseverance in educational pursuits." }
           ]
         },
         {
-          "title": "Best Literature and Art Works for Education Award",
-          "description": "Recognizes writers, literary organizations, and visual artists whose work has significantly contributed to education, particularly in promoting reading, historical understanding, and cultural awareness.",
-          "nominees": [
-            {
-              "name": "Chimamanda Ngozi Adichie",
-              "achievement": "Authored books that address important social issues, promoting education and awareness globally.",
-              "state": "Anambra State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Chimamanda_Ngozi_Adichie.png"
-            },
-            {
-              "name": "Wole Soyinka",
-              "achievement": "Nobel laureate whose literary work has significantly impacted education and cultural awareness.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Wole_Soyinka.png"
-            },
-            {
-              "name": "Chinelo Okparanta",
-              "achievement": "Writer who tackles issues of identity and education in her works.",
-              "state": "Abia State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Chinelo_Okparanta.png"
-            },
-            {
-              "name": "Helon Habila",
-              "achievement": "Author of works that explore social and political themes, educating readers on Nigerian history.",
-              "state": "Gombe State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Helon_Habila.png"
-            },
-            {
-              "name": "Sefi Atta",
-              "achievement": "Literary contributions that reflect on societal issues, promoting education through storytelling.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Sefi_Atta.png"
-            },
-            {
-              "name": "Teju Cole",
-              "achievement": "Writer and photographer whose works foster a deep understanding of history and culture.",
-              "state": "Ekiti State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Teju_Cole.png"
-            },
-            {
-              "name": "Lola Shoneyin",
-              "achievement": "Advocate for literacy and education through her literary festivals and writings.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Lola_Shoneyin.png"
-            },
-            {
-              "name": "Nnedi Okorafor",
-              "achievement": "Booker Prize-winning author known for his contributions to global literature and education.",
-              "state": "Delta State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Nnedi_okorafor.png"
-            },
-            {
-              "name": "Elnathan John",
-              "achievement": "Author whose works engage with historical and contemporary issues, fostering education and awareness.",
-              "state": "Enugu State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Elnathan_John.png"
-            },
-            {
-              "name": "Chris Abani",
-              "achievement": "Poet and writer whose work emphasizes cultural identity and education.",
-              "state": "Enugu State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Chris_Abani.png"
-            }
+          title: "Best Literature and Art Works for Education Award",
+          description: "Recognizes writers, literary organizations, and visual artists whose work has significantly contributed to education, particularly in promoting reading, historical understanding, and cultural awareness.",
+          nominees: [
+            { name: "Chimamanda Ngozi Adichie", image: "/images/creativeart/Chimamanda_Ngozi_Adichie.png", achievement: "Authored a novel that educates readers about the Nigerian Civil War and its impact on society. Used literature to foster a deeper understanding of history." },
+            { name: "Wole Soyinka", image: "/images/creativeart/Wole_Soyinka.png", achievement: "Wrote plays that explore African culture, colonialism, and the role of education in societal change. Educated global audiences about Nigerian history and culture." },
+            { name: "Chinelo Okparanta", image: "/images/creativeart/Chinelo_Okparanta.png", achievement: "Authored a novel that addresses issues of identity, education, and social change in Nigeria. Promoted critical thinking about the role of education in society." },
+            { name: "Helon Habila", image: "/images/creativeart/Helon_Habila.png", achievement: "Wrote a novel that discusses environmental degradation and its impact on education in the Niger Delta. Used storytelling to raise awareness about environmental issues." },
+            { name: "Sefi Atta", image: "/images/creativeart/Sefi_Atta.png", achievement: "Authored a novel that explores gender roles, education, and personal growth in Nigeria. Encouraged discussions about the importance of education for women." },
+            { name: "Nnedi Okorafor", image: "/images/creativeart/Nnedi_okorafor.png", achievement: "Wrote a novel that blends African folklore with modern educational themes. Promoted African culture and the importance of education through storytelling." },
+            { name: "Lola Shoneyin", image: "/images/creativeart/Lola_Shoneyin.png", achievement: "Authored a novel that addresses gender issues, education, and societal norms in Nigeria. Used literature to highlight the role of education in challenging social norms." },
+            { name: "Teju Cole", image: "/images/creativeart/Teju_Cole.png", achievement: "Wrote a novel that explores themes of identity, migration, and education in a globalized world. Encouraged critical thinking about the role of education in shaping identity." },
+            { name: "Chris Abani", image: "/images/creativeart/Chris_Abani.png", achievement: "Authored a novel that discusses urban life, education, and survival in Lagos. Used storytelling to raise awareness about the challenges facing urban youth." },
+            { name: "Elnathan John", image: "/images/creativeart/Elnathan_John.png", achievement: "Wrote a novel that examines religious extremism, education, and social issues in Northern Nigeria. Promoted discussions on the role of education in combating extremism." }
           ]
         },
         {
-          "title": "Best Visual Arts and Educational Impact Award",
-          "description": "This award honors visual artists and sculptors whose work has had a significant educational impact, either through the themes they explore or their contributions to educational institutions.",
-         
-          "nominees": [
-            {
-              "name": "Bruce Onobrakpeya",
-              "achievement": "Renowned for his contributions to Nigerian art education and cultural heritage preservation.",
-              "state": "Delta State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Bruce_Onobrakpeya.png"
-            },
-            {
-              "name": "Nike Davies-Okundaye",
-              "achievement": "Artist and educator known for promoting traditional Nigerian art and crafts.",
-              "state": "Kogi State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Nike_Davies-Okundaye.png"
-            },
-            {
-              "name": "Peju Alatise",
-              "achievement": "Contemporary artist whose works address gender, culture, and education.",
-              "state": "Ekiti State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Peju_Alatise.png"
-            },
-            {
-              "name": "Ndidi Dike",
-              "achievement": "Globally recognized artist whose works challenge perceptions and promote cultural education.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Ndidi_Dike.png"
-            },
-            {
-              "name": "Diseye Tantua",
-              "achievement": "Visual artist known for her intricate drawings that explore identity, history, and education.",
-              "state": "Ondo State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Diseye_Tantua.png"
-            },
-            {
-              "name": "Victor Ehikhamenor",
-              "achievement": "Artist whose works merge traditional and contemporary styles to educate about Nigerian culture.",
-              "state": "Edo State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Victor_Ehikhamenor.png"
-            },
-            {
-              "name": "Osi Audu",
-              "achievement": "Performance artist who uses art to advocate for human rights and education.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Osi_Audu.png"
-            },
-            {
-              "name": "Laolu Senbanjo",
-              "achievement": "Known for his 'Afromysterics' style, blending art and education to promote African culture.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Laolu_Senbanjo.png"
-            },
-            {
-              "name": "Olalekan Jeyifous",
-              "achievement": "Artist whose works have significantly contributed to cultural education and historical preservation.",
-              "state": "Anambra State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Olalekan_Jeyifous.png"
-            },
-            {
-              "name": "Olu Amoda",
-              "achievement": "Sculptor whose works explore social issues and promote educational discussions.",
-              "state": "Enugu State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Olu_Amoda.png"
-            }
+          title: "Best Visual Arts and Educational Impact Award",
+          description: "This award honors visual artists and sculptors whose work has had a significant educational impact, either through the themes they explore or their contributions to educational institutions.",
+          nominees: [
+            { name: "Bruce Onobrakpeya", image: "/images/creativeart/Bruce_Onobrakpeya.png", achievement: "Created art that reflects Nigeria's cultural heritage and educational themes. Used visual arts to educate audiences about Nigerian history and traditions." },
+            { name: "Nike Davies-Okundaye", image: "/images/creativeart/Nike_Davies-Okundaye.png", achievement: "Promoted traditional Nigerian textile arts and their educational significance. Educated communities and students on the importance of preserving cultural heritage." },
+            { name: "Peju Alatise", image: "/images/creativeart/Peju_Alatise.png", achievement: "Created artwork that addresses the education and empowerment of young girls in Nigeria. Raised awareness about the importance of education in addressing social issues." },
+            { name: "Ndidi Dike", image: "/images/creativeart/Ndidi_Dike.png", achievement: "Used mixed media to explore the impact of global trade on education and society. Educated audiences on the connections between economics, education, and social progress." },
+            { name: "Victor Ehikhamenor", image: "/images/creativeart/Victor_Ehikhamenor.png", achievement: "Created an exhibition that blends contemporary art with Nigerian folklore and education. Used visual arts to promote cultural education and preservation." },
+            { name: "Diseye Tantua", image: "/images/creativeart/Diseye_Tantua.png", achievement: "Produced art that celebrates African pop culture and its educational influence on youth. Engaged young audiences in discussions about the role of popular culture in education." },
+            { name: "Osi Audu", image: "/images/creativeart/Osi_Audu.png", achievement: "Created abstract art that explores themes of identity, education, and self-awareness. Promoted introspection and critical thinking through visual arts." },
+            { name: "Laolu Senbanjo", image: "/images/creativeart/Laolu_Senbanjo.png", achievement: "Combined traditional Yoruba art with contemporary education on African spirituality. Educated global audiences on Yoruba culture and its relevance to modern education." },
+            { name: "Olalekan Jeyifous", image: "/images/creativeart/Olalekan_Jeyifous.png", achievement: "Created public art that examines urban development, education, and social issues. Used art to spark conversations about the role of education in urban planning." },
+            { name: "Olu Amoda", image: "/images/creativeart/Olu_Amoda.png", achievement: "Created sculptures that address themes of energy, sustainability, and education. Promoted education on renewable energy and environmental conservation through art." }
           ]
         },
         {
-          "title": "Best Performing Arts and Education Enrichment Award",
-          "description": "This category recognizes performers and institutions in the performing arts who have significantly contributed to education, particularly in raising awareness of social issues through theatre, dance, and other performances.",
-         
-          "nominees": [
-            {
-              "name": "Bolanle Austen-Peters",
-              "achievement": "Renowned for using theatre to educate and inspire change in Nigerian society.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Bolanle_Austen_Peters.png"
-            },
-            {
-              "name": "Segun Adefila",
-              "achievement": "Advocate for education and social change through performing arts and activism.",
-              "state": "Edo State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Segun_Adefila.png"
-            },
-            {
-              "name": "Ijeoma Grace Agu",
-              "achievement": "Veteran actor who has used his platform to advocate for educational causes.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Ijeoma_Grace_Agu.png"
-            },
-            {
-              "name": "Kunle Afolayan",
-              "achievement": "Dance instructor and performer known for her educational dance workshops across Nigeria.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Kunle.png"
-            },
-            {
-              "name": "Adesua Etomi",
-              "achievement": "Pioneering actress whose work in theatre has emphasized the importance of education and culture.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Adesua_Etomi.png"
-            },
-            {
-              "name": "Lala Akindoju",
-              "achievement": "Celebrated actress and advocate for educational theatre and youth empowerment.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Lala_Akindoju.png"
-            },
-            {
-              "name": "Wale Ojo",
-              "achievement": "Utilized her platform in performing arts to advance educational initiatives and social change.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Wale_Ojo.png"
-            },
-            {
-              "name": "Tope Oshin",
-              "achievement": "Actor and producer known for using film and theatre to promote education and societal growth.",
-              "state": "Ekiti State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Tope_Oshin.png"
-            },
-            {
-              "name": "Kemi Lala Akindoju",
-              "achievement": "Theatre producer whose works focus on educational themes and cultural preservation.",
-              "state": "Delta State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Kemi_Lala.png"
-            },
-            {
-              "name": "Femi Odugbemi",
-              "achievement": "Poet and spoken word artist whose performances address educational and social issues.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Femi_Odugbemi.png"
-            }
+          title: "Best Performing Arts and Education Enrichment Award",
+          description: "This category recognizes performers and institutions in the performing arts who have significantly contributed to education, particularly in raising awareness of social issues through theatre, dance, and other performances.",
+          nominees: [
+            { name: "Bolanle Austen-Peters", image: "/images/creativeart/Bolanle_Austen_Peters.png", achievement: "Produced a musical that educates audiences about Fela Kuti's life and his impact on Nigerian society. Promoted cultural education through theatrical productions." },
+            { name: "Segun Adefila", image: "/images/creativeart/Segun_Adefila.png", achievement: "Founded a theater troupe that uses performance to educate communities on social and educational issues. Engaged audiences in discussions about societal challenges." },
+            { name: "Ijeoma Grace Agu", image: "/images/creativeart/Ijeoma_Grace_Agu.png", achievement: "Acted in plays that address gender, education, and social justice. Educated audiences on the importance of education in addressing societal issues." },
+            { name: "Kunle Afolayan", image: "/images/creativeart/Kunle.png", achievement: "Directed a film that highlights vocational education and its importance in Nigeria. Promoted the value of vocational education and skills development." },
+            { name: "Adesua Etomi", image: "/images/creativeart/Adesua_Etomi.png", achievement: "Acted in a series that educates viewers about sexual health, education, and youth empowerment. Used television to promote educational messages." },
+            { name: "Lala Akindoju", image: "/images/creativeart/Lala_Akindoju.png", achievement: "Acted in and produced plays that address women's rights and education. Engaged audiences in discussions about gender equality and education." },
+            { name: "Wale Ojo", image: "/images/creativeart/Wale_Ojo.png", achievement: "Starred in films that address communication, culture, and education. Used cinema to promote cultural education and understanding." },
+            { name: "Tope Oshin", image: "/images/creativeart/Tope_Oshin.png", achievement: "Directed films that explore themes of education, wealth, and social mobility. Educated audiences on the role of education in societal advancement." },
+            { name: "Kemi Lala Akindoju", image: "/images/creativeart/Kemi_Lala.png", achievement: "Produced and acted in plays that highlight educational and social issues in Nigeria. Promoted education on societal issues through theater." },
+            { name: "Femi Odugbemi", image: "/images/creativeart/Femi_Odugbemi.png", achievement: "Directed a series that explores family dynamics, education, and social challenges. Used television to educate audiences on complex social issues." }
           ]
         },
         {
-          "title": "Best Film and Media for Educational Advancement Award",
-          "description": "This award recognizes individuals and organizations that have used design and creative innovation to enhance educational practices, resources, and accessibility.",
-         
-          "nominees": [
-            {
-              "name": "Femi Odugbemi",
-              "achievement": "Tech entrepreneur known for his contributions to education technology in Nigeria.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Femi_Odugbemi.png"
-            },
-            {
-              "name": "Jade Osiberu",
-              "achievement": "Innovator in educational design, creating solutions that enhance learning environments.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Jade_Osiberu.png"
-            },
-            {
-              "name": "Tunde Kelani",
-              "achievement": "Co-founder of CcHub, driving innovation in educational technology and accessibility.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Tunde_Kelani.png"
-            },
-            {
-              "name": "Kunle Afolayan",
-              "achievement": "Founder of BudgIT, leveraging design for educational transparency and civic engagement.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Kunle_Afolayan"
-            },
-            {
-              "name": "Kemi Adetiba",
-              "achievement": "Social entrepreneur using design thinking to address healthcare education in Nigeria.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Kemi_Adetiba.png"
-            },
-            {
-              "name": "Izu Ojukwu",
-              "achievement": "Design expert known for creating educational platforms and resources that are user-friendly.",
-              "state": "Ekiti State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Izu_Ojukwu.png"
-            },
-            {
-              "name": "Mildred Okwo",
-              "achievement": "Tech entrepreneur leveraging digital platforms to enhance educational access and quality.",
-              "state": "Akwa Ibom State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Mildred_Okwo.png"
-            },
-            {
-              "name": "Moses Inwang",
-              "achievement": "Founder of Calendly, recognized for creating tools that support educational productivity.",
-              "state": "Ekiti State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Moses_Inwang.png"
-            },
-            {
-              "name": "Blessing Egbe",
-              "achievement": "Social entrepreneur using innovation to solve educational and social challenges.",
-              "state": "Cross River State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Blessing_Egbe.png"
-            },
-            {
-              "name": "Akin Omotoso",
-              "achievement": "Co-founder of MAX, known for his contributions to education in logistics and technology.",
-              "state": "Anambra State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Akin_Omotoso.png"
-            }
+          title: "Best Film and Media for Educational Advancement Award",
+          description: "This award recognizes individuals and organizations that have used film and media to enhance educational practices, resources, and accessibility.",
+          nominees: [
+            { name: "Femi Odugbemi", image: "/images/creativeart/Femi_Odugbemi.png", achievement: "Produced documentaries focusing on educational reform and advocacy in Nigeria." },
+            { name: "Jade Osiberu", image: "/images/creativeart/Jade_Osiberu.png", achievement: "Used her filmmaking skills to highlight educational challenges and inspire change." },
+            { name: "Tunde Kelani", image: "/images/creativeart/Tunde_Kelani.png", achievement: "Contributed to cultural education through film, preserving and promoting indigenous languages and traditions." },
+            { name: "Kunle Afolayan", image: "/images/creativeart/Kunle_Afolayan.png", achievement: "Created impactful educational films that highlight societal issues and promote education." },
+            { name: "Kemi Adetiba", image: "/images/creativeart/Kemi_Adetiba.png", achievement: "Directed films that address gender inequality and advocate for girls' education." },
+            { name: "Izu Ojukwu", image: "/images/creativeart/Izu_Ojukwu.png", achievement: "Used historical films to educate audiences about Nigerian heritage and promote cultural awareness." },
+            { name: "Mildred Okwo", image: "/images/creativeart/Mildred_Okwo.png", achievement: "Produced films that address social issues and promote educational awareness." },
+            { name: "Moses Inwang", image: "/images/creativeart/Moses_Inwang.png", achievement: "Created films that tackle educational challenges and inspire youth empowerment." },
+            { name: "Blessing Egbe", image: "/images/creativeart/Blessing_Egbe.png", achievement: "Used her productions to highlight the importance of education, especially for girls." },
+            { name: "Akin Omotoso", image: "/images/creativeart/Akin_Omotoso.png", achievement: "Directed films that explore themes of education and social justice in Nigeria." }
           ]
         },
         {
-          "title": "Best Creative Advocacy and Educational Campaigns Award",
-          "description": "This category celebrates individuals and companies that have used animation and multimedia to create educational content, making learning more engaging and accessible.",
-         
-          "nominees": [
-            {
-              "name": "ONE Campaign",
-              "achievement": "Pioneer in using film and television for educational content creation.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/ONE_Campaign.png"
-            },
-            {
-              "name": "Girl Rising Nigeria",
-              "achievement": "Animator known for producing educational content that is both entertaining and informative.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Girl_Rising_Nigeria.png"
-            },
-            {
-              "name": "Teach For Nigeria",
-              "achievement": "Director and animator focusing on educational themes in his works.",
-              "state": "Ekiti State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Teach_Nigeria.png"
-            },
-            {
-              "name": "Youth for Technology Foundation",
-              "achievement": "Founder of Lagos Comic-Con, promoting education through comics and animation.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Youth_Foundation.png"
-            },
-            {
-              "name": "African Leadership Academy",
-              "achievement": "Fashion stylist and multimedia artist known for his educational and cultural projects.",
-              "state": "Anambra State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/African_Leadership.png"
-            },
-            {
-              "name": "Education as a Vaccine (EVA)",
-              "achievement": "Animator and storyteller known for creating educational content for children.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Education_Vaccine.png"
-            },
-            {
-              "name": "Stand to End Rape Initiative (STER)",
-              "achievement": "Digital platform creating multimedia content that educates and entertains.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Stand-Initiative.png"
-            },
-            {
-              "name": "CAMFED (Campaign for Female E..)",
-              "achievement": "Leading animation studio in Nigeria creating educational and entertaining content.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/CAMFED.png"
-            },
-            {
-              "name": "Connected Development (CODE)",
-              "achievement": "Creative studio known for producing animation that promotes education and cultural values.",
-              "state": "Lagos State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/Connected_Development.png"
-            },
-            {
-              "name": "HACEY Health Initiative",
-              "achievement": "Media company focused on producing educational animation and multimedia content.",
-              "state": "Ogun State",
-              "country": "Nigeria",
-              "image": "/images/creativeart/HACEY_Health.png"
-            }
+          title: "Best Creative Advocacy and Educational Campaigns Award",
+          description: "This category celebrates organizations that have used creative campaigns to promote education, making learning more engaging and accessible.",
+          nominees: [
+            { name: "ONE Campaign", image: "/images/creativeart/ONE_Campaign.png", achievement: "Led impactful campaigns advocating for education access and quality in Nigeria." },
+            { name: "Girl Rising Nigeria", image: "/images/creativeart/Girl_Rising_Nigeria.png", achievement: "Championed girls' education through powerful storytelling and media campaigns." },
+            { name: "Teach For Nigeria", image: "/images/creativeart/Teach_Nigeria.png", achievement: "Recruited and placed outstanding graduates in underserved schools to improve education quality." },
+            { name: "Youth for Technology Foundation", image: "/images/creativeart/Youth_Foundation.png", achievement: "Empowered youth through technology education and entrepreneurship programs." },
+            { name: "African Leadership Academy", image: "/images/creativeart/African_Leadership.png", achievement: "Developed young leaders through innovative education programs focused on African development." },
+            { name: "Education as a Vaccine (EVA)", image: "/images/creativeart/Education_Vaccine.png", achievement: "Promoted youth-friendly health education and services across Nigeria." },
+            { name: "Stand to End Rape Initiative (STER)", image: "/images/creativeart/Stand-Initiative.png", achievement: "Advocated for comprehensive sexuality education to prevent sexual violence." },
+            { name: "CAMFED (Campaign for Female E..)", image: "/images/creativeart/CAMFED.png", achievement: "Supported girls' education and women's empowerment through community-driven initiatives." },
+            { name: "Connected Development (CODE)", image: "/images/creativeart/Connected_Development.png", achievement: "Used technology to track education projects and promote accountability in the sector." },
+            { name: "HACEY Health Initiative", image: "/images/creativeart/HACEY_Health.png", achievement: "Implemented health education programs targeting young people and vulnerable communities." }
           ]
         }
       ]
     },
+      
     {
       "title": "Support for education in STEM in Nigeria 2024",
       "description": "Celebrating initiatives by any organization for creative arts role in education and promoting hands-on learning experiences.",
@@ -3059,238 +2636,51 @@ export interface Nominee {
           "title": "The Best Innovative STEM Curriculum Development in Nigeria",
           "description": "Recognizes educators and institutions employing innovative teaching methods in STEM education",
           "nominees": [
-            {
-              "name": "University of Lagos",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/university_of_lagos.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.'"
-            },
-            {
-              "name": " Covenant University",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Covenant_University.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Lagos State Model College",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Lagos_State_Model_College.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Federal Government College Enugu",
-              "state": "Enugu",
-              "country": "Nigeria",
-              "image": "/images/stem/Federal_Government_College_Enugu.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Nigerian Turkish International Coll",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Nigerian_Turkish_International_Coll.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "British International School Lagos",
-              "state": "Plateau",
-              "country": "Nigeria",
-              "image": "/images/stem/British_International_School_Lagos.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "University of Nigeria, Nsukka",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/University_of_Nigeria_Nsukka.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            },
-            {
-              "name": "STEM Nigeria Initiative",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/STEM_Nigeria_Initiative.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Centre for Mathematics and Science",
-              "state": "Kebbi",
-              "country": "Nigeria",
-              "image": "/images/stem/Centre_for_Mathematics_and_Science.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            },
-            {
-              "name": "Nigerian Educational Research and ",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Nigerian_Educational_Research.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            }
+            { "name": "University of Lagos", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/university_of_lagos.png", "achievement": "Developed a multidisciplinary STEM curriculum focusing on practical applications and research. Enhanced STEM education for students." },
+            { "name": "Covenant University", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Covenant_University.png", "achievement": "Introduced an innovative engineering curriculum integrating industry practices. Prepared over 3,000 students for careers in engineering." },
+            { "name": "Lagos State Model College", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Lagos_State_Model_College.png", "achievement": "Implemented a specialized STEM program for secondary students, emphasizing real-world problem-solving. Improved student performance in STEM subjects." },
+            { "name": "Federal Government College Enugu", "state": "Enugu", "country": "Nigeria", "image": "/images/stem/Federal_Government_College_Enugu.png", "achievement": "Developed a STEM curriculum with a focus on renewable energy and environmental sciences. Trained over 2,500 students in sustainable technologies." },
+            { "name": "Nigerian Turkish International Coll", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Nigerian_Turkish_International_Coll.png", "achievement": "Introduced advanced STEM subjects, including robotics and coding, into the school curriculum. Achieved top rankings in international STEM competitions." },
+            { "name": "British International School Lagos", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/British_International_School_Lagos.png", "achievement": "Integrated STEM across all grade levels, with an emphasis on technology and engineering. Produced high-achieving students in STEM fields internationally." },
+            { "name": "University of Nigeria, Nsukka", "state": "Enugu", "country": "Nigeria", "image": "/images/stem/University_of_Nigeria_Nsukka.png", "achievement": "Developed a comprehensive STEM curriculum with a strong research component. Facilitated groundbreaking research in various STEM fields." },
+            { "name": "STEM Nigeria Initiative", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/STEM_Nigeria_Initiative.png", "achievement": "Designed a national STEM curriculum that incorporates local context and resources. Benefited over 10,000 students across multiple schools." },
+            { "name": "Centre for Mathematics and Science", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Centre_for_Mathematics_and_Science.png", "achievement": "Developed a STEM curriculum focusing on mathematics and science literacy. Improved mathematical proficiency among secondary school students." },
+            { "name": "Nigerian Educational Research and", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Nigerian_Educational_Research.png", "achievement": "Led the national development of STEM curriculum guidelines and standards. Standardized STEM education across the country." }
           ]
         },
         {
           "title": "The Best STEM Outreach and Community Engagement in Nigeria",
           "description": "Recognizes educators and institutions employing innovative teaching methods in STEM education",
           "nominees": [
-            {
-              "name": "STEM Café",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/STEM_Café.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.'"
-            },
-            {
-              "name": " Junior Achievement Nigeria ",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Junior_Achievement_Nigeria.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Lagos State Model College",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Lagos_State_Model_College.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Teach for Nigeria",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Teach_for_Nigeria.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Abuja Science and Technology Park",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Abuja_Science_and_Technology_Park.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Yaba College of Technology",
-              "state": "Plateau",
-              "country": "Nigeria",
-              "image": "/images/stem/Yaba_College_of_Technology.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "TechQuest STEM Academy",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/TechQuest_STEM_Academy.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            },
-            {
-              "name": "Lagos State Ministry of Education",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Lagos_State_Ministry_of_Education.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "SkillNG",
-              "state": "Kebbi",
-              "country": "Nigeria",
-              "image": "/images/stem/SkillNG.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            },
-            {
-              "name": " Nigerian Society of Engineers ",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Nigerian_Society_of_Engineers.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            },
-            {
-              "name": " African Science Academy ",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/African_Science_Academy.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            }
+            { "name": "STEM Café", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/STEM_Café.png", "achievement": "Established interactive STEM learning centers in underserved communities. Engaged over 20,000 students in hands-on STEM activities." },
+            { "name": "Junior Achievement Nigeria", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Junior_Achievement_Nigeria.png", "achievement": "Implemented STEM programs that focus on entrepreneurship and innovation. Reached over 50,000 students across Nigeria." },
+            { "name": "Teach for Nigeria", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Teach_for_Nigeria.png", "achievement": "Promoted STEM education through teaching fellowships in underserved areas. Improved STEM literacy among 30,000 students in rural communities." },
+            { "name": "Abuja Science and Technology Park", "state": "Abuja", "country": "Nigeria", "image": "/images/stem/Abuja_Science_and_Technology_Park.png", "achievement": "Organized community-based STEM workshops and competitions. Engaged 15,000 students and community members in STEM activities." },
+            { "name": "Yaba College of Technology", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Yaba_College_of_Technology.png", "achievement": "Conducted STEM outreach programs targeting secondary school students. Enhanced STEM skills for over 10,000 students through workshops." },
+            { "name": "TechQuest STEM Academy", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/TechQuest_STEM_Academy.png", "achievement": "Provided STEM education through coding and robotics workshops in low-income areas. Trained over 25,000 students in digital skills." },
+            { "name": "Lagos State Ministry of Education", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Lagos_State_Ministry_of_Education.png", "achievement": "Launched state-wide STEM initiatives to promote science and technology education. Improved STEM education in over 500 schools across Lagos State." },
+            { "name": "SkillNG", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/SkillNG.png", "achievement": "Offered STEM training and career guidance for youths in technology fields. Empowered over 15,000 young people with STEM skills." },
+            { "name": "Nigerian Society of Engineers", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Nigerian_Society_of_Engineers.png", "achievement": "Led community STEM projects focusing on engineering education and awareness. Reached over 10,000 students and young professionals." },
+            { "name": "African Science Academy", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/African_Science_Academy.png", "achievement": "Established STEM programs for girls in rural areas, focusing on science education and leadership. Empowered over 5,000 girls with STEM skills." }
           ]
         },
         {
           "title": "The Best Technology Integration in STEM Education in Nigeria",
           "description": "Recognizes educators and institutions employing innovative teaching methods in STEM education",
           "nominees": [
-            {
-              "name": "American University of Nigeria",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/American_University_of_Nigeria.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.'"
-            },
-            {
-              "name": " Green Springs School ",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Green_Springs_School.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Obafemi Awolowo University",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Obafemi_Awolowo_University.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "University of Ibadan",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/University_of_Ibadan.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Afe Babalola University",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Afe_Babalola_University.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Bridge International Academies",
-              "state": "Plateau",
-              "country": "Nigeria",
-              "image": "/images/stem/Bridge_International_Academies.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "CodeLagos",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/CodeLagos.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            },
-            {
-              "name": "Edves",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/Edves.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community'"
-            },
-            {
-              "name": "Andela Learning Community",
-              "state": "Kebbi",
-              "country": "Nigeria",
-              "image": "/images/stem/Andela_Learning_Community.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            },
-            {
-              "name": "STEM METS Resources ",
-              "state": "Lagos",
-              "country": "Nigeria",
-              "image": "/images/stem/STEM_METS_Resources.png",
-              "achievement": "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community"
-            }
+            { "name": "American University of Nigeria", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/American_University_of_Nigeria.png", "achievement": "Implemented technology-enhanced STEM programs with a focus on digital learning. Provided tech-driven education to over 5,000 students." },
+            { "name": "Green Springs School", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Green_Springs_School.png", "achievement": "Integrated advanced technology tools into STEM curriculum, including virtual labs and online simulations. Enhanced learning experience for students." },
+            { "name": "Obafemi Awolowo University", "state": "Osun", "country": "Nigeria", "image": "/images/stem/Obafemi_Awolowo_University.png", "achievement": "Developed a robust e-learning platform for STEM courses. Increased access to STEM education for over 10,000 students." },
+            { "name": "University of Ibadan", "state": "Oyo", "country": "Nigeria", "image": "/images/stem/University_of_Ibadan.png", "achievement": "Integrated cutting-edge technology into STEM research and education. Facilitated research and learning for over 15,000 students." },
+            { "name": "Afe Babalola University", "state": "Ekiti", "country": "Nigeria", "image": "/images/stem/Afe_Babalola_University.png", "achievement": "Launched a tech-driven STEM program with a focus on innovation and entrepreneurship. Empowered 3,000 students with digital skills." },
+            { "name": "Bridge International Academies", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Bridge_International_Academies.png", "achievement": "Utilized educational technology to deliver STEM education in low-income areas. Improved STEM literacy for over 100,000 students." },
+            { "name": "CodeLagos", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/CodeLagos.png", "achievement": "Implemented a state-wide coding and technology program for students. Trained over 100,000 students in coding and digital literacy." },
+            { "name": "Edves", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Edves.png", "achievement": "Developed and deployed a technology platform to manage and enhance STEM education in schools. Supported over 500 schools in Nigeria." },
+            { "name": "Andela Learning Community", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/Andela_Learning_Community.png", "achievement": "Provided online and offline technology training to students and professionals. Trained over 20,000 individuals in software development." },
+            { "name": "STEM METS Resources", "state": "Lagos", "country": "Nigeria", "image": "/images/stem/STEM_METS_Resources.png", "achievement": "Offered STEM kits and technology resources for hands-on learning in schools. Enhanced STEM education for over 30,000 students across Nigeria." }
           ]
         }
-
       ]
     }
+    
   ];
