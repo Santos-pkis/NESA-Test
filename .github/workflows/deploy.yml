@@ -1,41 +1,29 @@
-name: CI Pipeline
+name: Deploy Next.js
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Checkout the code
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: 18.x  # Use the same Node.js version as your project
+          node-version: '16.x'
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      # Step 4: Lint the code (optional, but recommended)
       - name: Lint code
         run: npm run lint
 
-      # Step 5: Build the application
-      - name: Build the app
+      - name: Build application
         run: npm run build
 
-      # Step 6: Export static files (if using `next export`)
-      - name: Export static files
-        run: npm run export
-
-      # Optional: Test if needed (you can skip this step if not applicable)
-      - name: Run tests
-        run: npm test
+      # You no longer need an export step, as this is handled in the build
