@@ -1,4 +1,4 @@
-name: Node CICD
+name: CI Pipeline
 
 on:
   push:
@@ -6,34 +6,36 @@ on:
       - master
 
 jobs:
-  deploy-production:
+  build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
 
     steps:
-      - name: Checkout code
+      # Step 1: Checkout the code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Use Node.js
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18.x  # Use the same Node.js version as your project
 
-      - name: npm install
+      # Step 3: Install dependencies
+      - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Build application
+      # Step 4: Lint the code (optional, but recommended)
+      - name: Lint code
+        run: npm run lint
+
+      # Step 5: Build the application
+      - name: Build the app
         run: npm run build
 
-      - name: Deploy to production
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.SSH_PROD_HOST }}
-          REMOTE_USER: ${{ secrets.SSH_PROD_USERNAME }}
-          TARGET: ${{ secrets.TARGET_MAIN }}
-          SCRIPT_AFTER: |
-            cd ${{ secrets.TARGET_MAIN }}
-            npm install --legacy-peer-deps
-            npm run build
-            pm2 restart all
+      # Step 6: Export static files (if using `next export`)
+      - name: Export static files
+        run: npm run export
+
+      # Optional: Test if needed (you can skip this step if not applicable)
+      - name: Run tests
+        run: npm test
