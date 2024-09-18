@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import { IoIosSearch, IoIosArrowBack } from "react-icons/io";
-import { categories, Category, SubCategory, Nominee } from '@/lib/data/awardData';
+import { categories, Category, Region, SubCategory, Nominee } from '@/lib/data/awardData';
+
 
 const AwardCategory: React.FC<{
   category: Category;
@@ -56,6 +57,39 @@ const AwardCategory: React.FC<{
               color: 'black',
             }}
           >
+            {category.regions ? 'See Regions' : 'See Sub-Categories'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const RegionComponent: React.FC<{
+  region: Region;
+  onSelectRegion: (region: Region) => void;
+}> = ({ region, onSelectRegion }) => {
+  return (
+    <div className="bg-[#191307] text-white rounded-3xl flex flex-col justify-between" style={{ width: '100%', minHeight: '540px' }}>
+      <div className="w-full p-6 flex justify-center items-center">
+        <div className="relative w-full" style={{ paddingBottom: '66.67%' }}>
+          <Image src="/images/nesa-card2.png" alt="NESA Logo" layout="fill" objectFit="contain" />
+        </div>
+      </div>
+      <div className="w-full p-6 flex flex-col justify-between flex-grow">
+        <div>
+          <h3 className="text-xl font-bold mb-2">{region.name}</h3>
+          <p className="text-sm mb-4">Region in Africa</p>
+        </div>
+        <div className="mt-auto">
+          <button
+            onClick={() => onSelectRegion(region)}
+            className="w-full py-2 px-4 rounded-lg font-medium"
+            style={{
+              background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
+              color: 'black',
+            }}
+          >
             See Sub-Categories
           </button>
         </div>
@@ -89,7 +123,7 @@ const SubCategoryComponent: React.FC<{
               color: 'black',
             }}
           >
-            Nominate
+            See Nominees
           </button>
         </div>
       </div>
@@ -141,6 +175,7 @@ const NomineeComponent: React.FC<{ nominee: Nominee }> = ({ nominee }) => {
 const JudgePage: React.FC = () => {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<Region | null>(null);
   const [selectedSubCategory, setSelectedSubCategory] = useState<SubCategory | null>(null);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -153,6 +188,12 @@ const JudgePage: React.FC = () => {
 
   const handleSelectCategory = (category: Category) => {
     setSelectedCategory(category);
+    setSelectedRegion(null);
+    setSelectedSubCategory(null);
+  };
+
+  const handleSelectRegion = (region: Region) => {
+    setSelectedRegion(region);
     setSelectedSubCategory(null);
   };
 
@@ -163,6 +204,8 @@ const JudgePage: React.FC = () => {
   const handleBack = () => {
     if (selectedSubCategory) {
       setSelectedSubCategory(null);
+    } else if (selectedRegion) {
+      setSelectedRegion(null);
     } else if (selectedCategory) {
       setSelectedCategory(null);
     }
@@ -173,7 +216,7 @@ const JudgePage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4">
         {/* Hero Section */}
         <div className="mb-12 sm:mb-16">
-          {!selectedCategory && !selectedSubCategory && (
+          {!selectedCategory && !selectedRegion && !selectedSubCategory && (
             <div className="relative mb-8 mt-12 sm:mt-0">
               <div className="relative">
                 <input
@@ -193,7 +236,7 @@ const JudgePage: React.FC = () => {
               </div>
             </div>
           )}
-          {(selectedCategory || selectedSubCategory) && (
+          {(selectedCategory || selectedRegion || selectedSubCategory) && (
             <div className="mb-8 mt-12 sm:mt-0">
               <button
                 onClick={handleBack}
@@ -209,15 +252,20 @@ const JudgePage: React.FC = () => {
               </button>
             </div>
           )}
-          <div className={`mt-8 ${!selectedCategory && !selectedSubCategory ? 'text-center' : 'text-left'}`}>
-            {!selectedCategory && !selectedSubCategory && (
+          <div className={`mt-8 ${!selectedCategory && !selectedRegion && !selectedSubCategory ? 'text-center' : 'text-left'}`}>
+            {!selectedCategory && !selectedRegion && !selectedSubCategory && (
               <h2 className="text-3xl font-medium mb-1">
                 The Blue Garnet Award Categories
               </h2>
             )}
-            {selectedCategory && !selectedSubCategory && (
+            {selectedCategory && !selectedRegion && !selectedSubCategory && (
               <h2 className="text-3xl font-medium mb-1">
                 {selectedCategory.title}
+              </h2>
+            )}
+            {selectedRegion && !selectedSubCategory && (
+              <h2 className="text-3xl font-medium mb-1">
+                {selectedRegion.name}
               </h2>
             )}
             {selectedSubCategory && (
@@ -226,12 +274,12 @@ const JudgePage: React.FC = () => {
               </h2>
             )}
             <div
-              className={`mb-8 ${!selectedCategory && !selectedSubCategory ? 'mx-auto' : ''}`}
+              className={`mb-8 ${!selectedCategory && !selectedRegion && !selectedSubCategory ? 'mx-auto' : ''}`}
               style={{
                 height: '4px',
                 width: '150px',
                 borderRadius: '8px',
-                margin: !selectedCategory && !selectedSubCategory ? '1rem auto 2rem' : '1rem 0 2rem',
+                margin: !selectedCategory && !selectedRegion && !selectedSubCategory ? '1rem auto 2rem' : '1rem 0 2rem',
                 background:
                   'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
               }}
@@ -241,7 +289,7 @@ const JudgePage: React.FC = () => {
 
         {/* Main Content */}
         <div className="flex flex-col items-start gap-6">
-          {!selectedCategory && (
+          {!selectedCategory && !selectedRegion && !selectedSubCategory && (
             <>
               <div className="w-full lg:col-span-3">
                 {filteredCategories.length > 0 && (
@@ -264,9 +312,30 @@ const JudgePage: React.FC = () => {
               </div>
             </>
           )}
-          {selectedCategory && selectedCategory.subCategories && !selectedSubCategory && (
+          {selectedCategory && !selectedRegion && !selectedSubCategory && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {selectedCategory.subCategories.map((subCategory, index) => (
+              {selectedCategory.regions ? (
+                selectedCategory.regions.map((region, index) => (
+                  <RegionComponent
+                    key={index}
+                    region={region}
+                    onSelectRegion={handleSelectRegion}
+                  />
+                ))
+              ) : selectedCategory.subCategories ? (
+                selectedCategory.subCategories.map((subCategory, index) => (
+                  <SubCategoryComponent
+                    key={index}
+                    subCategory={subCategory}
+                    onSelectSubCategory={handleSelectSubCategory}
+                  />
+                ))
+              ) : null}
+            </div>
+          )}
+          {selectedRegion && !selectedSubCategory && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+              {selectedRegion.subCategories.map((subCategory, index) => (
                 <SubCategoryComponent
                   key={index}
                   subCategory={subCategory}
@@ -275,7 +344,7 @@ const JudgePage: React.FC = () => {
               ))}
             </div>
           )}
-          {selectedSubCategory && selectedSubCategory.nominees && (
+          {selectedSubCategory && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {selectedSubCategory.nominees.map((nominee, index) => (
                 <NomineeComponent key={index} nominee={nominee} />

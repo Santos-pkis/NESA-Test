@@ -5,19 +5,23 @@ export interface Nominee {
   state?: string;
   country?: string;
 }
-  
-  export interface SubCategory {
-    title: string;
-    description: string;
-    nominees?: Nominee[];
-  }
-  
-  export interface Category {
-    title: string;
-    description: string;
-    subCategories?: SubCategory[];
-  }
-  
+
+export interface SubCategory {
+  title: string;
+  description: string;
+  nominees: Nominee[];
+}
+
+export interface Region {
+  name: string;
+  subCategories: SubCategory[];
+}
+export interface Category {
+  title: string;
+  description: string;
+  regions?: Region[];
+  subCategories?: SubCategory[];
+}
   export const categories: Category[] = [
     {
       "title": "Africa Lifetime Education Icon Special Recognition Award",
@@ -398,236 +402,495 @@ export interface Nominee {
       },
   
   
+      {
+        title: "The Overall Best CSR for Education in Nigeria Award 2024",
+        description: "Honoring corporate social responsibility by banks, telecommunications, and other sectors, and showing their impactful CSR initiatives that have ...",
+        subCategories: [
+          {
+            title: "Banking And Finance CSR in Education Award",
+            description: "Recognizes financial institutions for their initiatives in supporting education.",
+            nominees: [
+              { name: "Access Bank", image: "/images/csricons/access.png", achievement: "Launched the 'Access Bank School Adoption Program' to renovate schools and provide learning materials." },
+              { name: "First Bank of Nigeria", image: "/images/csricons/firstbank.png", achievement: "Sponsored the 'SPARK' initiative for mentoring and career development in schools." },
+              { name: "Zenith Bank", image: "/images/csricons/zenith.png", achievement: "Funded ICT labs in several public schools across Nigeria. Provided scholarships for underprivileged students in tertiary institutions." },
+              { name: "GTBank", image: "/images/csricons/gtb.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+              { name: "UBA", image: "/images/csricons/uba.png", achievement: "Established the 'UBA Foundation' focused on education and development. Provided scholarships and educational grants to students across Nigeria." },
+              { name: "Ecobank", image: "/images/csricons/ecobank.png", achievement: "Supported digital literacy projects in collaboration with local NGOs. Donated educational materials to rural schools." },
+              { name: "Fidelity Bank", image: "/images/csricons/fidelity.png", achievement: "Launched the 'Fidelity Helping Hands Project' to improve school facilities. Engaged in teacher training workshops to enhance education quality." },
+              { name: "Stanbic IBTC", image: "/images/csricons/stanbicibtc.png", achievement: "Provided capacity-building workshops for educators. Engaged in teacher training workshops to enhance education quality." },
+              { name: "Union Bank", image: "/images/csricons/union.png", achievement: "Funded infrastructure development in schools through the 'UnionCares' initiative. Provided capacity-building workshops for educators." },
+              { name: "Sterling Bank", image: "/images/csricons/sterling.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." }
+            ]
+          },
+          {
+            title: "Telecommunications CSR in Education Award",
+            description: "Honors telecom companies for their support in digital learning programs and connectivity for education.",
+            nominees: [
+              { name: "MTN Nigeria", image: "/images/csricons/mtn.png", achievement: "Implemented the 'MTN Foundation Schools Connect' to provide internet access to rural schools. Donated computers and ICT equip..." },
+              { name: "Airtel Nigeria", image: "/images/csricons/airtel.png", achievement: "Launched the 'Adopt-a-School' initiative to improve school infrastructure. Provided scholarships for students pursuing technolo..." },
+              { name: "Glo Mobile", image: "/images/csricons/glo.png", achievement: "Provided scholarships for students pursuing technology courses. Organized coding and programming workshops for secondary sch..." },
+              { name: "9mobile", image: "/images/csricons/9mobile.png", achievement: "Developed the '9mobile Future Minds' initiative for digital education. Collaborated with educational NGOs to provide learning..." }
+            ]
+          },
+          {
+            title: "Oil And Gas CSR in Education Award",
+            description: "Celebrates oil and gas companies' contributions to educational development in their host communities.",
+            nominees: [
+              { name: "Shell Nigeria", image: "/images/csricons/shell.png", achievement: "Implemented the 'Shell University Scholarship Scheme' for engineering students. Sponsored STEM workshops for secondary school..." },
+              { name: "ExxonMobil Nigeria", image: "/images/csricons/exxonmobil.png", achievement: "Developed the 'ExxonMobil Teachers Academy' for STEM educators. Provided grants for educational infrastructure develo..." },
+              { name: "Chevron Nigeria", image: "/images/csricons/chevron.png", achievement: "Developed the 'ExxonMobil Teachers Academy' for STEM educators. Provided grants for educational infrastructure develo..." },
+              { name: "Total Nigeria", image: "/images/csricons/total.png", achievement: "Launched the 'TotalEnergies STEM Excellence Program' for secondary schools. Sponsored science fairs and exhibitions to promote inn..." },
+              { name: "Eni (Agip)", image: "/images/csricons/agip.png", achievement: "Implemented the 'Eni Scholarship Program' for tertiary education in technical fields. Supported educational research projects in..." },
+              { name: "Schlumberger Nigeria", image: "/images/csricons/schlumberger.png", achievement: "Implemented the 'Schlumberger Teachers Empowerment Program' for continuous professional development. Funded scholars..." },
+              { name: "Baker Hughes", image: "/images/csricons/baker_hughes.png", achievement: "Supported the 'Global School Infrastructure Development Project' in rural areas. Engaged in educational outreach programs..." },
+              { name: "Seplat Petroleum", image: "/images/csricons/seplat.png", achievement: "Implemented the 'Seplat Teachers Empowerment Program' for continuous professional development." },
+              { name: "Addax Petroleum", image: "/images/csricons/addax.png", achievement: "Funded science laboratories in secondary schools through the 'Addax Science Initiative'. Sponsored educational trips and excursions..." },
+              { name: "Oando Plc", image: "/images/csricons/oando.png", achievement: "Launched the 'Oando Foundation's Adopt-a-School Initiative' to improve learning environments. Provided mentorship and c..." }
+            ]
+          },
+          {
+            title: "Food And Beverages CSR in Education Award",
+            description: "Acknowledges food and beverage companies' support for nutrition and education programs.",
+            nominees: [
+              { name: "Nestle Nigeria", image: "/images/csricons/nestlenigeria.png", achievement: "Launched the 'Nestlé Healthy Kids Program' to educate children on nutrition and health. Provided school feeding programs in partne..." },
+              { name: "Cadbury Nigeria", image: "/images/csricons/cadbury.png", achievement: "Supported the 'Cadbury Nutrition Education Initiative' in primary schools. Donated learning materials and resources to schools..." },
+              { name: "Nigerian Breweries", image: "/images/csricons/nigerianbreweries.png", achievement: "Developed the 'Nigerian Breweries Felix Ohiwerei Education Trust Fund' to support education. Funded scholarships and educat..." },
+              { name: "Guinness Nigeria", image: "/images/csricons/guinness.png", achievement: "Established the 'Guinness Nigeria Empowerment Program' for youth development. Supported vocational training..." },
+              { name: "Flour Mills of Nigeria", image: "/images/csricons/fmnn.png", achievement: "Supported the 'FMN Educational Support Initiative' to improve literacy and numeracy. Provided educational materials and resourc..." },
+              { name: "Coca-Cola Nigeria", image: "/images/csricons/cocacola.png", achievement: "Implemented the 'Coca-Cola Foundation School Support Program' for educational infrastructure. Sponsored health and well..." },
+              { name: "Dangote Sugar", image: "/images/csricons/dangotesugar.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+              { name: "PepsiCo Nigeria", image: "/images/csricons/pepsi.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+              { name: "FrieslandCampina WAMCO", image: "/images/csricons/frieslandcampina.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+              { name: "Promasidor Nigeria", image: "/images/csricons/promasi.png", achievement: "Implemented the 'Promasidor Quill Awards' for educational journalism. Sponsored essay competitions and academic challenges for..." }
+            ]
+          },
+          {
+            title: "Manufacturing CSR in Education Award",
+            description: "Recognizes manufacturing companies for their initiatives in technical and vocational education.",
+            nominees: [
+              { name: "Dangote Group", image: "/images/csricons/dangotecement.png", achievement: "Implemented the 'Dangote Academy' for vocational and technical training. Provided scholarships and sponsorships for engineer..." },
+              { name: "Nigerian Bottling Company", image: "/images/csricons/bottle.png", achievement: "Launched the 'NBC Education Initiative' to support digital learning. Sponsored ICT training workshops for teachers." },
+              { name: "Lafarge Africa", image: "/images/csricons/lafarge.png", achievement: "Developed the 'Lafarge Education Support Program' for secondary schools. Donated building materials for school infrastructure p..." },
+              { name: "Unilever Nigeria", image: "/images/csricons/unilever.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+              { name: "PZ Cussons Nigeria", image: "/images/csricons/pz.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+              { name: "Procter & Gamble Nigeria", image: "/images/csricons/pg.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+              { name: "Honeywell Flour Mills", image: "/images/csricons/honeywell.png", achievement: "Launched the 'Honeywell Excellence Program' for educational sponsorships. Supported capacity-building workshops for..." },
+              { name: "BUA Group", image: "/images/csricons/bua.png", achievement: "Supported the 'BUA School Renovation Project' to improve learning environments. Funded vocational training programs for yo..." },
+              { name: "Innoson Vehicle Manufacturing", image: "/images/csricons/innoson.png", achievement: "Supported the 'Innoson Auto Mechanics Training Program' for skill acquisition. Donated educational materials and resourc..." },
+              { name: "May & Baker Nigeria", image: "/images/csricons/mb.png", achievement: "Launched the 'May & Baker Science Challenge' for secondary school students. Sponsored science fairs and exhibitions to p..." }
+            ]
+          },
+      {
+  title: "Aviation CSR in Education Award",
+  description: "Honors aviation companies for their support of aerospace education and training programs.",
+  nominees: [
+    { name: "Arik Air", image: "/images/csricons/arikair.png", achievement: "Launched the \"Arik Wings for Kids\" program to introduce children to aviation. Provided educational materials and resources to avia..." },
+    { name: "Air Peace", image: "/images/csricons/airpeace.png", achievement: "Implemented the \"Air Peace Aviation Scholarship\" for aspiring pilots and engineers. Sponsored aviation career for se..." },
+    { name: "Dana Air", image: "/images/csricons/danaair.png", achievement: "Implemented the \"Dana Air Youth Empowerment Initiative\" for aviation education. Sponsored educational trips to a..." },
+    { name: "Ibom Air", image: "/images/csricons/ibomair.png", achievement: "Launched the \"Ibom Air Future Aviators Program\" for youth development. Sponsored educational workshops on aviation safety a..." },
+    { name: "Aero Contractors", image: "/images/csricons/aero.png", achievement: "Supported the \"Aero Aviation Training Academy\" for skill development. Engaged in educational outreach programs in local co..." },
+    { name: "Azman Air", image: "/images/csricons/azmanair.png", achievement: "Supported the \"Azman Aviation Education Project\" for capacity building. Donated learning materials and resources to schools..." },
+    { name: "Overland Airways", image: "/images/csricons/overlandairways.png", achievement: "Launched the \"Overland Airways School Support Program\" for educational infrastructure. Provided mentorship and car..." },
+    { name: "Med-View Airline", image: "/images/csricons/med.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Green Africa Airways", image: "/images/csricons/greenafrica.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Max Air", image: "/images/csricons/max.png", achievement: "Implemented the \"Max Air Scholarship Program\" for aviation studies. Engaged in community outreach programs to promote..." }
+  ]
+},
+{
+  title: "Technology And ICT CSR in Education Award",
+  description: "Recognizes tech companies for their initiatives in digital education, ICT training, and e-learning support.",
+  nominees: [
+    { name: "Microsoft Nigeria", image: "/images/csricons/microsoft.png", achievement: "Implemented the \"Microsoft YouthSpark\" initiative to provide digital skills training. Sponsored coding competitions and hackathons." },
+    { name: "Google Nigeria", image: "/images/csricons/google.png", achievement: "Launched the \"Google Digital Skills for Africa\" program for ICT education. Conducted workshops on using Google tools for teachin..." },
+    { name: "Andela", image: "/images/csricons/andela.png", achievement: "Implemented the \"Andela Learning Community\" to train young developers. Sponsored hackathons and technology boo..." },
+    { name: "Flutterwave", image: "/images/csricons/flutterwave.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Paystack", image: "/images/csricons/paystack.png", achievement: "Launched the \"Paystack Developer Accelerator\" for aspiring tech entrepreneurs. Sponsored coding workshops and mentorshi..." },
+    { name: "Interswitch", image: "/images/csricons/interswitch.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Oracle Nigeria", image: "/images/csricons/oracle.png", achievement: "Launched the \"Oracle Academy\" to support computer science education. Sponsored workshops on database management and..." },
+    { name: "HP Nigeria", image: "/images/csricons/hp.png", achievement: "Supported the \"HP LIFE\" program to provide technology education for entrepreneurs. Donated laptops and ICT equipment to scho..." },
+    { name: "Tek Experts Nigeria", image: "/images/csricons/te.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Cisco Nigeria", image: "/images/csricons/cisco.png", achievement: "Implemented the \"Cisco Networking Academy\" for ICT education and training. Offered certifications and courses for stude..." }
+  ]
+},
+{
+  title: "Real Estate And Construction CSR in Education Award",
+  description: "Honors companies in the real estate and construction sector for their educational infrastructure support.",
+  nominees: [
+    { name: "Julius Berger Nigeria", image: "/images/csricons/juliusberger.png", achievement: "Implemented the \"Julius Berger School Support Program\" for educational infrastructure. Funded engineering scholarships for university students." },
+    { name: "Dangote Cement", image: "/images/csricons/dangote.png", achievement: "Supported the \"Dangote Cement School Empowerment Program\" to improve learning environments. Funded vocational training programs for youth empowerment." },
+    { name: "Cappa & D'Alberto Plc", image: "/images/csricons/cd.png", achievement: "Developed the \"FL-ICAN Education Initiative\" for vocational training. Supported capacity-building workshops for educators." },
+    { name: "Dantata & Sawoe Construction", image: "/images/csricons/ds.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "RCC Nigeria", image: "/images/csricons/rcc.png", achievement: "Implemented the \"RCC Educational Support Program\" for secondary schools. Provided scholarships and sponsorships for engineering students." },
+    { name: "ITB Nigeria", image: "/images/csricons/itb.png", achievement: "Supported the \"ITB School Infrastructure Development Project\" in rural areas. Engaged in educational outreach programs in local communities." },
+    { name: "Costain West Africa", image: "/images/csricons/cwa.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "El-Alan Construction Company", image: "/images/csricons/ellanroadconstruction.png", achievement: "Developed the \"El-Alan Education Initiative\" for vocational training. Supported capacity-building workshops for educators." },
+    { name: "Setraco Nigeria", image: "/images/csricons/setraco.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Arab Contractors", image: "/images/csricons/arabhomes.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" }
+  ]
+},
+{
+  title: "Retail And E-Commerce CSR in Education Award",
+  description: "Recognizes retail and e-commerce companies for their support of education through various initiatives.",
+  nominees: [
+    { name: "Shoprite Nigeria", image: "/images/csricons/shoprite.png", achievement: "Supported the \"Shoprite Community Education Initiative\" for school infrastructure development. Engaged in educational outre..." },
+    { name: "Spar Nigeria", image: "/images/csricons/spar.png", achievement: "Developed the \"Spar School Support Scheme\" for educational resources and infrastructure. Donated learning materials." },
+    { name: "Jumia Nigeria", image: "/images/csricons/jumia.png", achievement: "Implemented the \"Jumia School Support Program\" to provide educational resources. Sponsored digital literacy workshops for stu..." },
+    { name: "Konga", image: "/images/csricons/konga.png", achievement: "Launched the \"Konga Digital Academy\" for e-learning and digital skills development. Provided scholarships for students pursuing..." },
+    { name: "Justrite Superstore", image: "/images/csricons/justrite.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Game Stores Nigeria", image: "/images/csricons/game.png", achievement: "Supported the \"Game Community Education Initiative\" for school infrastructure development. Engaged in educational outre..." },
+    { name: "Prince Ebeano Supermarket", image: "/images/csricons/pes.png", achievement: "Launched the \"Prince Ebeano Education Empowerment Program\" for skill acquisition and vocational training. Sponsored schol..." },
+    { name: "Addide Supermarket", image: "/images/csricons/addide.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Everyday Supermarket", image: "/images/csricons/everyday.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Hubmart Stores", image: "/images/csricons/hub.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" }
+  ]
+},
+{
+  title: "Pharmaceuticals CSR in Education Award",
+  description: "Honors pharmaceutical companies for their support of health education and related initiatives.",
+  nominees: [
+    { name: "GlaxoSmithKline Nigeria", image: "/images/csricons/gsk.png", achievement: "Supported the \"GSK Health Education Program\" for primary schools. Conducted health and wellness workshops for students..." },
+    { name: "Pfizer Nigeria", image: "/images/csricons/pfizer.png", achievement: "Launched the \"Pfizer Science Challenge\" for secondary school students. Sponsored science fairs and exhibitions to promote inn..." },
+    { name: "Emzor Pharmaceutical", image: "/images/csricons/emzor.png", achievement: "Implemented the \"Emzor Health Education Program\" to promote health literacy in schools. Donated medical supplies and reso..." },
+    { name: "May & Baker Nigeria", image: "/images/csricons/mbn.png", achievement: "Developed the \"May & Baker Science Education Initiative\" for STEM education. Donated laboratory equipment and resourc..." },
+    { name: "Fidson Healthcare Plc", image: "/images/csricons/fidson.png", achievement: "Launched the \"Fidson Science Challenge\" for secondary school students. Sponsored science fairs and exhibitions to promote inn..." },
+    { name: "Neimeth International Pharmaceuticals", image: "/images/csricons/neimeth.png", achievement: "Launched the \"Neimeth Science Challenge\" for secondary school students. Sponsored science fairs and exhibitions to promote inn..." },
+    { name: "Mopson Pharmaceuticals", image: "/images/csricons/mp.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Swiss Pharma Nigeria", image: "/images/csricons/swipha.png", achievement: "Developed the \"Swiss Pharma Education Initiative\" for STEM education. Donated laboratory equipment and resources to sch..." },
+    { name: "Biofem Pharmaceuticals", image: "/images/csricons/biofem.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" },
+    { name: "Evans Medical Plc", image: "/images/csricons/evans.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community" }
+  ]
+},
     {
-      title: "The Overall Best CSR for Education in Nigeria Award 2024",
-      description:  "Honoring corporate social responsibility by banks, telecommunications, and other sectors, and showing their impactful CSR initiatives that have ...",
-      subCategories: [
-      {
-        title: "Banking And Finance CSR in Education Award",
-        description: "Recognizes financial institutions for their initiatives in supporting education.",
-        nominees: [
-          { name: "Access", image: "/images/csricons/access.png", achievement: "Significant contributions to education initiatives." },
-          { name: "FirstBank", image: "/images/csricons/firstbank.png", achievement: "Significant contributions to education initiatives." },
-          { name: "Zenith", image: "/images/csricons/zenith.png", achievement: "Significant contributions to education initiatives." },
-          { name: "GTB", image: "/images/csricons/gtb.png", achievement: "Significant contributions to education initiatives." },
-          { name: "UBA", image: "/images/csricons/uba.png", achievement: "Significant contributions to education initiatives." },
-          { name: "Ecobank", image: "/images/csricons/ecobank.png", achievement: "Significant contributions to education initiatives." },
-          { name: "Fidelity", image: "/images/csricons/fidelity.png", achievement: "Significant contributions to education initiatives." },
-          { name: "StanbicIBTC", image: "/images/csricons/stanbicibtc.png", achievement: "Significant contributions to education initiatives." },
-          { name: "Union Bank", image: "/images/csricons/union.png", achievement: "Significant contributions to education initiatives." },
-          { name: "Sterling", image: "/images/csricons/sterling.png", achievement: "Significant contributions to education initiatives." }
-        ]
-      },
-      {
-        title: "Telecommunications CSR in Education Award",
-        description: "Honors telecom companies for their support in digital learning programs and connectivity for education.",
-        nominees: [
-          { name: "MTN", image: "/images/mtn.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "Airtel", image: "/images/airtel.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "Glo", image: "/images/glo.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "9mobile", image: "/images/9mobile.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "Smile", image: "/images/smile.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "Spectranet", image: "/images/spectranet.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "Ntel", image: "/images/ntel.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "MainOne", image: "/images/mainone.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "SwiftNetworks", image: "/images/swiftnetworks.png", achievement: "Significant contributions to digital learning and connectivity." },
-          { name: "ipNX", image: "/images/ipnx.png", achievement: "Significant contributions to digital learning and connectivity." }
-        ]
-      },
-      {
-        title: "Oil And Gas CSR in Education Award",
-        description: "Celebrates oil and gas companies' contributions to educational development in their host communities.",
-        nominees: [
-          { name: "Shell Nigeria", image: "/images/shell.png", achievement: "Significant contributions to educational development in host communities." },
-          { name: "ExxonMobil Nigeria", image: "/images/exxonmobil.png", achievement: "Significant contributions to educational development in host communities." },
-          { name: "Chevron", image: "/images/chevron.png", achievement: "Significant contributions to educational development in host communities." },
-          { name: "Total Nigeria", image: "/images/total.png", achievement: "Significant contributions to educational development in host communities." },
-          { name: "Agip", image: "/images/agip.png", achievement: "Significant contributions to educational development in host communities." },
-          { name: "Schlumberger Nigeria", image: "/images/schlumberger.png", achievement: "Significant contributions to educational development in host communities." },
-          { name: "Baker Hughes", image: "/images/baker_hughes.png", achievement: "Significant contributions to educational development in host communities." },
-          { name: "Seplat", image: "/images/seplat.png", achievement: "Significant contributions to educational development in host communities." },
-  
-          { name: "Addax Petroleum", image: "/images/addax.png", achievement: "Significant contributions to educational development in host communities." },
-          { name: "OandoPLc", image: "/images/oando.png", achievement: "Significant contributions to educational development in host communities." },
-        ]
-      },
-      {
-        title: "Food And Beverages CSR in Education Award",
-        description: "Acknowledges food and beverage companies' support for nutrition and education programs.",
-        nominees: [
-          { name: "NestleNigeria", image: "/images/csricons/nestlenigeria.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "Cadbury", image: "/images/csricons/cadbury.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "NigerianBreweries", image: "/images/csricons/nigerianbreweries.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "Guinness", image: "/images/csricons/guinness.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "FMNN", image: "/images/csricons/fmnn.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "CocaCola", image: "/images/csricons/cocacola.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "DangoteSugar", image: "/images/csricons/dangotesugar.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "PepsiCo Nigeria", image: "/images/csricons/pepsi.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "FrieslandCampina", image: "/images/csricons/frieslandcampina.png", achievement: "Significant support for nutrition and education programs." },
-          { name: "Promasidor Nigeria", image: "/images/csricons/promasi.png", achievement: "Significant support for nutrition and education programs." }
-        ]
-      },
-      {
-        title: "Manufacturing CSR in Education Award",
-        description: "Recognizes manufacturing companies for their initiatives in technical and vocational education.",
-        nominees: [
-          { name: "DangoteCement", image: "/images/csricons/dangotecement.png", achievement: "Significant initiatives in technical and vocational education." },
-          { name: "Nigerian Bottling Company", image: "/images/csricons/bottle.png", achievement: "Significant initiatives in technical and vocational education." },
-  
-          { name: "Lafarge", image: "/images/csricons/lafarge.png", achievement: "Significant initiatives in technical and vocational education." },
-          { name: "Unilever", image: "/images/csricons/unilever.png", achievement: "Significant initiatives in technical and vocational education." },
-          { name: "PZ", image: "/images/csricons/pz.png", achievement: "Significant initiatives in technical and vocational education." },
-          { name: "Procter & Gamble Nigeria", image: "/images/csricons/pg.png", achievement: "Significant initiatives in technical and vocational education." },
-          { name: "Honeywell", image: "/images/csricons/honeywell.png", achievement: "Significant initiatives in technical and vocational education." },
-          { name: "BUA", image: "/images/csricons/bua.png", achievement: "Significant initiatives in technical and vocational education." },
-          { name: "Innoson Vehicle Manufacturing", image: "/images/csricons/innoson.png", achievement: "Significant initiatives in technical and vocational education." },
-          { name: "May & Baker Nigeria", image: "/images/csricons/mb.png", achievement: "Significant initiatives in technical and vocational education." }
-        ]
-      },
-      {
-        title: "Aviation CSR in Education Award",
-        description: "Honors aviation companies for their support of aerospace education and training programs.",
-        nominees: [
-          { name: "ArikAir", image: "/images/csricons/arikair.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "AirPeace", image: "/images/csricons/airpeace.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "DanaAir", image: "/images/csricons/danaair.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "IbomAir", image: "/images/csricons/ibomair.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "Aero", image: "/images/csricons/aero.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "AzmanAir", image: "/images/csricons/azmanair.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "OverlandAirways", image: "/images/csricons/overlandairways.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "Med-View Airline", image: "/images/csricons/med.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "GreenAfrica", image: "/images/csricons/greenafrica.png", achievement: "Significant support for aerospace education and training programs." },
-          { name: "Max Air", image: "/images/csricons/max.png", achievement: "Significant support for aerospace education and training programs." }
-        ]
-      },
-      {
-        title: "Technology And ICT CSR in Education Award",
-        description: "Recognizes tech companies for their initiatives in digital education, ICT training, and e-learning support.",
-        nominees: [
-          { name: "Microsoft", image: "/images/csricons/microsoft.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Google", image: "/images/csricons/google.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Andela", image: "/images/csricons/andela.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Flutterwave", image: "/images/csricons/flutterwave.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Paystack", image: "/images/csricons/paystack.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Interswitch", image: "/images/csricons/interswitch.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Jumia", image: "/images/csricons/jumia.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Konga", image: "/images/csricons/konga.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Tek Experts Nigeria", image: "/images/csricons/te.png", achievement: "Significant initiatives in digital education and ICT training." },
-          { name: "Cisco", image: "/images/csricons/cisco.png", achievement: "Significant initiatives in digital education and ICT training." }
-        ]
-      },
-      {
-        title: "Real Estate And Construction CSR in Education Award",
-        description: "Honors companies in the real estate and construction sector for their educational infrastructure support.",
-        nominees: [
-          { name: "JuliusBerger", image: "/images/csricons/juliusberger.png", achievement: "Significant educational infrastructure support." },
-          { name: "Dangote", image: "/images/csricons/dangote.png", achievement: "Significant educational infrastructure support." },
-          { name: "Cappa & D'Alberto Plc", image: "/images/csricons/cd.png", achievement: "Significant educational infrastructure support." },
-          { name: "Dantata & Sawoe Construction", image: "/images/csricons/ds.png", achievement: "Significant educational infrastructure support." },
-          { name: "RCC", image: "/images/csricons/rcc.png", achievement: "Significant educational infrastructure support." },
-          { name: "ITB Nigeria", image: "/images/csricons/itb.png", achievement: "Significant educational infrastructure support." },
-          { name: "Costain West Africa", image: "/images/csricons/cwa.png", achievement: "Significant educational infrastructure support." },
-          { name: "El-Alan Construction Company", image: "/images/csricons/ellanroadconstruction.png", achievement: "Significant educational infrastructure support." },
-          { name: "Setraco", image: "/images/csricons/setraco.png", achievement: "Significant educational infrastructure support." },
-          { name: "Arab Contractors", image: "/images/csricons/arabhomes.png", achievement: "Significant educational infrastructure support." }
-        ]
-      },
-      {
-        title: "Retail And E-Commerce CSR in Education Award",
-        description: "Recognizes retail and e-commerce companies for their support of education through various initiatives.",
-        nominees: [
-          { name: "Shoprite", image: "/images/csricons/shoprite.png", achievement: "Significant support for education through various initiatives." },
-          { name: "SPAR", image: "/images/csricons/spar.png", achievement: "Significant support for education through various initiatives." },
-          { name: "Jumia", image: "/images/csricons/jumia.png", achievement: "Significant support for education through various initiatives." },
-          { name: "Konga", image: "/images/csricons/konga.png", achievement: "Significant support for education through various initiatives." },
-          { name: "Justrite", image: "/images/csricons/justrite.png", achievement: "Significant support for education through various initiatives." },
-          { name: "Game", image: "/images/csricons/game.png", achievement: "Significant support for education through various initiatives." },
-  
-          { name: "Prince Ebeano Supermarket", image: "/images/csricons/pes.png", achievement: "Significant support for education through various initiatives." },
-          { name: "Addide Supermarket", image: "/images/csricons/addide.png", achievement: "Significant support for education through various initiatives." },
-          { name: "Everyday Supermarket", image: "/images/csricons/everyday.png", achievement: "Significant support for education through various initiatives." },
-          { name: "Hubmart Stores", image: "/images/csricons/hub.png", achievement: "Significant support for education through various initiatives." }
-        ]
-      },
-      {
-        title: "Pharmaceuticals CSR in Education Award",
-        description: "Honors pharmaceutical companies for their support of health education and related initiatives.",
-        nominees: [
-          { name: "GSK", image: "/images/csricons/gsk.png", achievement: "Significant support for health education and related initiatives." },
-          { name: "Pfizer", image: "/images/csricons/pfizer.png", achievement: "Significant support for health education and related initiatives." },
-          { name: "Emzor", image: "/images/csricons/emzor.png", achievement: "Significant support for health education and related initiatives." },
-          { name: "May & Baker Nigeria", image: "/images/csricons/mbn.png", achievement: "Significant support for health education and related initiatives." },
-  
-          { name: "Fidson Healthcare Plc", image: "/images/csricons/fidson.png", achievement: "Significant support for health education and related initiatives." },
-        { name: "Neimeth International Pharmaceuticals", image: "/images/csricons/neimeth.png", achievement: "Significant support for health education and related initiatives." },
-        { name: "Mopson Pharmaceuticals", image: "/images/csricons/mp.png", achievement: "Significant support for health education and related initiatives." },
-  
-        { name: "Swiss Pharma Nigeria", image: "/images/csricons/swipha.png", achievement: "Significant support for health education and related initiatives." },
-  
-        { name: "Biofem Pharmaceuticals", image: "/images/csricons/biofem.png", achievement: "Significant support for health education and related initiatives." },
-        { name: "Evans Medical Plc", image: "/images/csricons/evans.png", achievement: "Significant support for health education and related initiatives." }
-      ]
-    },
+  title: "Insurance CSR in Education Award",
+  description: "Recognizes insurance companies for their contributions to financial literacy and education programs.",
+  nominees: [
+    { name: "AXA Mansard Insurance", image: "/images/csricons/axamansard.png", achievement: "Supported the 'AXA Mansard Financial Literacy Program' for secondary schools. Conducted workshops on financial planning." },
+    { name: "AIICO Insurance Plc", image: "/images/csricons/aiico.png", achievement: "Launched the 'AIICO Education Support Initiative' for educational resources. Sponsored scholarships for students pursuing..." },
+    { name: "Leadway Assurance", image: "/images/csricons/leadway.png", achievement: "Implemented the 'Leadway Financial Literacy Program' for secondary schools. Conducted workshops on financial planning and insura..." },
+    { name: "Custodian and Allied Plc", image: "/images/csricons/custodian.png", achievement: "Implemented the 'Mutual Benefits Financial Literacy Program' for secondary schools. Conducted workshops on financial..." },
+    { name: "NEM Insurance Plc", image: "/images/csricons/nem.png", achievement: "Launched the 'NEM Education Support Initiative' for educational resources. Sponsored scholarships for students pursuing..." },
+    { name: "Mutual Benefits Assurance", image: "/images/csricons/mutualbenefits.png", achievement: "Supported the 'Sovereign Trust Financial Literacy Program' for secondary schools. Conducted workshops on financial planning..." },
+    { name: "Cornerstone Insurance", image: "/images/csricons/cornerstone.png", achievement: "Implemented the 'Cornerstone Financial Literacy Program' for secondary schools. Conducted workshops on financial planning..." },
+    { name: "Lasaco Assurance Plc", image: "/images/csricons/lasaco.png", achievement: "n" },
+    { name: "Consolidated Hallmark Insurance", image: "/images/csricons/consolidatedhallmark.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Sovereign Trust Insurance", image: "/images/csricons/sovereigntrust.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "NSIA Insurance", image: "/images/csricons/nsia.png", achievement: "Launched the 'NSIA Education Support Initiative' for educational resources. Sponsored scholarships for students pursuing..." },
+    { name: "Zenith General Insurance:", image: "/images/csricons/zenith.png", achievement: "Launched the 'Zenith General Education Support Initiative' for educational resources. Sponsored scholarships for students purs..." }
+  ]
+},
+
+{
+  title: "Media And Entertainment CSR in Education Award",
+  description: "Recognizes media and entertainment companies for their support of educational content and initiatives.",
+  nominees: [
+    { name: "Channels Television", image: "/images/csricons/channels.png", achievement: "Implemented the 'Channels Kids Club' to promote educational content for children. Sponsored educational documentaries and..." },
+    { name: "NTA (Nigerian Television Authority)", image: "/images/csricons/nta.png", achievement: "Launched the 'NTA Educational Initiative' to support learning through television. Produced educational programs and docu..." },
+    { name: "Silverbird Television", image: "/images/csricons/silverbird.png", achievement: "Developed the 'Silverbird Education Initiative' for educational content creation. Produced documentaries and programs focused on e..." },
+    { name: "TVC Communications", image: "/images/csricons/tvc.png", achievement: "Launched the 'TVC Education Support Initiative' for educational outreach. Sponsored educational programs and even..." },
+    { name: "Multichoice Nigeria (DSTV)", image: "/images/csricons/multichoice.png", achievement: "Supported the 'DSTV Eutelsat Star Awards' to promote science and technology education. Sponsored educational scholarships for stu..." },
+    { name: "HipTV", image: "/images/csricons/hiptv.png", achievement: "Developed the 'HipTV Educational Initiative' for educational content creation. Produced documentaries and programs focused on e..." },
+    { name: "Wazobia FM", image: "/images/csricons/wazobia.png", achievement: "Launched the 'Wazobia Education Support Program' for educational outreach. Sponsored educational programs and even..." },
+    { name: "AIT (Africa Independent Television)", image: "/images/csricons/ait.png", achievement: "Implemented the 'Arise Educational Initiative' to support learning through media. Produced educational programs and docu..." },
+    { name: "Cool FM Nigeria", image: "/images/csricons/coolfm.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "The Guardian Nigeria", image: "/images/csricons/guardian.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "EbonyLife TV", image: "/images/csricons/ebonylife.png", achievement: "Launched the 'EbonyLife Education Support Program' for educational outreach. Sponsored educational programs and even..." },
+    { name: "Arise News", image: "/images/csricons/arise.png", achievement: "Implemented the 'Arise Educational Initiative' to support learning through media. Produced educational programs and docu..." }
+  ]
+},
+
+{
+  title: "Agriculture And Agribusiness CSR In Education Award",
+  description: "Recognizes agricultural and agribusiness companies for their contributions to education in the sector.",
+  nominees: [
+    { name: "Olam Nigeria", image: "/images/csricons/olam.png", achievement: "Implemented the 'Olam Agricultural Education Program' to promote agricultural literacy in schools. Donated seeds and reso..." },
+    { name: "Flour Mills of Nigeria", image: "/images/csricons/fmn.png", achievement: "Launched the 'FMN Agro-Allied Education Initiative' for agricultural education. Sponsored training programs for students in..." },
+    { name: "Presco Plc", image: "/images/csricons/presco.png", achievement: "Supported the 'Presco Agro-Education Initiative' for agricultural training and skill development. Engaged in capacity-building..." },
+    { name: "PZ Wilmar", image: "/images/csricons/pzwilmar.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Dangote Sugar", image: "/images/csricons/dangotesugar.png", achievement: "Developed the 'Dangote Sugar Agricultural Education Program' for secondary schools. Donated farming equipment and resources..." },
+    { name: "BUA Sugar Refinery", image: "/images/csricons/bua.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Nestle Nigeria", image: "/images/csricons/nestle.png", achievement: "Developed the 'Nestle Agricultural Education Program' for secondary schools. Sponsored training programs for students in agricultur..." },
+    { name: "Cadbury Nigeria", image: "/images/csricons/cadbury.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Guinness Nigeria", image: "/images/csricons/guinness.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Nigerian Breweries", image: "/images/csricons/nigerianbreweries.png", achievement: "Launched the 'Nigerian Breweries Agricultural Education Initiative' for secondary schools. Donated farming equipment and resources..." },
+    { name: "Chi Farms", image: "/images/csricons/chifarms.png", achievement: "Implemented the 'Chi Farms Agro-Education Initiative' for agricultural training and skill development. Engaged in capacity-building..." },
+    { name: "Notore Chemical Industries:", image: "/images/csricons/notore.png", achievement: "Supported the 'Notore Agricultural Education Program' for secondary schools. Donated farming equipment and resources to school..." },
+    { name: "Premier Feeds Mills", image: "/images/csricons/premierfeeds.png", achievement: "Launched the 'Premier Feeds Agricultural Education Initiative' for secondary schools. Donated farming equipment and resources..." },
+    { name: "AACE Foods", image: "/images/csricons/aacefoods.png", achievement: "Developed the 'AACE Foods Agro-Education Program' for secondary schools. Sponsored training programs for students in agricultur..." }
+  ]
+},
+
+{
+  title: "Health Care And Hospitals CSR In Education Award",
+  description: "Recognizes healthcare providers and hospitals for their educational initiatives in health and wellness.",
+  nominees: [
+    { name: "Reddington Hospital", image: "/images/csricons/reddington.png", achievement: "Implemented the 'Reddington Health Education Program' to promote health literacy in schools. Donated medical supplies and resources to healthcare training institutions." },
+    { name: "St. Nicholas Hospital", image: "/images/csricons/stnicholas.png", achievement: "Developed the 'St. Nicholas Health Education Program' for primary schools. Conducted health and wellness workshops for students and teachers." },
+    { name: "Lagoon Hospitals", image: "/images/csricons/lagoon.png", achievement: "Launched the 'Lagoon Medical Education Initiative' for secondary schools. Sponsored health and wellness workshops for students and teachers." },
+    { name: "Eko Hospital", image: "/images/csricons/eko.png", achievement: "Launched the 'Eko Medical Education Initiative' for secondary schools. Sponsored health and wellness workshops for students and teachers." },
+    { name: "First Consultants Medical Centre", image: "/images/csricons/fcmc.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Medbury Medical Services", image: "/images/csricons/medbury.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Avon Healthcare Limited", image: "/images/csricons/avon.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Lifebridge Medical Diagnostics", image: "/images/csricons/lifebridge.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Bridge Clinic", image: "/images/csricons/bridge.png", achievement: "Developed the 'Bridge Clinic Health Education Program' for primary schools. Conducted health and wellness workshops for students and teachers." },
+    { name: "Lily Hospitals", image: "/images/csricons/lily.png", achievement: "Supported the 'Lily Medical Education Initiative' for secondary schools. Sponsored health and wellness workshops for students and teachers." },
+    { name: "Eye Foundation Hospital", image: "/images/csricons/eyefoundation.png", achievement: "Supported the 'Eye Foundation Health Education Program' for primary schools. Conducted health and wellness workshops for students and teachers." },
+    { name: "First Cardiology Consultants", image: "/images/csricons/firstcardiology.png", achievement: "Developed the 'First Cardiology Medical Education Initiative' for secondary schools. Sponsored health and wellness workshops for students and teachers." }
+  ]
+},
+
+{
+  title: "Professional Services CSR In Education Award",
+  description: "Recognizes professional services firms for their educational initiatives and support programs.",
+  nominees: [
+    { name: "PwC Nigeria", image: "/images/csricons/pwc.png", achievement: "Implemented the 'PwC Business Education Program' for secondary schools. Sponsored internships and training programs for stude..." },
+    { name: "Deloitte Nigeria", image: "/images/csricons/deloitte.png", achievement: "Supported the 'Deloitte Business Education Program' for secondary schools. Sponsored internships and training programs for stude..." },
+    { name: "KPMG Nigeria", image: "/images/csricons/kpmg.png", achievement: "Launched the 'KPMG Education Support Initiative' for educational resources. Sponsored scholarships for students pursuin..." },
+    { name: "Ernst & Young Nigeria", image: "/images/csricons/ey.png", achievement: "Launched the 'EY Education Support Initiative' for educational resources. Sponsored scholarships for students pursuin..." },
+    { name: "Accenture Nigeria", image: "/images/csricons/accenture.png", achievement: "Implemented the 'Accenture Business Education Program' for secondary schools. Sponsored internships and training program..." },
+    { name: "Baker Tilly Nigeria", image: "/images/csricons/bakertilly.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "SIAO Partners", image: "/images/csricons/siao.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Grant Thornton Nigeria", image: "/images/csricons/grantthornton.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Banwo & Ighodalo", image: "/images/csricons/banwoighodalo.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "Aluko & Oyebode", image: "/images/csricons/alukooyebode.png", achievement: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+    { name: "McKinsey & Company Nigeria:", image: "/images/csricons/mckinsey.png", achievement: "Launched the 'McKinsey Education Support Initiative' for educational resources. Sponsored scholarships for students pursuin..." },
+    { name: "Boston Consulting Group Nigeria", image: "/images/csricons/bcg.png", achievement: "Supported the 'BCG Business Education Program' for secondary schools. Sponsored internships and training programs for stude..." },
+    { name: "FBNQuest", image: "/images/csricons/fbnquest.png", achievement: "Launched the 'FBNQuest Education Support Initiative' for educational resources. Sponsored scholarships for students pursuin..." },
+    { name: "Stanbic IBTC Holdings", image: "/images/csricons/stanbic.png", achievement: "Implemented the 'Stanbic IBTC Business Education Program' for secondary schools. Sponsored internships and training program..." },
+    { name: "United Capital Plc:", image: "/images/csricons/unitedcapital.png", achievement: "Launched the 'United Capital Education Support Initiative' for educational resources. Sponsored scholarships for students pursuin..." }
+  ]
+},
     {
-      title: "Insurance CSR in Education Award",
-      description: "Recognizes insurance companies for their contributions to financial literacy and education programs.",
-      nominees: [
-        { name: "AXAMansard", image: "/images/csricons/axamansard.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "LegacyPension", image: "/images/csricons/legacypension.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "Custodian", image: "/images/csricons/custodian.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "Leadway", image: "/images/csricons/leadway.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "NEM", image: "/images/csricons/nem.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "AIICO", image: "/images/csricons/aiico.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "Cornerstone", image: "/images/csricons/cornerstone.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "Lasaco", image: "/images/csricons/lasaco.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "VeritasKapital", image: "/images/csricons/veritaskapital.png", achievement: "Significant contributions to financial literacy and education programs." },
-        { name: "WapiccInsurance", image: "/images/csricons/wapiccinsurance.png", achievement: "Significant contributions to financial literacy and education programs." }
-      ]
-    },
-    {
-      title: "Conglomerates And Diversified Companies CSR in Education Award",
-      description: "Honors diversified companies for their wide-ranging support of educational initiatives.",
-      nominees: [
-        { name: "Dangote", image: "/images/csricons/dangote.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "BUA", image: "/images/csricons/bua.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "Honeywell", image: "/images/csricons/honeywell.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "Transnational", image: "/images/csricons/transnational.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "UACN", image: "/images/csricons/uacn.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "JohnHolt", image: "/images/csricons/johnholt.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "CFAO", image: "/images/csricons/cfao.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "AG Leventis", image: "/images/csricons/agleventis.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "Chellarams", image: "/images/csricons/chellarams.png", achievement: "Wide-ranging support of educational initiatives." },
-        { name: "NBM", image: "/images/csricons/nbm.png", achievement: "Wide-ranging support of educational initiatives." }
-      ]
-    },
-    {
-      title: "Media And Entertainment CSR in Education Award",
-      description: "Recognizes media and entertainment companies for their support of educational content and initiatives.",
-      nominees: [
-        { name: "MultiChoice", image: "/images/csricons/multichoice.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "Silverbird", image: "/images/csricons/silverbird.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "IROKOtv", image: "/images/csricons/irokotv.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "HipTV", image: "/images/csricons/hiptv.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "LindaIkejiTV", image: "/images/csricons/lindaikejitv.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "EbonyLife", image: "/images/csricons/ebonylife.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "Channels", image: "/images/csricons/channels.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "TVC", image: "/images/csricons/tvc.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "Arise", image: "/images/csricons/arise.png", achievement: "Significant support of educational content and initiatives." },
-        { name: "TheCable", image: "/images/csricons/thecable.png", achievement: "Significant support of educational content and initiatives." }
-      ]
-    }
+    title: "Fintech CSR in Education Award",
+    description: "Recognizes fintech companies for their contributions to educational initiatives.",
+    nominees: [
+      { name: "Flutterwave", image: "/images/csricons/flutterwave.png", achievement: "Implemented the 'Flutterwave Financial Literacy Program' for secondary schools. Conducted workshops on financial planning." },
+      { name: "Paystack", image: "/images/csricons/paystack.png", achievement: "Launched the 'Paystack Education Support Initiative' for educational resources. Sponsored scholarships for students pursuing..." },
+      { name: "Interswitch", image: "/images/csricons/interswitch.png", achievement: "Supported the 'Interswitch Financial Literacy Program' for secondary schools. Conducted workshops on financial planning and fintech." },
+      { name: "Remita", image: "/images/csricons/remita.png", achievement: "Implemented the 'Remita Financial Literacy Program' for secondary schools. Conducted workshops on financial planning." },
+      { name: "Carbon", image: "/images/csricons/carbon.png", achievement: "Launched the 'Carbon Education Support Initiative' for educational resources. Sponsored scholarships for students pursuing..." },
+      { name: "Paga", image: "/images/csricons/paga.png", achievement: "Launched the 'Paga Education Support Initiative' for educational resources. Sponsored scholarships for students pursuing..." },
+      { name: "Kuda Bank", image: "/images/csricons/kudabank.png", achievement: "Supported the 'Kuda Financial Literacy Program' for secondary schools. Conducted workshops on financial planning." },
+      { name: "Moniepoint", image: "/images/csricons/moniepoint.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "FairMoney", image: "/images/csricons/fairmoney.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "TeamApt", image: "/images/csricons/teamapt.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "OPay", image: "/images/csricons/opay.png", achievement: "Launched the 'OPay Education Support Initiative' for educational resources. Sponsored scholarships for students pursuing..." },
+      { name: "PalmPay", image: "/images/csricons/palmpay.png", achievement: "Implemented the 'PalmPay Financial Literacy Program' for secondary schools. Conducted workshops on financial planning." },
+      { name: "Chipper Cash", image: "/images/csricons/chippercash.png", achievement: "Launched the 'Chipper Cash Education Support Initiative' for educational resources. Sponsored scholarships for students pursuing..." }
+    ]
+  },
+  {
+    title: "Microfinance Banks CSR in Education Award",
+    description: "Honors microfinance banks for their support of educational programs.",
+    nominees: [
+      { name: "LAPO Microfinance Bank", image: "/images/csricons/lapo.png", achievement: "Implemented the 'LAPO Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "Grooming Centre", image: "/images/csricons/groomingcentre.png", achievement: "Supported the 'Grooming Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "Accion Microfinance Bank", image: "/images/csricons/accion.png", achievement: "Launched the 'Accion Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "AB Microfinance Bank NIGERIA", image: "/images/csricons/abmicrofinance.png", achievement: "Launched the 'AB Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "Baobab Microfinance Bank", image: "/images/csricons/baobab.png", achievement: "Launched the 'Baobab Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "Mainstreet Microfinance Bank", image: "/images/csricons/mainstreet.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "NPF Microfinance Bank Plc", image: "/images/csricons/npf.png", achievement: "Implemented the 'NPF Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "Fina Trust Microfinance Bank", image: "/images/csricons/finatrust.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Rehoboth Microfinance Bank", image: "/images/csricons/rehoboth.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Fortis MFB", image: "/images/csricons/fortis.png", achievement: "Supported the 'Fortis Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "EdFin Microfinance Bank", image: "/images/csricons/edfin.png", achievement: "Implemented the 'EdFin Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "Addosser Microfinance Bank", image: "/images/csricons/addosser.png", achievement: "Launched the 'Addosser Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." },
+      { name: "AB Microfinance Bank Nigeria", image: "/images/csricons/abmicrofinance.png", achievement: "Launched the 'AB Education Support Initiative' for primary schools. Sponsored scholarships for students from underprivileg..." }
+    ]
+  },
+  {
+    title: "Emerging Telecommunications CSR in Education Award",
+    description: "Recognizes emerging telecom companies for their educational support initiatives.",
+    nominees: [
+      { name: "Smile Communications", image: "/images/csricons/smile.png", achievement: "Implemented the 'Smile School Support Program' to provide educational resources. Sponsored digital literacy workshops for stu..." },
+      { name: "Spectranet", image: "/images/csricons/spectranet.png", achievement: "Supported the 'Spectranet Community Education Initiative' for school infrastructure development. Engaged in educational outre..." },
+      { name: "ipNX Nigeria", image: "/images/csricons/ipnx.png", achievement: "Implemented the 'ipNX School Support Program' to provide educational resources. Sponsored digital literacy workshops for stu..." },
+      { name: "Ntel", image: "/images/csricons/ntel.png", achievement: "Launched the 'Ntel Digital Academy' for e-learning and digital skills development. Provided scholarships for students pursuing..." },
+      { name: "Tizeti (Wifi.com.ng)", image: "/images/csricons/tizeti.png", achievement: "Launched the 'Tizeti Digital Academy' for e-learning and digital skills development. Provided scholarships for students pursuing..." },
+      { name: "SWIFT Networks", image: "/images/csricons/swift.png", achievement: "Developed the 'Swift School Support Scheme' for educational resources and infrastructure. Donated learning materials a..." },
+      { name: "VDT Communications", image: "/images/csricons/vdt.png", achievement: "Supported the 'VDT Community Education Initiative' for school infrastructure development. Engaged in educational outre..." },
+      { name: "Tingo Mobile", image: "/images/csricons/tingo.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Cobranet Limited", image: "/images/csricons/cobranet.png", achievement: "Launched the 'Cobranet Education Empowerment Program' for skill acquisition and vocational training. Sponsored scholars..." },
+      { name: "Coollink NG", image: "/images/csricons/coollink.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Bitflux Communications", image: "/images/csricons/bitflux.png", achievement: "Launched the 'Bitflux Education Empowerment Program' for skill acquisition and vocational training. Sponsored schol..." }
+    ]
+  },
+  {
+    title: "Conglomerates And Diversified Businesses CSR in Education Award",
+    description: "Honors diversified companies for their wide-ranging support of educational initiatives.",
+    nominees: [
+      { name: "Dangote Group", image: "/images/csricons/dangote.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "UAC of Nigeria Plc", image: "/images/csricons/uac.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Flour Mills of Nigeria", image: "/images/csricons/flourmills.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Honeywell Group", image: "/images/csricons/honeywell.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "BUA Group", image: "/images/csricons/bua.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Transcorp Nigeria", image: "/images/csricons/transcorp.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Stallion Group", image: "/images/csricons/stallion.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Kewalram Chanrai Group", image: "/images/csricons/kewalram.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Leventis Group", image: "/images/csricons/leventis.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." },
+      { name: "Chellarams Plc", image: "/images/csricons/chellarams.png", achievement: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community." }
+    ]
+  },
+  {
+    title: "Real Estate Development CSR in Education Award",
+    description: "Recognizes real estate developers for their contributions to educational infrastructure and programs.",
+    nominees: [
+      { name: "UPDC Plc", image: "/images/csricons/updc.png", achievement: "Implemented the 'UPDC Educational Support Initiative' for primary schools. Provided educational materials and resources to rura..." },
+      { name: "Mixta Africa", image: "/images/csricons/mixta.png", achievement: "Developed the 'Mixta Africa Education Initiative' for capacity building and skill acquisition. Supported capacity-building w..." },
+      { name: "Landmark Group", image: "/images/csricons/landmark.png", achievement: "Launched the 'Landmark School Support Scheme' for educational infrastructure development. Donated building materials fo..." },
+      { name: "Cosgrove Investment Limited", image: "/images/csricons/cosgrove.png", achievement: "Supported the 'Cosgrove Education Empowerment Program' for secondary schools. Sponsored scholarships and edu..." },
+      { name: "Octo5 Holdings Limited", image: "/images/csricons/octo5.png", achievement: "Implemented the 'Octo5 School Support Program' for educational resources. Engaged in educational outreach programs in local c..." },
+      { name: "Brains & Hammers Limited", image: "/images/csricons/brainshammers.png", achievement: "Launched the 'Brains & Hammers Educational Initiative' for primary schools. Provided educational materials and resourc..." },
+      { name: "GText Homes", image: "/images/csricons/gtext.png", achievement: "Developed the 'GText School Support Scheme' for educational infrastructure development. Donated building materials fo..." },
+      { name: "Megamound Investment Limited", image: "/images/csricons/megamound.png", achievement: "Supported the 'Megamound Education Empowerment Program' for secondary schools. Sponsored scholarships and educa..." },
+      { name: "Adron Homes and Properties", image: "/images/csricons/adron.png", achievement: "Implemented the 'Adron School Support Program' for educational resources. Engaged in educational outreach programs..." },
+      { name: "RevolutionPlus Property Development", image: "/images/csricons/revolutionplus.png", achievement: "Launched the 'RevolutionPlus Educational Initiative' for primary schools. Provided educational materials and resources to rura..." }
+    ]
+  },
+  {
+  title: "Hotels CSR in Education Award 2022-2024 in Nigeria",
+  description: "Recognizes hotels for their contributions to educational initiatives in Nigeria.",
+  nominees: [
+    { name: "Transcorp Hilton Abuja", image: "/images/csricons/transcorphilton.png", achievement: "Launched the 'Transcorp Hilton Educational Support Program' for primary schools. Provided scholarships for student..." },
+    { name: "Eko Hotels & Suites", image: "/images/csricons/ekohotels.png", achievement: "Developed the 'Eko Hotels School Support Scheme' for educational infrastructure development. Donated building materials fo..." },
+    { name: "Radisson Blu Lagos", image: "/images/csricons/radissonblu.png", achievement: "Implemented the 'Radisson Blu Education Empowerment Program' for secondary schools. Sponsored scholarships and educa..." },
+    { name: "Sheraton Lagos Hotel", image: "/images/csricons/sheraton.png", achievement: "Supported the 'Sheraton School Support Program' for educational resources. Engaged in educational outreach programs in local c..." },
+    { name: "Intercontinental Hotel Lagos", image: "/images/csricons/intercontinental.png", achievement: "Launched the 'Intercontinental Educational Initiative' for primary schools. Provided educational materials and resources to rura..." },
+    { name: "Protea Hotel Ikeja", image: "/images/csricons/protea.png", achievement: "Developed the 'Protea School Support Scheme' for educational infrastructure development. Donated building materials..." },
+    { name: "Four Points by Sheraton Lagos", image: "/images/csricons/fourpoints.png", achievement: "Supported the 'Four Points Education Empowerment Program' for secondary schools. Sponsored scholarships and educa..." },
+    { name: "Golden Tulip Hotel", image: "/images/csricons/goldentulip.png", achievement: "Developed the 'Golden Tulip School Support Scheme' for educational infrastructure development. Donated building materials..." },
+    { name: "Lagos Continental Hotel", image: "/images/csricons/lagoscontinental.png", achievement: "Implemented the 'Lagos Continental School Support Program' for educational resources. Engaged in educational outreach programs..." },
+    { name: "Federal Palace Hotel", image: "/images/csricons/federalpalace.png", achievement: "Launched the 'Federal Palace Educational Initiative' for primary schools. Provided educational materials and resources to rura..." }
+  ]
+}
   ]
   },
   
-  
-    
-    {
-      title: "CSR for Education special recognition award in Africa 2024",
-      description:
-        "Recognize the most outstanding educational technology companies that have made significant contributions to advancing education in Africa through...",
-    },
+  {
+    "title": "Best Africa Regional Companies CSR for Education Special Recognition Award in Africa 2024",
+    "description": "Recognize the most outstanding educational technology companies that have made significant contributions to advancing education in Africa through innovative solutions, programs, and initiatives.",
+    "regions": [
+      {
+        "name": "North Africa",
+        "subCategories": [
+          {
+            "title": "Best Banking and Finance CSR in Education in North Africa",
+            "description": "Recognizing outstanding contributions in the banking and finance sector to education in North Africa",
+            "nominees": [
+              { "name": "Attijariwafa Bank", "image": "/images/africacsr/attijariwafa.png", "achievement": "Supporting local education, providing scholarships, and funding educational initiatives.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Bank of Alexandria", "image": "/images/africacsr/bankofalexandria.png", "achievement": "Supporting education through CSR initiatives, offering financial literacy programs.", "state": "Alexandria", "country": "Egypt" },
+              { "name": "NCB Bank", "image": "/images/africacsr/ncbbank.png", "achievement": "Providing educational support, offering scholarships, and funding educational initiatives.", "state": "Jeddah", "country": "Saudi Arabia" },
+              { "name": "Banque Misr", "image": "/images/africacsr/banquemisr.png", "achievement": "Supporting education through various CSR initiatives and scholarship programs.", "state": "Cairo", "country": "Egypt" },
+              { "name": "National Bank of Egypt", "image": "/images/africacsr/nationalbankofegypt.png", "achievement": "Offering educational support and funding various educational initiatives.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Arab Bank", "image": "/images/africacsr/arabbank.png", "achievement": "Supporting education through CSR initiatives and scholarship programs.", "state": "Amman", "country": "Jordan" },
+              { "name": "QNB", "image": "/images/africacsr/qnb.png", "achievement": "Providing educational support and funding various educational initiatives.", "state": "Doha", "country": "Qatar" },
+              { "name": "Commercial International Bank", "image": "/images/africacsr/cib.png", "achievement": "Supporting education through CSR initiatives and scholarship programs.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Al Baraka Bank", "image": "/images/africacsr/albaraka.png", "achievement": "Supporting education, offering scholarships, and funding educational initiatives.", "state": "Manama", "country": "Bahrain" },
+              { "name": "Union National Bank", "image": "/images/africacsr/unionnationalbank.png", "achievement": "Providing educational support and funding various educational initiatives.", "state": "Abu Dhabi", "country": "United Arab Emirates" }
+            ]
+          },
+          {
+            "title": "Best Telecommunications CSR in Education in North Africa",
+            "description": "Honoring telecommunications companies making significant educational contributions in North Africa",
+            "nominees": [
+              { "name": "Orange Morocco", "image": "/images/africacsr/orange.png", "achievement": "Supporting local education, providing digital resources, and offering training programs.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Telecom Egypt", "image": "/images/africacsr/telecomegypt.png", "achievement": "Implementing digital education initiatives and providing technological resources.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Ooredoo Algeria", "image": "/images/africacsr/ooredoo.png", "achievement": "Supporting education through various CSR initiatives and digital programs.", "state": "Algiers", "country": "Algeria" },
+              { "name": "Tunisie Telecom", "image": "/images/africacsr/tunisietelecom.png", "achievement": "Providing educational support and implementing digital education initiatives.", "state": "Tunis", "country": "Tunisia" },
+              { "name": "Maroc Telecom", "image": "/images/africacsr/maroctelcom.png", "achievement": "Supporting education through CSR initiatives and digital resources.", "state": "Rabat", "country": "Morocco" },
+              { "name": "Vodafone Egypt", "image": "/images/africacsr/vodafone.png", "achievement": "Implementing educational programs and providing digital resources to schools.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Algerie Telecom", "image": "/images/africacsr/algerietelecom.png", "achievement": "Supporting education through various CSR initiatives and digital programs.", "state": "Algiers", "country": "Algeria" },
+              { "name": "Sudatel", "image": "/images/africacsr/sudatel.png", "achievement": "Providing educational support and implementing digital education initiatives.", "state": "Khartoum", "country": "Sudan" },
+              { "name": "Mauritel", "image": "/images/africacsr/mauritel.png", "achievement": "Supporting education through CSR initiatives and digital resources.", "state": "Nouakchott", "country": "Mauritania" },
+              { "name": "Mobilis", "image": "/images/africacsr/mobilis.png", "achievement": "Implementing educational programs and providing digital resources to schools.", "state": "Algiers", "country": "Algeria" }
+            ]
+          },
+          {
+            "title": "Best Technology and ICT CSR in Education in North Africa",
+            "description": "Recognizing technology and ICT companies making substantial educational impacts in North Africa",
+            "nominees": [
+              { "name": "IBM North Africa", "image": "/images/africacsr/ibm.png", "achievement": "Providing AI and cloud computing education, supporting coding initiatives.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Microsoft Egypt", "image": "/images/africacsr/microsoft.png", "achievement": "Implementing digital literacy programs and supporting teacher training.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Dell Morocco", "image": "/images/africacsr/dell.png", "achievement": "Supporting education through various technology initiatives and resources.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Oracle Egypt", "image": "/images/africacsr/oracle.png", "achievement": "Providing educational support and implementing technology education programs.", "state": "Cairo", "country": "Egypt" },
+              { "name": "SAP North Africa", "image": "/images/africacsr/sap.png", "achievement": "Supporting education through CSR initiatives and technology resources.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Cisco Systems North Africa", "image": "/images/africacsr/cisco.png", "achievement": "Implementing educational programs and providing networking resources.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Huawei Technologies North Africa", "image": "/images/africacsr/huawei.png", "achievement": "Supporting education through various technology initiatives and resources.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Nokia North Africa", "image": "/images/africacsr/nokia.png", "achievement": "Providing educational support and implementing technology education programs.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Siemens Egypt", "image": "/images/africacsr/siemens.png", "achievement": "Supporting education through CSR initiatives and technology resources.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Intel Egypt", "image": "/images/africacsr/intel.png", "achievement": "Implementing educational programs and providing computing resources.", "state": "Cairo", "country": "Egypt" }
+            ]
+          },
+          {
+            "title": "Manufacturing And Industrial CSR in Education",
+            "description": "Recognizing outstanding contributions in the manufacturing and industrial sector to education in North Africa",
+            "nominees": [
+              { "name": "Siemens (Egypt)", "image": "/images/africacsr/siemens.png", "achievement": "Supporting engineering education, providing training programs and scholarships.", "state": "Cairo", "country": "Egypt" },
+              { "name": "OCP (Office Chérifien des Phosphates) (Morocco)", "image": "/images/africacsr/ocp.png", "achievement": "Supporting STEM education, providing scholarships and educational resources.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Cevital Group (Algeria)", "image": "/images/africacsr/cevital.png", "achievement": "Supporting vocational training, providing internships and educational partnerships.", "state": "Algiers", "country": "Algeria" },
+              { "name": "Algerien Cement (Algeria)", "image": "/images/africacsr/algeriencement.png", "achievement": "Supporting technical education, providing training programs and infrastructure support.", "state": "Algiers", "country": "Algeria" },
+              { "name": "Lafarge Holcim (Morocco)", "image": "/images/africacsr/lafargeholcim.png", "achievement": "Supporting sustainable development education, providing scholarships and community programs.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Egyptian Steel (Egypt)", "image": "/images/africacsr/egyptiansteel.png", "achievement": "Supporting technical education, providing training programs and scholarships.", "state": "Cairo", "country": "Egypt" },
+              { "name": "El Nasr Automotive (Egypt)", "image": "/images/africacsr/elnasrautomotive.png", "achievement": "Supporting automotive engineering education, providing internships and training programs.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Orascom Construction (Egypt)", "image": "/images/africacsr/orascom.png", "achievement": "Supporting engineering education, providing scholarships and infrastructure development.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Managem Group (Morocco)", "image": "/images/africacsr/managem.png", "achievement": "Supporting mining education, providing training programs and community development initiatives.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Cosumar (Morocco)", "image": "/images/africacsr/cosumar.png", "achievement": "Supporting agricultural education, providing scholarships and rural development programs.", "state": "Casablanca", "country": "Morocco" }
+            ]
+          },
+          {
+            "title": "Agriculture And Agribusiness CSR in Education",
+            "description": "Honoring agriculture and agribusiness companies making significant educational contributions in North Africa",
+            "nominees": [
+              { "name": "Cosumar (Morocco)", "image": "/images/africacsr/cosumar.png", "achievement": "Supporting agricultural education, providing scholarships and rural development programs.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Al Dahra Agriculture (Egypt)", "image": "/images/africacsr/aldahra.png", "achievement": "Supporting sustainable agriculture education, providing training programs and research initiatives.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Morocco Foodex", "image": "/images/africacsr/moroccofoodex.png", "achievement": "Supporting food technology education, providing internships and export-oriented training.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Centrale Danone (Morocco)", "image": "/images/africacsr/centraledanone.png", "achievement": "Supporting dairy industry education, providing scholarships and rural development initiatives.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "El Rashidi El Mizan (Egypt)", "image": "/images/africacsr/elrashidielmizan.png", "achievement": "Supporting food processing education, providing vocational training and community programs.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Agro-Consortiom (Egypt)", "image": "/images/africacsr/agroconsortium.png", "achievement": "Supporting agricultural research, providing scholarships and innovative farming education.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Société des Brasseries du Maroc", "image": "/images/africacsr/societedesbrasseriesdumaroc.png", "achievement": "Supporting beverage industry education, providing training programs and community initiatives.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Cooperative Agricole de Taroudannt", "image": "/images/africacsr/cooperativeagricoletaroudannt.png", "achievement": "Supporting cooperative education, providing training for small-scale farmers and rural communities.", "state": "Taroudannt", "country": "Morocco" },
+              { "name": "National Agricultural Cooperative", "image": "/images/africacsr/nationalagriculturalcooperative.png", "achievement": "Supporting agricultural education, providing training programs and rural development initiatives.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Egyptian Agricultural Products Co.", "image": "/images/africacsr/egyptianagriculturalproducts.png", "achievement": "Supporting agribusiness education, providing internships and export-oriented training programs.", "state": "Cairo", "country": "Egypt" }
+            ]
+          },
+          {
+            "title": "Social Media Influencer CSR For Education in Africa",
+            "description": "Recognizing social media influencers making substantial educational impacts in Africa",
+            "nominees": [
+              { "name": "Amr Diab (Egypt)", "image": "/images/africacsr/amrdiab.png", "achievement": "Supporting music education, providing scholarships and mentorship programs.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Yassmine El Saied (Egypt)", "image": "/images/africacsr/yassmineelsaied.png", "achievement": "Promoting literacy and education awareness through social media campaigns.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Abou El Anwar (Sina) (Morocco)", "image": "/images/africacsr/abouelanwar.png", "achievement": "Supporting youth education and entrepreneurship through online mentoring and resources.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Dina El-Sherbiny (Egypt)", "image": "/images/africacsr/dinaelsherbiny.png", "achievement": "Promoting girls' education and empowerment through social media advocacy.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Salma Rachid (Egypt)", "image": "/images/africacsr/salmarachid.png", "achievement": "Supporting arts education and cultural awareness through online platforms.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Mohamed Henedy (Egypt)", "image": "/images/africacsr/mohamedhenedy.png", "achievement": "Promoting educational comedy and literacy through social media content.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Ghada Elrazek (Morocco)", "image": "/images/africacsr/ghadaelrazek.png", "achievement": "Supporting women's education and entrepreneurship through online courses and mentorship.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Nadia Hassani (Egypt)", "image": "/images/africacsr/nadiahassani.png", "achievement": "Promoting health education and awareness through social media campaigns.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Fatima Zahra Bennacer (Morocco)", "image": "/images/africacsr/fatimazahrabennacer.png", "achievement": "Supporting sustainable living education through online content and community initiatives.", "state": "Rabat", "country": "Morocco" },
+              { "name": "Lamia (Tunisia)", "image": "/images/africacsr/lamia.png", "achievement": "Promoting technology education and digital literacy through social media tutorials.", "state": "Tunis", "country": "Tunisia" }
+            ]
+          },
+          {
+            "title": "African International Sports Stars CSR For Education in Africa",
+            "description": "Honoring African international sports stars making significant educational contributions in Africa",
+            "nominees": [
+              { "name": "Mo Salah (Egypt)", "image": "/images/africacsr/mosalah.png", "achievement": "Supporting youth education and sports development through scholarships and community programs.", "state": "Cairo", "country": "Egypt" },
+              { "name": "Riyad Mahrez (Algeria)", "image": "/images/africacsr/riyadmahrez.png", "achievement": "Promoting education and sports opportunities for underprivileged youth.", "state": "Algiers", "country": "Algeria" },
+              { "name": "Karim Benzema (Algeria/France)", "image": "/images/africacsr/karimbenzema.png", "achievement": "Supporting educational initiatives and sports academies in North Africa.", "state": "Lyon", "country": "France" },
+              { "name": "Mehdi Benatia (Morocco)", "image": "/images/africacsr/mehdibenatia.png", "achievement": "Promoting education and sports development in rural areas of Morocco.", "state": "Casablanca", "country": "Morocco" },
+              { "name": "Hakim Ziyech (Morocco)", "image": "/images/africacsr/hakimziyech.png", "achievement": "Supporting educational programs and sports facilities in underprivileged communities.", "state": "Amsterdam", "country": "Netherlands" },
+              { "name": "Yassine Bounou (Morocco)", "image": "/images/africacsr/yassinebounou.png", "achievement": "Promoting goalkeeper training programs and educational support for aspiring athletes.", "state": "Seville", "country": "Spain" },
+              { "name": "Achraf Hakimi (Morocco)", "image": "/images/africacsr/achrafhakimi.png", "achievement": "Supporting education and sports infrastructure development in Morocco.", "state": "Paris", "country": "France" },
+              { "name": "Trezeguet (Egypt)", "image": "/images/africacsr/trezeguet.png", "achievement": "Promoting youth education and football development programs in Egypt.", "state": "Istanbul", "country": "Turkey" },
+              { "name": "Sofiane Feghouli (Algeria)", "image": "/images/africacsr/sofianefeghouli.png", "achievement": "Supporting educational initiatives and sports academies in Algeria.", "state": "Istanbul", "country": "Turkey" },
+              { "name": "Islam Slimani (Algeria)", "image": "/images/africacsr/islamslimani.png", "achievement": "Promoting education and sports opportunities for youth in Algeria.", "state": "Lyon", "country": "France" }
+            ]
+          }
+        ]
+      }
+    ]
+},
 
-    {
+      
+{
   "title": "Best EduTech Organization in Nigeria and Africa 2024",
   "description": "Acknowledges educational technology organizations that have demonstrated exemplary commitment and results in advancing education from 2014-2024.",
   "subCategories": [
@@ -701,14 +964,14 @@ export interface Nominee {
       "nominees": [
         { "name": "uLesson", "image": "/images/edutech/uLesson.png", "country": "Nigeria", "achievement": "Digital learning platform for secondary students" },
         { "name": "Tuteria", "image": "/images/edutech/Tuteria.png", "country": "Nigeria", "achievement": "Connecting learners with local tutors" },
-        { "name": "Snapplify", "image": "/images/edutech/Snapplify.png", "country": "South Africa", "achievement": "Digital publishing and e-learning solutions" },
-        { "name": "MWC", "image": "/images/edutech/MWC.png", "country": "Nigeria", "achievement": "Mobile learning solutions" },
-        { "name": "M-Shule", "image": "/images/edutech/M-Shule.png", "country": "Kenya", "achievement": "Mobile learning solutions for primary education" },
-        { "name": "BRCK", "image": "/images/edutech/BRCK.png", "country": "Kenya", "achievement": "Rugged technology solutions for education" },
-        { "name": "Kytabu", "image": "/images/edutech/Kytabu.png", "country": "Kenya", "achievement": "Textbook content leasing app" },
-        { "name": "Sterio.me", "image": "/images/edutech/Sterio.me.png", "country": "Nigeria", "achievement": "Audio learning via mobile phones" },
-        { "name": "Tessa", "image": "/images/edutech/Tessa.png", "country": "Pan-African", "achievement": "Teacher education in sub-Saharan Africa" },
-        { "name": "Soma", "image": "/images/edutech/Soma.png", "country": "Kenya", "achievement": "Digital reading platform" }
+        { "name": "EduTech Africa", "image": "/images/edutech/EduTech Africa.png", "country": "Nigeria", "achievement": "Educational technology and innovation" },
+        { "name": "Brighter Monday", "image": "/images/edutech/Brighter Monday.png", "country": "Nigeria", "achievement": "Job and skills platform" },
+        { "name": "Sparkle", "image": "/images/edutech/Sparkle.png", "country": "Nigeria", "achievement": "Fintech solutions with educational impact" },
+        { "name": "TechHer", "image": "/images/edutech/TechHer.png", "country": "Nigeria", "achievement": "Empowering women in tech" },
+        { "name": "Code Lagos", "image": "/images/edutech/Code Lagos.png", "country": "Nigeria", "achievement": "Coding education initiative" },
+        { "name": "Benevolent Technology", "image": "/images/edutech/Benevolent Technology.png", "country": "Ghana", "achievement": "Tech solutions for educational advancement" },
+        { "name": "GoMyWay", "image": "/images/edutech/GoMyWay.png", "country": "Nigeria", "achievement": "Technology for educational mobility" },
+        { "name": "Youth Empowerment Foundation", "image": "/images/edutech/Youth Empowerment Foundation.png", "country": "Nigeria", "achievement": "Youth development through tech education" }
       ]
     }
   ]
@@ -1173,14 +1436,11 @@ export interface Nominee {
               "state": "Nasarawa",
               "country": "Nigeria",
               "image": "/images/friendlystate/nasarawa-state.png",
-              "achievement": "Map outline with text 'Niger State'"
-            }
-          ]
-        }
-      ]
-    },
-    
-    
+              "achievement": "Map outline with text 'Niger State'"}
+            ]
+          }
+        ]
+      },
   {
       "title": "The best library in Nigerian tertiary institutions award 2024",
       "description": "Recognizes libraries that have made exceptional contributions and excellence to educational research and innovation, thus shaping future educational strategies.",
@@ -1410,9 +1670,10 @@ export interface Nominee {
               "state": "Anambra",
               "country": "Nigeria",
               "image": "/images/libraries/Federal_Polytechnic_Oko_Library.png"
-            },
-          ]
-        },
+             
+          },
+        ]
+      },
             {
               "title": "Best College of Nursing Library in Nigeria (Public)",
               "description": "This category honors public nursing college libraries that have demonstrated excellence in supporting nursing education and research.",
@@ -1766,13 +2027,11 @@ export interface Nominee {
               "achievement": "Rich resources supporting educational research and practice.",
               "state": "Delta",
               "country": "Nigeria",
-              "image": "/images/libraries/College_of_Education_Warri_Library.png"
-            }
-          ]
-        }
-      ]
-    },
-
+              "image": "/images/libraries/College_of_Education_Warri_Library.png"}
+            ]
+          }
+        ]
+      },
     {
       "title": "The Overall Best Research and Development Contribution by Research Institutes in Achieving  Education for all.",
       "description": "Recognizing media role in educational awareness and innovation. Awards media houses and organizations that effectively contribute to educational development.",
@@ -2682,5 +2941,4 @@ export interface Nominee {
         }
       ]
     }
-    
-  ];
+  ]

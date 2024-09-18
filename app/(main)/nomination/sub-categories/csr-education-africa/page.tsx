@@ -16,7 +16,7 @@ const CSRInEducationAwardPage = () => {
     const router = useRouter();
     const subcategories: Category[] = [
         {
-            title: "The Overall Best Corporate Social Responsibility (CSR) in Education in Nigeria Award",
+            title: "Best Africa Regional Companies CSR for Education Special Recognition Award in Africa 2024",
             description: "This Award celebrates the significant contributions of corporate entities across various sectors to the education sector in Nigeria through corporate social responsibility initiatives. This Award highlights the crucial impact and strategic importance of CSR in education.",
             image: "/images/nesa-card2.png"
         },
