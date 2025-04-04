@@ -59,8 +59,8 @@ const HeroCenter = () => {
               <FaStar />
             </div>
 
-            <h1 className="font-bold text-4xl bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
-              Celebrating Educational Excellence Across Africa
+            <h1 className="font-semibold text-2xl text-white">
+              Welcome to NESA Africa 2025, hosted by SCEF Nigeria Local Chapter! Join us in celebrating excellence in education across Africa
             </h1>
 
             <p>
@@ -75,12 +75,34 @@ const HeroCenter = () => {
 
             <div className="flex items-center gap-2 justify-center md:justify-start">
               <Button
-                text="View Categories"
-                variant="filled"
-                className="rounded-full"
+              text="View Categories"
+              className="rounded-md"
               />
-              <Button text="Nominate Now" className="rounded-full" />
+              <Button text="Nominate Now" variant="filled" className="rounded-md" />
             </div>
+            
+            {/* Scroll Feature */}
+            <div className="flex justify-between items-center mt-8">
+              {/* Dots */}
+              <div className="flex gap-2">
+                <span className="w-3 h-3 rounded-full bg-primaryGold"></span>
+                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
+                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
+                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
+                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
+              </div>
+
+            {/* Navigation Arrows */}
+            <div className="flex items-center gap-3">
+                <button className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition">
+                  <span className="material-icons">&lt;</span>
+                </button>
+                <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black shadow-lg hover:bg-gray-200 transition">
+                  <span className="material-icons">{'>'}</span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
 

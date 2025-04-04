@@ -6,6 +6,7 @@ import HomeHeader from "@/components/UI/Home/header";
 import HomePartners from "@/components/UI/Home/partners";
 import Judges from "@/components/UI/Home/judges";
 import GetInvolved from "@/components/UI/Home/get-involved";
+import AwardCategories from "@/components/UI/Home/Award-categories";
 
 const Page = () => {
   return (
@@ -13,6 +14,7 @@ const Page = () => {
       <HomeHeader />
       <main className="pb-8">
         {/* <HomePartners /> */}
+        <AwardCategories />
         <AboutNewEducation />
         <HomePartners />
         <Category />
