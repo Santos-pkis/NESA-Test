@@ -41,6 +41,9 @@ importers:
       lucide-react:
         specifier: ^0.298.0
         version: 0.298.0(react@18.3.1)
+      nesa:
+        specifier: 'file:'
+        version: file:(@types/react@18.3.20)(sass@1.86.3)
       next:
         specifier: ^14.2.5
         version: 14.2.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.86.3)
@@ -51,7 +54,7 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       react-countdown:
-        specifier: ^2.3.5
+        specifier: ^2.3.6
         version: 2.3.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom:
         specifier: ^18
@@ -74,6 +77,9 @@ importers:
       styled-components:
         specifier: ^6.1.11
         version: 6.1.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      swiper:
+        specifier: ^11.2.6
+        version: 11.2.6
       zustand:
         specifier: ^4.4.7
         version: 4.5.6(@types/react@18.3.20)(react@18.3.1)
@@ -1481,6 +1487,9 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
+  'nesa@file:':
+    resolution: {directory: '', type: directory}
+
   next-auth@4.24.11:
     resolution: {integrity: sha512-pCFXzIDQX7xmHFs4KVH4luCjaCbuPRtZ9oBUjUhOk84mZ9WVPf94n87TxYI4rSRf9HmfHEF8Yep3JrYDVOo3Cw==}
     peerDependencies:
@@ -1997,6 +2006,10 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  swiper@11.2.6:
+    resolution: {integrity: sha512-8aXpYKtjy3DjcbzZfz+/OX/GhcU5h+looA6PbAzHMZT6ESSycSp9nAjPCenczgJyslV+rUGse64LMGpWE3PX9Q==}
+    engines: {node: '>= 4.7.0'}
 
   tailwindcss@3.4.17:
     resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
@@ -3639,6 +3652,43 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
+  nesa@file:(@types/react@18.3.20)(sass@1.86.3):
+    dependencies:
+      '@gsap/react': 2.1.2(gsap@3.12.7)(react@18.3.1)
+      '@tanstack/react-query': 5.71.5(react@18.3.1)
+      '@tanstack/react-query-devtools': 5.71.5(@tanstack/react-query@5.71.5(react@18.3.1))(react@18.3.1)
+      axios: 1.8.4
+      chart.js: 4.4.8
+      classnames: 2.5.1
+      country-flag-icons: 1.5.18
+      flag-icon-css: 4.1.7
+      framer-motion: 10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      gsap: 3.12.7
+      lucide-react: 0.298.0(react@18.3.1)
+      next: 14.2.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.86.3)
+      next-auth: 4.24.11(next@14.2.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.86.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-countdown: 2.3.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
+      react-hook-form: 7.55.0(react@18.3.1)
+      react-hot-toast: 2.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-icons: 5.5.0(react@18.3.1)
+      react-loader-spinner: 6.1.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-phone-input-2: 2.15.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      styled-components: 6.1.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      zustand: 4.5.6(@types/react@18.3.20)(react@18.3.1)
+    transitivePeerDependencies:
+      - '@auth/core'
+      - '@babel/core'
+      - '@opentelemetry/api'
+      - '@playwright/test'
+      - '@types/react'
+      - babel-plugin-macros
+      - debug
+      - immer
+      - nodemailer
+      - sass
+
   next-auth@4.24.11(next@14.2.26(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.86.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.27.0
@@ -4202,6 +4252,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  swiper@11.2.6: {}
 
   tailwindcss@3.4.17:
     dependencies:

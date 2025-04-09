@@ -9,9 +9,13 @@ import Image from "next/image";
 import Button from "@/components/Common/Button";
 import CountdownTimer from "@/components/Common/Others/counter";
 
+import { useState } from "react";
+
 const HeroCenter = () => {
+
   const ref = useRef<HTMLDivElement>(null);
 
+  const totalSlides = [ ]
   // useLayoutEffect(() => {
   //   const cxt = gsap.context(() => {
   //     const timeline = gsap.timeline();
@@ -80,29 +84,6 @@ const HeroCenter = () => {
               />
               <Button text="Nominate Now" variant="filled" className="rounded-md" />
             </div>
-            
-            {/* Scroll Feature */}
-            <div className="flex justify-between items-center mt-8">
-              {/* Dots */}
-              <div className="flex gap-2">
-                <span className="w-3 h-3 rounded-full bg-primaryGold"></span>
-                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
-                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
-                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
-                <span className="w-3 h-3 rounded-full bg-gray-500"></span>
-              </div>
-
-            {/* Navigation Arrows */}
-            <div className="flex items-center gap-3">
-                <button className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition">
-                  <span className="material-icons">&lt;</span>
-                </button>
-                <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black shadow-lg hover:bg-gray-200 transition">
-                  <span className="material-icons">{'>'}</span>
-                </button>
-              </div>
-            </div>
-
           </div>
         </div>
 
@@ -112,6 +93,9 @@ const HeroCenter = () => {
       </div>
 
       <CountdownTimer />
+
+              
+            
     </>
   );
 };

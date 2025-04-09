@@ -1,0 +1,150 @@
+"use client";
+import { useRef, useState } from "react";
+import styles from "@/components/Common/Slide/style.module.scss";
+import { motion } from "framer-motion";
+import { opacityTrans } from "@/lib/utils/transitions";
+import SantosLink from "@/components/Common/Links/santos";
+import { FaStar } from "react-icons/fa6";
+import Image from "next/image";
+import Button from "@/components/Common/Button";
+import CountdownTimer from "@/components/Common/Others/counter";
+
+const HeroCenter = () => {
+  const [activeDot, setActiveDot] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const slides = [
+    // Slide 1
+    (
+      <div className="relative pt-12 min-w-full">
+        <motion.div
+          {...opacityTrans}
+          transition={{ delay: 1, duration: 1.5 }}
+          className={`container mt-10 -mb-3 relative ${styles["scroll-con"]}`}
+        >
+          <motion.div
+            {...opacityTrans}
+            className={`space-x-8 border-y-[2.5px] overflow-hidden border-[#d9a53c] ${styles["head-scroll-con"]} bg-transparent`}
+          >
+            {new Array(3).fill(null).map((_, id) => (
+              <p key={id} className={`py-1 ${styles["head-scroll-text"]}`}>
+                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination Starts December 30th 2024. Get ready to nominate your Education Champion!
+              </p>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 items-center md:gap-2 gap-12 container py-20">
+          <div>
+            <div className="space-y-5 md:text-left text-center">
+              <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold">
+                <FaStar />
+                <p className="text-lg">The NESA Africa Awards 2024</p>
+                <FaStar />
+              </div>
+
+              <h1 className="font-semibold text-2xl text-white">
+                Welcome to NESA Africa 2025, hosted by SCEF Nigeria Local Chapter! Join us in celebrating excellence in education across Africa
+              </h1>
+
+              <p>
+                Join Us in Recognizing Excellence & Nominate Outstanding Individuals and Organizations for the Prestigious New Education Standard Awards, and be inspired by their stories.
+              </p>
+
+              <p className="text-primaryGold">
+                A flagship initiative under <SantosLink />
+              </p>
+
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <Button text="View Categories" className="rounded-md" />
+                <Button text="Nominate Now" variant="filled" className="rounded-md" />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid place-content-center">
+            <Image src="/images/nesa-mg.png" alt="" width={300} height={300} />
+          </div>
+        </div>
+
+        <CountdownTimer />
+      </div>
+    ),
+
+    // Slide 2
+    (
+      <div className="min-w-full grid place-content-center py-20">
+        <Image
+          src="/images/landing-page-carousel/slide2.png"
+          alt="Slide 2"
+          width={600}
+          height={400}
+          className="mx-auto"
+        />
+      </div>
+    ),
+
+    // Slide 3
+    (
+      <div className="min-w-full grid place-content-center py-20">
+        <Image
+          src="/images/landing-page-carousel/slide3.png"
+          alt="Slide 3"
+          width={600}
+          height={400}
+          className="mx-auto"
+        />
+      </div>
+    ),
+  ];
+
+  return (
+    <div className="relative overflow-hidden">
+      {/* Carousel Track */}
+      <div
+        className="flex transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${activeDot * 100}%)`, width: `${slides.length * 100}%` }}
+      >
+        {slides.map((slide, index) => (
+          <div key={index} className="w-full flex-shrink-0">
+            {slide}
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation */}
+      <div className="absolute bottom-4 inset-x-0 flex items-center justify-between px-4">
+        {/* Dots */}
+        <div className="flex items-center space-x-2">
+          {slides.map((_, id) => (
+            <div
+              key={id}
+              onClick={() => setActiveDot(id)}
+              className={`w-3 h-3 rounded-full cursor-pointer ${
+                activeDot === id ? "bg-primaryGold" : "bg-gray-500"
+              }`}
+            ></div>
+          ))}
+        </div>
+
+        {/* Arrows */}
+        <div className="flex items-center gap-3 ml-auto">
+          <button
+            onClick={() => setActiveDot((prev) => (prev > 0 ? prev - 1 : slides.length - 1))}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={() => setActiveDot((prev) => (prev < slides.length - 1 ? prev + 1 : 0))}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black shadow-lg hover:bg-gray-200 transition"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroCenter;

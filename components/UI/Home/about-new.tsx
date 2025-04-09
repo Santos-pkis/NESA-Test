@@ -24,7 +24,7 @@ const AboutNewEducation = () => {
               variants={toTopV}
               className="font-medium md:text-[2.6rem] text-4xl"
             >
-              Championing Education <br /> Excellence in Africa
+              Our Mission: Advocating for the <br /> Achievement of Education for All in Africa 
             </motion.p>
 
             <DivParentInView className="space-y-6 text-lg md:text-xl">
@@ -32,17 +32,11 @@ const AboutNewEducation = () => {
                 <span className="text-primaryGold">
                   New Education Standard Award Africa (NESA Africa) 2024
                 </span>{" "}
-                is an initiative designed to recognize and honor outstanding
-                achievements in the educational sector across the Africa.
+                is dedicated to honoring and celebrating outstanding contributions to education throughout Africa. Hosted by the NESA- Africa Nigeria Local chapter, this landmark ceremony highlights achievements that reflect our commitment to <span className="text-primaryGold">SDG Goal 4</span>, focusing on ensuring inclusive and equitable quality education for all. 
               </motion.p>
 
               <motion.p variants={toTopV}>
-                Rooted in the vision of enhancing the quality of education and
-                making it accessible to all,{" "}
-                <span className="font-bold">NESA Africa</span> operates with the
-                mission of spotlighting significant contributions by
-                individuals, organizations, educational institutions, and other
-                stakeholders towards achieving these goals.
+              As we prepare for the grand final award event and dinner in February 2025, we invite you to explore how you can be part of this prestigious occasion. Learn about our nomination process, view the award categories, and find out how you can get involved as a sponsor, member, or volunteer. Together, let’s celebrate and advance educational excellence across Africa.
               </motion.p>
 
               <Button text="Learn More" variant="filled" />

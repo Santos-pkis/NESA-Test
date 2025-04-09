@@ -7,7 +7,8 @@
     "build": "next build",
     "export": "next export",
     "start": "node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "devnext": "next"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
@@ -33,6 +34,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-phone-input-2": "^2.15.1",
     "styled-components": "^6.1.11",
+    "swiper": "^11.2.6",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

@@ -9,19 +9,29 @@ const involveData: {
   cta: string;
 }[] = [
   {
-    heading: "Sponsorship",
-    description: `Support the NESA Africa 2024 Awards by becoming a Sponsor. Our sponsorship packages offer valuable benefits and exposure at one of the most prestigious educational award ceremonies in Africa.`,
+    heading: "Become a Sponsor - Support and Showcase your Brand",
+    description: `Partner with us to make a lasting impact on Africa's education system. Gain visibility, credibility, and influence in the education sector.`,
     cta: `Sponsor Us`,
   },
   {
-    heading: `Volunteer`,
-    description: `You can become a part of a ground breaking moment and history by choosing to volunteer for us at NESA, whatever your background or skills may be, your help is needed in organizing the award ceremony. This would serve as a fantastic opportunity to meet some of the leading figures in African Education `,
+    heading: `Become a Volunteer - Contribute to Elevating Africans Education`,
+    description: `You can become a part of a ground breaking moment and history by choosing to volunteer for us at NESA, whatever your background or skills may be, your help is needed in organizing the award ceremony. This would serve as a fantastic opportunity to meet some of the leading figures in African Education`,
     cta: `Volunteer now`,
   },
   {
     heading: `Become a Member`,
     description: `Join our growing global community and celebrate excellence in learning. By becoming a member of our organization, you'll directly contribute to recognizing outstanding educators across the globe, Together, we elevate the standards of education and empower educators.`,
-    cta: `Register now`,
+    cta: `Become a member now`,
+  },
+  {
+    heading: `Join as an Ambassador – Advocate for education.`,
+    description: `Be a leader in the movement! Join NESA Africa as an Ambassador and promote quality education in your region.`,
+    cta: `Be a leader in the movement! Join NESA Africa as an Ambassador and promote quality education in your region.`,
+  },
+  {
+    heading: `Donate to the cause of education in Africa`,
+    description: `Your generosity fuels our mission to celebrate and empower outstanding individuals across various fields. By donating to the NESA Awards, you’re not just supporting an event—you’re investing in talent, innovation, and positive change.`,
+    cta: `Donate one`,
   },
 ];
 
@@ -38,35 +48,33 @@ const GetInvolved = () => {
             </p>
           </div>
 
-          <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {involveData.map((data, id) => (
-              <div
+                <div
                 key={id}
-                className={`p-8 sm:grid grid-cols-2 gap-10 items-center text-[#f3f3f3] bg-[#191307] rounded-2xl flex flex-col`}
-              >
-                {/* { id % 2 === 0 ? <></> : <></>} */}
-
-                <div className="min-h-[10rem] overflow-hidden rounded-2xl">
-                  <Image
-                    src={`/images/i${id + 1}.png`}
-                    alt={data.heading}
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-cover"
-                  />
+                className="p-8 flex flex-col items-start text-black rounded-2xl space-y-6"
+                >
+                <div className="w-full aspect-square overflow-hidden">
+                <Image
+                src={`/images/getinvolved/get${id + 1}.png`}
+                alt={data.heading}
+                width={500}
+                height={500}
+                className="w-full h-full object-cover"
+                />
                 </div>
 
-                <div className={`space-y-3 ${id % 2 !== 0 ? "col-start-1 row-start-1" : ""}`}>
-                  <h4 className="font-semibold text-3xl">{data.heading}</h4>
-                  <p className="">{data.description}</p>
-                  <button className="flex text-primaryGold items-center gap-2">
-                    <p>{data.cta}</p>
-                    <ChevronRight />
-                  </button>
+                <div className="space-y-3">
+                <h4 className="text-3xl">{data.heading}</h4>
+                <p>{data.description}</p>
+                <button className="flex text-primaryGold items-center gap-2">
+                <p>{data.cta}</p>
+                <ChevronRight />
+                </button>
                 </div>
-              </div>
+                </div>
             ))}
-          </div>
+            </div>
         </div>
       </div>
     </section>

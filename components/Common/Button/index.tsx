@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from "react";
 import classNames from "classnames";
-import { LuLoader2 } from "react-icons/lu";
+import { LuLoader } from "react-icons/lu";
 import { inter } from "@/lib/utils/font";
 
 type Props = {
@@ -86,7 +86,7 @@ const Button: FC<Props> = (props) => {
         <>
           {loading ? (
             <div className="flex-shrink-0">
-              <LuLoader2 size={12} className="animate-spin" />
+              <LuLoader size={12} className="animate-spin" />
             </div>
           ) : (
             icon
