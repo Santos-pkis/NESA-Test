@@ -43,20 +43,20 @@ const AboutNewEducation = () => {
             </DivParentInView>
           </DivParentInView>
           <div className="grid place-content-center">
-          <video
-  src={"/images/about.mp4"}
-  width={900}
-  height={900}
-  autoPlay
-  loop
-  muted={false}
-  controls
-  playsInline
-  className="w-full h-auto max-w-[900px]"
->
-  <track kind="captions" />
-  Your browser does not support the video tag.
-</video>
+            <video
+        src={"/images/about.mp4"}
+        width={720}
+        height={704}
+        // autoPlay
+        loop
+        muted={false}
+        controls
+        playsInline
+        className="w-full h-auto max-w-[900px] rounded-[16px]"
+      >
+        <track kind="captions" />
+        Your browser does not support the video tag.
+      </video>
 </div>
         </div>
       </section>

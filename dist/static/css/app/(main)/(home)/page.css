@@ -1,94 +1,3 @@
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./components/Common/Slide/style.module.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-@keyframes style_scroll__bd34f {
-  to {
-    transform: translateX(-100%);
-  }
-  from {
-    transform: translateX(0);
-  }
-}
-.style_scroll-con__XbWP0 {
-  position: relative;
-}
-@media (max-width: 768px) {
-  .style_scroll-con__XbWP0::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    height: 100%;
-    width: 50px;
-    z-index: 2;
-    right: 0;
-    background: linear-gradient(to left, #15110b 15%, rgba(21, 17, 11, 0.5058823529), rgba(0, 0, 0, 0));
-  }
-  .style_scroll-con__XbWP0::before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    height: 100%;
-    width: 50px;
-    z-index: 2;
-    left: 0;
-    background: linear-gradient(to right, #15110b 15%, rgba(21, 17, 11, 0.5058823529), rgba(0, 0, 0, 0));
-  }
-}
-
-.style_head-scroll-con__LLprB {
-  position: relative;
-  white-space: nowrap;
-  padding: 8px 0;
-}
-.style_head-scroll-con__LLprB::-webkit-scrollbar {
-  display: none;
-}
-.style_head-scroll-con__LLprB .style_head-scroll-text__lqqp9 {
-  display: inline-block;
-  animation: style_scroll__bd34f 20s linear infinite;
-}
-
-.style_award_con__ZItU3::after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  height: 100%;
-  width: 50px;
-  z-index: 2;
-  right: 0;
-  background: linear-gradient(to left, #141007, rgba(0, 0, 0, 0));
-}
-.style_award_con__ZItU3::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  height: 100%;
-  width: 50px;
-  z-index: 2;
-  left: 0;
-  background: linear-gradient(to right, #141007, rgba(0, 0, 0, 0));
-}
-.style_award_con__ZItU3:hover div {
-  animation-play-state: paused;
-}
-@media screen and (max-width: 768px) {
-  .style_award_con__ZItU3::after, .style_award_con__ZItU3::before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    height: 100%;
-    width: 0px;
-    z-index: 2;
-  }
-}
-
-.style_scroll-el__lBVj1 {
-  animation: style_scroll__bd34f 80s linear infinite;
-}
-
-.style_scroll-right__HOSSh {
-  animation: style_scroll__bd34f 80s linear infinite reverse;
-}
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[2].use[1]!./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[2].use[2]!./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/font/google/target.css?{"path":"lib\\utils\\font.ts","import":"Poppins","arguments":[{"weight":["100","300","500","800","900"],"subsets":["latin"]}],"variableName":"poppins"} ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -229,3 +138,94 @@ font-display: swap;
 }.__className_766d81 {font-family: '__montserrat_766d81', '__montserrat_Fallback_766d81'
 }
 
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[2]!./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[9].use[3]!./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[14].oneOf[9].use[4]!./node_modules/.pnpm/next@14.2.26_react-dom@18.3_3eb1e00fd755a478ef5060dd3662bd97/node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[14].oneOf[9].use[5]!./components/Common/Slide/style.module.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@keyframes style_scroll__bd34f {
+  to {
+    transform: translateX(-100%);
+  }
+  from {
+    transform: translateX(0);
+  }
+}
+.style_scroll-con__XbWP0 {
+  position: relative;
+}
+@media (max-width: 768px) {
+  .style_scroll-con__XbWP0::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 50px;
+    z-index: 2;
+    right: 0;
+    background: linear-gradient(to left, #15110b 15%, rgba(21, 17, 11, 0.5058823529), rgba(0, 0, 0, 0));
+  }
+  .style_scroll-con__XbWP0::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 50px;
+    z-index: 2;
+    left: 0;
+    background: linear-gradient(to right, #15110b 15%, rgba(21, 17, 11, 0.5058823529), rgba(0, 0, 0, 0));
+  }
+}
+
+.style_head-scroll-con__LLprB {
+  position: relative;
+  white-space: nowrap;
+  padding: 8px 0;
+}
+.style_head-scroll-con__LLprB::-webkit-scrollbar {
+  display: none;
+}
+.style_head-scroll-con__LLprB .style_head-scroll-text__lqqp9 {
+  display: inline-block;
+  animation: style_scroll__bd34f 20s linear infinite;
+}
+
+.style_award_con__ZItU3::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 50px;
+  z-index: 2;
+  right: 0;
+  background: linear-gradient(to left, #141007, rgba(0, 0, 0, 0));
+}
+.style_award_con__ZItU3::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 50px;
+  z-index: 2;
+  left: 0;
+  background: linear-gradient(to right, #141007, rgba(0, 0, 0, 0));
+}
+.style_award_con__ZItU3:hover div {
+  animation-play-state: paused;
+}
+@media screen and (max-width: 768px) {
+  .style_award_con__ZItU3::after, .style_award_con__ZItU3::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 0px;
+    z-index: 2;
+  }
+}
+
+.style_scroll-el__lBVj1 {
+  animation: style_scroll__bd34f 80s linear infinite;
+}
+
+.style_scroll-right__HOSSh {
+  animation: style_scroll__bd34f 80s linear infinite reverse;
+}

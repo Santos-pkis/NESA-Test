@@ -1,3 +1,5 @@
+"use client";
+import React from "react";
 import Category from "@/components/UI/Home/category";
 import AboutNewEducation from "@/components/UI/Home/about-new";
 import Timeline from "@/components/UI/Home/timeline";
@@ -10,13 +12,19 @@ import AwardCategories from "@/components/UI/Home/Award-categories";
 import Refer from "@/components/UI/Home/refer";
 import MerchSection from "@/components/UI/Home/merch";
 import LocalChapterSection from "@/components/UI/Home/localchapter";
+import CountdownTimer from "@/components/Common/Others/countdown";
+
 
 const Page = () => {
   return (
     <>
       <HomeHeader />
       <main className="pb-8">
-        {/* <HomePartners /> */}
+      <CountdownTimer 
+        onTimeUpdate={(time) => ''} 
+        targetDateProp="2025-04-10T17:40:00Z" 
+      />
+
         <AwardCategories />
         <AboutNewEducation />
         <HomePartners />
