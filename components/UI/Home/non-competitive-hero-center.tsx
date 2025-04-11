@@ -10,8 +10,14 @@ import Button from "@/components/Common/Button";
 import CountdownTimer from "@/components/Common/Others/counter";
 
 import { useState } from "react";
+type Props = {
+  index: number;
+  title: string;
+  description: string;
+  subCategoryPath: string;
+};
 
-const NonCompetitiveHeroCenter = () => {
+const NonCompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: Props) => {
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -23,7 +29,7 @@ const NonCompetitiveHeroCenter = () => {
           <div className="space-y-5 md:text-left text-center">
             <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold">
               <FaStar />
-              <p className="text-lg">Category 1</p>
+              <p className="text-lg">Category {index}</p>
               <FaStar />
             </div>
 

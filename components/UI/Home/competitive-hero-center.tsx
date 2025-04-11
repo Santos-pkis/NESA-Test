@@ -23,8 +23,6 @@ const CompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: P
   const ref = useRef<HTMLDivElement>(null);
 
   const totalSlides = [ ]
-  console.log("key:")
-
   return (
     <>
       <div className="grid md:grid-cols-2 items-center md:gap-2 gap-12 container py-20">

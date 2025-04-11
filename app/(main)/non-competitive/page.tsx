@@ -1,3 +1,4 @@
+'use client'
 import AboutNewEducation from "@/components/UI/Home/about-new";
 import Timeline from "@/components/UI/Home/timeline";
 import HomeFaq from "@/components/UI/Home/faq";
@@ -10,6 +11,7 @@ import CompetitiveHeader from "@/components/UI/Home/competitive-header";
 import Whynominate from "@/components/UI/competitve-nominate/whynominate";
 import HowToNominate from "@/components/UI/competitve-nominate/howtonominate";
 import Category from "@/components/UI/competitve-nominate/nominatecategories";
+import CountdownTimer from "@/components/Common/Others/countdown";
 
 const Page = () => {
   const categoryData = [
@@ -63,6 +65,10 @@ const Page = () => {
     <>
       <CompetitiveHeader categoryData={categoryData} />
       <main className="pb-8">
+      <CountdownTimer 
+        onTimeUpdate={(time) => ''} 
+        targetDateProp="2025-09-10T19:55:00Z" 
+      />
       <Whynominate />
       <HowToNominate />
       <Category categoryData={categoryData} head={title} />
