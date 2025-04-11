@@ -1,4 +1,5 @@
 {
-  "/(main)/competitive/page": "app/(main)/competitive/page.js",
-  "/(main)/non-competitive/page": "app/(main)/non-competitive/page.js"
+  "/(main)/non-competitive/page": "app/(main)/non-competitive/page.js",
+  "/(main)/(home)/page": "app/(main)/(home)/page.js",
+  "/(main)/competitive/page": "app/(main)/competitive/page.js"
 }

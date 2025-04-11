@@ -59,11 +59,6 @@ const NonCompetitiveHeroCenter = ({ index, title, description, subCategoryPath }
           <Image src={"/images/nesa-mg.png"} alt="" width={300} height={300} />
         </div>
       </div>
-
-      <CountdownTimer />
-
-              
-            
     </>
   );
 };

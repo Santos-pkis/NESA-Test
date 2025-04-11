@@ -11,20 +11,31 @@ import SlideImage6 from "./SlideImage6";
 import styles from "@/components/Common/Slide/style.module.scss";
 import NonCompetitiveHeroCenter from "@/components/UI/Home/non-competitive-hero-center";
 
-// import Carousel from "@/components/Carousel";
+export interface CategoryCardProps {
+  categoryData: {
+    title: string;
+    description: string;
+    subCategoryPath: string;
+  }[];
+ }
 
-const NonCompetitiveHeader = () => {
+
+const NonCompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [activeDot, setActiveDot] = useState(0);
-    const totalSlides = 6; // Total number of slides
-    const Slides = [
-      <NonCompetitiveHeroCenter />,
-      <SlideImage2 src="/images/landing-page-carousel/slide2.png" alt="Slide 2"  />,
-      <SlideImage3 src="/images/landing-page-carousel/slide3.png" alt="Slide 3" />,
-      <SlideImage4 src="/images/landing-page-carousel/slide4.png" alt="Slide 4" />,
-      <SlideImage5 src="/images/landing-page-carousel/slide5.png" alt="Slide 5" />,
-      <SlideImage6 src="/images/landing-page-carousel/slide6.png" alt="Slide 6" />
-    ];
+    const totalSlides = 8; // Total number of slides
+
+    const Slides = categoryData.map((item, index) => {
+
+      return (
+      <NonCompetitiveHeroCenter
+        key={index}
+        index={index+1}
+        title={item.title}
+        description={item.description}
+        subCategoryPath={item.subCategoryPath}
+      />
+    )});
     const nextSlide = () => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
     };

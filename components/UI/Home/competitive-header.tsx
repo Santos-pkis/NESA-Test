@@ -10,7 +10,7 @@ import SlideImage5 from "./SlideImage5";
 import SlideImage6 from "./SlideImage6";
 import styles from "@/components/Common/Slide/style.module.scss";
 import CompetitiveHeroCenter from "@/components/UI/Home/competitive-hero-center";
-import NonCompetitiveHeroCenter from "./non-competitive-hero-center";
+
 
 export interface CategoryCardProps {
   categoryData: {
@@ -23,12 +23,12 @@ export interface CategoryCardProps {
 const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [activeDot, setActiveDot] = useState(0);
-    const totalSlides = 6; 
+    const totalSlides = 8; 
 
     const Slides = categoryData.map((item, index) => {
 
       return (
-      <NonCompetitiveHeroCenter
+      <CompetitiveHeroCenter
         key={index}
         index={index+1}
         title={item.title}
@@ -58,7 +58,7 @@ const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
 
   return (
     <header>
-      <div className={`md:min-h-[60rem] min-h-[85rem] z-[4] bg-[#17120a] text-white relative ${styles.homeHeader}`}>
+      <div className={`md:min-h-[60rem] min-h-[85rem] z-[4] bg-[#191307CC] text-white relative ${styles.homeHeader}`}>
         <div className="absolute top-0 left-0 h-full w-full">
           <Image
                       src={"/images/header.png"}
