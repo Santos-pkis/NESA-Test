@@ -11,25 +11,19 @@ import CountdownTimer from "@/components/Common/Others/counter";
 
 import { useState } from "react";
 
-const CompetitiveHeroCenter = () => {
+type Props = {
+  index: number;
+  title: string;
+  description: string;
+  subCategoryPath: string;
+};
+
+const CompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: Props) => {
 
   const ref = useRef<HTMLDivElement>(null);
 
   const totalSlides = [ ]
-  // useLayoutEffect(() => {
-  //   const cxt = gsap.context(() => {
-  //     const timeline = gsap.timeline();
-
-  //     if (!ref.current) return;
-
-  //     timeline
-  //       .set(ref.current, { visibility: "visible" })
-  //       .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
-  //       .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } });
-  //   }, ref);
-
-  //   return () => cxt.revert();
-  // }, []);
+  console.log("key:")
 
   return (
     <>
@@ -38,12 +32,12 @@ const CompetitiveHeroCenter = () => {
           <div className="space-y-5 md:text-left text-center">
             <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold">
               <FaStar />
-              <p className="text-lg">Category 1</p>
+              <p className="text-lg">Category {index}</p>
               <FaStar />
             </div>
 
             <h1 className="font-semibold text-2xl text-white">
-              Best Educational-Friendly State in Nigeria
+            {title}
             </h1>
 
             <p>
@@ -68,10 +62,7 @@ const CompetitiveHeroCenter = () => {
           <Image src={"/images/nesa-mg.png"} alt="" width={300} height={300} />
         </div>
       </div>
-
-      <CountdownTimer />
-
-              
+            
             
     </>
   );

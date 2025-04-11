@@ -55,22 +55,17 @@ const Page = () => {
     }
     
   ];
+  
   const title = "Categories in the Non-Competitive Categories"
   
 
   return (
     <>
-      <CompetitiveHeader />
+      <CompetitiveHeader categoryData={categoryData} />
       <main className="pb-8">
       <Whynominate />
       <HowToNominate />
       <Category categoryData={categoryData} head={title} />
-        {/* <HomePartners />
-        <Category />
-        <Judges />
-        <GetInvolved />
-        <Timeline />
-        <HomeFaq /> */}
       </main>
     </>
   );

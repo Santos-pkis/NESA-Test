@@ -55,10 +55,11 @@ const Page = () => {
     
   ];
   
+  
   const title = "Categories in the Competitive Categories"
   return (
     <>
-      <CompetitiveHeader />
+      <CompetitiveHeader categoryData={categoryData} />
       <main className="pb-8">
         <Whynominate />
         <HowToNominate />

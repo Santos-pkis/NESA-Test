@@ -16,21 +16,6 @@ const NonCompetitiveHeroCenter = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const totalSlides = [ ]
-  // useLayoutEffect(() => {
-  //   const cxt = gsap.context(() => {
-  //     const timeline = gsap.timeline();
-
-  //     if (!ref.current) return;
-
-  //     timeline
-  //       .set(ref.current, { visibility: "visible" })
-  //       .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
-  //       .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } });
-  //   }, ref);
-
-  //   return () => cxt.revert();
-  // }, []);
-
   return (
     <>
       <div className="grid md:grid-cols-2 items-center md:gap-2 gap-12 container py-20">

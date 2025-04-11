@@ -11,21 +11,32 @@ import SlideImage6 from "./SlideImage6";
 import styles from "@/components/Common/Slide/style.module.scss";
 import CompetitiveHeroCenter from "@/components/UI/Home/competitive-hero-center";
 
-// import Carousel from "@/components/Carousel";
+export interface CategoryCardProps {
+  categoryData: {
+    title: string;
+    description: string;
+    subCategoryPath: string;
+  }[];
+ }
 
-const CompetitiveHeader = () => {
+const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [activeDot, setActiveDot] = useState(0);
-    const totalSlides = 6; // Total number of slides
-    const Slides = [
-      <CompetitiveHeroCenter />,
-      <CompetitiveHeroCenter />,
-      <CompetitiveHeroCenter />,
-      <CompetitiveHeroCenter />,
-      <CompetitiveHeroCenter />,
-      <CompetitiveHeroCenter />,
+    const totalSlides = 6; 
 
-    ];
+    const Slides = categoryData.map((item, index) => {
+      console.log("key:", index+1);
+      return (
+      <CompetitiveHeroCenter
+        key={index}
+        index={index+1}
+        title={item.title}
+        description={item.description}
+        subCategoryPath={item.subCategoryPath}
+      />
+    )});
+    console.log("Slides:", Slides.length);
+
     const nextSlide = () => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
     };

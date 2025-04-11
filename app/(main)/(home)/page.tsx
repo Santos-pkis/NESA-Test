@@ -22,7 +22,7 @@ const Page = () => {
       <main className="pb-8">
       <CountdownTimer 
         onTimeUpdate={(time) => ''} 
-        targetDateProp="2025-04-10T17:40:00Z" 
+        targetDateProp="2025-09-10T19:55:00Z" 
       />
 
         <AwardCategories />

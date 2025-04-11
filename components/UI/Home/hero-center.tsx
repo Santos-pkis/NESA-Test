@@ -92,8 +92,7 @@ const HeroCenter = () => {
         </div>
       </div>
 
-      <CountdownTimer />
-    </>
+      </>
   );
 };
 
