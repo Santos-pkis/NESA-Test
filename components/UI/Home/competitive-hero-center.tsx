@@ -39,7 +39,7 @@ const CompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: P
             </h1>
 
             <p>
-            Education is the foundation of progress, and this category honors the Nigerian state that <br /> has demonstrated outstanding commitment to fostering a thriving learning <br /> environment. The Best Educational-Friendly State award recognizes a state government <br /> that has invested significantly in quality education, infrastructure, policies, and initiatives <br /> that enhance accessibility, innovation, and academic excellence.
+            {description}
             </p>
 
             <p className="text-primaryGold">

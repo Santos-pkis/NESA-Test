@@ -34,11 +34,11 @@ const NonCompetitiveHeroCenter = ({ index, title, description, subCategoryPath }
             </div>
 
             <h1 className="font-semibold text-2xl text-white">
-              Best Educational-Friendly State in Nigeria
+              {title}
             </h1>
 
             <p>
-            Education is the foundation of progress, and this category honors the Nigerian state that <br /> has demonstrated outstanding commitment to fostering a thriving learning <br /> environment. The Best Educational-Friendly State award recognizes a state government <br /> that has invested significantly in quality education, infrastructure, policies, and initiatives <br /> that enhance accessibility, innovation, and academic excellence.
+            {description}
             </p>
 
             <p className="text-primaryGold">
