@@ -13,15 +13,16 @@ import styles from "@/components/Common/Slide/style.module.scss";
 const HomeHeader = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [activeDot, setActiveDot] = useState(0);
-    const totalSlides = 6; // Total number of slides
+    
     const Slides = [
-      <HeroCenter />,
-      <SlideImage2 src="/images/landing-page-carousel/slide2.png" alt="Slide 2"  />,
-      <SlideImage3 src="/images/landing-page-carousel/slide3.png" alt="Slide 3" />,
-      <SlideImage4 src="/images/landing-page-carousel/slide4.png" alt="Slide 4" />,
-      <SlideImage5 src="/images/landing-page-carousel/slide5.png" alt="Slide 5" />,
-      <SlideImage6 src="/images/landing-page-carousel/slide6.png" alt="Slide 6" />
+      <HeroCenter key={0} />,
+      <SlideImage2 key={1} src="/images/landing-page-carousel/slide2.png" alt="Slide 2" />,
+      <SlideImage3 key={2} src="/images/landing-page-carousel/slide3.png" alt="Slide 3" />,
+      <SlideImage4 key={3} src="/images/landing-page-carousel/slide4.png" alt="Slide 4" />,
+      <SlideImage5 key={4} src="/images/landing-page-carousel/slide5.png" alt="Slide 5" />,
+      <SlideImage6 key={5} src="/images/landing-page-carousel/slide6.png" alt="Slide 6" />
     ];
+    const totalSlides = Slides.length; // Total number of slides
     const nextSlide = () => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
     };

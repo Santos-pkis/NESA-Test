@@ -22,33 +22,34 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onTimeUpdate, targetDat
         // console.log(targetDate) returns NaN with 2025-4-30T10:00:00Z
 
         useEffect(() => {
-            const interval = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance <= 0) {
-                    clearInterval(interval);
-                    setIsExpired(true);
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                setDays(days);
-                setHours(hours);
-                setMinutes(minutes);
-                setSeconds(seconds);
-
-                // Pass days, hours, and minutes as props
-                onTimeUpdate({ days, hours, minutes });
-            }, 1000);
-
-            return () => clearInterval(interval);
-        }, [onTimeUpdate]);
-
+          const targetDate = new Date(targetDateProp).getTime();
+        
+          const interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+        
+            if (distance <= 0) {
+              clearInterval(interval);
+              setIsExpired(true);
+              return;
+            }
+        
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            setDays(days);
+            setHours(hours);
+            setMinutes(minutes);
+            setSeconds(seconds);
+        
+            onTimeUpdate({ days, hours, minutes });
+          }, 1000);
+        
+          return () => clearInterval(interval);
+        }, [targetDateProp, onTimeUpdate]);
+        
 
 
   return (

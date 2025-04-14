@@ -19,7 +19,7 @@ const CSRAwardCategoryPage = () => {
         },
         {
             title: "Banking And Finance CSR in Education Award",
-            description: "Recognizes financial institutions for their initiatives in supporting education.",
+            description: "Honors telecommunication companies for digital literacy programs, technology donations and connectivity solutions in schools",
             image: "/images/nesa-card2.png"
         },
         {
@@ -29,102 +29,97 @@ const CSRAwardCategoryPage = () => {
         },
         {
             title: "Oil And Gas CSR in Education Award",
-            description: "Celebrates oil and gas companies' contributions to educational development in their host communities.",
+            description: "Acknowledges oil and gas  companies for their investments in STEM education, university  collaborations, and community ....",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Food And Beverages CSR in Education Award",
-            description: "Acknowledges food and beverage companies' support for nutrition and education programs.",
+            description: "Celebrates food  and beverage companies in nutrition education, school feeding  programs, and educational resources.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Manufacturing CSR in Education Award",
-            description: "Recognizes manufacturing companies for their initiatives in technical and vocational education.",
+            description: "Recognizes  manufacturing companies for vocational training, educational  sponsorships, and support in infrastructure.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Aviation CSR in Education Award",
-            description: "Honors aviation companies for their support of aerospace education and training programs.",
+            description: "Honors aviation companies  for educational outreach and aviation-focused educational  programs.",
             image: "/images/nesa-card2.png"
         },
         {
-            title: "Technology And ICT CSR in Education Award",
-            description: "Recognizes tech companies for their initiatives in digital education, ICT training, and e-learning support.",
+            title: "Technology (ICT & Software) in Education Award",
+            description: "Acknowledges  tech companies for initiatives in digital education, ICT training,  and innovative educational resources.",
             image: "/images/nesa-card2.png"
         },
         {
-            title: "Real Estate And Construction CSR in Education Award",
-            description: "Honors companies in the real estate and construction sector for their educational infrastructure support.",
+            title: "Construction CSR in Education Award",
+            description: "Recognizes contributions in educational infrastructure  development and community projects.",
             image: "/images/nesa-card2.png"
         },
         {
-            title: "Retail And E-Commerce CSR in Education Award",
-            description: "Recognizes retail and e-commerce companies for their support of education through various initiatives.",
+            title: "Commerce retail CSR in Education Award",
+            description: "Honors retail  and e-commerce companies for educational support through  funding, resources, and community projects.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Pharmaceuticals CSR in Education Award",
-            description: "Honors pharmaceutical companies for their support of health education and related initiatives.",
+            description: "Celebrates  pharmaceutical companies' efforts in health education and  support for medical education.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Insurance CSR in Education Award",
-            description: "Recognizes insurance companies for their contributions to financial literacy and education programs.",
+            description: ": Recognizes insurance  companies for contributions to financial literacy education and  educational initiatives.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Conglomerates And Diversified Companies CSR in Education Award",
-            description: "Honors diversified companies for their wide-ranging support of educational initiatives.",
+            description: "Acknowledges the wide-ranging support of  conglomerates in various educational sectors.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Media And Entertainment CSR in Education Award",
-            description: "Recognizes media and entertainment companies for their support of educational content and initiatives.",
+            description: "Honors  media and entertainment companies for educational content  creation, scholarships, and outreach programs.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Agriculture And Agribusiness CSR in Education Award",
-            description: "Honors companies in the agricultural sector for their support of agricultural education and training programs.",
+            description: "Celebrates agribusinesses for their role in agricultural education  and community training programs",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Health Care And Hospitals CSR in Education Award",
-            description: "Recognizes healthcare providers for their contributions to medical education and health awareness programs.",
+            description: "Recognizes healthcare providers for contributions to medical  education and community health initiatives.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Professional Services CSR in Education Award",
-            description: "Honors professional services firms for their support of education and skill development programs.",
+            description: "Acknowledges  professional service firms for support in business and financial  education, internships, and training programs.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Fintech CSR in Education Award",
-            description: "Recognizes fintech companies for their innovative approaches to financial education and literacy programs.",
+            description: "Honors fintech companies for  innovative approaches to financial education and literacy.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Microfinance Banks CSR in Education Award",
-            description: "Honors microfinance banks for their grassroots level support of education initiatives.",
+            description: " Recognizes  microfinance banks for their educational support initiatives,  particularly in underprivileged communities.",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Emerging Telecommunications CSR in Education Award",
-            description: "Recognizes emerging telecom companies for their innovative contributions to educational connectivity.",
-            image: "/images/nesa-card2.png"
-        },
-        {
-            title: "Technology And Software CSR in Education Award",
-            description: "Honors technology and software companies for their contributions to digital literacy and coding education.",
+            description: "Honors smaller and emerging telecom companies for their efforts  in educational CSR",
             image: "/images/nesa-card2.png"
         },
         {
             title: "Real Estate Development CSR in Education Award",
-            description: "Recognizes real estate developers for their contributions to educational infrastructure and community development.",
+            description: "Recognizes  real estate developers for their contributions to educational  infrastructure and community educational initiatives.",
             image: "/images/nesa-card2.png"
         },
         {
-            title: "Commercial Retail CSR in Education Award",
-            description: "Honors commercial retail companies for their support of education through various community initiatives.",
+            title: "Hotels CSR in Education Award ",
+            description: "Acknowledges sory 3ftware and technology companies for their  contributions to educational technology and digital literacy.",
             image: "/images/nesa-card2.png"
         }
     ];

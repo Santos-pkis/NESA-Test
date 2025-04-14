@@ -17,37 +17,37 @@ const Page = () => {
     {
       title: "Best Media Organization in Educational Advocacy (Nigeria)",
       description: "Recognize the most outstanding educational technology companies that have made significant contributions to advancing education through technol..",
-      subCategoryPath: "/nomination/sub-categories/africa-lifetime-education-icon"
+      subCategoryPath: "/nomination/sub-categories/best-media-organization"
     },
     {
       title: "Best Corporate Social Responsibility (CSR) in Education (Africa - Regional)",
       description: "Honors exceptional international award programs for international collaborations and contributions to Nigeria educational development.",
-      subCategoryPath: "/nomination/sub-categories/best-ngo-contribution"
+      subCategoryPath: "/nomination/sub-categories/best-csr-education"
     },
     {
       title: "Best NGO Contribution to Achieving Education for All (Africa - Regional)",
       description: "We recognize research institutes for their exceptional contributions and excellence to educational research and development in Nigeria, shaping future educational strategies.",
-      subCategoryPath: "/nomination/sub-categories/africa-diaspora-impact"
+      subCategoryPath: "/nomination/sub-categories/best-ngo-contribution"
     },
     {
       title: "Creative Arts Industry Contribution to Education (Nigeria)",
       description: "Recognizing effort towards achieving sustainable development goal 4, for dedication to achieving quality education under SDG 4, elevating",
-      subCategoryPath: "/nomination/sub-categories/best-csr-education"
+      subCategoryPath: "/nomination/sub-categories/creative-arts-contribution"
     },
     {
       title: "Best EduTech Organization (Africa)",
       description: "Recognizing philanthropy and leadership contributions for their outstanding contributions to education.",
-      subCategoryPath: "/sub-categories/csr-education-africa"
+      subCategoryPath: "/sub-categories/best-edutech-organization"
     },
     {
       title: "Best NGO Contribution to Education (Nigeria)",
       description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
-      subCategoryPath: "/nomination/sub-categories/best-edutech-organization"
+      subCategoryPath: "/nomination/sub-categories/best-ngo-contribution"
     },
     {
       title: "Best CSR in Education (Nigeria)",
       description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
-      subCategoryPath: "/sub-categories/best-educational-state"
+      subCategoryPath: "/sub-categories/best-csr-education"
     },
     {
       title: "Regional CSR Awards (Banking, Telecom, Healthcare, Media, etc.)",

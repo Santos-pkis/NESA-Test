@@ -24,18 +24,13 @@ const MediaEducationalAdvocacyAwardPage = () => {
       image: "/images/nesa-card2.png"
     },
     {
-      title: "Television Educational Content Award",
-      description: "Honors radio stations and broadcasters for impactful educational programs, discussions, and campaigns.",
+      title: "Best Broadcast Media Educational Advocacy Award",
+      description: "Honors radio stations and broadcasters for impactful educational programs, discussions, and campaigns",
       image: "/images/nesa-card2.png"
     },
     {
       title: "Best Digital Media Educational Advocacy Award",
-      description: "Honors online media platforms for innovative educational content, e-learning initiatives, and digital campaigns.",
-      image: "/images/nesa-card2.png"
-    },
-    {
-      title: "Radio Educational Program Excellence Award",
-      description: "Honors online media platforms for innovative educational content, e-learning initiatives, and digital campaigns.",
+      description: "Acknowledges TV stations and networks for high-quality educational shows, documentaries, and news segments",
       image: "/images/nesa-card2.png"
     },
     
@@ -66,7 +61,7 @@ const MediaEducationalAdvocacyAwardPage = () => {
       <div className="relative bg-[#191307] text-white py-24 px-8">
         <div className="absolute inset-0 bg-[url('/images/Herosection.png')] bg-cover bg-center opacity-20"></div>
         <div className="relative z-10 max-w-4xl mx-auto">
-          <h2 className="text-2xl mb-2 md:mt-16 text-center">Category 9</h2>
+          <h2 className="text-2xl mb-2 md:mt-16 text-center">Category 1</h2>
           <h1 className="text-3xl font-bold text-[#FFC247] mb-4 text-center">{categories[0].title}</h1>
           <p className="mb-8 text-center">
             {categories[0].description}

@@ -97,16 +97,16 @@ const Button: FC<Props> = (props) => {
       <span className="flex-shrink-0">{!loading ? text : "Loading..."}</span>
 
       {iconPosition === "right" && (
-        <>
-          {loading ? (
-            <div className="flex-shrink-0">
-              <LuLoader2 size={12} className="animate-spin" />
-            </div>
-          ) : (
-            icon
-          )}
-        </>
-      )}
+  <>
+    {loading ? (
+      <div className="flex-shrink-0">
+        <LuLoader size={12} className="animate-spin" /> {/* fixed here */}
+      </div>
+    ) : (
+      icon
+    )}
+  </>
+)}
     </button>
   );
 };
