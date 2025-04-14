@@ -1,7 +1,4 @@
 {
-  "/(main)/nomination/page": "app/(main)/nomination/page.js",
-  "/(main)/nomination/sub-categories/africa-lifetime-education-icon/page": "app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.js",
-  "/(main)/nomination/sub-categories/best-media-organization/page": "app/(main)/nomination/sub-categories/best-media-organization/page.js",
-  "/(main)/competitive/page": "app/(main)/competitive/page.js",
-  "/(main)/nomination/sub-categories/best-csr-education/page": "app/(main)/nomination/sub-categories/best-csr-education/page.js"
+  "/(main)/(home)/page": "app/(main)/(home)/page.js",
+  "/(main)/about/page": "app/(main)/about/page.js"
 }

@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/(main)/(home)/page": [
+    "/(main)/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(main)/(home)/page.css",
-      "static/chunks/app/(main)/(home)/page.js"
+      "static/css/app/(main)/about/page.css",
+      "static/chunks/app/(main)/about/page.js"
     ],
     "/(main)/layout": [
       "static/chunks/webpack.js",
@@ -23,40 +23,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/loading.js"
     ],
-    "/(main)/competitive/page": [
+    "/(main)/(home)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(main)/competitive/page.css",
-      "static/chunks/app/(main)/competitive/page.js"
-    ],
-    "/(main)/non-competitive/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/non-competitive/page.css",
-      "static/chunks/app/(main)/non-competitive/page.js"
-    ],
-    "/(main)/nomination/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(main)/nomination/page.js"
-    ],
-    "/(main)/nomination/sub-categories/africa-lifetime-education-icon/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.css",
-      "static/chunks/app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.js"
-    ],
-    "/(main)/nomination/sub-categories/best-media-organization/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/nomination/sub-categories/best-media-organization/page.css",
-      "static/chunks/app/(main)/nomination/sub-categories/best-media-organization/page.js"
-    ],
-    "/(main)/nomination/sub-categories/best-csr-education/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/nomination/sub-categories/best-csr-education/page.css",
-      "static/chunks/app/(main)/nomination/sub-categories/best-csr-education/page.js"
+      "static/css/app/(main)/(home)/page.css",
+      "static/chunks/app/(main)/(home)/page.js"
     ]
   }
 }

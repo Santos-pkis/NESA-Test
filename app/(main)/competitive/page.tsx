@@ -52,7 +52,7 @@ const Page = () => {
     {
       title: "Regional CSR Awards (Banking, Telecom, Healthcare, Media, etc.)",
       description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
-      subCategoryPath: "/nomination/sub-categories/best-library"
+      subCategoryPath: "/nomination/sub-categories/best-csr-education"
     }
     
   ];

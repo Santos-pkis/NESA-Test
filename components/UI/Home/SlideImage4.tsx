@@ -23,7 +23,7 @@ const SlideImage4: React.FC<SlideImageProps> = ({ src, alt = "" }) => {
             <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-white max-w-5xl px-4">
           <h1 className="text-4xl md:text-6xl leading-tight">
-          Nominate your heroess to celebrate the Excellence and Impacts of Education across North-Africa
+          Nominate your Heroes to celebrate the Excellence and Impacts of Education across North-Africa
         </h1>
       </div>
     </div>
