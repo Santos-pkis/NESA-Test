@@ -1,3 +1,5 @@
 {
-  "/(main)/about/page": "app/(main)/about/page.js"
+  "/(main)/about/page": "app/(main)/about/page.js",
+  "/(main)/about-nesa/page": "app/(main)/about-nesa/page.js",
+  "/(main)/(home)/page": "app/(main)/(home)/page.js"
 }

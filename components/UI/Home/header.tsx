@@ -42,8 +42,8 @@ const HomeHeader = () => {
     }, []);
 
   return (
-    <header>
-      <div className={`min-h-screen z-[4] bg-[#17120a] text-white relative ${styles.homeHeader}`}>
+  
+      <div className={`min-h-screen bg-[#17120a] text-white relative ${styles.homeHeader}`}>
         <div className="absolute top-0 left-0 h-full w-full">
           <Image
           src={"/images/header.png"}
@@ -65,8 +65,10 @@ const HomeHeader = () => {
               );
             })}
 
-          {/* Scroll Feature */}
-          <div className="absolute bottom-10 inset-x-0 flex items-center justify-between px-4">
+         
+        </div>
+         {/* Scroll Feature */}
+         <div className="absolute bottom-10 inset-x-0 flex items-center justify-between px-4">
             {/* Dots */}
             <div className="flex items-center space-x-2">
               {Array.from({ length: totalSlides }).map((_, id) => (
@@ -106,11 +108,9 @@ const HomeHeader = () => {
             </div>
         </div>
         </div>
-        </div>
 
         
       </div>
-    </header>
   );
 };
 

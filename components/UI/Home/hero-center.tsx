@@ -134,7 +134,7 @@ const HeroCenter = () => {
 
   return (
     <>
-      <div className="relative w-full pt-12">
+      <div className="relative max-h-[100vh] pt-12">
         <motion.div
           {...opacityTrans}
           transition={{ delay: 1, duration: 1.5 }}
@@ -189,7 +189,7 @@ const HeroCenter = () => {
           </div>
         </div>
 
-        <div className="grid place-content-center">
+        <div className="grid place-content-center max-h-[100%]" >
           <Image src={"/images/nesa-mg.png"} alt="" width={220} height={220} object-contain/>
         </div>
       </div>
