@@ -8,7 +8,7 @@ import NESAAfrica from '@/components/UI/About/nesamv';
 import WhatWeDo from '@/components/UI/About/whydowe';
 import TeamSection from '@/components/UI/About/executivevolunteer';
 import DonationCard from '@/components/UI/About/donationcard';
-
+import NesaJourney from '@/components/UI/About/nesajourney';
  
 
 
@@ -30,6 +30,7 @@ const Page = () => {
     <>
       <AboutHeader />
       <NESAAfrica />
+      <NesaJourney />
       <WhatWeDo />
       <TeamSection />
       <DonationCard />

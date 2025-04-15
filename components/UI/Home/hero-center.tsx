@@ -134,11 +134,11 @@ const HeroCenter = () => {
 
   return (
     <>
-      <div className="relative pt-12">
+      <div className="relative w-full pt-12">
         <motion.div
           {...opacityTrans}
           transition={{ delay: 1, duration: 1.5 }}
-          className={`container mt-10 -mb-3 relative ${styles["scroll-con"]}`}
+          className={`container mt-10 md:mb-19 mb-5 relative ${styles["scroll-con"]}`}
         >
           <motion.div
             {...opacityTrans}
@@ -154,11 +154,12 @@ const HeroCenter = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      <div className="grid md:grid-cols-2 items-center md:gap-2 gap-12 container py-20">
+      
+        {/* content */}
+      <div className="grid md:grid-cols-2 items-center md:gap-9 gap-9 container md:pt-9 pt-19 pb-19">
         <div>
-          <div className="space-y-5 md:text-left text-center ">
-            <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold">
+          <div className="space-y-5 md:text-left text-justify ">
+            <div className="flex items-center justify-center md:justify-start text-primaryGold">
               <FaStar />
               <p className="text-lg">The NESA Africa Awards 2024</p>
               <FaStar />
@@ -189,7 +190,7 @@ const HeroCenter = () => {
         </div>
 
         <div className="grid place-content-center">
-          <Image src={"/images/nesa-mg.png"} alt="" width={300} height={20} />
+          <Image src={"/images/nesa-mg.png"} alt="" width={220} height={220} object-contain/>
         </div>
       </div>
 

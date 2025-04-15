@@ -30,15 +30,14 @@ const AboutHeader = () => {
           variants={parentV}
           initial="initial"
           animate="animate"
-          className="flex flex-col md:flex-row gap-8 md:gap-16 pt-16 md:pt-24"
+          className="flex flex-col  gap-8 md:gap-16 pt-16 md:pt-24"
         >
-          <motion.div variants={toTopV} className="md:w-1/2">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
+          <motion.div variants={toTopV} className="">
+          <div className="flex justify-between w-full md:justify-between">
+            <h1 className="text-4xl md:text-5xl bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
               About Us
             </h1>
-            <p className="text-2xl md:text-3xl mt-2">The Founding Story</p>
-
-            <div className="flex justify-between items-center mt-8">
+            <div className="flex justify-between items-center">
               {data.map((item, id) => (
                 <div key={id} className="text-center flex items-center">
                   <div className="flex flex-col items-center">
@@ -53,14 +52,18 @@ const AboutHeader = () => {
                 </div>
               ))}
             </div>
+          </div>
           </motion.div>
 
-          <motion.div variants={toTopV} className="md:w-1/2">
+          <motion.div variants={toTopV} className="text-justify">
             <p className="text-base md:text-lg mb-4">
-              New Education Standard Award Africa (NESA Africa) is an initiative designed to recognize, celebrate, and foster educational excellence and innovation across the African continent. Rooted in the vision of enhancing the quality of education and making it accessible to all.
+            New Education Standard Award Africa (NESA Africa) is a prestigious initiative committed to recognizing and celebrating excellence, innovation, and impactful contributions in education across Africa. Established to set new benchmarks in education, the awards serve as a catalyst for change, inspiring organizations, institutions, governments, and individuals to drive lasting improvements in the African education sector.
             </p>
-            <p className="text-base md:text-lg">
-              NESA Africa operates with the mission of spotlighting significant contributions by individuals, organizations, educational institutions, and other stakeholders towards achieving these goals.
+            <p className="text-base md:text-lg mb-4">
+            NESA Africa 2025, hosted by the Santos Creations Educational Foundation (SCEF) Nigeria Local Chapter, marks the inaugural edition of this transformative initiative. The awards are structured to encourage educational development through sustainable partnerships, leveraging Corporate Social Responsibility (CSR), policy advocacy, philanthropy, and community engagement.
+            </p>
+            <p>
+            As part of its long-term vision (2025–2030), NESA Africa will transition into a continental movement, expanding its impact across the five African regions while engaging diaspora and global partners in ensuring education for all.
             </p>
           </motion.div>
         </motion.div>
