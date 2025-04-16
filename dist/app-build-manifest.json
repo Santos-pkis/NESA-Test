@@ -22,12 +22,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/loading.js"
-    ],
-    "/(main)/non-competitive/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/non-competitive/page.css",
-      "static/chunks/app/(main)/non-competitive/page.js"
     ]
   }
 }
