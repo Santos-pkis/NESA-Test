@@ -68,7 +68,7 @@ const HomeHeader = () => {
          
         </div>
          {/* Scroll Feature */}
-         <div className="absolute bottom-10 inset-x-0 flex items-center justify-between px-4">
+         <div className="absolute bottom-10 inset-x-0 flex items-center justify-between md:px-36 px-20">
             {/* Dots */}
             <div className="flex items-center space-x-2">
               {Array.from({ length: totalSlides }).map((_, id) => (

@@ -19,12 +19,10 @@ const Page = () => {
   return (
     <>
       <HomeHeader />
-      <main className="pb-28">
       <CountdownTimer 
         onTimeUpdate={(time) => ''} 
         targetDateProp="2025-09-10T19:55:00Z" 
       />
-
         <AwardCategories />
         <AboutNewEducation />
         <HomePartners />
@@ -36,7 +34,6 @@ const Page = () => {
         <MerchSection />
         <LocalChapterSection />
         <HomeFaq />
-      </main>
     </>
   );
 };

@@ -53,7 +53,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onTimeUpdate, targetDat
 
 
   return (
-    <div className="relative w-full bg-black">
+    <div className="relative top-0 left-0 bg-black">
       {/* Background design elements */}
       <div className="absolute inset-0 overflow-hidden">
         <Image 
@@ -104,6 +104,16 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onTimeUpdate, targetDat
                   </div>
                   <div className="text-[#f0b64d] text-sm md:text-base mt-1">
                     Mins
+                  </div>
+                </div>
+                <div className="text-[#f0b64d] text-4xl md:text-6xl font-bold">:</div>
+                
+                <div className="flex flex-col items-center">
+                  <div className="text-[#f0b64d] text-4xl md:text-6xl font-bold">
+                    {seconds.toString().padStart(2, '0')}
+                  </div>
+                  <div className="text-[#f0b64d] text-sm md:text-base mt-1">
+                    seconds
                   </div>
                 </div>
               </div>

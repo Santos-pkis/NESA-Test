@@ -8,25 +8,32 @@ interface SlideImageProps {
 
 const SlideImage2: React.FC<SlideImageProps> = ({ src, alt = "" }) => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Full-screen background image */}
-      <div className="absolute inset-0">
-        <Image 
-          src={src} 
-          alt={alt} 
-          fill 
-          className="w-full h-full object-cover" 
-          priority
-        />
-      </div>
-            {/* Text overlay in center */}
-            <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center text-white max-w-5xl px-4">
-          <h1 className="text-4xl md:text-6xl leading-tight">
+    <div className="flex h-screen">
+      {/* Left half: Text */}
+      <div className="w-1/2 flex flex-col justify-center text-white px-4">
+                <div className="flex flex-col justify-center items-center">
+                  <div className="mb-4 mt-10">
+                    <Image src={"/images/nesa-mg.png"} alt="logo image" width={220} height={220} />
+                  </div>
+                  <h1 className="text-2xl font-bold text-white uppercase tracking-wide">
+                    East Africa
+                  </h1>
+                </div>
+        <h1 className="text-lg leading-tight text-justify-center">
           Nominate your Heroes to celebrate the Excellence and Impacts of Education across East-Africa
         </h1>
       </div>
-    </div>
+
+      {/* Right half: Image */}
+      <div className="w-4/5 relative">
+        <Image 
+          src={src} 
+          alt={alt} 
+          layout="fill" 
+          objectFit="cover" 
+          priority 
+        />
+      </div>
     </div>
   );
 };

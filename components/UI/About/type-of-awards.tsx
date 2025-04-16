@@ -1,5 +1,5 @@
 "use client";
-
+import Button from "@/components/Common/Button";
 import PlayIcon from "@/components/Common/Icons/play";
 import { opacityV } from "@/lib/utils/variants";
 import { AnimatePresence, motion } from "framer-motion";
@@ -38,7 +38,7 @@ const variants = {
 };
 
 const TypeOfAwards = () => {
-  const [selected, setSelected] = useState<Selector>("platinum");
+  const [selected, setSelected] = useState<Selector>("certificate-of-recognition");
 
   return (
     <section className="my-10 md:my-20 px-4 md:px-8 lg:px-28">
@@ -84,8 +84,8 @@ const TypeOfAwards = () => {
   <div className="aspect-video sm:aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] xl:aspect-[28/9]">
     <video
       src={"/images/about.mp4"}
-      autoPlay
-      loop
+      // autoPlay
+      // loop
       muted={false}
       controls
       playsInline
@@ -121,6 +121,7 @@ const TypeOfAwards = () => {
                       {data.heading}, representing excellence and innovation
                       within their respective fields.
                     </p>
+                    <Button text="Award Criteria" variant="filled" />
                   </div>
                 </motion.div>
               ))}

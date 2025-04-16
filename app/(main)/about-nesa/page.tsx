@@ -8,7 +8,8 @@ import useSlider from "@/lib/hooks/useSlider";
 import TestimoniesShowcase from "@/components/UI/Testimonies/showcase";
 import Button from "@/components/Common/Button";
 import { useEffect } from "react";
-
+import AwardStructure from "@/components/UI/Home/award-structure/awardstructure";
+import NESARoadmap from "@/components/UI/Home/roadmap/timeline";
 const Page = () => {
   const { sliderRef: ref, moveLeft, moveRight } = useSlider();
 
@@ -30,7 +31,7 @@ const Page = () => {
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
               <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
                 <Image
-                  src="/images/globe_nesa.png"
+                  src="/images/new award.png"
                   alt="award"
                   className="w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[521px]"
                   height={585}
@@ -58,7 +59,14 @@ const Page = () => {
         </section>
 
         <section className="space-y-12 sm:space-y-16 md:space-y-20 pb-12 sm:pb-16 md:pb-20">
-          <div className="container px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+
+          <div>
+          <AwardStructure />
+          </div>
+          <div>
+          <NESARoadmap />
+          </div>
+                    <div className="container px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
             <div className="space-y-4 md:px-12 lg:px-24 xl:px-32 text-center">
               <h3 className="text-2xl sm:text-3xl font-semibold">
                 NESA Africa in every African Country
@@ -85,7 +93,6 @@ const Page = () => {
               <Button text="Request to Host NESA Africa" variant="filled" />
             </div>
           </div>
-
           <div>
             <TestimoniesShowcase />
           </div>

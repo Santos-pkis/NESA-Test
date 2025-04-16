@@ -1,10 +1,9 @@
 {
   "pages": {
-    "/(main)/about/page": [
+    "/(main)/getinvolved/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(main)/about/page.css",
-      "static/chunks/app/(main)/about/page.js"
+      "static/chunks/app/(main)/getinvolved/page.js"
     ],
     "/(main)/layout": [
       "static/chunks/webpack.js",
@@ -22,18 +21,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/loading.js"
-    ],
-    "/(main)/about-nesa/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/about-nesa/page.css",
-      "static/chunks/app/(main)/about-nesa/page.js"
-    ],
-    "/(main)/(home)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(main)/(home)/page.css",
-      "static/chunks/app/(main)/(home)/page.js"
     ]
   }
 }

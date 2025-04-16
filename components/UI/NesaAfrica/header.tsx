@@ -5,13 +5,18 @@ import Image from "next/image";
 const NesaAfricaHeader = () => {
   return (
     <header
-      className={`bg-[#17120a] min-h-[40rem] text-white z-[100] flex items-center pt-28 md:pt-10`}
+    style={{
+      backgroundImage: "url('/images/aboutnesa.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center"}}
+      className={`bg-[#17120a] min-h-[40rem] text-white flex items-center pt-28 md:pt-10`}
     >
-      <div className="container grid md:grid-cols-2 gap-4 px-2 lg:px-8 py-20 items-center">
+
+      <div className="container grid md:grid-cols-2 gap-4 px-2 lg:px-8 py-20 items-center text-justify md:justify-start">
         <div className="space-y-8 text-center md:text-start">
           <div className="space-y-1 lg:text-left text-center">
             <h1 className="text-[2.5rem] font-[500] leading-[3.5rem] mb-4 bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text">
-              New Education Standard Award : The Award of the Decade
+              New Education Standard Award 2024
             </h1>
             <p className="font-[300] text-[1.2rem] lg:text-[1.25rem] leading-[2rem]">
               NESA stands as the pinnacle award of the decade, a fervent

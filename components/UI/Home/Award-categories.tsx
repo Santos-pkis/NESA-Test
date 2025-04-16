@@ -10,7 +10,7 @@ const categories = [
 
 const AwardCategories = () => {
   return (
-    <div className="p-8 bg-[#f5eedd] min-h-screen">
+    <div className="p-8 bg-[#f5eedd]">
       <h1 className="text-3xl text-[#191307] mb-10">Award Categories</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">

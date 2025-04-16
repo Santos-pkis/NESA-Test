@@ -1,9 +1,10 @@
-
 "use client";
+import Image from "next/image";
+
 
 const Refer = () => {
   return (
-    <section className="bg-white py-16 text-center">
+    <section className="bg-white py-16 text-center flex flex-col items-center justify-center relative ">
       <div className="max-w-3xl mx-auto px-4">
         <h2 className="text-[20px] md:text-[24px] font-semibold text-[#1E1E1E]">
           Refer a Friend to Nominate and get free Afri-gold Coin
@@ -16,6 +17,16 @@ const Refer = () => {
         <button className="mt-6 bg-[#F7A500] hover:bg-[#e59b00] text-[11px] font-semibold text-black px-6 py-2 rounded transition duration-300">
           Refer a Friend
         </button>
+      </div>
+      <div className="max-h-[100%]">
+        <Image
+          src="/images/refer/pana.png"
+          alt="Refer a Friend"
+          className="w-full h-auto max-w-[600px] mx-auto mt-8"
+          width={30}
+          height={80}
+          
+        />
       </div>
     </section>
   );
