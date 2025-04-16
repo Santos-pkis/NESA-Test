@@ -19,11 +19,11 @@ const HeroCenter = () => {
 
   return (
     <>
-      <div className="relative max-h-[100vh] pt-12">
+      <div className="relative pt-12">
         <motion.div
           {...opacityTrans}
           transition={{ delay: 1, duration: 1.5 }}
-          className={`container mt-10 md:mb-19 mb-5 relative ${styles["scroll-con"]}`}
+          className={`container mt-10 -mb-3 relative ${styles["scroll-con"]}`}
         >
           <motion.div
             {...opacityTrans}
@@ -39,19 +39,18 @@ const HeroCenter = () => {
           </motion.div>
         </motion.div>
       </div>
-      
-        {/* content */}
-      <div className="grid md:grid-cols-2 m-10% p-10% items-center md:gap-9 gap-9 container md:pt-9 pt-19 pb-19">
+
+      <div className="grid md:grid-cols-2 items-center md:gap-2 gap-12 container py-20">
         <div>
-          <div className="space-y-5 md:text-left text-justify ">
-            <div className="flex items-center justify-center md:justify-start text-primaryGold">
+          <div className="space-y-5 md:text-left text-center">
+            <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold">
               <FaStar />
               <p className="text-lg">The NESA Africa Awards 2024</p>
               <FaStar />
             </div>
 
-            <h1 className="font-semibold text-2xl text-white">
-              Welcome to NESA Africa 2025, hosted by SCEF Nigeria Local Chapter! Join us in celebrating excellence in education across Africa
+            <h1 className="font-bold text-4xl bg-gradient-to-r from-midGold to-deepGold bg-clip-text text-transparent">
+              Celebrating Educational Excellence Across Africa
             </h1>
 
             <p>
@@ -66,23 +65,24 @@ const HeroCenter = () => {
 
             <div className="flex items-center gap-2 justify-center md:justify-start">
               <Button
-              text="View Categories"
-              className="rounded-md"
+                text="View Categories"
+                variant="filled"
+                className="rounded-full"
               />
-              <Button text="Nominate Now" variant="filled" className="rounded-md" />
+              <Button text="Nominate Now" className="rounded-full" />
             </div>
           </div>
         </div>
 
-        <div className="grid place-content-center max-h-[100%]" >
-          <Image src={"/images/nesa-mg.png"} alt="" width={220} height={220} object-contain/>
+        <div className="grid place-content-center">
+          <Image src={"/images/nesa-mg.png"} alt="" width={300} height={300} />
         </div>
       </div>
 
-      </>
+      <CountdownTimer />
+    </>
   );
 };
-
 export default HeroCenter;
 
 

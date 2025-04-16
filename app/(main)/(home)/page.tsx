@@ -19,10 +19,10 @@ const Page = () => {
   return (
     <>
       <HomeHeader />
-      <CountdownTimer 
+      {/* <CountdownTimer 
         onTimeUpdate={(time) => ''} 
         targetDateProp="2025-09-10T19:55:00Z" 
-      />
+      /> */}
         <AwardCategories />
         <AboutNewEducation />
         <HomePartners />

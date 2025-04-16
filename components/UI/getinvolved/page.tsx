@@ -3,7 +3,9 @@ import Image from 'next/image';
 import Button from "@/components/Common/Button";
 import { ArrowRight } from 'lucide-react';
 import SponsorshipPackages from '@/components/UI/getinvolved/sponsorship';
-
+import NesaAmbassador from '@/components/UI/getinvolved/ambassador';
+import DonateNow from '@/components/UI/getinvolved/donate';
+import VolunteerWithUs from '@/components/UI/getinvolved/volunteer';
 
 const NESACommunityPage = () => {
 
@@ -102,7 +104,11 @@ const NESACommunityPage = () => {
       </div>
     </div>
     <SponsorshipPackages />
+    <NesaAmbassador />
+    <DonateNow />
+    <VolunteerWithUs />
     </div>
+
   );
 };
 
