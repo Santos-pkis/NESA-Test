@@ -5,7 +5,8 @@ import ProfileTab from "@/components/UI/Accountsettings/ProfileTab";
 import SecurityTab from "@/components/UI/Accountsettings/SecurityTab";
 import NotificationsTab from "@/components/UI/Accountsettings/NotificationsTab";
 import PlaceholderTab from "@/components/UI/Accountsettings/PlaceholderTab";
-import { User, Lock, Bell, CreditCard, Shield, Globe, HelpCircle, LogOut } from "lucide-react";
+import SkeletonLoader from "@/components/UI/SkeletonLoader"; // Import SkeletonLoader
+import { User, Lock, Bell, CreditCard, Shield, Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useAuthContext } from '@/lib/context/AuthContext';
 
@@ -20,18 +21,25 @@ const AccountSettingsPage = () => {
     location: "",
     region: ""
   });
+  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
-    if (user) {
-      setFormData({
-        name: user.name || "",
-        email: user.email || "",
-        phone: user.phone || "",
-        bio: user.bio || "",
-        location: user.location || "",
-        region: user.region || ""
-      });
-    }
+    // Simulate API call delay
+    const timer = setTimeout(() => {
+      if (user) {
+        setFormData({
+          name: user.name || "",
+          email: user.email || "",
+          phone: user.phone || "",
+          bio: user.bio || "",
+          location: user.location || "",
+          region: user.region || ""
+        });
+      }
+      setLoading(false); // Set loading to false after data is fetched
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, [user]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -45,9 +53,9 @@ const AccountSettingsPage = () => {
   const handleSave = async () => {
     try {
       await updateUser(formData);
-      alert("Profile updated successfully!");
+     
     } catch (error) {
-      alert("Failed to update profile. Please try again.");
+     
     }
   };
 
@@ -63,21 +71,37 @@ const AccountSettingsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
+        {/* Header Section */}
         <Header />
         <div className="flex flex-col md:flex-row gap-8">
+          {/* Sidebar */}
           <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+
+          {/* Main Content */}
           <div className="flex-1">
-            {activeTab === "profile" && (
-              <ProfileTab
-                formData={formData}
-                handleInputChange={handleInputChange}
-                handleSave={handleSave}
-              />
-            )}
-            {activeTab === "security" && <SecurityTab />}
-            {activeTab === "notifications" && <NotificationsTab />}
-            {activeTab !== "profile" && activeTab !== "security" && activeTab !== "notifications" && (
-              <PlaceholderTab tab={tabs.find(t => t.id === activeTab)!} />
+            {loading ? (
+              // Skeleton Loader for the main content
+              <div className="space-y-4">
+                <SkeletonLoader className="h-8 w-1/3" />
+                <SkeletonLoader className="h-6 w-1/2" />
+                <SkeletonLoader className="h-6 w-full" />
+                <SkeletonLoader className="h-6 w-3/4" />
+              </div>
+            ) : (
+              <>
+                {activeTab === "profile" && (
+                  <ProfileTab
+                    formData={formData}
+                    handleInputChange={handleInputChange}
+                    handleSave={handleSave}
+                  />
+                )}
+                {activeTab === "security" && <SecurityTab />}
+                {activeTab === "notifications" && <NotificationsTab />}
+                {activeTab !== "profile" && activeTab !== "security" && activeTab !== "notifications" && (
+                  <PlaceholderTab tab={tabs.find(t => t.id === activeTab)!} />
+                )}
+              </>
             )}
           </div>
         </div>

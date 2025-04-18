@@ -31,8 +31,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center">
             <div className="relative">
-              <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center text-white font-bold text-lg">
-                {user?.name ? getInitials(user.name) : 'U'}
+              <div className="w-12 h-12 rounded-full bg-deepGold flex items-center justify-center text-black font-bold text-lg">
+                {user?.name ? getInitials(user.name) : <User className="w-5 h-5" />}
               </div>
             </div>
             <div className="ml-3">
@@ -49,12 +49,12 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
               onClick={() => setActiveTab(tab.id)}
               className={`w-full flex items-center px-4 py-3 rounded-lg text-left transition ${
                 activeTab === tab.id
-                  ? "bg-yellow-50 text-yellow-700 font-medium"
+                  ? "bg-deepGold/10 text-deepGold font-medium"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
             >
               <span className={`mr-3 ${
-                activeTab === tab.id ? "text-yellow-500" : "text-gray-400"
+                activeTab === tab.id ? "text-deepGold" : "text-gray-400"
               }`}>
                 {tab.icon}
               </span>

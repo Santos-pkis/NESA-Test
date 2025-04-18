@@ -6,6 +6,7 @@ import { montserrat, poppins } from "@/lib/utils/font";
 import "../public/globals.css";
 import Providers from "@/lib/providers/providers";
 import { AuthProvider } from "@/lib/context/AuthContext";
+import Modal from "@/components/UI/Modal"; // Import the Modal component
 
 const metadata: Metadata = {
   title: "NESA 2024",
@@ -42,7 +43,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={poppins.className}>
         <AuthProvider>
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            <Modal /> {/* Render the Modal globally */}
+          </Providers>
         </AuthProvider>
       </body>
     </html>

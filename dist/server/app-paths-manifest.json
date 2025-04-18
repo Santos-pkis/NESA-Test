@@ -1,8 +1,6 @@
 {
-  "/member/profile/page": "app/member/profile/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/member/support/page": "app/member/support/page.js",
   "/member/page": "app/member/page.js",
-  "/member/vote/page": "app/member/vote/page.js",
-  "/member/settings/page": "app/member/settings/page.js",
-  "/member/wallet/page": "app/member/wallet/page.js",
-  "/(account)/account/login/page": "app/(account)/account/login/page.js"
+  "/member/settings/page": "app/member/settings/page.js"
 }

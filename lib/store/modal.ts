@@ -1,17 +1,20 @@
 import { create } from "zustand";
 
+type ModalType = "success" | "error" | "info" | "vote";
+
 interface Modal {
   visible: boolean;
   content: JSX.Element | null;
+  type: ModalType | null;
   hideModal: () => void;
-  toggleModal: () => void;
-  showModal: (content: JSX.Element) => void;
+  showModal: (content: JSX.Element, type: ModalType) => void;
 }
 
 export const useModal = create<Modal>((set) => ({
-  content: null,
   visible: false,
-  hideModal: () => set(() => ({ content: null, visible: false })),
-  toggleModal: () => set((state) => ({ ...state, visible: !state.visible })),
-  showModal: (content: JSX.Element) => set((state) => ({ ...state, content, visible: true })),
+  content: null,
+  type: null,
+  hideModal: () => set(() => ({ visible: false, content: null, type: null })),
+  showModal: (content, type) =>
+    set(() => ({ visible: true, content, type })),
 }));

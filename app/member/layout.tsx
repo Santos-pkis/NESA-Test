@@ -140,17 +140,20 @@ const profileItems = [
 ];
 
 // Wallet Info Component
+// Wallet Info Component
 const WalletInfo = () => (
-  <div className="flex items-center space-x-4 bg-[#191307E6] rounded-lg px-4 py-2">
-    <div className="text-center">
-      <p className="text-xs text-gray-300">Balance</p>
-      <p className="font-medium text-[#f6b146]">$250.00</p>
+  <div className="flex items-center space-x-4 bg-[#191307E6] rounded-lg px-6 py-4 shadow-md">
+    {/* Wallet Icon */}
+    <div className="flex items-center justify-center bg-[#f6b146] text-[#191307] rounded-full w-10 h-10">
+      <IoWalletOutline size={20} />
     </div>
-    <div className="h-8 w-px bg-gray-600"></div>
-    <div className="text-center">
-      <p className="text-xs text-gray-300">Voting Points</p>
-      <p className="font-medium text-[#f6b146]">500</p>
+
+    {/* Balance Info */}
+    <div className="text-left">
+      <p className="text-sm font-medium text-gray-300">Balance</p>
+      <p className="text-lg font-bold text-[#f6b146]">1250 Points</p>
     </div>
+
   </div>
 );
 
@@ -322,7 +325,7 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
           </div>
 
           {/* Right Side Icons */}
-          <div className="hidden md:flex items-center space-x-0 ml-4">
+          <div className="hidden md:flex items-center space-x-4 ml-4"> {/* Updated spacing */}
             <IconDropdown
               icon={<IoNotificationsOutline size={20} />}
               badge={3}
@@ -384,7 +387,7 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
         )}
       </nav>
 
-      <main className="flex-grow pt-16">
+      <main className="flex-grow pt-20">
         {children}
       </main>
 

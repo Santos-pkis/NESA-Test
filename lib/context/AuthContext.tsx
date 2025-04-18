@@ -10,6 +10,7 @@ interface AuthContextType {
   getUserId: () => string | null;
   getToken: () => string | null;
   logout: () => void;
+  updateUser: (userData: any) => Promise<any>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

@@ -1,36 +1,51 @@
 import React, { useState } from 'react';
-import { Shield } from "lucide-react";
+import { Shield, Loader2 } from "lucide-react";
 import { useAuthContext } from '@/lib/context/AuthContext';
 import { changePassword } from '@/lib/services/authService';
+import { useModal } from "@/lib/store/modal";
 
 const SecurityTab = () => {
   const { user } = useAuthContext();
+  const { showModal } = useModal();
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handlePasswordChange = async () => {
     if (newPassword !== confirmNewPassword) {
-      setError('New passwords do not match');
+      showModal(
+        <p>New passwords do not match</p>,
+        "error"
+      );
       return;
     }
 
+    setIsLoading(true);
     try {
       const response = await changePassword({
         email: user.email,
         oldPassword: currentPassword,
         newPassword: newPassword,
       });
-      setSuccess(response.message);
-      setError(null);
+
+      showModal(
+        <p>{response.message || "Password changed successfully!"}</p>,
+        "success"
+      );
+
+      // Clear form on success
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmNewPassword('');
     } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError('An unexpected error occurred');
-      }
+      const errorMessage = err instanceof Error ? err.message : 'An unexpected error occurred';
+      showModal(
+        <p>{errorMessage}</p>,
+        "error"
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -42,16 +57,16 @@ const SecurityTab = () => {
       </div>
 
       <div className="p-6 space-y-6">
-        <div className="p-5 bg-yellow-50 rounded-lg border border-yellow-100">
+        <div className="p-5 bg-deepGold/10 rounded-lg border border-deepGold/20">
           <div className="flex items-start">
-            <div className="bg-yellow-100 p-2 rounded-full mr-4 text-yellow-600">
+            <div className="bg-deepGold/20 p-2 rounded-full mr-4 text-deepGold">
               <Shield className="w-5 h-5" />
             </div>
             <div>
               <h3 className="font-medium text-gray-900 mb-1">Two-Factor Authentication</h3>
               <p className="text-sm text-gray-600">Add an extra layer of security to your account</p>
             </div>
-            <button className="ml-auto bg-yellow-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-yellow-600 transition">
+            <button className="ml-auto bg-deepGold text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-deepGold/90 transition">
               Enable
             </button>
           </div>
@@ -60,8 +75,6 @@ const SecurityTab = () => {
         <div className="border border-gray-200 rounded-lg divide-y divide-gray-200">
           <div className="p-5">
             <h3 className="font-medium text-gray-900 mb-3">Change Password</h3>
-            {error && <p className="text-red-500 mb-3">{error}</p>}
-            {success && <p className="text-green-500 mb-3">{success}</p>}
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
@@ -69,7 +82,7 @@ const SecurityTab = () => {
                   type="password"
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition"
                 />
               </div>
               <div>
@@ -78,7 +91,7 @@ const SecurityTab = () => {
                   type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition"
                 />
               </div>
               <div>
@@ -87,21 +100,31 @@ const SecurityTab = () => {
                   type="password"
                   value={confirmNewPassword}
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition"
                 />
               </div>
             </div>
             <div className="mt-6 flex justify-end">
               <button
                 onClick={handlePasswordChange}
-                className="bg-yellow-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-yellow-600 transition"
+                disabled={isLoading}
+                className={`px-6 py-2.5 rounded-lg font-medium bg-deepGold text-black hover:bg-deepGold/90 transition flex items-center justify-center gap-2 min-w-[150px] ${
+                  isLoading ? "opacity-80 cursor-not-allowed" : ""
+                }`}
               >
-                Update Password
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Updating...
+                  </>
+                ) : (
+                  "Update Password"
+                )}
               </button>
             </div>
           </div>
-
-          <div className="p-5">
+        </div>
+        <div className="p-5">
             <h3 className="font-medium text-gray-900 mb-3">Recent Devices</h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
@@ -116,7 +139,7 @@ const SecurityTab = () => {
                     <p className="text-sm text-gray-500">Lagos, Nigeria • 15 Jun 2025</p>
                   </div>
                 </div>
-                <button className="text-yellow-600 hover:text-yellow-700 text-sm font-medium">
+                <button className="text-deepGold hover:text-deepGold/80 text-sm font-medium transition">
                   Revoke
                 </button>
               </div>
@@ -133,13 +156,12 @@ const SecurityTab = () => {
                     <p className="text-sm text-gray-500">Lagos, Nigeria • 14 Jun 2025</p>
                   </div>
                 </div>
-                <button className="text-yellow-600 hover:text-yellow-700 text-sm font-medium">
+                <button className="text-deepGold hover:text-deepGold/80 text-sm font-medium transition">
                   Revoke
                 </button>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );
