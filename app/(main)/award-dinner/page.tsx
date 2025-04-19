@@ -13,7 +13,9 @@ import SponsorshipModalContent from "./modal";
 
 const Page = () => {
   const { showModal, visible, hideModal } = useModal();
-  const showModalClick = () => showModal(<SponsorshipModalContent />);
+
+  // Updated function to pass both content and type
+  const showModalClick = () => showModal(<SponsorshipModalContent />, "info");
 
   return (
     <>
