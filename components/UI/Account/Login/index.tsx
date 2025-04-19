@@ -185,10 +185,13 @@ const LoginPage: React.FC = () => {
               </div>
             </div>
             <div className="mb-8 text-right">
-              <a href="/resetpassword" className="text-[#FFC247] hover:underline">
-                Forgot Password
-              </a>
-            </div>
+  <button
+    onClick={() => router.push("/account/resetpassword")}
+    className="text-[#FFC247] hover:underline"
+  >
+    Forgot Password
+  </button>
+</div>
             <button
               type="submit"
               className="bg-[#FFC247] text-black font-bold py-3 px-4 rounded-lg w-full hover:bg-[#E48900] transition-colors duration-300 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
