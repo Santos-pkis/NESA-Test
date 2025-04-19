@@ -1,14 +1,14 @@
 {
   "pages": {
-    "/member/settings/page": [
+    "/(account)/account/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/member/settings/page.js"
+      "static/chunks/app/(account)/account/login/page.js"
     ],
-    "/member/layout": [
+    "/(account)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/member/layout.js"
+      "static/chunks/app/(account)/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -21,30 +21,27 @@
       "static/chunks/main-app.js",
       "static/chunks/app/loading.js"
     ],
-    "/member/page": [
+    "/(main)/profile/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/member/page.js"
+      "static/chunks/app/(main)/profile/page.js"
     ],
-    "/member/support/page": [
+    "/(main)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/member/support/page.js"
+      "static/css/app/(main)/layout.css",
+      "static/chunks/app/(main)/layout.js"
     ],
-    "/(account)/account/login/page": [
+    "/(main)/(home)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(account)/account/login/page.js"
+      "static/css/app/(main)/(home)/page.css",
+      "static/chunks/app/(main)/(home)/page.js"
     ],
-    "/(account)/layout": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(account)/layout.js"
-    ],
-    "/(account)/account/resetpassword/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(account)/account/resetpassword/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

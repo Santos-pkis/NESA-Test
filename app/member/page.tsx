@@ -6,7 +6,7 @@ import WalletSummary from '@/components/Layout/Dashboard/WalletSummary';
 import ReferralInfo from '@/components/Layout/Dashboard/ReferralInfo';
 import VotingOverviewCard from '@/components/Layout/Dashboard/VotingOverviewCard';
 import SkeletonLoader from '@/components/UI/SkeletonLoader'; // Import SkeletonLoader
-import { useAuthRedirect } from '@/lib/hooks/useAuthRedirect';
+// import { useAuthRedirect } from '@/lib/hooks/useAuthRedirect';
 import { useAuthContext } from '@/lib/context/AuthContext';
 
 const recentActivities = [
@@ -37,7 +37,7 @@ const recentActivities = [
 ];
 
 export default function DashboardPage() {
-  useAuthRedirect();
+  // useAuthRedirect();
   const { user } = useAuthContext();
   const [loading, setLoading] = useState(true);
 

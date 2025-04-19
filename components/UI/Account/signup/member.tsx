@@ -19,7 +19,7 @@ const MembershipForm: React.FC = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "Member",
+    role: "Judge",
     referral: "null",
     region: "",
     KYC: false,
@@ -85,8 +85,8 @@ const MembershipForm: React.FC = () => {
       
       setShowSuccessPopup(true);
       setTimeout(() => {
-        router.push("/member");
-      }, 3000);
+        router.push("/onboarding");
+      }, 1000);
     } catch (err: any) {
       setError(err.message || "Registration failed. Please try again.");
     } finally {

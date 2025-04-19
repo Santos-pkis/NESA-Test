@@ -1,4 +1,3 @@
-// LoginPage.tsx
 "use client";
 import React, { useState } from "react";
 import { FiArrowLeftCircle } from "react-icons/fi";
@@ -7,7 +6,7 @@ import { MdLocationPin } from "react-icons/md";
 import Image from "next/image";
 import VerifyEmailPopup from "./VerifyEmailPopup";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/lib/hooks/useAuth"; // Ensure this points to the .ts file
+import { useAuth } from "@/lib/hooks/useAuth";
 
 const LoginPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -26,26 +25,24 @@ const LoginPage: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormError("");
-    setIsLoading(true);
+  e.preventDefault();
+  setFormError("");
+  setIsLoading(true);
 
-    try {
-      const response = await signIn({ email, password });
+  try {
+    const response = await signIn({ email, password });
 
-      if (response?.user) {
-        setPopupMessage(`A verification code has been sent to ${email}. Please enter it below.`);
-        setIsSuccess(true);
-        setShowPopup(true);
-      } else {
-        setFormError(response?.message || "Login failed. Please try again.");
-      }
-    } catch (err: any) {
-      setFormError(err.message || "Invalid email or password");
-    } finally {
-      setIsLoading(false);
+    if (response?.user) {
+      router.push(`/account/otp?email=${encodeURIComponent(email)}`); // Redirect to OTPPage with email
+    } else {
+      setFormError(response?.message || "Login failed. Please try again.");
     }
-  };
+  } catch (err: any) {
+    setFormError(err.message || "Invalid email or password");
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const handleOTPVerified = async (otp: string) => {
     try {
@@ -184,14 +181,20 @@ const LoginPage: React.FC = () => {
                 </button>
               </div>
             </div>
-            <div className="mb-8 text-right">
-  <button
-    onClick={() => router.push("/account/resetpassword")}
-    className="text-[#FFC247] hover:underline"
-  >
-    Forgot Password
-  </button>
-</div>
+            <div className="mb-8 flex justify-between items-center">
+              <button
+                onClick={() => router.push("/account/signup")}
+                className="text-[#FFC247] hover:underline"
+              >
+                Not a Member? SignUp
+              </button>
+              <button
+                onClick={() => router.push("/account/resetpassword")}
+                className="text-[#FFC247] hover:underline"
+              >
+                Forgot Password
+              </button>
+            </div>
             <button
               type="submit"
               className="bg-[#FFC247] text-black font-bold py-3 px-4 rounded-lg w-full hover:bg-[#E48900] transition-colors duration-300 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
@@ -231,12 +234,12 @@ const LoginPage: React.FC = () => {
 
       {/* Verify Email Popup - Only shown when login is successful */}
       {showPopup && isSuccess && (
-      <VerifyEmailPopup
-        email={email}
-        onClose={closePopup}
-        onOTPVerified={handleOTPVerified}
-      />
-    )}
+        <VerifyEmailPopup
+          email={email}
+          onClose={closePopup}
+          onOTPVerified={handleOTPVerified}
+        />
+      )}
     </div>
   );
 };

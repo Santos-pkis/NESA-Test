@@ -1,7 +1,7 @@
 {
-  "/member/settings/page": "app/member/settings/page.js",
-  "/member/support/page": "app/member/support/page.js",
-  "/member/page": "app/member/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(main)/(home)/page": "app/(main)/(home)/page.js",
   "/(account)/account/login/page": "app/(account)/account/login/page.js",
-  "/(account)/account/resetpassword/page": "app/(account)/account/resetpassword/page.js"
+  "/(main)/profile/page": "app/(main)/profile/page.js"
 }
