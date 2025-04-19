@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import DashboardCard from '@/components/Layout/Dashboard/DashboardCard';
+// import DashboardCard from '@/components/Layout/Dashboard/DashboardCard';
 import WalletSummary from '@/components/Layout/Dashboard/WalletSummary';
 import ReferralInfo from '@/components/Layout/Dashboard/ReferralInfo';
 import VotingOverviewCard from '@/components/Layout/Dashboard/VotingOverviewCard';
