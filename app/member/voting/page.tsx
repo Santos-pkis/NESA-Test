@@ -8,12 +8,24 @@ import { NomineeCard } from "@/components/voting/NomineeCard";
 import { LoadingSkeleton } from "@/components/voting/LoadingSkeleton";
 import { VotingSummary } from "@/components/voting/VotingSummary";
 
+interface Nominee {
+  id: number;
+  name: string;
+  category: string;
+  image: string;
+  status: string;
+  votes: number;
+  recentVotes: number;
+  description: string;
+  dateSubmitted: string;
+}
+
 const NominationsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
   const [expandedNominee, setExpandedNominee] = useState<number | null>(null);
   const [rankings, setRankings] = useState<Record<number, number>>({});
-  const [nominees, setNominees] = useState([]);
+  const [nominees, setNominees] = useState<Nominee[]>([]); // Explicitly type the state
   const [isLoading, setIsLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState("");
 
@@ -22,7 +34,7 @@ const NominationsPage = () => {
     const fetchData = async () => {
       setIsLoading(true);
       // Replace with actual API call
-      const mockData = [
+      const mockData: Nominee[] = [
         {
           id: 1,
           name: "Aisha Bello",
@@ -36,7 +48,7 @@ const NominationsPage = () => {
         },
         // ... (other nominees)
       ];
-      setNominees(mockData);
+      setNominees(mockData); // No error now
       setIsLoading(false);
       setLastUpdated(new Date().toLocaleTimeString());
     };

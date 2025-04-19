@@ -34,7 +34,7 @@ const SubmitDetails: React.FC<Props> = ({ id, category, details }) => {
   const router = useRouter();
   const { showModal, hideModal, visible } = useModal();
 
-  const showModClick = () => showModal(<ThanksForVoting />);
+  const showModClick = () => showModal(<ThanksForVoting />, "info"); // Pass both content and type
 
   if (!category) {
     toast.error("category not found");
