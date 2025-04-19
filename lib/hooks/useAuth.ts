@@ -19,16 +19,17 @@ export const useAuth = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const userId = localStorage.getItem('userId');
-    if (token && userId) {
-      getUserById(userId)
-        .then(data => setUser(data))
-        .catch(err => {
-          if (err instanceof Error) setError(err.message);
-        });
-    }
-  }, []);
+  const token = localStorage.getItem('token') ?? '';
+  const userId = localStorage.getItem('userId') ?? '';
+  if (token && userId) {
+    getUserById(userId)
+      .then(data => setUser(data))
+      .catch(err => {
+        if (err instanceof Error) setError(err.message);
+      });
+  }
+}, []);
+
 
   const signIn = async (credentials: Credentials) => {
     try {
@@ -58,7 +59,9 @@ export const useAuth = () => {
   const register = async (userData: UserData) => {
     try {
       const data = await signup(userData);
-      localStorage.setItem('token', data.token);
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+      }
       localStorage.setItem('userId', data.user.id);
       setUser(data.user);
       return data;
