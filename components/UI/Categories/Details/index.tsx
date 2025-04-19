@@ -24,7 +24,8 @@ const CategoriesDetails: React.FC<Props> = ({ id, category, details }) => {
   const router = useRouter();
   const { showModal, hideModal, visible } = useModal();
 
-  const showModClick = () => showModal(<ThanksForVoting />);
+  // Updated to pass both content and type
+  const showModClick = () => showModal(<ThanksForVoting />, "info");
 
   if (!category) {
     toast.error("category not found");
