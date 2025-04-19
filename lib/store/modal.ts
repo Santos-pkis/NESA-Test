@@ -7,7 +7,7 @@ interface Modal {
   content: JSX.Element | null;
   type: ModalType | null;
   hideModal: () => void;
-  showModal: (content: JSX.Element, type: ModalType) => void;
+  showModal: (content: JSX.Element, type?: ModalType) => void; // Make 'type' optional
 }
 
 export const useModal = create<Modal>((set) => ({
@@ -15,6 +15,6 @@ export const useModal = create<Modal>((set) => ({
   content: null,
   type: null,
   hideModal: () => set(() => ({ visible: false, content: null, type: null })),
-  showModal: (content, type) =>
+  showModal: (content, type = "info") => // Default 'type' to "info"
     set(() => ({ visible: true, content, type })),
 }));

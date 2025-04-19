@@ -1,7 +1,7 @@
 {
-  "/(account)/account/login/page": "app/(account)/account/login/page.js",
-  "/(account)/account/resetpassword/page": "app/(account)/account/resetpassword/page.js",
   "/member/settings/page": "app/member/settings/page.js",
   "/member/page": "app/member/page.js",
-  "/member/support/page": "app/member/support/page.js"
+  "/member/support/page": "app/member/support/page.js",
+  "/(account)/account/login/page": "app/(account)/account/login/page.js",
+  "/(account)/account/resetpassword/page": "app/(account)/account/resetpassword/page.js"
 }
