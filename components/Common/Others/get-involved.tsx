@@ -188,7 +188,7 @@ const GetInvolvedModalContent = () => {
 
 const GetInvolved = () => {
   const { showModal, visible, hideModal } = useModal();
-  const partnerWithUsClickHandler = () => showModal(<GetInvolvedModalContent />);
+  const partnerWithUsClickHandler = () => showModal(<GetInvolvedModalContent />, "info"); // Pass both content and type
 
   return (
     <>

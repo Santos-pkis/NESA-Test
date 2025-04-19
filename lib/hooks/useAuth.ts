@@ -70,8 +70,7 @@ export const useAuth = () => {
 
   const updateUser = async (userData: any) => {
     try {
-      const userId = localStorage.getItem('userId');
-      if (!userId) throw new Error('User ID not found');
+      const userId = getUserId(); // Use utility function
       const data = await updateUserById(userId, userData);
       setUser(data);
       return data;
@@ -81,9 +80,21 @@ export const useAuth = () => {
     }
   };
 
-  const getUserId = () => localStorage.getItem('userId');
+  const getUserId = (): string => {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      throw new Error('User ID not found'); // Handle null case
+    }
+    return userId;
+  };
 
-  const getToken = () => localStorage.getItem('token');
+  const getToken = (): string => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('Token not found'); // Handle null case
+    }
+    return token;
+  };
 
   const logout = () => {
     localStorage.removeItem('token');
