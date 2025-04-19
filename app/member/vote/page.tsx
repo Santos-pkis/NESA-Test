@@ -7,6 +7,20 @@ import { Controls } from "@/components/voter/Controls";
 import { NomineeList } from "@/components/voter/NomineeList";
 import { CTA } from "@/components/voter/CTA";
 
+interface Nominee {
+  id: number;
+  name: string;
+  category: string;
+  image: string;
+  status: string;
+  votes: number;
+  trend?: string; // Allow undefined for trend
+  description: string;
+  dateSubmitted: string;
+  dateApproved: string | null; // Allow null for dateApproved
+  isTrending: boolean;
+}
+
 const NominationsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
@@ -21,7 +35,7 @@ const NominationsPage = () => {
     { id: "trending", label: "Trending Now" }
   ];
 
-  const nominees = [
+  const nominees: Nominee[] = [
     {
       id: 1,
       name: "Aisha Bello",
@@ -42,9 +56,10 @@ const NominationsPage = () => {
       image: "/images/nesa-card.png",
       status: "pending",
       votes: 0,
+      trend: undefined, // Explicitly set undefined for trend
       description: "Founded youth education initiatives across 5 states, providing STEM education to over 10,000 underserved students.",
       dateSubmitted: "18 Jun 2025",
-      dateApproved: null,
+      dateApproved: null, // Allow null here
       isTrending: false
     },
     {
@@ -67,6 +82,7 @@ const NominationsPage = () => {
       image: "/images/nesa-card.png",
       status: "winner",
       votes: 2156,
+      trend: "neutral", // Provide a default value for trend
       description: "Developed affordable solar solutions for rural communities, bringing renewable energy to 50+ villages.",
       dateSubmitted: "5 Jun 2025",
       dateApproved: "8 Jun 2025",
@@ -79,14 +95,18 @@ const NominationsPage = () => {
       image: "/images/nesa-card.png",
       status: "rejected",
       votes: 0,
+      trend: undefined, // Explicitly set undefined for trend
       description: "Proposed mobile clinic initiative that didn't meet this year's funding criteria but shows great potential.",
       dateSubmitted: "12 Jun 2025",
-      dateApproved: null,
+      dateApproved: null, // Allow null here
       isTrending: false
     }
   ];
 
-  const filteredNominees = nominees.filter(nominee => {
+  const filteredNominees = nominees.map(nominee => ({
+    ...nominee,
+    trend: nominee.trend || "neutral" // Default to "neutral" if trend is undefined
+  })).filter(nominee => {
     const matchesSearch = nominee.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          nominee.category.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesFilter = activeFilter === "all" ||

@@ -14,6 +14,7 @@ interface NomineeListProps {
     dateSubmitted: string;
     dateApproved: string | null;
     isTrending: boolean;
+    
   }>;
   expandedNominee: number | null;
   setExpandedNominee: (id: number | null) => void;
