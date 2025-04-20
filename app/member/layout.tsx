@@ -400,6 +400,11 @@ const AccountSettingsDropdown = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleItemClick = (onClick?: () => void) => {
+    if (onClick) onClick(); // Execute the item's onClick handler if it exists
+    setIsOpen(false); // Close the dropdown
+  };
+
   return (
     <div className={`relative ${mobile ? "mx-1" : "ml-2"}`} ref={dropdownRef}>
       <button
@@ -441,7 +446,11 @@ const AccountSettingsDropdown = ({
                     className="bg-[#191307E6] rounded-lg p-4 hover:bg-[#f6b146]/10 transition-colors border border-[#f6b146]/10"
                   >
                     {item.href ? (
-                      <Link href={item.href} className="flex items-center gap-3">
+                      <Link
+                        href={item.href}
+                        onClick={() => handleItemClick(item.onClick)}
+                        className="flex items-center gap-3"
+                      >
                         <div className="text-[#f6b146]">
                           {item.icon || <IoSettingsOutline size={20} />}
                         </div>
@@ -451,7 +460,7 @@ const AccountSettingsDropdown = ({
                       </Link>
                     ) : (
                       <button
-                        onClick={item.onClick}
+                        onClick={() => handleItemClick(item.onClick)}
                         className="flex items-center gap-3 w-full text-left"
                       >
                         <div className="text-[#f6b146]">
@@ -476,6 +485,7 @@ const AccountSettingsDropdown = ({
                   {item.href ? (
                     <Link
                       href={item.href}
+                      onClick={() => handleItemClick(item.onClick)}
                       className="flex items-center px-4 py-3 hover:bg-[#f6b146]/10 group transition-colors"
                     >
                       <div className="text-[#f6b146] mr-3">
@@ -489,7 +499,7 @@ const AccountSettingsDropdown = ({
                     </Link>
                   ) : (
                     <button
-                      onClick={item.onClick}
+                      onClick={() => handleItemClick(item.onClick)}
                       className="flex items-center px-4 py-3 hover:bg-[#f6b146]/10 group transition-colors w-full text-left"
                     >
                       <div className="text-[#f6b146] mr-3">
@@ -516,26 +526,11 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { logout } = useAuthContext();
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const handleLogout = () => {
     logout();
   };
-
-  useEffect(() => {
-    // Ensure the menu is closed on page load
-    setIsMenuOpen(false);
-
-    // Optional: Close the menu when resizing to desktop view
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -547,71 +542,72 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
           </Link>
 
           {/* Mobile Top Bar Icons */}
-          <div className="md:hidden flex items-center space-x-5">
-            {/* Mobile Header */}
-            <NotificationDropdown
-              mobile
-              icon={<IoNotificationsOutline size={20} />}
-              badge={3}
-              items={notificationItems}
-            />
-            <AccountSettingsDropdown
-              mobile
-              icon={<IoSettingsOutline size={20} />}
-              items={[
-                ...profileItems.slice(0, -1), // All items except the last one (Logout)
-                {
-                  label: "Logout",
-                  onClick: handleLogout,
-                  icon: <IoLogOutOutline className="h-4 w-4" />
-                }
-              ]}
-            />
-            <button className="text-white p-2" onClick={toggleMenu}>
-              {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-            </button>
-          </div>
+<div className="md:hidden flex items-center space-x-5">
+ {/* Mobile Header */}
+<NotificationDropdown
+  mobile
+  icon={<IoNotificationsOutline size={20} />}
+  badge={3}
+  items={notificationItems}
+/>
+  <AccountSettingsDropdown 
+    mobile
+    icon={<IoSettingsOutline size={20} />}
+    items={[
+      ...profileItems.slice(0, -1), // All items except the last one (Logout)
+      {
+        label: "Logout",
+        onClick: handleLogout,
+        icon: <IoLogOutOutline className="h-4 w-4" />
+      }
+    ]}
+  />
+  <button className="text-white p-2" onClick={toggleMenu}>
+    {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+  </button>
+</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            {mainMenuConfig.map((item, index) =>
+            {mainMenuConfig.map((item, index) => (
               item.subItems ? (
                 <NavDropdown key={index} item={item} />
               ) : (
                 <NavItem key={index} item={item} />
               )
-            )}
+            ))}
             <WalletInfo />
             {/* Desktop Icons */}
-            <NotificationDropdown
-              icon={<IoNotificationsOutline size={20} />}
-              badge={3}
-              items={notificationItems}
-            />
-            <AccountSettingsDropdown
-              icon={<IoSettingsOutline size={20} />}
-              items={[
-                ...profileItems.slice(0, -1), // All items except the last one (Logout)
-                {
-                  label: "Logout",
-                  onClick: handleLogout,
-                  icon: <IoLogOutOutline className="h-4 w-4" />
-                }
-              ]}
-            />
+            {/* Desktop Header */}
+<NotificationDropdown
+  icon={<IoNotificationsOutline size={20} />}
+  badge={3}
+  items={notificationItems}
+/>
+             <AccountSettingsDropdown
+    icon={<IoSettingsOutline size={20} />}
+    items={[
+      ...profileItems.slice(0, -1), // All items except the last one (Logout)
+      {
+        label: "Logout",
+        onClick: handleLogout,
+        icon: <IoLogOutOutline className="h-4 w-4" />
+      }
+    ]}
+  />
           </div>
         </div>
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <div className="md:hidden bg-[#191307E6] mt-2 p-4 space-y-3 border-t border-[#f6b146]/10">
-            {mainMenuConfig.map((item, index) =>
+            {mainMenuConfig.map((item, index) => (
               item.subItems ? (
                 <NavDropdown key={index} item={item} mobile />
               ) : (
                 <NavItem key={index} item={item} mobile />
               )
-            )}
+            ))}
             <div className="pt-2">
               <WalletInfo />
             </div>
@@ -619,7 +615,9 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
         )}
       </nav>
 
-      <main className="flex-grow pt-20">{children}</main>
+      <main className="flex-grow pt-20">
+        {children}
+      </main>
 
       <Footer />
     </div>
