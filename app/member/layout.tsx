@@ -353,7 +353,7 @@ const NotificationDropdown = ({
                         <p className="text-xs text-gray-400 mt-1">{item.timestamp}</p>
                       )}
                     </div>
-                    <div className="h-2 w-2 bg-[#f6b146] rounded-full ml-4" />
+                    <div className="h-2 w-2 bg-[#f6b146] rounded-full ml-5" />
                   </Link>
                 ))}
               </div>
@@ -374,16 +374,168 @@ const NotificationDropdown = ({
   );
 };
 
+
+const AccountSettingsDropdown = ({
+  icon,
+  items,
+  mobile = false
+}: {
+  icon: React.ReactNode;
+  items: { href?: string; label: string; icon?: React.ReactNode; onClick?: () => void }[];
+  mobile?: boolean;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div className={`relative ${mobile ? "mx-1" : "ml-2"}`} ref={dropdownRef}>
+      <button
+        onClick={toggleDropdown}
+        className={`relative p-2 rounded-full transition-colors ${
+          mobile ? "bg-white text-[#36322f]" : "bg-white text-[#36322f]"
+        } hover:bg-[#f6b146]`}
+      >
+        {icon}
+      </button>
+
+      {isOpen && (
+        <div
+          className={`${
+            mobile
+              ? "fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+              : "absolute right-0 mt-2 bg-[#191307E6] rounded-lg shadow-xl min-w-[200px]"
+          }`}
+        >
+          {/* Mobile Full-screen Account Settings Panel */}
+          {mobile && (
+            <div className="absolute bottom-0 w-full bg-[#191307] rounded-t-2xl shadow-lg max-h-[85vh] flex flex-col">
+              {/* Header */}
+              <div className="px-4 py-4 border-b border-[#f6b146]/20 flex justify-between items-center">
+                <h3 className="text-xl font-bold text-[#f6b146]">Account Settings</h3>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-gray-400 hover:text-[#f6b146]"
+                >
+                  <HiX size={24} />
+                </button>
+              </div>
+
+              {/* Account Settings List */}
+              <div className="overflow-y-auto flex-1 p-4 space-y-4">
+                {items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#191307E6] rounded-lg p-4 hover:bg-[#f6b146]/10 transition-colors border border-[#f6b146]/10"
+                  >
+                    {item.href ? (
+                      <Link href={item.href} className="flex items-center gap-3">
+                        <div className="text-[#f6b146]">
+                          {item.icon || <IoSettingsOutline size={20} />}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-medium text-white">{item.label}</h4>
+                        </div>
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={item.onClick}
+                        className="flex items-center gap-3 w-full text-left"
+                      >
+                        <div className="text-[#f6b146]">
+                          {item.icon || <IoSettingsOutline size={20} />}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-medium text-white">{item.label}</h4>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Desktop Account Settings Dropdown */}
+          {!mobile && (
+            <div className="bg-[#191307E6] rounded-lg shadow-xl py-2 border border-[#f6b146]/20">
+              {items.map((item, index) => (
+                <div key={index}>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="flex items-center px-4 py-3 hover:bg-[#f6b146]/10 group transition-colors"
+                    >
+                      <div className="text-[#f6b146] mr-3">
+                        {item.icon || <IoSettingsOutline size={18} />}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm text-white group-hover:text-[#f6b146]">
+                          {item.label}
+                        </p>
+                      </div>
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={item.onClick}
+                      className="flex items-center px-4 py-3 hover:bg-[#f6b146]/10 group transition-colors w-full text-left"
+                    >
+                      <div className="text-[#f6b146] mr-3">
+                        {item.icon || <IoSettingsOutline size={18} />}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm text-white group-hover:text-[#f6b146]">
+                          {item.label}
+                        </p>
+                      </div>
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
 // Main Layout Component
 export default function MemberLayout({ children }: MemberLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { logout } = useAuthContext();
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const handleLogout = () => {
     logout();
   };
+
+  useEffect(() => {
+    // Ensure the menu is closed on page load
+    setIsMenuOpen(false);
+
+    // Optional: Close the menu when resizing to desktop view
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -395,49 +547,48 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
           </Link>
 
           {/* Mobile Top Bar Icons */}
-<div className="md:hidden flex items-center space-x-4">
- {/* Mobile Header */}
-<NotificationDropdown
-  mobile
-  icon={<IoNotificationsOutline size={20} />}
-  badge={3}
-  items={notificationItems}
-/>
-  <NotificationDropdown
-    mobile
-    icon={<IoSettingsOutline size={20} />}
-    items={[
-      ...profileItems.slice(0, -1), // All items except the last one (Logout)
-      {
-        label: "Logout",
-        onClick: handleLogout,
-        icon: <IoLogOutOutline className="h-4 w-4" />
-      }
-    ]}
-  />
-  <button className="text-white p-2" onClick={toggleMenu}>
-    {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-  </button>
-</div>
+          <div className="md:hidden flex items-center space-x-5">
+            {/* Mobile Header */}
+            <NotificationDropdown
+              mobile
+              icon={<IoNotificationsOutline size={20} />}
+              badge={3}
+              items={notificationItems}
+            />
+            <AccountSettingsDropdown
+              mobile
+              icon={<IoSettingsOutline size={20} />}
+              items={[
+                ...profileItems.slice(0, -1), // All items except the last one (Logout)
+                {
+                  label: "Logout",
+                  onClick: handleLogout,
+                  icon: <IoLogOutOutline className="h-4 w-4" />
+                }
+              ]}
+            />
+            <button className="text-white p-2" onClick={toggleMenu}>
+              {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            </button>
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {mainMenuConfig.map((item, index) => (
+          <div className="hidden md:flex items-center space-x-4">
+            {mainMenuConfig.map((item, index) =>
               item.subItems ? (
                 <NavDropdown key={index} item={item} />
               ) : (
                 <NavItem key={index} item={item} />
               )
-            ))}
+            )}
             <WalletInfo />
             {/* Desktop Icons */}
-            {/* Desktop Header */}
-<NotificationDropdown
-  icon={<IoNotificationsOutline size={20} />}
-  badge={3}
-  items={notificationItems}
-/>
             <NotificationDropdown
+              icon={<IoNotificationsOutline size={20} />}
+              badge={3}
+              items={notificationItems}
+            />
+            <AccountSettingsDropdown
               icon={<IoSettingsOutline size={20} />}
               items={[
                 ...profileItems.slice(0, -1), // All items except the last one (Logout)
@@ -454,13 +605,13 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <div className="md:hidden bg-[#191307E6] mt-2 p-4 space-y-3 border-t border-[#f6b146]/10">
-            {mainMenuConfig.map((item, index) => (
+            {mainMenuConfig.map((item, index) =>
               item.subItems ? (
                 <NavDropdown key={index} item={item} mobile />
               ) : (
                 <NavItem key={index} item={item} mobile />
               )
-            ))}
+            )}
             <div className="pt-2">
               <WalletInfo />
             </div>
@@ -468,9 +619,7 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
         )}
       </nav>
 
-      <main className="flex-grow pt-20">
-        {children}
-      </main>
+      <main className="flex-grow pt-20">{children}</main>
 
       <Footer />
     </div>
