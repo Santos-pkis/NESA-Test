@@ -14,9 +14,9 @@ const OTPPage: React.FC = () => {
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [isResending, setIsResending] = useState<boolean>(false);
   const [isVerifying, setIsVerifying] = useState<boolean>(false);
-  const inputRefs = Array(6)
-    .fill(0)
-    .map(() => useRef<HTMLInputElement>(null));
+
+  // Initialize refs for each OTP input
+  const inputRefs = useRef<HTMLInputElement[]>([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -34,44 +34,44 @@ const OTPPage: React.FC = () => {
       setError("");
 
       if (value && index < 5) {
-        inputRefs[index + 1].current?.focus();
+        inputRefs.current[index + 1]?.focus();
       }
     }
   };
 
   const handleVerify = async () => {
-  const enteredOtp = otp.join("");
+    const enteredOtp = otp.join("");
 
-  if (enteredOtp.length !== 6) {
-    setError("Please enter a complete 6-digit code");
-    return;
-  }
-
-  try {
-    setIsVerifying(true);
-    const response = await verifyOTP({ email, otp: enteredOtp }); // Call the verifyOTP API
-
-    if (response.token) {
-      // Set the token in cookies
-      document.cookie = `token=${response.token}; path=/; max-age=86400; secure`;
-
-      // Optionally set the userId in cookies if needed
-      document.cookie = `userId=${response.user.id}; path=/; max-age=86400; secure`;
-
-      setSuccessMessage("OTP verified successfully! Redirecting...");
-      setTimeout(() => {
-        // Redirect to the member dashboard
-        window.location.href = "/member/";
-      }, 1000);
-    } else {
-      setError("OTP verification failed. Please try again.");
+    if (enteredOtp.length !== 6) {
+      setError("Please enter a complete 6-digit code");
+      return;
     }
-  } catch (err: any) {
-    setError(err.message || "OTP verification failed. Please try again.");
-  } finally {
-    setIsVerifying(false);
-  }
-};
+
+    try {
+      setIsVerifying(true);
+      const response = await verifyOTP({ email, otp: enteredOtp }); // Call the verifyOTP API
+
+      if (response.token) {
+        // Set the token in cookies
+        document.cookie = `token=${response.token}; path=/; max-age=86400; secure`;
+
+        // Optionally set the userId in cookies if needed
+        document.cookie = `userId=${response.user.id}; path=/; max-age=86400; secure`;
+
+        setSuccessMessage("OTP verified successfully! Redirecting...");
+        setTimeout(() => {
+          // Redirect to the member dashboard
+          window.location.href = "/member/";
+        }, 1000);
+      } else {
+        setError("OTP verification failed. Please try again.");
+      }
+    } catch (err: any) {
+      setError(err.message || "OTP verification failed. Please try again.");
+    } finally {
+      setIsVerifying(false);
+    }
+  };
 
   const handleResendOtp = async () => {
     if (timeLeft > 0 && timeLeft < 45) return;
@@ -82,7 +82,7 @@ const OTPPage: React.FC = () => {
       setTimeLeft(45);
       setError("");
       setOtp(["", "", "", "", "", ""]);
-      inputRefs[0].current?.focus();
+      inputRefs.current[0]?.focus();
     } catch (err) {
       setError("Failed to resend OTP. Please try again.");
     } finally {
@@ -92,7 +92,7 @@ const OTPPage: React.FC = () => {
 
   const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
-      inputRefs[index - 1].current?.focus();
+      inputRefs.current[index - 1]?.focus();
     }
   };
 
@@ -118,7 +118,9 @@ const OTPPage: React.FC = () => {
               {otp.map((digit, index) => (
                 <input
                   key={index}
-                  ref={inputRefs[index]}
+                  ref={(el) => {
+                    if (el) inputRefs.current[index] = el; // Assign refs dynamically
+                  }}
                   type="text"
                   maxLength={1}
                   value={digit}
