@@ -20,7 +20,7 @@ const Wallet = () => {
   const walletId = "NESA/VIS/2025/000123";
   const balance = 1250;
   const transactions = [
-    { type: "credit", amount: 500, reason: "Referral Bonus", date: "15 Jun, 2025" },
+    { type: "credit", amount: 590, reason: "Referral Bonus", date: "15 Jun, 2025" },
     { type: "debit", amount: 250, reason: "Merchandise Purchase", date: "10 Jun, 2025" },
     { type: "credit", amount: 300, reason: "Voting Activity", date: "5 Jun, 2025" },
     { type: "credit", amount: 200, reason: "Nomination Reward", date: "1 Jun, 2025" },
