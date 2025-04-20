@@ -85,7 +85,7 @@ const MembershipForm: React.FC = () => {
       
       setShowSuccessPopup(true);
       setTimeout(() => {
-        router.push("/onboarding");
+        router.push("/account/onboarding");
       }, 1000);
     } catch (err: any) {
       setError(err.message || "Registration failed. Please try again.");
