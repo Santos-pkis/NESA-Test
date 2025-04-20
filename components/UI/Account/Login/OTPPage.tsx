@@ -1,11 +1,10 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { verifyOTP } from "@/lib/services/authService";
 
 const OTPPage: React.FC = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || ""; // Get email from query params
 
@@ -41,35 +40,38 @@ const OTPPage: React.FC = () => {
   };
 
   const handleVerify = async () => {
-    const enteredOtp = otp.join("");
+  const enteredOtp = otp.join("");
 
-    if (enteredOtp.length !== 6) {
-      setError("Please enter a complete 6-digit code");
-      return;
+  if (enteredOtp.length !== 6) {
+    setError("Please enter a complete 6-digit code");
+    return;
+  }
+
+  try {
+    setIsVerifying(true);
+    const response = await verifyOTP({ email, otp: enteredOtp }); // Call the verifyOTP API
+
+    if (response.token) {
+      // Set the token in cookies
+      document.cookie = `token=${response.token}; path=/; max-age=86400; secure`;
+
+      // Optionally set the userId in cookies if needed
+      document.cookie = `userId=${response.user.id}; path=/; max-age=86400; secure`;
+
+      setSuccessMessage("OTP verified successfully! Redirecting...");
+      setTimeout(() => {
+        // Redirect to the member dashboard
+        window.location.href = "/member/";
+      }, 1000);
+    } else {
+      setError("OTP verification failed. Please try again.");
     }
-
-    try {
-      setIsVerifying(true);
-      const response = await verifyOTP({ email, otp: enteredOtp }); // Call the verifyOTP API
-
-      if (response.token) {
-        localStorage.setItem("token", response.token);
-        localStorage.setItem("userId", response.user.id);
-
-        setSuccessMessage("OTP verified successfully! Redirecting...");
-        setTimeout(() => {
-         //lets use window location instead of router.push
-            window.location.href = "/account/member/";
-        }, 2000);
-      } else {
-        setError("OTP verification failed. Please try again.");
-      }
-    } catch (err: any) {
-      setError(err.message || "OTP verification failed. Please try again.");
-    } finally {
-      setIsVerifying(false);
-    }
-  };
+  } catch (err: any) {
+    setError(err.message || "OTP verification failed. Please try again.");
+  } finally {
+    setIsVerifying(false);
+  }
+};
 
   const handleResendOtp = async () => {
     if (timeLeft > 0 && timeLeft < 45) return;

@@ -1,23 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Shield, Loader2 } from "lucide-react";
-import { useAuthContext } from '@/lib/context/AuthContext';
-import { changePassword } from '@/lib/services/authService';
+import { useAuthContext } from "@/lib/context/AuthContext";
+import { changePassword } from "@/lib/services/authService";
 import { useModal } from "@/lib/store/modal";
 
 const SecurityTab = () => {
   const { user } = useAuthContext();
   const { showModal } = useModal();
-  const [currentPassword, setCurrentPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmNewPassword, setConfirmNewPassword] = useState('');
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmNewPassword: "",
+  });
+
+  const validateFields = () => {
+    const newErrors = {
+      currentPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
+    };
+
+    if (!currentPassword) {
+      newErrors.currentPassword = "Current password is required.";
+    }
+
+    if (!newPassword) {
+      newErrors.newPassword = "New password is required.";
+    } else if (newPassword.length < 8) {
+      newErrors.newPassword = "New password must be at least 8 characters long.";
+    } else if (!/[A-Z]/.test(newPassword)) {
+      newErrors.newPassword = "New password must contain at least one uppercase letter.";
+    } else if (!/[a-z]/.test(newPassword)) {
+      newErrors.newPassword = "New password must contain at least one lowercase letter.";
+    } else if (!/[0-9]/.test(newPassword)) {
+      newErrors.newPassword = "New password must contain at least one number.";
+    }
+
+    if (!confirmNewPassword) {
+      newErrors.confirmNewPassword = "Please confirm your new password.";
+    } else if (newPassword !== confirmNewPassword) {
+      newErrors.confirmNewPassword = "Passwords do not match.";
+    }
+
+    setErrors(newErrors);
+
+    // Return true if there are no errors
+    return Object.values(newErrors).every((error) => error === "");
+  };
 
   const handlePasswordChange = async () => {
-    if (newPassword !== confirmNewPassword) {
-      showModal(
-        <p>New passwords do not match</p>,
-        "error"
-      );
+    if (!validateFields()) {
       return;
     }
 
@@ -35,15 +71,13 @@ const SecurityTab = () => {
       );
 
       // Clear form on success
-      setCurrentPassword('');
-      setNewPassword('');
-      setConfirmNewPassword('');
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmNewPassword("");
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'An unexpected error occurred';
-      showModal(
-        <p>{errorMessage}</p>,
-        "error"
-      );
+      const errorMessage =
+        err instanceof Error ? err.message : "An unexpected error occurred";
+      showModal(<p>{errorMessage}</p>, "error");
     } finally {
       setIsLoading(false);
     }
@@ -77,31 +111,52 @@ const SecurityTab = () => {
             <h3 className="font-medium text-gray-900 mb-3">Change Password</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Current Password
+                </label>
                 <input
                   type="password"
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition"
+                  className={`w-full p-3 border ${
+                    errors.currentPassword ? "border-red-500" : "border-gray-300"
+                  } rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition`}
                 />
+                {errors.currentPassword && (
+                  <p className="text-red-500 text-sm mt-1">{errors.currentPassword}</p>
+                )}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  New Password
+                </label>
                 <input
                   type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition"
+                  className={`w-full p-3 border ${
+                    errors.newPassword ? "border-red-500" : "border-gray-300"
+                  } rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition`}
                 />
+                {errors.newPassword && (
+                  <p className="text-red-500 text-sm mt-1">{errors.newPassword}</p>
+                )}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Confirm New Password
+                </label>
                 <input
                   type="password"
                   value={confirmNewPassword}
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition"
+                  className={`w-full p-3 border ${
+                    errors.confirmNewPassword ? "border-red-500" : "border-gray-300"
+                  } rounded-lg focus:ring-2 focus:ring-deepGold focus:border-deepGold transition`}
                 />
+                {errors.confirmNewPassword && (
+                  <p className="text-red-500 text-sm mt-1">{errors.confirmNewPassword}</p>
+                )}
               </div>
             </div>
             <div className="mt-6 flex justify-end">
@@ -124,44 +179,6 @@ const SecurityTab = () => {
             </div>
           </div>
         </div>
-        <div className="p-5">
-            <h3 className="font-medium text-gray-900 mb-3">Recent Devices</h3>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <div className="flex items-center">
-                  <div className="bg-gray-200 p-2 rounded-lg mr-4">
-                    <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-medium">MacBook Pro</p>
-                    <p className="text-sm text-gray-500">Lagos, Nigeria • 15 Jun 2025</p>
-                  </div>
-                </div>
-                <button className="text-deepGold hover:text-deepGold/80 text-sm font-medium transition">
-                  Revoke
-                </button>
-              </div>
-
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <div className="flex items-center">
-                  <div className="bg-gray-200 p-2 rounded-lg mr-4">
-                    <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-medium">iPhone 13</p>
-                    <p className="text-sm text-gray-500">Lagos, Nigeria • 14 Jun 2025</p>
-                  </div>
-                </div>
-                <button className="text-deepGold hover:text-deepGold/80 text-sm font-medium transition">
-                  Revoke
-                </button>
-              </div>
-            </div>
-          </div>
       </div>
     </div>
   );

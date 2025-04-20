@@ -4,20 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import {
-  fromTop,
-  opacityTrans,
-  parentTransActivate,
-} from "@/lib/utils/transitions";
-import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { useAuth } from "@/lib/hooks/useAuth"; // Import the useAuth hook
+import { ChevronDown, Menu, X, User } from "lucide-react";
 import { navlinks } from "@/lib/data/global";
 import styles from "./style.module.scss";
 
 const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { user } = useAuth(); // Get the user from the useAuth hook
+
   const controlMenu = (action: boolean) => setSidebarOpen(action);
 
   useEffect(() => {
@@ -72,11 +68,11 @@ const Navbar = () => {
           </motion.div>
 
           <div className="hidden lg:flex items-center space-x-8">
-            <NavLinks pathname={pathname} />
+            <NavLinks />
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <AuthButtons />
+            <AuthButtons user={user} />
           </div>
 
           <motion.div className="lg:hidden cursor-pointer">
@@ -88,31 +84,27 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <MobileSidebar sidebarOpen={sidebarOpen} controlMenu={controlMenu} />
+      <MobileSidebar sidebarOpen={sidebarOpen} controlMenu={controlMenu} user={user} />
     </>
   );
 };
 
-const NavLinks = ({ pathname }: { pathname: string }) => (
-  <motion.ul {...parentTransActivate} className="flex items-center space-x-8">
+const NavLinks = () => (
+  <motion.ul className="flex items-center space-x-8">
     {navlinks.map((link, id) => (
-      <NavLink key={id} link={link} pathname={pathname} />
+      <NavLink key={id} link={link} />
     ))}
   </motion.ul>
 );
 
-const NavLink = ({ link, pathname }: { link: any; pathname: string }) => (
+const NavLink = ({ link }: { link: any }) => (
   <motion.li>
     {link.children && (link.label === "About" || link.label === "Awards") ? (
-      <DropdownLink link={link} pathname={pathname} />
+      <DropdownLink link={link} />
     ) : (
       <Link
         href={link.path}
-        className={
-          link.path === pathname
-            ? "font-semibold bg-gradient-to-r from-[#FFC247] to-[#E48900] inline-block text-transparent bg-clip-text"
-            : "font-normal text-white hover:text-deepGold duration-200"
-        }
+        className="font-normal text-white hover:text-deepGold duration-200"
       >
         {link.label}
       </Link>
@@ -120,7 +112,7 @@ const NavLink = ({ link, pathname }: { link: any; pathname: string }) => (
   </motion.li>
 );
 
-const DropdownLink = ({ link, pathname }: { link: any; pathname: string }) => (
+const DropdownLink = ({ link }: { link: any }) => (
   <div className={`cursor-pointer relative ${styles["nav-link"]}`}>
     <div className="flex items-center gap-2 text-white">
       <span>{link.label}</span>
@@ -144,32 +136,55 @@ const DropdownLink = ({ link, pathname }: { link: any; pathname: string }) => (
   </div>
 );
 
-const AuthButtons = ({ isMobile = false }) => (
-  <div className={`flex ${isMobile ? 'flex-col w-full' : 'flex-row'} gap-4`}>
-    <Link href="/account/login" className={isMobile ? "w-full" : ""}>
-      <motion.button
-        className={`text-[#17120a] ${isMobile ? 'w-full' : 'w-[7rem]'} flex justify-center items-center py-2 px-4 font-[500] text-sm rounded-[1rem]`}
-        style={{
-          background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
-        }}
-      >
-        Login
-      </motion.button>
-    </Link>
-    <Link href="/account/signup" className={isMobile ? "w-full" : ""}>
-      <motion.button
-        className={`text-[#17120a] ${isMobile ? 'w-full' : 'w-[7rem]'} flex justify-center items-center py-2 px-4 font-[500] text-sm rounded-[1rem]`}
-        style={{
-          background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
-        }}
-      >
-        Sign Up
-      </motion.button>
-    </Link>
-  </div>
-);
+const AuthButtons = ({ user }: { user: any }) => {
+  if (user) {
+    // If the user is logged in, show the profile icon
+    return (
+      <Link href="/member">
+        <motion.div className="flex items-center space-x-2 cursor-pointer">
+          <User className="text-white w-6 h-6" />
+          <span className="text-white font-medium">Account</span>
+        </motion.div>
+      </Link>
+    );
+  }
 
-const MobileSidebar = ({ sidebarOpen, controlMenu }: { sidebarOpen: boolean; controlMenu: (action: boolean) => void }) => (
+  // If the user is not logged in, show login and register buttons
+  return (
+    <div className="flex space-x-4">
+      <Link href="/account/login">
+        <motion.button
+          className="text-[#17120a] w-[7rem] flex justify-center items-center py-2 px-4 font-[500] text-sm rounded-[1rem]"
+          style={{
+            background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
+          }}
+        >
+          Login
+        </motion.button>
+      </Link>
+      <Link href="/account/signup">
+        <motion.button
+          className="text-[#17120a] w-[7rem] flex justify-center items-center py-2 px-4 font-[500] text-sm rounded-[1rem]"
+          style={{
+            background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
+          }}
+        >
+          Sign Up
+        </motion.button>
+      </Link>
+    </div>
+  );
+};
+
+const MobileSidebar = ({
+  sidebarOpen,
+  controlMenu,
+  user,
+}: {
+  sidebarOpen: boolean;
+  controlMenu: (action: boolean) => void;
+  user: any;
+}) => (
   <aside
     className={`${
       sidebarOpen ? "translate-x-0" : "translate-x-full"
@@ -178,44 +193,66 @@ const MobileSidebar = ({ sidebarOpen, controlMenu }: { sidebarOpen: boolean; con
     <motion.div className="absolute right-8 top-8 cursor-pointer">
       <X size={28} onClick={() => controlMenu(false)} />
     </motion.div>
-    <MobileSideMenu controlMenu={controlMenu} />
+    <MobileSideMenu controlMenu={controlMenu} user={user} />
   </aside>
 );
 
-const MobileSideMenu = ({ controlMenu }: { controlMenu: (action: boolean) => void }) => {
-  const pathname = usePathname();
-  const [activeDrop, setActiveDrop] = useState<number | null>(null);
-  const toggleDrop = (id: number) =>
-    setActiveDrop((prev) => (prev === id ? null : id));
+const MobileSideMenu = ({
+  controlMenu,
+  user,
+}: {
+  controlMenu: (action: boolean) => void;
+  user: any;
+}) => {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null); // State to track open dropdown
+
+  const toggleDropdown = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label)); // Toggle dropdown
+  };
 
   return (
-    <motion.div
-      {...opacityTrans}
-      className="flex flex-col justify-center items-center w-full px-8"
-    >
+    <motion.div className="flex flex-col justify-center items-center w-full px-8">
       <ul className="flex flex-col text-center justify-center text-lg space-y-4 w-full">
         {navlinks.map((link, id) => (
           <motion.li
-            variants={fromTop}
             key={id}
-            className="py-3"
-            onClick={() => toggleDrop(id)}
+            className="py-3 text-center" // Ensure all items are centered
           >
             {link.children ? (
-              <MobileDropdownLink
-                link={link}
-                pathname={pathname}
-                isActive={activeDrop === id}
-                controlMenu={controlMenu}
-              />
+              <div>
+                <div
+                  className="flex justify-between items-center cursor-pointer font-normal duration-200 text-white"
+                  onClick={() => toggleDropdown(link.label)}
+                >
+                  <span className="w-full text-center">{link.label}</span>
+                  <ChevronDown
+                    size={18}
+                    className={`duration-300 ${
+                      openDropdown === link.label ? "rotate-180" : ""
+                    }`}
+                  />
+                </div>
+                {openDropdown === link.label && (
+                  <ul className="mt-2 space-y-2 text-sm text-gray-300">
+                    {link.children.map((child: any, childId: number) => (
+                      <li key={childId}>
+                        <Link
+                          href={child.path}
+                          target={child.external ? "_blank" : "_self"}
+                          className="block py-2 px-4 hover:bg-gray-700 rounded-lg text-center"
+                          onClick={() => controlMenu(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             ) : (
               <Link
                 href={link.path}
-                className={
-                  link.path === pathname
-                    ? "font-semibold"
-                    : "font-normal duration-200"
-                }
+                className="font-normal duration-200 text-white text-center block"
                 onClick={() => controlMenu(false)}
               >
                 {link.label}
@@ -224,48 +261,11 @@ const MobileSideMenu = ({ controlMenu }: { controlMenu: (action: boolean) => voi
           </motion.li>
         ))}
       </ul>
-      <div className="mt-8 w-full">
-        <AuthButtons isMobile={true} />
+      <div className="mt-8 w-full flex justify-center">
+        <AuthButtons user={user} />
       </div>
     </motion.div>
   );
 };
-
-const MobileDropdownLink = ({ link, pathname, isActive, controlMenu }: { link: any; pathname: string; isActive: boolean; controlMenu: (action: boolean) => void }) => (
-  <div
-    className={`cursor-pointer group ${
-      link.path === pathname ? "font-semibold" : "font-normal duration-200"
-    } ${styles["nav-link"]}`}
-  >
-    <div className="flex items-center gap-1 justify-center group-hover:font-bold">
-      <span>{link.label}</span>
-      <ChevronDown
-        size={18}
-        className={`duration-300 ${isActive && "rotate-180"}`}
-      />
-    </div>
-    <div
-      className={`duration-300 overflow-hidden text-sm ${
-        isActive ? "h-auto mt-4" : "h-0"
-      }`}
-    >
-      {link.children.map((child: any, id: number) => (
-        <div
-          key={id}
-          className="hover:text-deepGold duration-200 px-5"
-          onClick={() => controlMenu(false)}
-        >
-          <Link
-            href={child.path}
-            target={child.external ? "_blank" : "_self"}
-            className="w-full block py-3"
-          >
-            {child.label}
-          </Link>
-        </div>
-      ))}
-    </div>
-  </div>
-);
 
 export default Navbar;

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { login, verifyOTP, signup, resetPassword as resetPasswordService } from '../services/authService';
-import { getUserById, updateUserById } from '../services/userService';
+import { useState, useEffect } from "react";
+import { login, verifyOTP, signup, resetPassword as resetPasswordService } from "../services/authService";
+import { getUserById, updateUserById } from "../services/userService";
 
 interface Credentials {
   email: string;
@@ -19,25 +19,29 @@ export const useAuth = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-  const token = localStorage.getItem('token') ?? '';
-  const userId = localStorage.getItem('userId') ?? '';
-  if (token && userId) {
-    getUserById(userId)
-      .then(data => setUser(data))
-      .catch(err => {
-        if (err instanceof Error) setError(err.message);
-      });
-  }
-}, []);
-
+    const token = getCookie("token");
+    const userId = getCookie("userId");
+    if (token && userId) {
+      getUserById(userId)
+        .then((data) => setUser(data))
+        .catch((err) => {
+          if (err instanceof Error) setError(err.message);
+        });
+    }
+  }, []);
 
   const signIn = async (credentials: Credentials) => {
     try {
       const data = await login(credentials);
+      if (data.token) {
+        setCookie("token", data.token, 1); // Store token in cookies for 1 day
+        setCookie("userId", data.user.id, 1); // Store userId in cookies for 1 day
+        setUser(data.user);
+      }
       return data;
     } catch (err: unknown) {
       if (err instanceof Error) throw err;
-      throw new Error('Login failed');
+      throw new Error("Login failed");
     }
   };
 
@@ -45,14 +49,14 @@ export const useAuth = () => {
     try {
       const data = await verifyOTP({ email, otp });
       if (data.token) {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('userId', data.user.id);
+        setCookie("token", data.token, 1); // Store token in cookies for 1 day
+        setCookie("userId", data.user.id, 1); // Store userId in cookies for 1 day
         setUser(data.user);
       }
       return data;
     } catch (err: unknown) {
       if (err instanceof Error) throw err;
-      throw new Error('OTP verification failed');
+      throw new Error("OTP verification failed");
     }
   };
 
@@ -60,14 +64,14 @@ export const useAuth = () => {
     try {
       const data = await signup(userData);
       if (data.token) {
-        localStorage.setItem('token', data.token);
+        setCookie("token", data.token, 1); // Store token in cookies for 1 day
+        setCookie("userId", data.user.id, 1); // Store userId in cookies for 1 day
+        setUser(data.user);
       }
-      localStorage.setItem('userId', data.user.id);
-      setUser(data.user);
       return data;
     } catch (err: unknown) {
       if (err instanceof Error) throw err;
-      throw new Error('Registration failed');
+      throw new Error("Registration failed");
     }
   };
 
@@ -79,31 +83,31 @@ export const useAuth = () => {
       return data;
     } catch (err: unknown) {
       if (err instanceof Error) throw err;
-      throw new Error('Failed to update user details');
+      throw new Error("Failed to update user details");
     }
   };
 
   const getUserId = (): string => {
-    const userId = localStorage.getItem('userId');
+    const userId = getCookie("userId");
     if (!userId) {
-      throw new Error('User ID not found'); // Handle null case
+      throw new Error("User ID not found"); // Handle null case
     }
     return userId;
   };
 
   const getToken = (): string => {
-    const token = localStorage.getItem('token');
+    const token = getCookie("token");
     if (!token) {
-      throw new Error('Token not found'); // Handle null case
+      throw new Error("Token not found"); // Handle null case
     }
     return token;
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
+    deleteCookie("token");
+    deleteCookie("userId");
     setUser(null);
-    window.location.href = '/account/login'; // Redirect to sign-in page
+    window.location.href = "/account/login"; // Redirect to sign-in page
   };
 
   const resetPassword = async (email: string) => {
@@ -112,9 +116,30 @@ export const useAuth = () => {
       return data;
     } catch (err: unknown) {
       if (err instanceof Error) throw err;
-      throw new Error('Failed to reset password');
+      throw new Error("Failed to reset password");
     }
   };
 
   return { user, error, signIn, verifyEmail, register, updateUser, getUserId, getToken, logout, resetPassword };
+};
+
+const setCookie = (name: string, value: string, days: number) => {
+  const expires = new Date();
+  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${value}; path=/; expires=${expires.toUTCString()}; secure`;
+};
+
+const getCookie = (name: string): string | null => {
+  const cookies = document.cookie.split("; ");
+  for (const cookie of cookies) {
+    const [key, value] = cookie.split("=");
+    if (key === name) {
+      return value;
+    }
+  }
+  return null;
+};
+
+const deleteCookie = (name: string) => {
+  document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; secure`;
 };

@@ -1,7 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(main)/(home)/page": "app/(main)/(home)/page.js",
-  "/(account)/account/login/page": "app/(account)/account/login/page.js",
-  "/(main)/profile/page": "app/(main)/profile/page.js"
+  "/member/page": "app/member/page.js",
+  "/member/createnominee/page": "app/member/createnominee/page.js",
+  "/member/referrals/page": "app/member/referrals/page.js",
+  "/member/wallet/page": "app/member/wallet/page.js",
+  "/(account)/account/onboarding/page": "app/(account)/account/onboarding/page.js",
+  "/(main)/(home)/page": "app/(main)/(home)/page.js"
 }

@@ -1,8 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image'; // Import Image from next/image
-import PhoneInput from 'react-phone-input-2'; // Import react-phone-input-2
-import 'react-phone-input-2/lib/style.css'; // Import the CSS for the phone input
+import Image from 'next/image';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import { createNomination } from '../../../lib/services/nominationService';
 
 interface Category {
   title: string;
@@ -15,8 +16,11 @@ interface NominationPageProps {
 }
 
 interface FormData {
+  category_id: string;
   subCategory: string;
+  competitiveType: string;
   name: string;
+  email: string;
   organization: string;
   phone: string;
   socialMedia: string;
@@ -39,6 +43,7 @@ const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ details, onClose,
           <button onClick={onClose} className="text-2xl">&times;</button>
         </div>
         <div className="space-y-4">
+          <ConfirmationField label="Category" value={details.category_id} />
           <ConfirmationField label="Sub Category" value={details.subCategory} />
           <ConfirmationField label="Name of Individual/Organization" value={details.name} />
           <ConfirmationField label="Organization they belong to" value={details.organization} />
@@ -82,8 +87,8 @@ const SuccessPopup: React.FC<{ onClose: () => void, onNominateAnother: () => voi
         <Image 
           src="/images/heroicons-solid/Subtract.png" 
           alt="Success" 
-          width={80} // Set width
-          height={80} // Set height
+          width={80}
+          height={80}
           className="w-20 h-20 mx-auto mb-4"
         />
         <h2 className="text-3xl font-bold mb-4">Thank you for Nominating!!</h2>
@@ -110,11 +115,16 @@ const SuccessPopup: React.FC<{ onClose: () => void, onNominateAnother: () => voi
 };
 
 const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
+  
+
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    subCategory: category.title,
+    category_id: "9f8e7d6c-5432-10fe-dcba-0987654321fe",
+    subCategory: "Leadership",
+    competitiveType: "competitive",
     name: '',
+    email: '',
     organization: '',
     phone: '',
     socialMedia: '',
@@ -143,17 +153,81 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
     setShowConfirmation(true);
   };
 
-  const handleNominate = () => {
-    console.log('Nomination submitted:', formData);
+  const handleNominate = async () => {
+  console.group('Nomination Submission - Debug');
+  try {
+    // 1. Verify authentication
+    const token = getCookie('token');
+    console.log('Auth token:', token ? 'Found' : 'Missing');
+    if (!token) {
+      throw new Error('Authentication required. Please log in again.');
+    }
+
+    // 2. Validate required fields
+    if (!formData.category_id) {
+      throw new Error('Category ID is required');
+    }
+   // Debug: Log the payload structure
+    console.log('Component Payload:', {
+      category_id: formData.category_id,
+      subCategory: formData.subCategory,
+      // ... other fields ...
+    });
+
+
+    // 3. Prepare the payload with debug logging
+    const nominationData = {
+      category_id: formData.category_id,
+      sub_category: formData.subCategory,
+      competitive_type: formData.competitiveType,
+      status: "pending",
+      name: formData.name,
+      email: formData.email,
+      organization: formData.organization,
+      phone: formData.phone,
+      social_media: formData.socialMedia,
+      document: formData.document, // Ensure the document is passed as File | null
+      achievements: formData.achievements
+    };
+
+    console.log('Submitting:', nominationData);
+    
+
+    // 4. Make the API call
+      await createNomination(nominationData);
     setShowConfirmation(false);
     setShowSuccess(true);
-  };
+    
+  } catch (error: any) {
+    console.error('Submission Error:', {
+      message: error.message,
+      response: error.response?.data
+    });
+    
+    alert(`Submission failed: ${error.response?.data?.error || error.message}`);
+  }
+};
+
+// Add this helper function to your component
+const getCookie = (name: string): string | null => {
+  const cookies = document.cookie.split('; ');
+  for (const cookie of cookies) {
+    const [key, value] = cookie.split('=');
+    if (key === name) {
+      return decodeURIComponent(value);
+    }
+  }
+  return null;
+};
 
   const handleNominateAnother = () => {
     setShowSuccess(false);
     setFormData({
-      subCategory: category.title,
+      category_id: "9f8e7d6c-5432-10fe-dcba-0987654321fe",
+      subCategory: "Leadership",
+      competitiveType: "competitive",
       name: '',
+      email: '',
       organization: '',
       phone: '',
       socialMedia: '',
@@ -186,6 +260,10 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
               <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} placeholder="Name of Individual or Organization" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
             </div>
             <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email Address" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
+            </div>
+            <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone number</label>
               <PhoneInput
                 country={'ng'}
@@ -199,19 +277,21 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
                 }}
               />
             </div>
-            <div className="space-y-6">
-              <div>
-                <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">Organization</label>
-                <input type="text" id="organization" name="organization" value={formData.organization} onChange={handleInputChange} placeholder="Name of the organization they belong to" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
-              </div>
-              <div>
-                <label htmlFor="document" className="block text-sm font-medium text-gray-700 mb-2">Document</label>
-                <div className="relative border-2 border-dashed border-gray-300 rounded-lg p-4 bg-[#FFF9ED]">
-                  <input type="file" id="document" name="document" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept=".jpg,.png,.pdf,.svg" />
-                  <div className="text-center">
-                    <p className="text-gray-600">Upload supporting document or video</p>
-                    <p className="text-xs text-gray-500 mt-1">JPG, PNG, PDF and SVG files only</p>
-                  </div>
+            <div>
+              <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">Organization</label>
+              <input type="text" id="organization" name="organization" value={formData.organization} onChange={handleInputChange} placeholder="Name of the organization they belong to" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
+            </div>
+            <div>
+              <label htmlFor="socialMedia" className="block text-sm font-medium text-gray-700 mb-2">Social Media Profile</label>
+              <input type="text" id="socialMedia" name="socialMedia" value={formData.socialMedia} onChange={handleInputChange} placeholder="Social Media Handle" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
+            </div>
+            <div>
+              <label htmlFor="document" className="block text-sm font-medium text-gray-700 mb-2">Document</label>
+              <div className="relative border-2 border-dashed border-gray-300 rounded-lg p-4 bg-[#FFF9ED]">
+                <input type="file" id="document" name="document" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept=".jpg,.png,.pdf,.svg" />
+                <div className="text-center">
+                  <p className="text-gray-600">Upload supporting document or video</p>
+                  <p className="text-xs text-gray-500 mt-1">JPG, PNG, PDF and SVG files only</p>
                 </div>
               </div>
             </div>
@@ -220,7 +300,7 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
               <textarea id="achievements" name="achievements" rows={4} value={formData.achievements} onChange={handleInputChange} placeholder="Write a personal statement or provide specific Achievements of your nominee" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none"></textarea>
             </div>
           </div>
-          <button type="submit" className="w-full text-black  py-3 px-4 rounded-lg" style={{
+          <button type="submit" className="w-full text-black py-3 px-4 rounded-lg" style={{
             background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
           }}>Submit for Nomination</button>
         </form>

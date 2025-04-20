@@ -2,8 +2,11 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { FiArrowRight, FiArrowLeft, FiX } from "react-icons/fi";
+import { FaVoteYea, FaListAlt, FaHandsHelping } from "react-icons/fa";
+import Image from "next/image";
+import { MdLocationPin } from "react-icons/md";
+import { Phone, Mail } from "lucide-react";
 
 const OnboardingFlow: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -29,19 +32,19 @@ const OnboardingFlow: React.FC = () => {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen w-full bg-white">
-      {/* Left Side - Consistent with Registration Page */}
-      <div className="w-full md:w-1/3 relative overflow-hidden hidden md:block">
-        <div className="absolute inset-0">
+      {/* Left Side - Sidebar with Images and Contact Info */}
+      <div className="w-full md:w-2/5 relative overflow-hidden bg-black">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/images/Hero section.png"
             alt="Background"
-            fill
+            layout="fill"
+            objectFit="cover"
             quality={100}
-            className="object-cover"
           />
         </div>
-        {/* Overlay Content */}
-        <div className="absolute inset-0 flex flex-col justify-between p-8 text-white">
+
+        <div className="absolute inset-0 flex flex-col justify-between p-8 text-white z-10">
           <div>
             <Image
               src="/images/NESA logo_UPDATED 1.png"
@@ -60,11 +63,26 @@ const OnboardingFlow: React.FC = () => {
               className="max-w-full h-auto"
             />
           </div>
+          <div className="text-sm">
+            <p className="mb-2 flex items-center">
+              <MdLocationPin className="mr-2" /> 54, Falolu Street, Surulere,
+              Lagos
+            </p>
+            <p className="mb-2 flex items-center">
+              <Phone className="mr-2" /> +234-907-962-1110
+            </p>
+            <p className="mb-2 flex items-center">
+              <Phone className="mr-2" /> +234-810-976-5897
+            </p>
+            <p className="flex items-center">
+              <Mail className="mr-2" /> nesa.africa@gmail.com
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Right Side - Onboarding Content */}
-      <div className="w-full md:w-2/3 p-6 md:p-12 bg-white">
+      <div className="w-full md:w-3/5 p-6 md:p-12 bg-white">
         <div className="max-w-2xl mx-auto h-full flex flex-col">
           {/* Skip Button (Top Right) */}
           <div className="flex justify-end mb-8">
@@ -80,57 +98,46 @@ const OnboardingFlow: React.FC = () => {
           <div className="flex-grow flex flex-col justify-center">
             {currentStep === 1 && (
               <div className="text-center">
-                <div className="mb-8 mx-auto w-64 h-64 relative">
-                  <Image
-                    src="/images/voting-concept.png" // Replace with your actual image
-                    alt="Nominate and Vote"
-                    fill
-                    className="object-contain"
-                  />
+                <div className="mb-8 mx-auto w-24 h-24 flex items-center justify-center bg-[#FFC247] rounded-full">
+                  <FaVoteYea className="text-white text-4xl" />
                 </div>
                 <h1 className="text-3xl font-bold mb-4 text-[#333]">
                   Nominate and Vote for Excellence
                 </h1>
                 <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                  Discover outstanding candidates across various categories and cast your votes to recognize excellence in education.
+                  Discover outstanding candidates across various categories and
+                  cast your votes to recognize excellence in education.
                 </p>
               </div>
             )}
 
             {currentStep === 2 && (
               <div className="text-center">
-                <div className="mb-8 mx-auto w-64 h-64 relative">
-                  <Image
-                    src="/images/categories-concept.png" // Replace with your actual image
-                    alt="Multiple Categories"
-                    fill
-                    className="object-contain"
-                  />
+                <div className="mb-8 mx-auto w-24 h-24 flex items-center justify-center bg-[#FFC247] rounded-full">
+                  <FaListAlt className="text-white text-4xl" />
                 </div>
                 <h1 className="text-3xl font-bold mb-4 text-[#333]">
                   Explore Diverse Categories
                 </h1>
                 <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                  From innovative educators to outstanding institutions, find categories that matter to you and participate in shaping the future.
+                  From innovative educators to outstanding institutions, find
+                  categories that matter to you and participate in shaping the
+                  future.
                 </p>
               </div>
             )}
 
             {currentStep === 3 && (
               <div className="text-center">
-                <div className="mb-8 mx-auto w-64 h-64 relative">
-                  <Image
-                    src="/images/impact-concept.png" // Replace with your actual image
-                    alt="Make an Impact"
-                    fill
-                    className="object-contain"
-                  />
+                <div className="mb-8 mx-auto w-24 h-24 flex items-center justify-center bg-[#FFC247] rounded-full">
+                  <FaHandsHelping className="text-white text-4xl" />
                 </div>
                 <h1 className="text-3xl font-bold mb-4 text-[#333]">
                   Your Voice Makes a Difference
                 </h1>
                 <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                  Every vote counts! Help recognize and reward the best in education by participating in our transparent voting process.
+                  Every vote counts! Help recognize and reward the best in
+                  education by participating in our transparent voting process.
                 </p>
               </div>
             )}
@@ -140,7 +147,9 @@ const OnboardingFlow: React.FC = () => {
               {[1, 2, 3].map((step) => (
                 <div
                   key={step}
-                  className={`w-3 h-3 rounded-full mx-1 ${currentStep === step ? 'bg-[#FFC247]' : 'bg-gray-300'}`}
+                  className={`w-3 h-3 rounded-full mx-1 ${
+                    currentStep === step ? "bg-[#FFC247]" : "bg-gray-300"
+                  }`}
                 />
               ))}
             </div>
@@ -151,7 +160,11 @@ const OnboardingFlow: React.FC = () => {
             <button
               onClick={handleBack}
               disabled={currentStep === 1}
-              className={`flex items-center px-6 py-3 rounded-lg ${currentStep === 1 ? 'invisible' : 'text-[#FFC247] hover:text-[#E48900]'}`}
+              className={`flex items-center px-6 py-3 rounded-lg ${
+                currentStep === 1
+                  ? "invisible"
+                  : "text-[#FFC247] hover:text-[#E48900]"
+              }`}
             >
               <FiArrowLeft className="mr-2" /> Back
             </button>
@@ -160,7 +173,8 @@ const OnboardingFlow: React.FC = () => {
               onClick={handleNext}
               className="bg-[#FFC247] text-black font-bold py-3 px-6 rounded-lg hover:bg-[#E48900] transition-colors duration-300 flex items-center"
             >
-              {currentStep === 3 ? "Get Started" : "Next"} <FiArrowRight className="ml-2" />
+              {currentStep === 3 ? "Get Started" : "Next"}{" "}
+              <FiArrowRight className="ml-2" />
             </button>
           </div>
         </div>

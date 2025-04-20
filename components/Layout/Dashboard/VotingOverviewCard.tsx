@@ -103,17 +103,17 @@ const VotingOverviewCard: React.FC = () => {
       {/* Footer Actions */}
       <div className="p-4 flex space-x-3">
         <button 
-          onClick={() => router.push('/dashboard/voting')}
+          onClick={() => router.push('/member/vote')}
           className="flex-1 flex items-center justify-center bg-transparent hover:bg-gray-800 text-white border border-gray-600 py-2 px-4 rounded-full text-sm font-medium transition-colors"
         >
           View Voting
         </button>
         <button 
-          onClick={() => router.push('/dashboard/nominations')}
+          onClick={() => router.push('/member/createnominee')}
           className="flex-1 flex items-center justify-center text-black font-semibold py-2 px-4 rounded-full text-sm transition-colors"
           style={{background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'}}
         >
-          View Nominations
+          Create a Nominee
         </button>
       </div>
     </div>

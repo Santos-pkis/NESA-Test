@@ -1,14 +1,16 @@
 {
   "pages": {
-    "/(account)/account/login/page": [
+    "/(main)/nomination/sub-categories/africa-diaspora-impact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(account)/account/login/page.js"
+      "static/css/app/(main)/nomination/sub-categories/africa-diaspora-impact/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/africa-diaspora-impact/page.js"
     ],
-    "/(account)/layout": [
+    "/(main)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(account)/layout.js"
+      "static/css/app/(main)/layout.css",
+      "static/chunks/app/(main)/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -21,16 +23,52 @@
       "static/chunks/main-app.js",
       "static/chunks/app/loading.js"
     ],
-    "/(main)/profile/page": [
+    "/member/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/profile/page.js"
+      "static/chunks/app/member/page.js"
     ],
-    "/(main)/layout": [
+    "/member/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(main)/layout.css",
-      "static/chunks/app/(main)/layout.js"
+      "static/chunks/app/member/layout.js"
+    ],
+    "/member/createnominee/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/member/createnominee/page.css",
+      "static/chunks/app/member/createnominee/page.js"
+    ],
+    "/(main)/nomination/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(main)/nomination/page.js"
+    ],
+    "/(main)/nomination/sub-categories/africa-lifetime-education-icon/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.css",
+      "static/chunks/app/(main)/nomination/sub-categories/africa-lifetime-education-icon/page.js"
+    ],
+    "/member/vote/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/member/vote/page.js"
+    ],
+    "/member/settings/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/member/settings/page.js"
+    ],
+    "/(account)/account/onboarding/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(account)/account/onboarding/page.js"
+    ],
+    "/(account)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(account)/layout.js"
     ],
     "/(main)/(home)/page": [
       "static/chunks/webpack.js",
@@ -38,10 +76,15 @@
       "static/css/app/(main)/(home)/page.css",
       "static/chunks/app/(main)/(home)/page.js"
     ],
-    "/_not-found/page": [
+    "/member/wallet/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/member/wallet/page.js"
+    ],
+    "/member/referrals/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/member/referrals/page.js"
     ]
   }
 }

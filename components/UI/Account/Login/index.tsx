@@ -186,7 +186,7 @@ const LoginPage: React.FC = () => {
                 onClick={() => router.push("/account/signup")}
                 className="text-[#FFC247] hover:underline"
               >
-                Not a Member? SignUp
+                Not a Member ? Sign Up
               </button>
               <button
                 onClick={() => router.push("/account/resetpassword")}

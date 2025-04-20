@@ -160,7 +160,7 @@ const WalletInfo = () => (
 // Navigation Item Component
 const NavItem = ({ item, mobile = false }: { item: MenuItem; mobile?: boolean }) => {
   const baseClasses = "flex items-center py-2 px-4 rounded-lg transition-colors whitespace-nowrap";
-  const mobileClasses = mobile ? "block w-full text-center mb-2" : "";
+  const mobileClasses = mobile ? "block w-full text-left mb-2" : "";
   const highlightedClasses = item.isHighlighted ? "bg-[#f6b146] text-[#191307]" : "hover:bg-[#f6b146] hover:text-[#191307]";
 
   return (
@@ -188,21 +188,27 @@ const NavDropdown = ({ item, mobile = false }: { item: MenuItem; mobile?: boolea
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <div className={`relative ${mobile ? 'w-full' : ''}`} ref={dropdownRef}>
+    <div className={`relative ${mobile ? "w-full" : ""}`} ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className={`flex items-center py-2 px-4 rounded-lg transition-colors ${mobile ? 'w-full justify-center' : ''} hover:bg-[#f6b146] hover:text-[#191307] whitespace-nowrap`}
+        className={`flex items-center py-2 px-4 rounded-lg transition-colors ${
+          mobile ? "w-full justify-start" : ""
+        } hover:bg-[#f6b146] hover:text-[#191307] whitespace-nowrap`}
       >
         {item.icon && <span className="mr-2">{item.icon}</span>}
         {item.label} <RiArrowDropDownLine className="ml-1" />
       </button>
       {isOpen && (
-        <div className={`${mobile ? 'relative' : 'absolute right-0'} bg-[#191307E6] p-2 rounded-lg ${mobile ? 'mt-2' : 'mt-1'} min-w-[200px] z-50 shadow-xl`}>
+        <div
+          className={`${
+            mobile ? "relative" : "absolute right-0"
+          } bg-[#191307E6] p-2 rounded-lg ${mobile ? "mt-2" : "mt-1"} min-w-[200px] z-50 shadow-xl`}
+        >
           {item.subItems?.map((subItem, index) => (
             <Link
               key={index}
@@ -325,7 +331,7 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
           </div>
 
           {/* Right Side Icons */}
-          <div className="hidden md:flex items-center space-x-4 ml-4"> {/* Updated spacing */}
+          <div className="hidden md:flex items-center space-x-4 ml-4">
             <IconDropdown
               icon={<IoNotificationsOutline size={20} />}
               badge={3}
@@ -351,40 +357,41 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
         </div>
 
         {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-[#191307E6] mt-2 p-4 space-y-3 border-t border-[#f6b146]/10">
-            {mainMenuConfig.map((item, index) => (
-              item.subItems ? (
-                <NavDropdown key={index} item={item} mobile />
-              ) : (
-                <NavItem key={index} item={item} mobile />
-              )
-            ))}
-            <div className="pt-2">
-              <WalletInfo />
-            </div>
-            <div className="flex justify-center space-x-2 pt-4">
-              <IconDropdown
-                mobile
-                icon={<IoNotificationsOutline size={20} />}
-                badge={3}
-                items={notificationItems}
-              />
-              <IconDropdown
-                mobile
-                icon={<IoSettingsOutline size={20} />}
-                items={[
-                  ...profileItems.slice(0, -1), // All items except the last one (Logout)
-                  {
-                    label: "Logout",
-                    onClick: handleLogout,
-                    icon: <IoLogOutOutline className="h-4 w-4" />
-                  }
-                ]}
-              />
-            </div>
-          </div>
-        )}
+        
+    {isMenuOpen && (
+  <div className="md:hidden bg-[#191307E6] mt-2 p-4 space-y-3 border-t border-[#f6b146]/10">
+    {mainMenuConfig.map((item, index) => (
+      item.subItems ? (
+        <NavDropdown key={index} item={item} mobile />
+      ) : (
+        <NavItem key={index} item={item} mobile />
+      )
+    ))}
+    <div className="pt-2">
+      <WalletInfo />
+    </div>
+    <div className="flex justify-start space-x-2 pt-4">
+      <IconDropdown
+        mobile
+        icon={<IoNotificationsOutline size={20} />}
+        badge={3}
+        items={notificationItems}
+      />
+      <IconDropdown
+        mobile
+        icon={<IoSettingsOutline size={20} />}
+        items={[
+          ...profileItems.slice(0, -1), // All items except the last one (Logout)
+          {
+            label: "Logout",
+            onClick: handleLogout,
+            icon: <IoLogOutOutline className="h-4 w-4" />
+          }
+        ]}
+      />
+    </div>
+  </div>
+)}
       </nav>
 
       <main className="flex-grow pt-20">
