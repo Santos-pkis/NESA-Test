@@ -7,7 +7,7 @@ import { IoNotificationsOutline, IoSettingsOutline, IoWalletOutline, IoShirtOutl
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useAuthContext } from '@/lib/context/AuthContext';
-
+import { Wallet, Zap, ArrowUpRight, Gift, Users, Vote, ShoppingCart, ArrowDown, Clock, X } from 'lucide-react';
 // Types
 interface MenuItem {
   label: string;
@@ -20,7 +20,7 @@ interface MenuItem {
 interface MemberLayoutProps {
   children: React.ReactNode;
 }
-
+const balance = 1250;
 // Menu Configuration - Centralized and maintainable
 const mainMenuConfig: MenuItem[] = [
   {
@@ -85,19 +85,22 @@ const mainMenuConfig: MenuItem[] = [
 
 const notificationItems = [
   {
-    label: "New nomination",
+    label: "New nomination received",
     href: "/member/notifications",
-    icon: <IoPersonOutline className="h-4 w-4" />
+    icon: <IoPersonOutline className="h-5 w-5" />,
+    timestamp: "2 hours ago"
   },
   {
-    label: "Payment confirmed",
+    label: "Payment confirmation #12345",
     href: "/member/notifications",
-    icon: <IoWalletOutline className="h-4 w-4" />
+    icon: <IoWalletOutline className="h-5 w-5" />,
+    timestamp: "5 hours ago"
   },
   {
-    label: "Event reminder",
+    label: "Event reminder: Annual Gala",
     href: "/member/notifications",
-    icon: <IoCalendarOutline className="h-4 w-4" />
+    icon: <IoCalendarOutline className="h-5 w-5" />,
+    timestamp: "1 day ago"
   }
 ];
 
@@ -140,19 +143,20 @@ const profileItems = [
 ];
 
 // Wallet Info Component
-// Wallet Info Component
+
 const WalletInfo = () => (
   <div className="flex items-center space-x-4 bg-[#191307E6] rounded-lg px-6 py-4 shadow-md">
     {/* Wallet Icon */}
     <div className="flex items-center justify-center bg-[#f6b146] text-[#191307] rounded-full w-10 h-10">
-      <IoWalletOutline size={20} />
+       <Zap className="flex items-center"  style={{ color: '#FFF' }} />
     </div>
 
     {/* Balance Info */}
-    <div className="text-left">
-      <p className="text-sm font-medium text-gray-300">Balance</p>
-      <p className="text-lg font-bold text-[#f6b146]">1250 Points</p>
-    </div>
+    <div className="flex items-center">
+               
+                <span className="text-2xl font-bold text-white">{balance.toLocaleString()}</span>
+                <span className="ml-1 text-sm text-gray-400">pts</span>
+              </div>
 
   </div>
 );
@@ -206,7 +210,7 @@ const NavDropdown = ({ item, mobile = false }: { item: MenuItem; mobile?: boolea
       {isOpen && (
         <div
           className={`${
-            mobile ? "relative" : "absolute right-0"
+            mobile ? "relative w-full" : "absolute left-0"
           } bg-[#191307E6] p-2 rounded-lg ${mobile ? "mt-2" : "mt-1"} min-w-[200px] z-50 shadow-xl`}
         >
           {item.subItems?.map((subItem, index) => (
@@ -226,14 +230,14 @@ const NavDropdown = ({ item, mobile = false }: { item: MenuItem; mobile?: boolea
 };
 
 // Right Side Icon Dropdown Component
-const IconDropdown = ({
+const NotificationDropdown = ({
   icon,
   items,
   badge,
   mobile = false
 }: {
   icon: React.ReactNode;
-  items: { href?: string; label: string; icon?: React.ReactNode; onClick?: () => void }[];
+  items: { href?: string; label: string; icon?: React.ReactNode; onClick?: () => void; timestamp?: string }[];
   badge?: number;
   mobile?: boolean;
 }) => {
@@ -249,15 +253,17 @@ const IconDropdown = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <div className={`relative ${mobile ? 'mx-1' : 'ml-2'}`} ref={dropdownRef}>
+    <div className={`relative ${mobile ? "mx-1" : "ml-2"}`} ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className={`relative p-2 rounded-full transition-colors ${mobile ? 'bg-white text-[#36322f]' : 'bg-white text-[#36322f]'} hover:bg-[#f6b146]`}
+        className={`relative p-2 rounded-full transition-colors ${
+          mobile ? "bg-white text-[#36322f]" : "bg-white text-[#36322f]"
+        } hover:bg-[#f6b146]`}
       >
         {icon}
         {badge && (
@@ -266,33 +272,102 @@ const IconDropdown = ({
           </span>
         )}
       </button>
+      
       {isOpen && (
-        <div className={`absolute ${mobile ? 'left-0' : 'right-0'} w-56 mt-2 bg-[#191307E6] rounded-lg shadow-xl z-50 py-1`}>
-          {items.map((item, index) => (
-            item.href ? (
-              <Link
-                key={index}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="flex items-center px-4 py-2 text-sm hover:bg-[#f6b146] hover:text-[#191307] transition-colors"
-              >
-                {item.icon && <span className="mr-3">{item.icon}</span>}
-                {item.label}
-              </Link>
-            ) : (
-              <button
-                key={index}
-                onClick={() => {
-                  item.onClick?.();
-                  setIsOpen(false);
-                }}
-                className="flex w-full items-center px-4 py-2 text-sm hover:bg-[#f6b146] hover:text-[#191307] transition-colors"
-              >
-                {item.icon && <span className="mr-3">{item.icon}</span>}
-                {item.label}
-              </button>
-            )
-          ))}
+        <div
+          className={`${
+            mobile 
+              ? "fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+              : "absolute right-0 mt-2 bg-[#191307E6] rounded-lg shadow-xl min-w-[320px]"
+          }`}
+        >
+          {/* Mobile Full-screen Notification Panel */}
+          {mobile && (
+            <div className="absolute bottom-0 w-full bg-[#191307] rounded-t-2xl shadow-lg max-h-[85vh] flex flex-col">
+              {/* Header */}
+              <div className="px-4 py-4 border-b border-[#f6b146]/20 flex justify-between items-center">
+                <h3 className="text-xl font-bold text-[#f6b146]">Notifications</h3>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-gray-400 hover:text-[#f6b146]"
+                >
+                  <HiX size={24} />
+                </button>
+              </div>
+
+              {/* Notification List */}
+              <div className="overflow-y-auto flex-1 p-4 space-y-4">
+                {items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#191307E6] rounded-lg p-4 hover:bg-[#f6b146]/10 transition-colors border border-[#f6b146]/10"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="text-[#f6b146] mt-1">
+                        {item.icon || <IoNotificationsOutline size={20} />}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium text-white">{item.label}</h4>
+                        {item.timestamp && (
+                          <p className="text-sm text-gray-400 mt-1">{item.timestamp}</p>
+                        )}
+                      </div>
+                      <div className="h-2 w-2 bg-[#f6b146] rounded-full ml-2" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Footer */}
+              <div className="p-4 border-t border-[#f6b146]/20">
+                <button className="w-full py-3 bg-[#f6b146] text-[#191307] rounded-lg font-medium">
+                  Mark All as Read
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Desktop Notification Dropdown */}
+          {!mobile && (
+            <div className="bg-[#191307E6] rounded-lg shadow-xl py-2 border border-[#f6b146]/20">
+              <div className="px-4 py-2 border-b border-[#f6b146]/20">
+                <h3 className="text-sm font-medium text-[#f6b146]">Notifications</h3>
+              </div>
+              
+              <div className="max-h-[400px] overflow-y-auto">
+                {items.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href || "#"}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center px-4 py-3 hover:bg-[#f6b146]/10 group transition-colors"
+                  >
+                    <div className="text-[#f6b146] mr-3">
+                      {item.icon || <IoNotificationsOutline size={18} />}
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-white group-hover:text-[#f6b146]">
+                        {item.label}
+                      </p>
+                      {item.timestamp && (
+                        <p className="text-xs text-gray-400 mt-1">{item.timestamp}</p>
+                      )}
+                    </div>
+                    <div className="h-2 w-2 bg-[#f6b146] rounded-full ml-4" />
+                  </Link>
+                ))}
+              </div>
+              
+              <div className="p-2 border-t border-[#f6b146]/20">
+                <Link
+                  href="/member/notifications"
+                  className="block text-center text-sm text-[#f6b146] hover:bg-[#f6b146]/10 py-2 rounded"
+                >
+                  View All Notifications
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -314,9 +389,36 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
     <div className="flex flex-col min-h-screen">
       <nav className="text-white py-3 bg-[#17120a] fixed w-full z-50 border-b border-[#f6b146]/20">
         <div className="container mx-auto px-4 flex justify-between items-center">
+          {/* Logo */}
           <Link href="/member" className="flex items-center">
             <Image src="/svgs/logo.svg" alt="NEW EDUCATION STANDARD AWARDS AFRICA" width={150} height={50} />
           </Link>
+
+          {/* Mobile Top Bar Icons */}
+<div className="md:hidden flex items-center space-x-4">
+ {/* Mobile Header */}
+<NotificationDropdown
+  mobile
+  icon={<IoNotificationsOutline size={20} />}
+  badge={3}
+  items={notificationItems}
+/>
+  <NotificationDropdown
+    mobile
+    icon={<IoSettingsOutline size={20} />}
+    items={[
+      ...profileItems.slice(0, -1), // All items except the last one (Logout)
+      {
+        label: "Logout",
+        onClick: handleLogout,
+        icon: <IoLogOutOutline className="h-4 w-4" />
+      }
+    ]}
+  />
+  <button className="text-white p-2" onClick={toggleMenu}>
+    {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+  </button>
+</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
@@ -328,16 +430,14 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
               )
             ))}
             <WalletInfo />
-          </div>
-
-          {/* Right Side Icons */}
-          <div className="hidden md:flex items-center space-x-4 ml-4">
-            <IconDropdown
-              icon={<IoNotificationsOutline size={20} />}
-              badge={3}
-              items={notificationItems}
-            />
-            <IconDropdown
+            {/* Desktop Icons */}
+            {/* Desktop Header */}
+<NotificationDropdown
+  icon={<IoNotificationsOutline size={20} />}
+  badge={3}
+  items={notificationItems}
+/>
+            <NotificationDropdown
               icon={<IoSettingsOutline size={20} />}
               items={[
                 ...profileItems.slice(0, -1), // All items except the last one (Logout)
@@ -349,49 +449,23 @@ export default function MemberLayout({ children }: MemberLayoutProps) {
               ]}
             />
           </div>
-
-          {/* Mobile Navigation Toggle */}
-          <button className="md:hidden text-white p-2" onClick={toggleMenu}>
-            {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
-          </button>
         </div>
 
         {/* Mobile Navigation Menu */}
-        
-    {isMenuOpen && (
-  <div className="md:hidden bg-[#191307E6] mt-2 p-4 space-y-3 border-t border-[#f6b146]/10">
-    {mainMenuConfig.map((item, index) => (
-      item.subItems ? (
-        <NavDropdown key={index} item={item} mobile />
-      ) : (
-        <NavItem key={index} item={item} mobile />
-      )
-    ))}
-    <div className="pt-2">
-      <WalletInfo />
-    </div>
-    <div className="flex justify-start space-x-2 pt-4">
-      <IconDropdown
-        mobile
-        icon={<IoNotificationsOutline size={20} />}
-        badge={3}
-        items={notificationItems}
-      />
-      <IconDropdown
-        mobile
-        icon={<IoSettingsOutline size={20} />}
-        items={[
-          ...profileItems.slice(0, -1), // All items except the last one (Logout)
-          {
-            label: "Logout",
-            onClick: handleLogout,
-            icon: <IoLogOutOutline className="h-4 w-4" />
-          }
-        ]}
-      />
-    </div>
-  </div>
-)}
+        {isMenuOpen && (
+          <div className="md:hidden bg-[#191307E6] mt-2 p-4 space-y-3 border-t border-[#f6b146]/10">
+            {mainMenuConfig.map((item, index) => (
+              item.subItems ? (
+                <NavDropdown key={index} item={item} mobile />
+              ) : (
+                <NavItem key={index} item={item} mobile />
+              )
+            ))}
+            <div className="pt-2">
+              <WalletInfo />
+            </div>
+          </div>
+        )}
       </nav>
 
       <main className="flex-grow pt-20">
