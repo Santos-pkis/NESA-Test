@@ -29,8 +29,8 @@ const SlideImage2: React.FC<SlideImageProps> = ({ src, alt = "" }) => {
         <Image 
           src={src} 
           alt={alt} 
-          layout="fill" 
-          objectFit="cover" 
+          fill
+          className="object-cover"
           priority 
         />
       </div>

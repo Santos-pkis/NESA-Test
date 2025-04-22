@@ -135,7 +135,7 @@ const Category = () => {
                     <Image
                       src="/images/nesa-card2.png"
                       alt="NESA"
-                      layout="fill"
+                      fill
                       objectFit="contain"
                       className="rounded"
                     />

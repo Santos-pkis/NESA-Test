@@ -7,10 +7,9 @@ const JudgesSection = () => {
         <Image
           src="/images/herosection.png"
           alt="Background"
-          layout="fill"
-          objectFit="cover"
+          fill
           quality={100}
-          className="background-gradient"
+          className="background-gradient object-cover"
         />
       </div>
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-10">

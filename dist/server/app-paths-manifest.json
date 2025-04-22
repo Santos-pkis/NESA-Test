@@ -1,9 +1,0 @@
-{
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/member/createnominee/page": "app/member/createnominee/page.js",
-  "/member/settings/page": "app/member/settings/page.js",
-  "/(main)/(home)/page": "app/(main)/(home)/page.js",
-  "/member/wallet/page": "app/member/wallet/page.js",
-  "/member/page": "app/member/page.js",
-  "/member/referrals/page": "app/member/referrals/page.js"
-}

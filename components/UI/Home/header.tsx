@@ -1,5 +1,6 @@
 "use client";
-
+import { motion } from "framer-motion";
+import { opacityTrans } from "@/lib/utils/transitions";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import HeroCenter from "./hero-center";
@@ -36,40 +37,64 @@ const HomeHeader = () => {
       const interval = setInterval(() => {
       nextSlide();
       setActiveDot((prev) => (prev + 1) % totalSlides);
-      }, 3000); // Change slide every 3 seconds
+      }, 43000); // Change slide every 3 seconds
 
       return () => clearInterval(interval); // Cleanup on component unmount
     }, []);
 
   return (
-  
-      <div className={`min-h-screen bg-[#17120a] text-white relative ${styles.homeHeader}`}>
-        <div className="absolute top-0 left-0 h-full w-full">
-          <Image
-          src={"/images/header.png"}
-          alt="hero image"
-          fill
-          className="w-full h-full object-cover"
-            />
-        </div>
-
-        <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent">
-          <div className="text-center flex flex-col justify-center">
+     <>               
+     <div className="min-h-screen">
+          <div className="z-10 text-white relative pt-12">
+        <motion.div
+          {...opacityTrans}
+          transition={{ delay: 1, duration: 1.5 }}
+          className={`container mt-9 -mb-3 relative ${styles["scroll-con"]}`}
+        >
+          <motion.div
+            {...opacityTrans}
+            className={`space-x-3 border-y-[2.5px] overflow-hidden border-[#d9a53c] ${styles["head-scroll-con"]} bg-transparent`}
+          >
+            {new Array(3).fill(null).map((_, id) => (
+              <p key={id} className={`py-1 ${styles["head-scroll-text"]}`}>
+                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination
+                Starts December 30th 2024. Get ready to nominate your
+                Education Champion!
+              </p>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+     
             {Slides.map((slide, index) => {
               return (
-                <div
-                  key={index}
-                  className={`absolute top-0 left-0 h-full w-full  transition-opacity duration-500 ${currentSlide === index ? "opacity-100" : "opacity-0"}`}>
-                  {slide}
-                </div>
+                index === 0 ? (
+                  <section
+                    key={index}
+                    className={`absolute top-0 left-0 bg-[#17120a] text-white sm:px-10  lg:px-20  items-center bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent  ${
+                      currentSlide === index ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    {slide}
+                  </section>
+                ) : (
+                  <div
+                    key={index}
+                    className={` bg-[#17120a] absolute top-0 left-0  h-full w-full transition-opacity duration-500  ${
+                      currentSlide === index ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    {slide}
+                  </div>
+                )
               );
             })}
 
          
-        </div>
+        {/* </div> */}
          {/* Scroll Feature */}
          {/* <div className="absolute bottom-10 inset-x-0 flex items-center justify-between md:px-36 px-20"> */}
-         <div className="absolute bottom-10 inset-x-0 flex items-center justify-between mx-12">
+         <div className="absolute bottom-10 inset-x-0 flex items-center justify-between mx-12 ">
 
             {/* Dots */}
             <div className="flex items-center space-x-2">
@@ -110,9 +135,7 @@ const HomeHeader = () => {
             </div>
         </div>
         </div>
-
-        
-      </div>
+        </>      
   );
 };
 
