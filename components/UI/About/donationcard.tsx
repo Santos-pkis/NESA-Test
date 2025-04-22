@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Button from '@/components/Common/Button';
+import Link from "next/link";
 
 const DonationCard = () => {
   return (
@@ -9,7 +10,7 @@ const DonationCard = () => {
 
         {/* Left Section */}
         <div className="w-full lg:w-1/2 lg:pr-8 z-10">
-          <div className="flex flex-col items-start space-y-4 sm:space-y-6">
+            <div className="flex flex-col items-start space-y-4 sm:space-y-6">
             <div className="flex flex-col items-start space-y-2">
               <Image src="/images/Avatar.png" alt="Icon" width={50} height={24} className="mb-2" />
               <p className="font-bold text-[#F0B561] text-sm">GIVE MONEY</p>
@@ -25,11 +26,15 @@ const DonationCard = () => {
               Invest in a stronger educational Standard
             </p>
 
-            <Button
-              text="Donate Now"
-              variant="filled"
-              className="w-fit rounded-full font-medium text-sm bg-[#F0B561] text-[#191307] px-6 py-3 mt-4"
-            />
+            <Link href="/donate" passHref>
+              <a>
+                <Button
+                  text="Donate Now"
+                  variant="filled"
+                  className="w-fit rounded-full font-medium text-sm bg-[#F0B561] text-[#191307] px-6 py-3 mt-4"
+                />
+              </a>
+            </Link>
           </div>
         </div>
 

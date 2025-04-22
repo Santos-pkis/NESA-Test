@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 
@@ -67,10 +67,14 @@ const GetInvolved = () => {
                 <div className="space-y-3">
                 <h4 className="text-3xl">{data.heading}</h4>
                 <p>{data.description}</p>
+                <Link href="/donate" passHref>
+                    
                 <button className="flex text-primaryGold items-center gap-2">
                 <p>{data.cta}</p>
                 <ChevronRight />
                 </button>
+                
+                </Link>
                 </div>
                 </div>
             ))}

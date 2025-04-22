@@ -19,33 +19,33 @@ const HeroCenter = () => {
 
   return (
     <>
- <div className="h-screen py-32 pb-0">
+
       <div className="absolute inset-0 -z-[1]">
           <Image
           src={"/images/header.png"}
           alt="hero image"
           fill
-          className="object-cover z-0 opacity-40"
+          className="object-cover h-full w-full -z-[1] opacity-40"
             />
         </div>
        {/* <div className="grid md:grid-cols-2 items-center md:gap-2 gap-12 container py-20">
         <div> 
           <div className="space-y-5 md:text-left text-center">
             <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold"> */}
-        <div className="z-10 grid md:grid-cols-2 items-center justify-center md:justify-between container pb-0 mx-auto">
-          <div className="space-y-2 text-center md:text-left">
+        <div className="z-10 grid md:grid-cols-2 items-center justify-center md:justify-between container my-12 sm:mt-12 py-6 mx-auto sm:px-10 sm:pt-3 lg:px-20">
+          <div className="space-y-3 text-center md:text-left w-full">
             {/* <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 mx-auto lg:mx-0 max-w-[700px] bg-gradient-to-r from-[#FFC247] to-[#E48900] bg-clip-text text-transparent lg:-ml-10"> */}
             <div className="flex items-center justify-center md:justify-start text-primaryGold mb-1">
               <FaStar />
-              <p className="text-lg">{  } The NESA Africa Awards 2024 {  }</p>
+              <p className="text-lg md:text-2xl md:font-semibold">The NESA Africa Awards 2024</p>
               {/* <p >The NESA Africa Awards 2024</p> */}
               <FaStar />
             </div>
 
           
-            <h1 className="font-semibold text-2xl text-white">
+            <h1 className="text-primarygold font-medium text-[24px] leading-[36px] bg-gradient-to-r from-[#FFC247] to-[#E48900] bg-clip-text text-transparent font-poppins">
             Celebrating Educational Excellence Across Africa
-         </h1>
+             </h1>
          <p className="text-base md:text-lg leading-relaxed">
            Join Us in Recognizing Excellence & Nominate Outstanding Individuals and
            Organizations for the Prestigious New Education Standard Awards, and be
@@ -57,7 +57,7 @@ const HeroCenter = () => {
               A flagship initiative under <SantosLink />
             </p>
 
-            <div className="flex items-center gap-2 justify-center md:justify-start">
+            <div className="flex sm:flex-wrap mt-2 items-center gap-4 justify-center md:justify-start">
               <Button
                 text="View Categories"
                 
@@ -70,10 +70,17 @@ const HeroCenter = () => {
 
         <div className="grid place-content-center">
         {/* <div className="w-full lg:w-2/5 flex justify-center lg:justify-end mt-8 lg:mt-0"> */}
-          <Image src={"/images/nesa-mg.png"} alt="home logo" width={220} height={220} />
+          {/* <Image src={"/images/nesa-mg.png"} alt="home logo" width={220} height={220} /> */}
+          <Image 
+            src="/images/nesa-mg.png" 
+            alt="home logo"
+            width={320} 
+            height={320}
+            className="max-w-40 sm:w-56 md:w-72 lg:w-80 h-auto"
+          />
         </div>
       </div>
-      </div>
+      
     
       
     </>

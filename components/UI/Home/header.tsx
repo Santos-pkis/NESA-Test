@@ -44,7 +44,7 @@ const HomeHeader = () => {
 
   return (
      <>               
-     <div className="min-h-screen">
+     <div className="min-h-screen min-w-screen bg-[#17120a]">
           <div className="z-10 text-white relative pt-12">
         <motion.div
           {...opacityTrans}
@@ -57,9 +57,12 @@ const HomeHeader = () => {
           >
             {new Array(3).fill(null).map((_, id) => (
               <p key={id} className={`py-1 ${styles["head-scroll-text"]}`}>
-                -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination
+                {/* -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination
                 Starts December 30th 2024. Get ready to nominate your
-                Education Champion!
+                Education Champion! */}
+                <i className="text-sm uppercase tracking-wide text-white font-medium">
+                  <span className="font-bold">ANNOUNCEMENT –</span> Nomination Starts from May 1st, 2025, Get ready to nominate your Education Champion!
+                </i>
               </p>
             ))}
           </motion.div>
@@ -69,12 +72,13 @@ const HomeHeader = () => {
             {Slides.map((slide, index) => {
               return (
                 index === 0 ? (
-                  <section
-                    key={index}
-                    className={`absolute top-0 left-0 bg-[#17120a] text-white sm:px-10  lg:px-20  items-center bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent  ${
-                      currentSlide === index ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
+                  // <section
+                  //   key={index}
+                  //   className={`absolute top-0 left-0 bg-[#17120a] w-full text-white sm:px-10  lg:px-20  items-center bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent  ${
+                  //     currentSlide === index ? "opacity-100" : "opacity-0"
+                  //   }`}
+                  // >
+                  <section className="min-w-full min-h-full text-white container mx-auto px-4 sm:px-10 md:py-32 sm:pt-3 bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent">
                     {slide}
                   </section>
                 ) : (
