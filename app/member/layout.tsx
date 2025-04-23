@@ -45,7 +45,7 @@ const mainMenuConfig: MenuItem[] = [
     subItems: [
       {
         label: "Award Videos",
-        href: "/member/nesa-tv/awards",
+        href: "/nesatv",
         icon: <IoDocumentTextOutline className="h-4 w-4" />
       },
       {

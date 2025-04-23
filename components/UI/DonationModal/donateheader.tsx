@@ -34,8 +34,8 @@ const Donationheader = () => {
         </div>
 
         {/* Content */}
-        <div className='grid md:grid-cols-2 gap-4'>
-        <div className="relative z-10 min-h-screen flex items-center sm:justify-center ">
+        <div className='grid grid-cols-2 gap-4'>
+        <div className="relative z-10 min-h-screen flex items-center justify-between">
           <div className="min-w-1/2 ml-8 md:ml-16 text-white ">
             <h1 className="text-3xl md:text-4xl lg:text-5xl text-base mb-4">
               Make education available and accessible to millions of African children through your donation

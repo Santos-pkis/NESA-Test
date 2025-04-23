@@ -60,9 +60,9 @@ const HomeHeader = () => {
                 {/* -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination
                 Starts December 30th 2024. Get ready to nominate your
                 Education Champion! */}
-                <i className="text-sm uppercase tracking-wide text-white font-medium">
+                <span className="text-sm uppercase tracking-wide text-white font-medium">
                   <span className="font-bold">ANNOUNCEMENT –</span> Nomination Starts from May 1st, 2025, Get ready to nominate your Education Champion!
-                </i>
+                </span>
               </p>
             ))}
           </motion.div>
