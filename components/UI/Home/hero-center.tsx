@@ -19,31 +19,28 @@ const HeroCenter = () => {
 
   return (
     <>
-      <div className="absolute inset-0 -z-[1]">
+      <div className="absolute inset-0  min-h-full w-full ">
           <Image
-          src={"/images/datebg.png"}
+          src={"/images/header.png"}
           alt="hero image"
           fill
           className="object-cover h-full w-full -z-[1] opacity-40"
             />
         </div>
-       {/* <div className="grid md:grid-cols-2 items-center md:gap-2 gap-12 container py-20">
-        <div> 
-          <div className="space-y-5 md:text-left text-center">
-            <div className="flex items-center justify-center md:justify-start gap-2 text-primaryGold"> */}
-            {/* <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 mx-auto lg:mx-0 max-w-[700px] bg-gradient-to-r from-[#FFC247] to-[#E48900] bg-clip-text text-transparent lg:-ml-10"> */}
 
-        <div className="z-10 grid md:grid-cols-2 items-center justify-center md:justify-between container my-12 sm:mt-12 py-6 mx-auto sm:px-10 sm:pt-3 lg:px-20">
+        <div className="z-10 grid md:grid-cols-2 items-center md:gap-2 gap-1 md:py-32 px-2 md:px-20 py-28 md:mt-6 h-auto">
+            <div>
           <div className="space-y-3 text-center md:text-left ">
-            <div className="flex items-center justify-center md:justify-start text-primaryGold mb-1">
+            <div className="flex items-center justify-center md:justify-start md:gap-2 gap-1 text-primaryGold mt-4 md:mt-10">
               <FaStar />
-              <p className="text-lg md:text-2xl md:font-semibold">The NESA Africa Awards 2024</p>
+              <p className="md:text-lg md:font-semibold">The NESA Africa Awards 2025</p>
               <FaStar />
             </div>
 
-            <h1 className="text-primarygold font-medium text-[24px] md:font-semibold md:text-2xl leading-[36px] bg-gradient-to-r from-[#FFC247] to-[#E48900] bg-clip-text text-transparent font-poppins">
+            <h1 className="text-primarygold  font-bold md:text-4xl bg-gradient-to-r from-[#FFC247] to-[#E48900] bg-clip-text text-transparent font-poppins">
             Celebrating Educational Excellence Across Africa
              </h1>
+
          <p className="text-base md:text-lg leading-relaxed">
            Join Us in Recognizing Excellence & Nominate Outstanding Individuals and
            Organizations for the Prestigious New Education Standard Awards, and be
@@ -55,16 +52,16 @@ const HeroCenter = () => {
               A flagship initiative under <SantosLink />
             </p>
 
-            <div className="flex sm:flex-wrap mt-2 items-center gap-4 justify-center md:justify-start">
+            <div className="flex items-center gap-1 text-center md:gap-4 justify-center md:justify-start md:pt-2">
               <Button
                 text="View Categories"
                 
                 className="rounded-lg"
               />
-              <Button text="Nominate Now" variant="filled" className="rounded-lg" />
+              <Button text="Nominate Now" variant="filled" className="text-center px-2 rounded-lg" />
             </div>
           </div>
-        {/* </div> */}
+          </div>
 
         <div className="grid place-content-center">
         {/* <div className="w-full lg:w-2/5 flex justify-center lg:justify-end mt-8 lg:mt-0"> */}
@@ -74,7 +71,7 @@ const HeroCenter = () => {
             alt="home logo"
             width={320} 
             height={320}
-            className="max-w-40 sm:w-56 md:min-w-72 lg:min-w-80 h-auto"
+            className="max-w-32 sm:w-50 md:min-w-72 lg:min-w-80"
           />
         </div>
       </div>

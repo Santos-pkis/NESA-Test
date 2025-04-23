@@ -43,25 +43,22 @@ const HomeHeader = () => {
     }, []);
 
   return (
-     <>               
-     <div className="min-h-screen min-w-screen bg-[#17120a]">
-          <div className="z-10 text-white relative pt-12">
+     <header>               
+     <div className="min-h-screen max-w-screen bg-[#17120a]">
+          <div className="z-10 text-white sm:text:base relative pt-20 md:mt-1.5 mt-0 md:px-10 px-2">
         <motion.div
           {...opacityTrans}
           transition={{ delay: 1, duration: 1.5 }}
-          className={`container mt-9 -mb-3 relative ${styles["scroll-con"]}`}
+          className={`relative ${styles["scroll-con"]}`}
         >
           <motion.div
             {...opacityTrans}
-            className={`space-x-3 border-y-[2.5px] overflow-hidden border-[#d9a53c] ${styles["head-scroll-con"]} bg-transparent`}
+            className={`space-x-3  border-y-[2.5px] overflow-hidden border-[#d9a53c] ${styles["head-scroll-con"]} bg-transparent`}
           >
             {new Array(3).fill(null).map((_, id) => (
-              <p key={id} className={`py-1 ${styles["head-scroll-text"]}`}>
-                {/* -- <span className="font-bold">ANNOUNCEMENT</span> - Nomination
-                Starts December 30th 2024. Get ready to nominate your
-                Education Champion! */}
+              <p key={id} className={` md:py-1 py-0 ${styles["head-scroll-text"]}`}>
                 <span className="text-sm uppercase tracking-wide text-white font-medium">
-                  <span className="font-bold">ANNOUNCEMENT –</span> Nomination Starts from May 1st, 2025, Get ready to nominate your Education Champion!
+                  <span className="font-bold ">ANNOUNCEMENTS –</span> Nomination Starts from May 1st, 2025, Get ready to nominate your Education Champion!
                 </span>
               </p>
             ))}
@@ -72,13 +69,9 @@ const HomeHeader = () => {
             {Slides.map((slide, index) => {
               return (
                 index === 0 ? (
-                  // <section
-                  //   key={index}
-                  //   className={`absolute top-0 left-0 bg-[#17120a] w-full text-white sm:px-10  lg:px-20  items-center bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent  ${
-                  //     currentSlide === index ? "opacity-100" : "opacity-0"
-                  //   }`}
-                  // >
-                  <section className="min-w-full min-h-full text-white container mx-auto px-4 sm:px-10 md:py-32 sm:pt-3 bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent">
+                  <section className={`absolute top-0 left-0 w-full h-full text-white bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent ${
+                         currentSlide === index ? "opacity-100" : "opacity-0"
+                       }`}>
                     {slide}
                   </section>
                 ) : (
@@ -98,10 +91,10 @@ const HomeHeader = () => {
         {/* </div> */}
          {/* Scroll Feature */}
          {/* <div className="absolute bottom-10 inset-x-0 flex items-center justify-between md:px-36 px-20"> */}
-         <div className="absolute bottom-10 inset-x-0 flex items-center justify-between mx-12 ">
+         <div className="absolute bottom-4 md:bottom:10 inset-x-0 flex items-center justify-between md:px-12 px-5 ">
 
             {/* Dots */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center md:space-x-2 space-x-1">
               {Array.from({ length: totalSlides }).map((_, id) => (
             <div
               key={id}
@@ -117,13 +110,13 @@ const HomeHeader = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="flex items-center gap-3 ml-auto">
+            <div className="flex items-center gap-1 md:gap:3 ml-auto">
               <button
                 onClick={() => {
                   prevSlide();
                   setActiveDot((prev) => (prev - 1 + totalSlides) % totalSlides);
                 }}
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition"
+                className="w-10 h-10 md:w-15 md:h-15 flex items-center justify-center rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition"
                   >
                 <span className="material-icons">&lt;</span>
                 </button>
@@ -139,7 +132,7 @@ const HomeHeader = () => {
             </div>
         </div>
         </div>
-        </>      
+        </header>      
   );
 };
 

@@ -103,12 +103,31 @@ const LiveTV = () => {
             </div>
           )}
         </div>
-        <div className="absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  p-4 rounded">
-                  <Image src="/images/play.png" alt="NESA Logo" width={100} height={100} className="rounded-full" />
-              </div>
+        <div
+          className="absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 rounded-lg cursor-pointer"
+          onClick={() => {
+            const videoElement = document.querySelector("video");
+            if (videoElement) {
+              videoElement.play();
+              document.getElementById("playButton")?.classList.add("hidden");
+            }
+          }}
+          id="playButton"
+        >
+          ▶⏸
+        </div>
+        <div className="relative w-full h-full">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/MOQNd7ZcLek?autoplay=0&mute=1&loop=1&controls=1"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
         {/* Video content */}   
-        {/* Replace with your actual video content */}
-        <video className="w-full h-full object-cover" autoPlay muted loop controls>
+      <video className="w-full h-full object-cover" autoPlay muted loop controls>
           <source src="https://www.youtube.com/watch?v=MOQNd7ZcLek" type="video/mp4" />
         </video>
       </div>

@@ -22,8 +22,8 @@ const SlideImage3: React.FC<SlideImageProps> = ({ src, alt = "" }) => {
             {/* Text overlay in center */}
             <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-white max-w-5xl px-4">
-            <div className="bg-black bg-opacity-40 p-4 rounded max-h-screen ">
-            <h1 className="text-4xl md:text-6xl leading-tight">
+            <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center p-4">
+            <h1 className="text-4xl md:text-6xl leading-tight text-center text-white max-w-5xl">
               Nominate your Heroes to celebrate the Excellence and Impacts of Education across West-Africa
             </h1>
             </div>

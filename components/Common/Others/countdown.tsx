@@ -65,17 +65,17 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ onTimeUpdate, targetDat
         </div>
 
 
-      <div className="relative container mx-auto py-8 px-4">
+      <div className="relative container mx-auto py-8 px-auto">
 
 
         <div className="flex flex-col items-center justify-center">
           {!isExpired ? (
             <>
               <h3 className="text-[#f0b64d] text-lg md:text-xl font-medium mb-4">
-                Our Live Award show starts at:
+                The Live Award show starts at:
               </h3>
               
-              <div className="flex items-center justify-center space-x-4 md:space-x-6 my-4">
+                <div className="flex items-center justify-center space-x-2 md:space-x-6 my-4 flex-wrap">
                 <div className="flex flex-col items-center">
                   <div className="text-[#f0b64d] text-4xl md:text-6xl font-bold">
                     {days.toString().padStart(2, '0')}
