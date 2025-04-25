@@ -44,7 +44,7 @@ const HomeHeader = () => {
 
   return (
      <header>               
-     <div className="min-h-screen max-w-screen bg-[#17120a]">
+     <div className="min-h-screen max-w-screen bg-[#191307CC]">
           <div className="z-10 text-white sm:text:base relative pt-20 md:mt-1.5 mt-0 md:px-10 px-2">
         <motion.div
           {...opacityTrans}
@@ -58,7 +58,7 @@ const HomeHeader = () => {
             {new Array(3).fill(null).map((_, id) => (
               <p key={id} className={` md:py-1 py-0 ${styles["head-scroll-text"]}`}>
                 <span className="text-sm uppercase tracking-wide text-white font-medium">
-                  <span className="font-bold ">ANNOUNCEMENTS –</span> Nomination Starts from May 1st, 2025, Get ready to nominate your Education Champion!
+                  <span className="font-bold ">ANNOUNCEMENT –</span> Nomination Starts from May 1st, 2025, Get ready to nominate your Education Champion!
                 </span>
               </p>
             ))}
@@ -69,8 +69,8 @@ const HomeHeader = () => {
             {Slides.map((slide, index) => {
               return (
                 index === 0 ? (
-                  <section className={`absolute top-0 left-0 w-full h-full text-white bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent ${
-                         currentSlide === index ? "opacity-100" : "opacity-0"
+                  <section className={`absolute z-0 bg-[#191307CC] bg-opacity-20 top-0 left-0 w-full h-full text-white  ${
+                         currentSlide === index ? "opacity-100" : "opacity-0 hidden"
                        }`}>
                     {slide}
                   </section>
@@ -78,7 +78,7 @@ const HomeHeader = () => {
                   <div
                     key={index}
                     className={` bg-[#17120a] absolute top-0 left-0  h-full w-full transition-opacity duration-500  ${
-                      currentSlide === index ? "opacity-100" : "opacity-0"
+                      currentSlide === index ? "opacity-100" : "opacity-0 hidden"
                     }`}
                   >
                     {slide}
@@ -88,9 +88,7 @@ const HomeHeader = () => {
             })}
 
          
-        {/* </div> */}
          {/* Scroll Feature */}
-         {/* <div className="absolute bottom-10 inset-x-0 flex items-center justify-between md:px-36 px-20"> */}
          <div className="absolute bottom-4 md:bottom:10 inset-x-0 flex items-center justify-between md:px-12 px-5 ">
 
             {/* Dots */}

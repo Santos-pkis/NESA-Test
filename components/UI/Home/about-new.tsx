@@ -11,8 +11,8 @@ const AboutNewEducation = () => {
   return (
     <>
       <section className="relative bg-[#fff5e0] py-10">
-        <div className="container grid md:grid-cols-2 gap-16 items-center">
-          <DivParentInView className="space-y-6 container">
+        <div className="container grid md:grid-cols-2 gap-16 items-stretch">
+          <DivParentInView className="space-y-6 container flex flex-col justify-center">
             <motion.h3
               variants={toTopV}
               className="_under_border font-bold text-darkGold md:text-2xl sm:text-lg"
@@ -29,10 +29,10 @@ const AboutNewEducation = () => {
 
             <DivParentInView className="space-y-6 text-lg md:text-xl">
               <motion.p variants={toTopV} className="text-black">
-                <span className="text-primaryGold">
-                  New Education Standard Award Africa (NESA Africa) 2024
-                </span>{" "}
-                is dedicated to honoring and celebrating outstanding contributions to education throughout Africa. Hosted by the NESA- Africa Nigeria Local chapter, this landmark ceremony highlights achievements that reflect our commitment to <span className="text-primaryGold">SDG Goal 4</span>, focusing on ensuring inclusive and equitable quality education for all. 
+          <span className="text-primaryGold">
+            New Education Standard Award Africa (NESA Africa) 2024
+          </span>{" "}
+          is dedicated to honoring and celebrating outstanding contributions to education throughout Africa. Hosted by the NESA- Africa Nigeria Local chapter, this landmark ceremony highlights achievements that reflect our commitment to <span className="text-primaryGold">SDG Goal 4</span>, focusing on ensuring inclusive and equitable quality education for all. 
               </motion.p>
 
               <motion.p variants={toTopV}>
@@ -44,20 +44,19 @@ const AboutNewEducation = () => {
           </DivParentInView>
           <div className="grid place-content-center">
             <video
-        src={"/images/about.mp4"}
-        width={720}
-        height={704}
-        // autoPlay
-        loop
-        muted={false}
-        controls
-        playsInline
-        className="w-full h-auto max-w-[900px] rounded-[16px]"
-      >
-        <track kind="captions" />
-        Your browser does not support the video tag.
-      </video>
-</div>
+              src={"/images/about.mp4"}
+              width={720}
+              height={900}
+              loop
+              muted={false}
+              controls
+              playsInline
+              className="w-full h-full max-w-[900px] rounded-[16px] object-cover"
+            >
+              <track kind="captions" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </section>
     </>

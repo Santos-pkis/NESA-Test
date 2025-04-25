@@ -21,15 +21,15 @@ const HeroCenter = () => {
     <>
       <div className="absolute inset-0  min-h-full w-full ">
           <Image
-          src={"/images/header.png"}
+          src={"/images/headhero.png"}
           alt="hero image"
           fill
-          className="object-cover h-full w-full -z-[1] opacity-40"
+          className="object-cover h-full w-full -z-[1]"
             />
         </div>
 
-        <div className="z-10 grid md:grid-cols-2 items-center md:gap-2 gap-1 md:py-32 px-2 md:px-20 py-28 md:mt-6 h-auto">
-            <div>
+        <div className="z-10 grid md:grid-cols-2 items-center md:gap-18 gap-1 md:py-28 lg:py-32 px-2 lg:px-20 md:px-16 py-28 md:mt-6 h-auto">
+        
           <div className="space-y-3 text-center md:text-left ">
             <div className="flex items-center justify-center md:justify-start md:gap-2 gap-1 text-primaryGold mt-4 md:mt-10">
               <FaStar />
@@ -61,7 +61,7 @@ const HeroCenter = () => {
               <Button text="Nominate Now" variant="filled" className="text-center px-2 rounded-lg" />
             </div>
           </div>
-          </div>
+   
 
         <div className="grid place-content-center">
         {/* <div className="w-full lg:w-2/5 flex justify-center lg:justify-end mt-8 lg:mt-0"> */}
