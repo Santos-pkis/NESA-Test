@@ -28,162 +28,121 @@ const HeroCenter = () => {
             />
         </div>
 
-        <div className="z-10 grid md:grid-cols-2 items-center md:gap-18 gap-1 md:py-28 lg:py-32 px-2 lg:px-20 md:px-16 py-28 md:mt-6 h-auto">
+        <div className="text-white text-sm md:text-base relative md:pt-4 pt-20 mb-1 md:px-10 px-2">
+        <motion.div
+          {...opacityTrans}
+          transition={{ delay: 1, duration: 1.5 }}
+          className={`relative ${styles["scroll-con"]}`}
+        >
+          <motion.div
+            {...opacityTrans}
+            className={`space-x-3  border-y-[2.5px] overflow-hidden border-[#d9a53c] ${styles["head-scroll-con"]} bg-transparent`}
+          >
+            {new Array(3).fill(null).map((_, id) => (
+              <p key={id} className={` md:py-1 py-0 ${styles["head-scroll-text"]}`}>
+                <span className="text-sm uppercase tracking-wide text-white font-medium">
+                  <span className="font-bold ">ANNOUNCEMENT –</span> Nomination Starts from May 1st, 2025, Get ready to nominate your Education Champion!
+                </span>
+              </p>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+     
+        <div className=" grid md:grid-cols-2 items-center md:justify-start gap-1 md:gap-x-1 md:py-2 lg:py-2 px-2  lg:px-12 md:pl-8 py-2 h-auto ">
         
-          <div className="space-y-3 text-center md:text-left ">
-            <div className="flex items-center justify-center md:justify-start md:gap-2 gap-1 text-primaryGold mt-4 md:mt-10">
+          <div className="space-y-3 text-center md:text-left md:min-w-full">
+            <div className="flex items-center justify-center md:justify-start md:gap-2 gap-1 text-primaryGold pt-4 md:pt-8 lg:pt-10">
               <FaStar />
-              <p className="md:text-lg md:font-semibold">The NESA Africa Awards 2025</p>
+              <p className="md:text-lg md:font-semibold text-[14px]">The NESA Africa Awards 2025</p>
               <FaStar />
             </div>
 
-            <h1 className="text-primarygold  font-bold md:text-4xl bg-gradient-to-r from-[#FFC247] to-[#E48900] bg-clip-text text-transparent font-poppins">
-            Celebrating Educational Excellence Across Africa
-             </h1>
+            <h1
+            className="text-[24px] md:text-[28px] lg:text-[48px] lg:leading-[54-px] tracking-[1%] text-white font-raleway"
+          >
+            “Honoring Africa's Changemakers - Building the Future of Education Across the Continent”
+          </h1>
 
-         <p className="text-base md:text-lg leading-relaxed">
-           Join Us in Recognizing Excellence & Nominate Outstanding Individuals and
-           Organizations for the Prestigious New Education Standard Awards, and be
-           inspired by their stories.
-         </p>
+          {/* Description */}
+          <p
+            className="lg:text-[16px] md:text-[24px] text-[14px] md:leading-[26px] font-normal md:text-gray-300 text-[#FFFFFF] font-poppins"
+          >
+            NESA Africa 2025 recognizes individuals, NGOs, corporations, policymakers, and influencers who are shaping education systems — not students or teachers, but the visionaries transforming Africa's future.
+          </p>
 
-
-            <p className="text-primaryGold">
+            <p className="md:text-[20px] text-[14px] leading-[32px] font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#FFC247] to-[#E48900]">
               A flagship initiative under <SantosLink />
             </p>
-
-            <div className="flex items-center gap-1 text-center md:gap-4 justify-center md:justify-start md:pt-2">
-              <Button
-                text="View Categories"
-                
-                className="rounded-lg"
-              />
-              <Button text="Nominate Now" variant="filled" className="text-center px-2 rounded-lg" />
+            {/* buttons */}
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-1 md:gap-x-2 pt-2 w-full">
+              <Button text="Vote with Afrigold coin" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+    px-1 md:px-8 py-2
+    text-xs sm:text-sm md:text-sm
+    text-center
+    rounded-lg
+    w-auto 
+    truncate
+  " />
+              <Button text="Sponsor a category" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+    px-1 md:px-8 py-2
+    text-xs sm:text-sm md:text-sm
+    text-center
+    rounded-lg
+    w-full sm:w-auto
+    truncate
+  " />
+              <Button text="Watch NESA TV" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+    px-1 md:px-8 py-2
+    text-xs sm:text-sm md:text-sm
+    text-center
+    rounded-lg
+    w-full sm:w-auto
+    truncate
+  " />
+              <Button text="Nominate Now" variant="filled" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+    px-1 md:px-8 py-2
+    text-xs sm:text-sm md:text-sm
+    text-center
+    rounded-lg
+    w-full sm:w-auto
+    truncate
+  " />
             </div>
+
           </div>
    
 
-        <div className="grid place-content-center">
-        {/* <div className="w-full lg:w-2/5 flex justify-center lg:justify-end mt-8 lg:mt-0"> */}
-          {/* <Image src={"/images/nesa-mg.png"} alt="home logo" width={220} height={220} /> */}
+          <div className="lg:w-auto md:ml-12 flex justify-center lg:justify-end">
           <Image 
             src="/images/nesa-mg.png" 
             alt="home logo"
-            width={320} 
-            height={320}
-            className="max-w-32 sm:w-50 md:min-w-72 lg:min-w-80"
+            width={300} 
+            height={300}
+            className="max-w-56 md:min-w-72 lg:min-w-80"
+            // className="object-contain"
           />
         </div>
       </div>
-      
+
+            {/* Video Section */}
+      <div className="w-full flex justify-center">
+        <div
+          className="relative w-[95%] max-w-[1528px] h-auto aspect-[1528/832] border border-black rounded-[24px] shadow-lg overflow-hidden"
+        >
+          <video
+            controls
+            className="w-full h-full object-cover"
+            // poster="/images/video-thumbnail.jpg" // replace with actual thumbnail
+          >
+            <source src="/images/about.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     
       
     </>
   );
 };
 export default HeroCenter;
-
-
-
-
-
-// "use client";
-// import { useLayoutEffect, useRef } from "react";
-// import styles from "@/components/Common/Slide/style.module.scss";
-// import { motion } from "framer-motion";
-// import { opacityTrans } from "@/lib/utils/transitions";
-// import SantosLink from "@/components/Common/Links/santos";
-// import { FaStar } from "react-icons/fa6";
-// import Image from "next/image";
-// import Button from "@/components/Common/Button";
-// import CountdownTimer from "@/components/Common/Others/counter";
-// import Link from "next/link";
-
-// import { useState } from "react";
-
-// const HeroCenter = () => {
-// ``
-//   const ref = useRef<HTMLDivElement>(null);
-
-//   const totalSlides = [ ]
-//   // useLayoutEffect(() => {
-//   //   const cxt = gsap.context(() => {
-//   //     const timeline = gsap.timeline();
-
-//   //     if (!ref.current) return;
-
-//   //     timeline
-//   //       .set(ref.current, { visibility: "visible" })
-//   //       .from("._h_text", { y: "100%", opacity: 0, skewY: 4, delay: 0.2, stagger: { amount: 0.5 } })
-//   //       .from("._h_button", { y: "100%", opacity: 0, stagger: { amount: 0.1 } });
-//   //   }, ref);
-
-//   //   return () => cxt.revert();
-//   // }, []);
-
-//   return (
-//     <>
-//       <section className="relative bg-black text-white overflow-hidden px-4 py-10 md:py-16">
-//       {/* Logo & Menu */}
-//       <div className="flex items-center justify-between mb-6">
-//         <Image
-//           src="/logo.png"
-//           alt="NESA Logo"
-//           width={160}
-//           height={50}
-//           className="object-contain"
-//         />
-//         <div className="space-y-1 cursor-pointer md:hidden">
-//           <div className="w-8 h-1 bg-white rounded"></div>
-//           <div className="w-8 h-1 bg-white rounded"></div>
-//           <div className="w-8 h-1 bg-white rounded"></div>
-//         </div>
-//       </div>
-
-//       {/* Announcement */}
-//       <p className="border-t border-b border-yellow-600 py-2 text-sm md:text-base text-center mb-6">
-//         Nomination Starts from March 15th, 2024. Get ready to nominate your Educators!
-//       </p>
-
-//       {/* Text Content */}
-//       <div className="text-center space-y-6 max-w-3xl mx-auto">
-//         <p className="text-yellow-500 font-semibold">
-//           ★ The NESA Africa Awards 2024 ★
-//         </p>
-//         <h1 className="text-3xl md:text-5xl font-extrabold leading-tight text-yellow-400">
-//           Celebrating Educational Excellence Across Africa
-//         </h1>
-//         <p className="text-base md:text-lg leading-relaxed">
-//           Join Us in Recognizing Excellence & Nominate Outstanding Individuals and
-//           Organizations for the Prestigious New Education Standard Awards, and be
-//           inspired by their stories.
-//         </p>
-//         <p className="text-yellow-400">
-//           A flagship initiative under <Link href="#" className="underline">Santos Creations</Link>
-//         </p>
-//         <Link href="#" className="underline">Educational Foundation</Link>
-
-//         {/* CTA Button */}
-//         <Link href="#nominate">
-//           <button className="mt-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold py-3 px-6 rounded-lg">
-//             Nominate now
-//           </button>
-//         </Link>
-//       </div>
-
-//       {/* Logo Image (Resized and Pushed Down) */}
-//       <div className="mt-10 flex justify-center">
-//         <Image
-//           src="/images/nesa-mg.png"
-//           alt="NESA Badge"
-//           width={220}
-//           height={220}
-//           className="object-contain"
-//         />
-//       </div>
-//     </section>
-//       </>
-//   );
-// };
-
-// export default HeroCenter;
