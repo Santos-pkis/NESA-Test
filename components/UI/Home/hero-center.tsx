@@ -19,7 +19,7 @@ const HeroCenter = () => {
 
   return (
     <>
-      <div className="absolute inset-0  min-h-full w-full ">
+      <div className="absolute inset-0 min-h-full w-full pointer-events-none">
           <Image
           src={"/images/headhero.png"}
           alt="hero image"
@@ -75,13 +75,13 @@ const HeroCenter = () => {
               A flagship initiative under <SantosLink />
             </p>
             {/* buttons */}
-            <div className="lg:flex pb-6 sm:flex flex-wrap lg:flex-nowrap items-center justify-center md:grid md:grid md:grid-cols-2 gap-1 space-y-2 md:gap-4 pt-2 w-full">
+            <div className="lg:flex lg:pb-1 pb-10 sm:flex flex-wrap lg:flex-nowrap items-center justify-center md:grid md:grid md:grid-cols-2 gap-1 space-y-2 md:gap-2 pt-2 w-full">
               <Button text="Vote with Afrigold coin" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
     px-1 md:px-8 py-2
     text-xs sm:text-sm md:text-sm
     text-center
     rounded-lg
-    w-full w-auto 
+    w-full sm:w-auto 
     truncate
   " />
               <Button text="Sponsor a category" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
@@ -126,7 +126,7 @@ const HeroCenter = () => {
       </div>
 
             {/* Video Section */}
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center lg:p-16 lg:pt-8">
         <div
           className="relative w-[95%] max-w-[1528px] h-auto aspect-[1528/832] border border-black rounded-[24px] shadow-lg overflow-hidden"
         >
