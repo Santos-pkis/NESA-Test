@@ -33,7 +33,15 @@ const HomePartners = () => {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent opacity-50"></div>
 
         <div className="grid place-content-center">
-          <Button text="Partner with us" variant="filled" size="medium" />
+                        <Button text="Partner with us" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+              px-1 md:px-8 py-2
+              text-xs sm:text-sm md:text-sm
+              text-center
+              rounded-lg
+              w-full sm:w-auto
+              truncate
+            " />
+          {/* <Button text="Partner with us" variant="filled" size="medium" /> */}
         </div>
       </div>
     </section>

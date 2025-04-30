@@ -20,6 +20,9 @@ const AwardCategories = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Competitive Category */}
           <div>
+          <Link
+            href={"/competitive"}
+          >
           <div className="bg-[#191307] text-white rounded-2xl p-6 relative">
             {/* Dots */}
             <div className="absolute top-5 right-4 flex flex-col gap-[5px]">
@@ -42,9 +45,9 @@ const AwardCategories = () => {
                 className="object-contain"
               />
             </div>
-
           </div>
-    
+    </Link>
+ 
           <ul className="text-sm mt-6 space-y-2">
               <li>✅ Open to the public! Nominate individuals, organizations, or projects</li>
               <li>✅ Public voting through the GetFinance Africa Wallet using Afri–Gold Coin</li>
@@ -61,7 +64,12 @@ const AwardCategories = () => {
             </div>
           {/* Non-Competitive Category */}
           <div>
+          <Link
+              href="/non-competitive"
+              className="block  text-[#F5B400] text-sm font-semibold"
+            >
           <div className="bg-[#191307] text-white rounded-2xl p-6 relative">
+
             {/* Dots */}
             <div className="absolute top-5 right-4 flex flex-col gap-[5px]">
               <div className="w-[6px] h-6 bg-white rounded-full"></div>
@@ -83,8 +91,8 @@ const AwardCategories = () => {
                 className="object-contain"
               />
             </div>
-
-          </div>
+            </div>
+          </Link>
           
           <ul className="text-sm mt-6 space-y-2">
               <li>✅ Selected by expert panels based on merit! Nominate leaders, associations, or institutions</li>

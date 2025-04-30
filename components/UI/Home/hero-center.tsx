@@ -75,13 +75,13 @@ const HeroCenter = () => {
               A flagship initiative under <SantosLink />
             </p>
             {/* buttons */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-1 md:gap-x-2 pt-2 w-full">
+            <div className="lg:flex pb-6 sm:flex flex-wrap lg:flex-nowrap items-center justify-center md:grid md:grid md:grid-cols-2 gap-1 space-y-2 md:gap-4 pt-2 w-full">
               <Button text="Vote with Afrigold coin" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
     px-1 md:px-8 py-2
     text-xs sm:text-sm md:text-sm
     text-center
     rounded-lg
-    w-auto 
+    w-full w-auto 
     truncate
   " />
               <Button text="Sponsor a category" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center

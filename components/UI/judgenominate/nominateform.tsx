@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { FiCheckCircle, FiUpload, FiX, FiArrowLeft } from "react-icons/fi";
 import { createNomination } from "@/lib/services/nominationService";
-
+import { createJudgeNomination } from '@/lib/services/judgeNominationService';
 import { useRouter } from "next/navigation";
 interface FormData {
   fullName: string;
@@ -71,14 +71,14 @@ const JudgeNominationForm: React.FC = () => {
     const handleNominate = async () => {
       setLoading(true);
       try {
-        await createNomination({
+        await createJudgeNomination({
           fullName: formData.fullName,
           currentRole: formData.currentRole,
           email: formData.email,
           linkedinProfile: formData.linkedinProfile,
           country: formData.country,
           reason: formData.reason,
-          document: formData.documents,
+          documents: formData.documents,
         });
 
         setShowConfirmation(false);
@@ -256,6 +256,7 @@ const JudgeNominationForm: React.FC = () => {
         </div>
       </form>
    {/* Confirmation Modal */}
+   
    {showConfirmation && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">

@@ -24,7 +24,7 @@ const Page = () => {
         targetDateProp="2025-09-10T19:55:00Z" 
       />
         <AwardCategories />
-        <AboutNewEducation />
+        {/* <AboutNewEducation /> */}
         <HomePartners />
         <Category />
         <Judges />
