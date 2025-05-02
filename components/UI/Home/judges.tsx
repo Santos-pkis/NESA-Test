@@ -22,11 +22,11 @@ const Judges = () => {
         <div className="container text-white space-y-16 py-10">
           <div className="space-y-2">
         <h3 className="_under_border text-3xl lg:text-5xl text-black mb-6 -mt-20 lg:-mt-5">Meet The Judges</h3>
-        <p className="text-2xl text-black">Get to know the NESA Judges, their background, and achievements</p>
+        <p className="text-2xl text-black">Get to know the NESA Judgess, their background, and achievements</p>
           </div>
 
             <div
-            className="flex items-center justify-between overflow-x-auto scroll-smooth w-screen space-x-3.5"
+            className="flex items-center justify-between overflow-x-auto hide_scroll scroll-smooth w-screen space-x-3.5"
             ref={ref}
             style={{
               backgroundImage: "url('/images/bg/judgebg.png')",
@@ -36,7 +36,7 @@ const Judges = () => {
               marginRight: "calc(-50vw + 50%)",
             }}
             >
-            {Array.from({ length: 4 }).map((_, id) => (
+            {Array.from({ length: 5 }).map((_, id) => (
             <div key={id}>
             <Image src={`/images/ju${id + 1}.png`} alt={`Judge ${id + 1}`} width={300} height={400} />
             </div>

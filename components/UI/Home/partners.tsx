@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const HomePartners = () => {
   return (
-    <section className="py-[7rem] mb-[5rem] text-white relative">
+    <section className="py-[32px] mb-[5rem] text-white relative">
       <Image
         src={"/images/bg/timeline.png"}
         alt="dark background"
@@ -16,7 +16,7 @@ const HomePartners = () => {
       <div className="bg-[#15110999] absolute top-0 left-0 w-full -z-[1] h-full"></div>
 
       <div className="space-y-8 container">
-        <p className="text-white text-center text-2xl md:text-4xl font-semibold">Meet Our Key Partners</p>
+        <p className="text-white text-center text-2xl md:text-4xl">Meet Our Key Partners</p>
 
         {/* Upper horizontal line with fading ends */}
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent opacity-50"></div>
@@ -34,11 +34,11 @@ const HomePartners = () => {
 
         <div className="grid place-content-center">
                         <Button text="Partner with us" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
-              px-1 md:px-8 py-2
+              px-1 md:px-8 py-2 hover:bg-[#E48900] hover:text-black
               text-xs sm:text-sm md:text-sm
               text-center
               rounded-lg
-              w-full sm:w-auto
+              w-full sm:w-auto 
               truncate
             " />
           {/* <Button text="Partner with us" variant="filled" size="medium" /> */}

@@ -26,7 +26,7 @@ const Page = () => {
         <AwardCategories />
         {/* <AboutNewEducation /> */}
         <HomePartners />
-        <Category />
+        {/* <Category /> */}
         <Judges />
         <GetInvolved />
         <Refer />

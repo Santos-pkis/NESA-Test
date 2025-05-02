@@ -48,18 +48,18 @@ const GetInvolved = () => {
             </p>
           </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-2 gap-8">
             {involveData.map((data, id) => (
                 <div
                 key={id}
-                className="p-8 flex flex-col items-start text-black rounded-2xl space-y-6"
+                className="p-8 flex  flex-col items-start text-black rounded-2xl lg:space-y-1 space-y-6"
                 >
-                <div className="w-full aspect-square overflow-hidden">
+                <div className="w-full lg:max-w-[450px] aspect-square overflow-hidden">
                 <Image
                 src={`/images/getinvolved/get${id + 1}.png`}
                 alt={data.heading}
                 width={500}
-                height={500}
+                height={200}
                 className="w-full h-full object-cover"
                 />
                 </div>

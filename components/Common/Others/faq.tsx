@@ -30,7 +30,7 @@ const FAQs: React.FC<{ data?: Faq[]; variant?: "1" | "2" }> = ({ data: faqData =
             className={`py-5 border-b space-y-2 ${variant === "2" ? "border-zinc-400" : "border-zinc-300"}`}
           >
             <div className="flex items-center justify-between cursor-pointer" onClick={() => toggleFaq(id)}>
-              <p className="font-bold md:text-xl text-lg">{data.question}</p>
+              <p className="md:text-xl text-lg">{data.question}</p>
               <div className="md:w-8 md:h-8 w-6 h-6 flex-shrink-0 rounded-full border border-black/20 grid place-content-center">
                 <ChevronDown className={`text-zinc-700 p-1 md:p-0 ${selectedId === id && "rotate-180"} duration-300`} />
               </div>

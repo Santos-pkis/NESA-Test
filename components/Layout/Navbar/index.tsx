@@ -8,6 +8,7 @@ import { useAuth } from "@/lib/hooks/useAuth"; // Import the useAuth hook
 import { ChevronDown, Menu, X, User } from "lucide-react";
 import { navlinks } from "@/lib/data/global";
 import styles from "./style.module.scss";
+import Button from "@/components/Common/Button";
 
 const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -153,14 +154,15 @@ const AuthButtons = ({ user }: { user: any }) => {
   return (
     <div className="flex space-x-4">
       <Link href="/account/login">
-        <motion.button
-          className="text-[#17120a] w-[7rem] flex justify-center items-center py-2 px-4 font-[500] text-sm rounded-[1rem]"
-          style={{
-            background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
-          }}
-        >
-          Login
-        </motion.button>
+              <Button text="Join as an Ambassador" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+    px-1 md:px-8 py-2
+    text-xs sm:text-sm md:text-sm
+    text-center hover:bg-[#E48900] hover:text-black
+    rounded-lg
+    w-full sm:w-auto
+    truncate
+  " />
+          
       </Link>
       <Link href="/account/signup">
         <motion.button

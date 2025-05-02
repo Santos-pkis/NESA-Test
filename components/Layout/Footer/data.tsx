@@ -93,7 +93,7 @@ export const socials: Social[] = [
 
 export const contactInfos: { value: string; icon: JSX.Element }[] = [
   {
-    value: "54, Falolu Street, Surulere, Lagos",
+    value: "19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos",
     icon: <CiLocationOn />,
   },
   {

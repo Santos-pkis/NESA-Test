@@ -22,7 +22,7 @@ const Refer = () => {
         <Image
           src="/images/refer/pana.png"
           alt="Refer a Friend"
-          className="w-full h-auto max-w-[600px] mx-auto mt-8"
+          className="w-full h-auto max-w-[400px] mx-auto mt-8"
           width={30}
           height={80}
           

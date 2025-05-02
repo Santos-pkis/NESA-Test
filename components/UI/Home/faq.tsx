@@ -5,7 +5,7 @@ const HomeFaq = () => {
   return (
     <section>
       <div className="container py-20">
-        <h3 className="font-bold md:text-4xl text-3xl">Frequently Asked Questions</h3>
+        <h3 className=" md:text-4xl text-3xl">Frequently Asked Questions</h3>
 
         <FAQs data={homeFaq} />
       </div>
