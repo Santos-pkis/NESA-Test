@@ -8,7 +8,7 @@ import { FaStar } from "react-icons/fa6";
 import Image from "next/image";
 import Button from "@/components/Common/Button";
 import CountdownTimer from "@/components/Common/Others/counter";
-
+import Link from "next/link";
 import { useState } from "react";
 
 const HeroCenter = () => {
@@ -67,7 +67,7 @@ const HeroCenter = () => {
 
           {/* Description */}
           <p
-            className="lg:text-[16px] md:text-[24px] text-[14px] md:leading-[26px] font-normal md:text-gray-300 text-[#FFFFFF] font-poppins"
+            className="lg:text-[16px] lg:text-[24px] md:text-[16px] text-[14px] md:leading-[26px] font-normal md:text-gray-300 text-[#FFFFFF] font-poppins"
           >
             NESA Africa 2025 recognizes individuals, NGOs, corporations, policymakers, and influencers who are shaping education systems — not students or teachers, but the visionaries transforming Africa's future.
           </p>
@@ -93,6 +93,7 @@ const HeroCenter = () => {
     w-full sm:w-auto
     truncate
   " />
+<Link href="/nesatv" className="flex items-center">
               <Button text="Watch NESA TV" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
     px-1 md:px-8 py-2
     text-xs sm:text-sm md:text-sm
@@ -101,6 +102,8 @@ const HeroCenter = () => {
     w-full sm:w-auto
     truncate
   " />
+  </Link>
+  <Link href="/member/createnominee"  className="flex items-center">
               <Button text="Nominate Now" variant="filled" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
     px-1 md:px-8 py-2
     text-xs sm:text-sm md:text-sm
@@ -109,6 +112,7 @@ const HeroCenter = () => {
     w-full sm:w-auto
     truncate
   " />
+  </Link>
             </div>
 
           </div>
