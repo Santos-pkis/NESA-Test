@@ -67,7 +67,7 @@ const HeroCenter = () => {
 
           {/* Description */}
           <p
-            className="lg:text-[16px] lg:text-[24px] md:text-[16px] text-[14px] md:leading-[26px] font-normal md:text-gray-300 text-[#FFFFFF] font-poppins"
+            className="lg:text-[16px] lg:text-[18px] md:text-[16px] text-[14px] md:leading-[26px] font-normal md:text-gray-300 text-[#FFFFFF] font-poppins"
           >
             NESA Africa 2025 recognizes individuals, NGOs, corporations, policymakers, and influencers who are shaping education systems — not students or teachers, but the visionaries transforming Africa's future.
           </p>
