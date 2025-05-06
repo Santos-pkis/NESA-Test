@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const HomePartners = () => {
   return (
-    <section className="py-[32px] mb-[5rem] text-white relative">
+    <section className="py-[32px] text-white relative">
       <Image
         src={"/images/bg/timeline.png"}
         alt="dark background"

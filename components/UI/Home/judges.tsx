@@ -21,14 +21,14 @@ const Judges = () => {
 
         <div className="container  text-white space-y-16 py-10">
           <div className="space-y-2">
-        <h3 className="_under_border text-[32px] font-poppins leading-[40px] font-normal text-black mb-10 mt-2 lg:-mt-5">Meet some of our Judges</h3>
-        <div className="grid grid-cols-2 min-w-screen">
-        <p className="font-poppins font-normal leading-[30px] tracking-[1%] text-[18px] text-black w-[74vw]">At the New Education Standard Award Africa (NESA-Africa) 2025, <br/>
+        <h3 className="_under_border lg:text-[32px] text-[20px] font-poppins leading-[38px] font-semibold text-[#191307] lg:mb-10 mb-8 mt-2 lg:-mt-5">Meet some of our Judges</h3>
+        <div className="grid md:grid-cols-2 min-w-screen">
+        <p className="font-poppins font-normal md:leading-[30px] tracking-[1%] md:text-[18px] text-black w-[74vw]">At the New Education Standard Award Africa (NESA-Africa) 2025, <br/>
         <span> our esteemed panel of judges brings together education leaders, innovators, philanthropists, policymakers, and experts across Africa and the diaspora.<br/></span>
 <span>They are responsible for ensuring fairness, transparency, and credibility in evaluating nominees across 17 major categories and 141 specialized sub-categories — covering media, corporate social responsibility, NGOs, diaspora contributions, STEM education, and more.<br/></span>
 <span>Each judge is carefully vetted for integrity, expertise, and commitment to advancing education for all. </span>
 </p>
-                <div className="flex justify-end items-end ">
+                <div className="flex justify-end items-end">
                 <button className="flex text-primaryGold items-center gap-2">
                 <p>see all Judges</p>
                 <ChevronRight />
@@ -36,17 +36,17 @@ const Judges = () => {
                 </div>
                 </div>
           </div>
-
-            <div
-            className="flex items-center justify-between overflow-x-auto hide_scroll scroll-smooth w-screen px-12 lg:space-x-4 space-x-4 pb-20 pt-6"
-            ref={ref}
-            style={{
+          <div             style={{
               backgroundImage: "url('/images/bg/judgebg.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               marginLeft: "calc(-50vw + 50%)",
               marginRight: "calc(-50vw + 50%)",
-            }}
+            }}>
+            <div
+            className=" flex items-center justify-between overflow-x-auto hide_scroll scroll-smooth w-screen px-12 lg:space-x-4 space-x-4 pb-10 pt-6"
+            ref={ref}
+
             >
 {Array.from({ length: 5 }).map((_, id) => {
   return (
@@ -64,23 +64,24 @@ const Judges = () => {
 
             </div>
 
-          <div className="flex items-center justify-between">
+          <div className="px-6 pl-14 flex items-center justify-between pb-6">
         <div className="flex items-center space-x-2">
           {Array.from({ length: 5 }).map((_, id) => (
             <div
           key={id}
-          className={`w-3 h-3 rounded-full bg-white cursor-pointer ${id === 0 ? "bg-primaryGold" : ""}`}
+          className={`w-3 h-3 rounded-full bg-white cursor-pointer ${id === 0 ? "bg-primaryGold" : "bg-primaryGold"}`}
             ></div>
           ))}
         </div>
-        <div className="flex items-center space-x-2 text-black">
-          <button className="size-12 rounded-xl bg-white grid place-content-center" onClick={moveLeft}>
+        <div className="flex  items-center space-x-2 text-white">
+          <button className="size-12  rounded-full bg-black bg-opacity-80 grid place-content-center" onClick={moveLeft}>
             <ArrowLeft />
           </button>
-          <button className="size-12 rounded-xl bg-primaryGold grid place-content-center" onClick={moveRight}>
+          <button className="size-12 rounded-full bg-white text-black grid place-content-center" onClick={moveRight}>
             <ArrowRight />
           </button>
         </div>
+          </div>
           </div>
         </div>
       </div>

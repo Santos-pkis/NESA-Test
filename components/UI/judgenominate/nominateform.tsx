@@ -5,6 +5,9 @@ import { FiCheckCircle, FiUpload, FiX, FiArrowLeft } from "react-icons/fi";
 import { createNomination } from "@/lib/services/nominationService";
 import { createJudgeNomination } from '@/lib/services/judgeNominationService';
 import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+
+
 interface FormData {
   fullName: string;
   currentRole: string;
@@ -16,6 +19,7 @@ interface FormData {
 }
 
 const JudgeNominationForm: React.FC = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     currentRole: '',
@@ -42,23 +46,9 @@ const JudgeNominationForm: React.FC = () => {
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
-      setFormData((prev) => ({ ...prev, document: files[0] }));
+      setFormData((prev) => ({ ...prev, documents: files[0] }));
     }
   };
-
-
-    const handleNominateAnother = () => {
-      setShowSuccess(false);
-      setFormData({
-        fullName: "",
-        currentRole: "",
-        email: "",
-        linkedinProfile: "",
-        country: "",
-        reason: '',
-        documents: null,
-      });
-    };
 
     
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -92,6 +82,19 @@ const JudgeNominationForm: React.FC = () => {
       }
     };
 
+    
+    const handleNominateAnother = () => {
+      setShowSuccess(false);
+      setFormData({
+        fullName: "",
+        currentRole: "",
+        email: "",
+        linkedinProfile: "",
+        country: "",
+        reason: '',
+        documents: null,
+      });
+    };
 
   return (
     <div className="max-w-6xl mx-auto p-6">
@@ -201,34 +204,25 @@ const JudgeNominationForm: React.FC = () => {
         </div>
         
         <div className="mb-6">
-          <label className="block text-gray-800 font-medium mb-2">
+          <label htmlFor="fileUpload" className="block text-gray-800 font-medium mb-2">
             Upload documents or images to support your nominee's achievements
           </label>
           <div className="border border-dashed border-gray-300 rounded-md p-8 text-center">
-            <div className="flex justify-center mb-2">
-              <Image 
-                src="/upload-icon.svg" 
-                alt="Upload" 
-                width={40} 
-                height={40}
-                className="mb-2"
-              />
-            </div>
           
-            <label htmlFor="fileUpload" className=" cursor-pointer">
+            <label  className=" cursor-pointer">
              
               <input
                 type="file"
                 id="fileUpload"
                 name="document"
+                onChange={handleFileChange}
                 accept=".jpg,.png,.pdf,.svg"
                 className="hidden absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                onChange={handleFileChange}
               />
                                 {formData.documents ? (
                                   <div className="flex flex-col items-center">
                                     <FiUpload className="w-8 h-8 text-[#FFC247] mb-2" />
-                                    <p className="text-gray-700 font-medium">{formData.documents?.name}</p>
+                                    <p className="text-gray-700 font-medium">{formData.documents.name}</p>
                                     <p className="text-sm text-gray-500 mt-1">Click to change file</p>
                                   </div>
                                 ) : (
@@ -243,16 +237,25 @@ const JudgeNominationForm: React.FC = () => {
         </div>
         
         <div className="flex justify-center mt-8">
-          <button
-            type="submit"
-            onClick={handleNominate}
-            disabled={loading}
-            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-md w-full max-w-md transition duration-300" style={{
-              background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
-            }}
-          >
-            {loading ? "Submitting..." : "Submit for Nomination"} 
-          </button>
+        <motion.button
+                type="submit"
+                disabled={loading}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full text-white py-3 px-6 rounded-xl font-medium disabled:opacity-70 relative overflow-hidden"
+                style={{
+                  background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
+                }}
+              >
+                {loading ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    Submitting...
+                  </div>
+                ) : (
+                  "Submit For Nomination"
+                )}
+              </motion.button>
         </div>
       </form>
    {/* Confirmation Modal */}
