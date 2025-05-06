@@ -17,7 +17,7 @@ export const createJudgeNomination = async (data: NominationData): Promise<any> 
     console.log('Service Layer - Received email:', data.email);
     
     if (!data.email) {
-      throw new Error('Category ID is required');
+      throw new Error('email is required');
     }
 
     const payload = {
@@ -27,7 +27,7 @@ export const createJudgeNomination = async (data: NominationData): Promise<any> 
     linkedin_profile: data.linkedinProfile,
     country: data.country,
     reason: data.reason,
-    document: data.documents ? data.documents.name : null, // This should be a string path if not uploading file
+    document: data.documents ? data.documents.name : null, 
      
     };
 

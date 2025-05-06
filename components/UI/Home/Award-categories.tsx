@@ -7,7 +7,7 @@ const AwardCategories = () => {
   return (
     <section className="bg-[#fdf3dc] px-6 py-10 lg:py-16">
       <div className="max-w-6xl mx-auto">
-        <h2 className="lg:text-[32px] md:text-[28px] text-[20px] font-semibold text-[#191307] mb-3">
+        <h2 className="_under_border lg:text-[32px] md:text-[28px] text-[20px] font-semibold text-[#191307] mb-3">
           Nominate now
         </h2>
         <p className="text-[#191307] font-poppins md:text-[18px] text-[16px] md:text-base mb-8">

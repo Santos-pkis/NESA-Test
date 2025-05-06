@@ -10,7 +10,7 @@ const Judges = () => {
 
   return (
     <div>
-      <div className="min-h-[50rem] relative flex items-center" style={{ backgroundColor: "#FFF5E0" }}>
+      <div className="min-h-[50rem] relative flex items-center mx-auto" style={{ backgroundColor: "#FFF5E0" }}>
         {/* <Image
           src={"/images/bg/timeline.png"}
           alt="dark background"
@@ -23,9 +23,7 @@ const Judges = () => {
           <div className="space-y-2">
         <h3 className="_under_border lg:text-[32px] text-[20px] font-poppins leading-[38px] font-semibold text-[#191307] lg:mb-10 mb-8 mt-2 lg:-mt-5">Meet some of our Judges</h3>
         <div className="grid md:grid-cols-2 min-w-screen">
-        <p className="font-poppins font-normal md:leading-[30px] tracking-[1%] md:text-[18px] text-black w-[74vw]">At the New Education Standard Award Africa (NESA-Africa) 2025, <br/>
-        <span> our esteemed panel of judges brings together education leaders, innovators, philanthropists, policymakers, and experts across Africa and the diaspora.<br/></span>
-<span>They are responsible for ensuring fairness, transparency, and credibility in evaluating nominees across 17 major categories and 141 specialized sub-categories — covering media, corporate social responsibility, NGOs, diaspora contributions, STEM education, and more.<br/></span>
+        <p className="font-poppins font-normal md:leading-[30px] tracking-[1%] md:text-[18px] text-black w-[74vw]">At the New Education Standard Award Africa (NESA-Africa) 2025, our esteemed panel of judges brings together education leaders, innovators, philanthropists, policymakers, and experts across Africa and the diaspora. They are responsible for ensuring fairness, transparency, and credibility in evaluating nominees across 17 major categories and 141 specialized sub-categories — covering media, corporate social responsibility, NGOs, diaspora contributions, STEM education, and more.
 <span>Each judge is carefully vetted for integrity, expertise, and commitment to advancing education for all. </span>
 </p>
                 <div className="flex justify-end items-end">
