@@ -2,8 +2,8 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 const data = [
   {
-    range: "April 1, 2025-",
-    endRange: "End of April 2025",
+    range: "May 1, 2025-",
+    endRange: "End of May 2025",
     title: "Nomination Launch & Awareness Phase",
     list: [
       "Launch of the nomination process on the NNESA digital platform. Inviting entries from eligible participants across various categories",
@@ -11,7 +11,7 @@ const data = [
     ],
   },
   {
-    range: "May – June",
+    range: "June – July",
     endRange: "2025",
     title: "Nomination Review & Pre-Voting Preparation",
     list: [
@@ -21,7 +21,7 @@ const data = [
     ],
   },
   {
-    range: "July 2025",
+    range: "August 2025",
     endRange: "",
     title: "Pre-Voting Publicity & Event Ticket Sales",
     list: [
@@ -30,7 +30,7 @@ const data = [
     ],
   },
   {
-    range: "August –",
+    range: "September –",
     endRange: "October 2025",
     title: "Voting, Africa Education Expo & Grand Awards Ceremony",
     list: [
@@ -53,9 +53,9 @@ const Timeline = () => {
         height={1580}
       />
       <div className="container mx-auto px-4 py-16">
-        <h3 className="relative inline-block font-semibold text-2xl pb-2 mb-12">
+        <h3 className="relative inline-block font-medium text-2xl pb-2 mb-12">
           NESA Nigera 2025 Award Timelines
-          <span className="absolute bottom-0 left-0 w-14 h-1 bg-yellow-500"></span>
+          <span className="absolute bottom-0 left-0 w-40 h-1 bg-yellow-500"></span>
         </h3>
         
         <div className="space-y-16">
@@ -66,7 +66,7 @@ const Timeline = () => {
                 <p>{item.endRange}</p>
               </div>
               
-              <div className="flex-grow border-l-4 border-yellow-500 pl-6 space-y-4">
+              <div className="flex-grow md:w-5/6 border-l-4 border-yellow-500  pl-8 space-y-4">
                 <h4 className="text-xl md:text-2xl font-medium">{item.title}</h4>
                 
                 <ul className="list-disc pl-6 space-y-2 text-white/90">

@@ -53,7 +53,7 @@ const GetInvolved = () => {
               <div
               key={id}
               className={`p-3 flex flex-col items-start text-black rounded-2xl lg:space-y-1 space-y-6 ${
-                id === involveData.length - 1 ? "md:col-span-2 lg:mx-auto mx-32" : ""
+                id === involveData.length - 1 ? "md:col-span-2 lg:mx-auto md:mx-32" : ""
               }`}
               >
               <div className="w-full lg:max-w-[650px] lg:max-h-[450px] aspect-square overflow-hidden">
