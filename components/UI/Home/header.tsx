@@ -44,7 +44,7 @@ const HomeHeader = () => {
 
   return (
      <header>               
-     <div className="min-h-screen max-w-screen bg-[#191307CC]">
+     <div className={`min-h-screen max-w-screen relative bg-[#191307CC] ${styles.homeHeader}`}>
 
             {Slides.map((slide, index) => {
               return (

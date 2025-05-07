@@ -10,12 +10,12 @@ const involveData: {
 }[] = [
   {
     heading: "Sponsor a Category or the Gala Event",
-    description: "Be the force behind Africa's changemakers. By sponsoring an award category, a session at the EduAid Expo, or the NESA-Africa Awards Gala itself, your organization directly empowers the heroes working to achieve education for all. Your brand will be featured in front of millions across Africa, celebrated for investing in social impact, sustainability, and the future of our continent.",
+    description: "Be the force behind Africa's changemakers. By sponsoring an award category, a session at the EduAid Expo, or the NESA-Africa Awards Gala itself, your organization directly empowers the heroes working to achieve education for all.Your brand will be featured in front of millions across Africa, celebrated for investing in social impact, sustainability, and the future of our continent.",
     cta: `Sponsor a Category`,
   },
   {
     heading: `Join as an Ambassador (Local Chapters — Online or Real-Time)`,
-    description: `Lead the change, locally and globally. Join our vibrant network of Ambassadors, representing cities, universities, diaspora communities, and local chapters across Africa and the world. Ambassadors are the heart of our engagement strategy — they organize, promote, and expand the movement both online and on-ground.`,
+    description: `Lead the change, locally and globally. Join our vibrant network of Ambassadors, representing cities, universities, diaspora communities, and local chapters across Africa and the world.Ambassadors are the heart of our engagement strategy — they organize, promote, and expand the movement both online and on-ground.`,
     cta: `Become a NESA Ambassador`,
   },
   {
@@ -30,7 +30,7 @@ const involveData: {
   },
   {
     heading: `Donate to Empower Education for All`,
-    description: `Every contribution creates opportunities. Your donation directly funds scholarships, provides rural schools with digital tools, supports displaced learners, and strengthens our sustainable education programs. Secure and easy — donate through the GFA Wallet and make a real difference.`,
+    description: `Every contribution creates opportunities. Your donation directly funds scholarships, provides rural schools with digital tools, supports displaced learners, and strengthens our sustainable education programs.Secure and easy — donate through the GFA Wallet and make a real difference.`,
     cta: `Donate one`,
   },
 ];
