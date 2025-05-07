@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import HeroCenter from "./hero-center";
-import SlideImage2 from "./SlideImage2";
-import SlideImage3 from "./SlideImage3";
-import SlideImage4 from "./SlideImage4";  
-import SlideImage5 from "./SlideImage5";
-import SlideImage6 from "./SlideImage6";
+import HeroCenter from "../Home/hero-center";
+import SlideImage2 from "../Home/SlideImage2";
+import SlideImage3 from "../Home/SlideImage3";
+import SlideImage4 from "../Home/SlideImage4";  
+import SlideImage5 from "../Home/SlideImage5";
+import SlideImage6 from "../Home/SlideImage6";
 import styles from "@/components/Common/Slide/style.module.scss";
-import NonCompetitiveHeroCenter from "@/components/UI/Home/non-competitive-hero-center";
+import CompetitiveHeroCenter from "@/components/UI/Categories/categories-hero-center";
+
 
 export interface CategoryCardProps {
   categoryData: {
@@ -19,16 +20,15 @@ export interface CategoryCardProps {
   }[];
  }
 
-
-const NonCompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
+const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [activeDot, setActiveDot] = useState(0);
-    const totalSlides = 8; // Total number of slides
+    const totalSlides = 8; 
 
     const Slides = categoryData.map((item, index) => {
 
       return (
-      <NonCompetitiveHeroCenter
+      <CompetitiveHeroCenter
         key={index}
         index={index+1}
         title={item.title}
@@ -36,6 +36,8 @@ const NonCompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => 
         subCategoryPath={item.subCategoryPath}
       />
     )});
+
+
     const nextSlide = () => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
     };
@@ -56,25 +58,20 @@ const NonCompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => 
 
   return (
     <header>
-      <div className={`h-screen z-[4] bg-[#17120a] text-white relative ${styles.homeHeader}`}>
-        <div className="absolute top-0 left-0 h-full w-full">
+      <div className={`min-h-screen max-w-screen text-white relative bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent ${styles.homeHeader}`}>
+        
           <Image
                       src={"/images/header.png"}
                       alt="hero image"
                       fill
                       className="w-full h-full object-cover"
           />
-        </div>
-
-        <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent"></div>
-
-        <div className="absolute top-0 left-0 h-full w-full text-center pt-[3rem]">
-        <div className="min-h-screen">
+        
+        
           {Slides.map((slide, index) => {
             return (
-              <div key={index} className={`absolute top-0 left-0 w-full h-full pt-32 transition-opacity duration-500 ${
-    currentSlide === index ? "opacity-100" : "opacity-0"
-  }`}>
+              <div key={index} className={`absolute top-0 left-0 w-full bg-[#17120a] bg-opacity-80 pb-32 min-h-full md:pt-32   transition-opacity duration-500 ${
+                  currentSlide === index ? "opacity-100" : "opacity-0"}`}>
                   {slide}
               </div>  
             );
@@ -82,9 +79,9 @@ const NonCompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => 
         }
 
         {/* Scroll Feature */}
-        <div className="absolute bottom-16 inset-x-0 flex items-center justify-between px-4">
+        <div className="absolute bottom-6 inset-x-0 flex items-center justify-between md:px-4 px-2">
           {/* Dots */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center md:space-x-2 space-x-1">
             {Array.from({ length: totalSlides }).map((_, id) => (
               <div
                 key={id}
@@ -100,7 +97,7 @@ const NonCompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => 
           </div>
 
           {/* Navigation Arrows */}
-          <div className="flex items-center gap-3 ml-auto">
+          <div className="flex items-center gap-1 ">
             <button
               onClick={() => {
                 prevSlide();
@@ -121,11 +118,9 @@ const NonCompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => 
             </button>
           </div>
               </div>
-          </div>
         </div>
-      </div>
     </header>
   );
 };
 
-export default NonCompetitiveHeader;
+export default CompetitiveHeader;

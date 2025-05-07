@@ -7,7 +7,7 @@ import HomePartners from "@/components/UI/Home/partners";
 import Judges from "@/components/UI/Home/judges";
 import GetInvolved from "@/components/UI/Home/get-involved";
 import AwardCategories from "@/components/UI/Home/Award-categories";
-import CompetitiveHeader from "@/components/UI/Home/competitive-header";
+import CompetitiveHeader from "@/components/UI/Categories/categories-header";
 import HowToNominate from "@/components/UI/competitve-nominate/howtonominate";
 import Category from "@/components/UI/competitve-nominate/nominatecategories";
 import CountdownTimer from "@/components/Common/Others/countdown";
