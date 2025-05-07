@@ -94,7 +94,7 @@ const HeroCenter = () => {
         truncate
         " />
 
-              <Link href="/nesatv">
+             
               <Button text="Watch NESA TV" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
           px-1 md:px-8 py-2
           text-xs sm:text-sm md:text-sm
@@ -103,8 +103,6 @@ const HeroCenter = () => {
           w-full sm:w-auto
           truncate
         " />
-              </Link>
-              <Link href="/Judgesnominate">
               <Button text="Nominate Now" variant="filled" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
         px-1 md:px-8 py-2
         text-xs sm:text-sm md:text-sm
@@ -113,8 +111,6 @@ const HeroCenter = () => {
         w-full sm:w-auto
         truncate
         " />
-              </Link>
-        
             </div>
 
           </div>
