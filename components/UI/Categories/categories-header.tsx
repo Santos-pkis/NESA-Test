@@ -58,28 +58,20 @@ const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
 
   return (
     <header>
-      <div className={`min-h-screen max-w-screen text-white relative bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent ${styles.homeHeader}`}>
-        
-          <Image
-                      src={"/images/header.png"}
-                      alt="hero image"
-                      fill
-                      className="w-full h-full object-cover"
-          />
-        
+      <div className={`min-h-screen max-w-screen bg-[#17120a] text-white bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent ${styles.homeHeader}`}>
         
           {Slides.map((slide, index) => {
             return (
-              <div key={index} className={`absolute top-0 left-0 w-full bg-[#17120a] bg-opacity-80 pb-32 min-h-full md:pt-32   transition-opacity duration-500 ${
-                  currentSlide === index ? "opacity-100" : "opacity-0"}`}>
+              <section key={index} className={` h-[80] w-full bg-opacity-80  md:pt-16  transition-opacity duration-500 ${
+                currentSlide === index ? "opacity-100" : "opacity-0 hidden"}`}>
                   {slide}
-              </div>  
+             
+              </section>  
             );
           })
         }
-
-        {/* Scroll Feature */}
-        <div className="absolute bottom-6 inset-x-0 flex items-center justify-between md:px-4 px-2">
+                        {/* Scroll Feature */}
+        <div className="pb-8 md:pb-4 pt-6 flex items-center justify-between md:px-4 px-2">
           {/* Dots */}
           <div className="flex items-center md:space-x-2 space-x-1">
             {Array.from({ length: totalSlides }).map((_, id) => (
@@ -103,7 +95,7 @@ const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
                 prevSlide();
                 setActiveDot((prev) => (prev - 1 + totalSlides) % totalSlides);
               }}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition"
             >
               <span className="material-icons">&lt;</span>
             </button>
@@ -112,13 +104,14 @@ const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
                 nextSlide();
                 setActiveDot((prev) => (prev + 1) % totalSlides);
               }}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black shadow-lg hover:bg-gray-200 transition"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white text-black shadow-lg hover:bg-gray-200 transition"
             >
               <span className="material-icons">{'>'}</span>
             </button>
           </div>
               </div>
-        </div>
+
+               </div>
     </header>
   );
 };

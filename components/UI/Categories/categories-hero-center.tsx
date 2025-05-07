@@ -25,7 +25,16 @@ const CompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: P
   const totalSlides = [ ]
   return (
     <>
-      <div className="grid md:grid-cols-2 items-center gap-2  md:container min-h-full pb-32 py-20">
+      <div className="absolute inset-0 min-h-full w-full pointer-events-none">
+    
+              <Image
+                      src={"/images/header.png"}
+                      alt="hero image"
+                      fill
+                      className="w-full h-full object-cover -z-[1]"
+          />
+                  </div>
+      <div className="grid md:grid-cols-2 items-center gap-2  md:container min-h-full  py-20 pb-2">
           
           <div className="md:space-y-5 space-y-2.5  md:text-left text-center">
             <div className="flex px-3.5 items-center justify-center md:justify-start gap-2 text-primaryGold">
@@ -56,7 +65,7 @@ const CompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: P
           </div>
         
 
-        <div className="lg:w-auto md:ml-8 pl-10 pr-10 pb-16 flex justify-center">
+        <div className="lg:w-auto md:ml-8 pl-10 pr-10 flex justify-center">
           <Image src={"/images/nesa-mg.png"} className="min-w-32 md:min-w-72 lg:min-w-440px" alt="" width={300} height={300} />
         </div>
       </div>
