@@ -58,7 +58,7 @@ const TeamSection: React.FC = () => {
             className="size-8 sm:size-12 cursor-pointer rounded-full bg-black/50 z-10 duration-300 hover:bg-black text-white grid place-content-center mr-2 sm:mr-4"
             onClick={() => slideLeft(setActiveSlide, Math.ceil(data.length / 3))}
           >
-            <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
+            <ChevronLeft className="w-12 h-12 sm:w-6 sm:h-6" />
           </button>
           <div className="flex flex-col sm:flex-row items-stretch gap-4 sm:gap-8 justify-center flex-grow">
             {data.slice(activeSlide * 3, activeSlide * 3 + 3).map((member, id) => (
@@ -90,7 +90,7 @@ const TeamSection: React.FC = () => {
             ))}
           </div>
           <button
-            className="size-8 sm:size-12 cursor-pointer rounded-full bg-black/50 z-10 duration-300 hover:bg-black text-white grid place-content-center ml-2 sm:ml-4"
+            className="size-8 sm:size-12 cursor-pointer rounded-full bg-black/50 z-10 duration-300 hover:bg-black text-white grid place-content-center w-12 h-12 ml-2 sm:ml-4"
             onClick={() => slideRight(setActiveSlide, Math.ceil(data.length / 3))}
           >
             <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
@@ -113,12 +113,22 @@ const TeamSection: React.FC = () => {
 
   return (
     <section className="py-8 sm:py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h1 className="text-2xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">
-          Meet The Passionate Individuals Leading NESA
+      <div className="container mx-auto">
+        <h1 
+          className="text-center mb-2 sm:mb-12" 
+          style={{
+            fontFamily: 'Montserrat',
+            fontWeight: 600,
+            fontSize: '40px',
+            lineHeight: '38px',
+            letterSpacing: '0%',
+            textTransform: 'capitalize',
+          }}
+        >
+          Meet the Passionate Individuals Leading NESA
         </h1>
         <TeamCarousel
-          title="Executives"
+          title="Board of Trustees (SCEF)"
           data={executives}
           activeSlide={activeExecSlide}
           setActiveSlide={setActiveExecSlide}

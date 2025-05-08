@@ -2,10 +2,11 @@ import Image from "next/image";
 
 const NESAAfrica = () => {
   return (
-    <section className="bg-[#FFF5E0] text-[#1a1a1a] px-4 md:px-10 py-16">
+    <section className="bg-[#FFF5E0] text-[#1a1a1a]  py-16">
+      <div className="container mx-auto">
       {/* Header */}
       <div className="mb-10">
-        <h2 className="text-2xl md:text-3xl font-semibold border-l-4 border-[#E48900] pl-3">
+        <h2 className="text-2xl md:text-3xl font-semibold _under_border ">
           Why NESA Africa
         </h2>
         <span className="bg-gradient-to-r from-[#febf44] to-[#ed9d19] h-1 w-24 md:w-36 absolute -bottom-2 left-0"></span>
@@ -21,7 +22,7 @@ const NESAAfrica = () => {
               alt="Mission"
               width={600}
               height={400}
-              className="w-full object-cover"
+              className="w-full lg:lg:h-[474px] md:h-[230px] object-cover"
             />
           </div>
           <div>
@@ -42,7 +43,7 @@ const NESAAfrica = () => {
               alt="Vision"
               width={600}
               height={400}
-              className="w-full object-cover"
+              className="w-full lg:h-[474px] md:h-[230px] object-cover"
             />
           </div>
           <div>
@@ -78,6 +79,7 @@ const NESAAfrica = () => {
             Time Bound Goals (T)
           </li>
         </ul>
+      </div>
       </div>
     </section>
   );

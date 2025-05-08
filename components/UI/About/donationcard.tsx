@@ -27,13 +27,13 @@ const DonationCard = () => {
             </p>
 
             <Link href="/donate" passHref>
-              <a>
+              
                 <Button
                   text="Donate Now"
                   variant="filled"
                   className="w-fit rounded-full font-medium text-sm bg-[#F0B561] text-[#191307] px-6 py-3 mt-4"
                 />
-              </a>
+              
             </Link>
           </div>
         </div>

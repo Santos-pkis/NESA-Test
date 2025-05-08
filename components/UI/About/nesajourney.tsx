@@ -30,14 +30,14 @@ const journeyData = [
 
 const NesaJourney = () => {
   return (
-    <section className="bg-[#FFFFFF] text-[#222] px-3 md:px-5 lg:px-16 py-16">
-      <div className="max-w-5xl ml-2 md:ml-3.5">
+    <section className="bg-[#FFFFFF] text-[#222]">
+      <div className="container mx-auto py-16">
         {/* Header */}
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+        <h2 className="text-2xl md:text-3xl _under_border font-semibold mb-4">
           The NESA Journey
         </h2>
 
-        <p className="text-gray-700 max-w-3xl">
+        <p className="text-gray-700 font-poppins text-justify">
           NESA Africa, formerly known by different names, has undergone an
           evolutionary transformation from its initial concept in 2010. Over the
           years, the initiative faced numerous challenges, including funding
@@ -48,18 +48,18 @@ const NesaJourney = () => {
         </p>
 
         {/* Subheading */}
-        <h3 className="text-xl font-semibold mt-10 mb-6 border-l-4 border-yellow-500 pl-3">
+        <div className="text-xl font-semibold mt-10 mb-6 border-b-4  border-yellow-500 w-[290px] ">
           Evolution of the NESA Brand
-        </h3>
+        </div>
 
         {/* Timeline */}
         <ul className="space-y-6">
           {journeyData.map((item, index) => (
             <li key={index} className="flex flex-col md:flex-row gap-2">
-              <div className="text-lg font-medium w-32 md:w-40 text-yellow-600">
+              <div className="text-lg md:w-1/6  font-medium w-32 md:w-40 text-yellow-600">
                 {item.year}
               </div>
-              <div className="border-l-2 border-yellow-500 pl-4 text-gray-800">
+              <div className="border-l-2 md:w-5/6 border-yellow-500 pl-4 text-gray-800">
                 {item.description}
               </div>
             </li>

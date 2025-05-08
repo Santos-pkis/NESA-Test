@@ -10,7 +10,7 @@ export default function VolunteerWithUs() {
         {/* Image */}
         <div className="rounded-2xl h-full overflow-hidden">
           <Image
-            src="/images/examples/volunteer.png" 
+            src="/images/volunteer.png" 
             alt="Volunteer holding box"
             width={600}
             height={700}
