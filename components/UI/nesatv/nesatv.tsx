@@ -40,7 +40,7 @@ interface LiveTVProps {
   return (
     <section className="w-full px-6 py-20 mt-1.5 sm:mt-1 max-w-7xl mx-auto">
       {/* Announcement */}
-      <div className="z-10 text-white relative">
+      <div className="z-10 text-white relative pb-10">
         <motion.div
           {...opacityTrans}
           transition={{ delay: 1, duration: 1.5 }}
@@ -62,9 +62,8 @@ interface LiveTVProps {
       </div>
 
       {/* Video Player */}
-    <div className="mt-10 pt-6 relative rounded-xl overflow-hidden bg-black aspect-video" style={{ maxWidth: "640px", maxHeight: "398px", margin: "0 auto" }}>
+    <div className="relative mb-4 rounded-xl overflow-hidden bg-black aspect-video max-w-[640px] max-h-[398px] lg:min-h-[500px] mx-auto lg:min-w-[1100px] ">
       {/* "Live", view count and comment badge */}
-
       <div className="absolute top-3 left-3 text-xs bg-primaryGold text-black px-2 py-1 rounded-full z-10">
         Live 🔴
       </div>
@@ -73,66 +72,65 @@ interface LiveTVProps {
       </div>
       <div className="absolute top-4 right-3 bg-primaryGold px-3 py-1 rounded-full text-sm font-medium z-10 inline-flex items-center gap-2">
         <button
-        onClick={() => setShowDropdown((prev) => !prev)}
-        className="text-black"
+          onClick={() => setShowDropdown((prev) => !prev)}
+          className="text-black font-poppins"
         >
-        Comment 💬
+          Comments 💬
         </button>
         {showDropdown && (
-        <div className="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 z-20">
-        <div className="mb-3">
-      <input
-        type="text"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-        onKeyDown={(e) => {
-        if (e.key === "Enter") {
-          handleAddComment();
-        }
-        }}
-        placeholder="Write a comment..."
-      />
-        <button
-        onClick={() => setShowDropdown(false)}
-        className="text-gray-500 hover:text-gray-800"
-        >
-        X
-        </button>
+          <div className="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 z-20">
+            <div className="mb-3 flex items-center">
+              <input
+                type="text"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleAddComment();
+                  }
+                }}
+                placeholder="Write a comment..."
+                className="flex-1 border border-gray-300 rounded px-2 py-1 mr-2"
+              />
+              <button
+                onClick={() => setShowDropdown(false)}
+                className="text-gray-500 hover:text-gray-800"
+              >
+                X
+              </button>
+            </div>
+            <button
+              onClick={handleAddComment}
+              className="bg-primaryGold text-white px-3 py-1 rounded-lg text-sm w-full"
+            >
+              →
+            </button>
+            <div className="mt-3 max-h-32 overflow-y-auto">
+              {comments.map((c, idx) => (
+                <div key={idx} className="flex items-center gap-2 mb-2">
+                  <span className="font-bold text-sm">Santos:</span>
+                  <span className="text-sm">{c}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="mb-3">
-   
-          </div>
-          <button
-        onClick={handleAddComment}
-        className="bg-primaryGold text-white px-3 py-1 rounded-lg text-sm"
-          >
-        →
-          </button>
-          <div className="mt-3">
-        {comments.map((c, idx) => (
-        <div key={idx} className="flex items-center gap-2 mb-2">
-          <span className="font-bold text-sm">Santos:</span>
-          <span className="text-sm">{c}</span>
-        </div>
-        ))}
-          </div>
-        </div>
         )}
       </div>
       <div className="relative w-full h-full">
         <iframe
-        width="640"
-        height="360"
-        src={`${activeCategory.url}?autoplay=1`}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
+          width="640"
+          height="360"
+          src={`${activeCategory.url}?autoplay=1`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="w-full h-full aspect-video rounded-xl"
         ></iframe>
       </div>
-      {/* Video content */}   
-    <video className="w-full h-full object-cover" autoPlay muted loop controls>
+      {/* Video content */}
+      <video className="w-full h-full object-cover" autoPlay muted loop controls>
         <source src="" type="video/mp4" />
       </video>
     </div>

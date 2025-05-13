@@ -15,122 +15,207 @@ interface NominationPageProps {
   category: Category;
 }
 
-interface FormData {
-  category_id: string;
-  subCategory: string;
-  competitiveType: string;
-  name: string;
-  email: string;
-  organization: string;
-  phone: string;
-  socialMedia: string;
-  document: File | null;
-  achievements: string;
-}
+// interface FormData {
+//   category_id: string;
+//   subCategory: string;
+//   competitiveType: string;
+//   name: string;
+//   email: string;
+//   organization: string;
+//   phone: string;
+//   socialMedia: string;
+//   document: File | null;
+//   achievements: string;
+// }
 
-interface ConfirmationPopupProps {
-  details: FormData;
-  onClose: () => void;
-  onNominate: () => void;
-}
+// interface ConfirmationPopupProps {
+//   details: FormData;
+//   onClose: () => void;
+//   onNominate: () => void;
+// }
 
-const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ details, onClose, onNominate }) => {
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-3xl p-6 w-full max-w-2xl">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold">Confirm your Nomination Details</h2>
-          <button onClick={onClose} className="text-2xl">&times;</button>
-        </div>
-        <div className="space-y-4">
-          <ConfirmationField label="Category" value={details.category_id} />
-          <ConfirmationField label="Sub Category" value={details.subCategory} />
-          <ConfirmationField label="Name of Individual/Organization" value={details.name} />
-          <ConfirmationField label="Organization they belong to" value={details.organization} />
-          <ConfirmationField label="Phone number" value={details.phone} />
-          <ConfirmationField label="Social Media Profile" value={details.socialMedia || 'Not provided'} />
-          <ConfirmationField label="Documents" value={details.document ? 'Image/Video Uploaded' : 'Not uploaded'} />
-          <ConfirmationField label="Achievements" value={details.achievements} />
-        </div>
-        <button
-          onClick={onNominate}
-          className="w-full mt-6 text-black py-3 px-4 rounded-lg"
-          style={{
-            background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
-          }}
-        >
-          Nominate
-        </button>
-      </div>
-    </div>
-  );
-};
+// const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ details, onClose, onNominate }) => {
+//   return (
+//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+//       <div className="bg-white rounded-3xl p-6 w-full max-w-2xl">
+//         <div className="flex justify-between items-center mb-4">
+//           <h2 className="text-2xl font-bold">Confirm your Nomination Details</h2>
+//           <button onClick={onClose} className="text-2xl">&times;</button>
+//         </div>
+//         <div className="space-y-4">
+//           <ConfirmationField label="Category" value={details.category_id} />
+//           <ConfirmationField label="Sub Category" value={details.subCategory} />
+//           <ConfirmationField label="Name of Individual/Organization" value={details.name} />
+//           <ConfirmationField label="Organization they belong to" value={details.organization} />
+//           <ConfirmationField label="Phone number" value={details.phone} />
+//           <ConfirmationField label="Social Media Profile" value={details.socialMedia || 'Not provided'} />
+//           <ConfirmationField label="Documents" value={details.document ? 'Image/Video Uploaded' : 'Not uploaded'} />
+//           <ConfirmationField label="Achievements" value={details.achievements} />
+//         </div>
+//         <button
+//           onClick={onNominate}
+//           className="w-full mt-6 text-black py-3 px-4 rounded-lg"
+//           style={{
+//             background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
+//           }}
+//         >
+//           Nominate
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
 
-const ConfirmationField: React.FC<{ label: string; value: string }> = ({ label, value }) => (
-  <div>
-    <p className="font-semibold">{label}:</p>
-    <p className="text-gray-600">{value}</p>
-  </div>
-);
+// const ConfirmationField: React.FC<{ label: string; value: string }> = ({ label, value }) => (
+//   <div>
+//     <p className="font-semibold">{label}:</p>
+//     <p className="text-gray-600">{value}</p>
+//   </div>
+// );
 
-const SuccessPopup: React.FC<{ onClose: () => void, onNominateAnother: () => void }> = ({ onClose, onNominateAnother }) => {
-  const router = useRouter();
+// const SuccessPopup: React.FC<{ onClose: () => void, onNominateAnother: () => void }> = ({ onClose, onNominateAnother }) => {
+//   const router = useRouter();
 
-  const handleNominateAnother = () => {
-    router.push('/nomination');
-  };
+//   const handleNominateAnother = () => {
+//     router.push('/nomination');
+//   };
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-3xl p-6 w-full max-w-2xl text-center">
-        <button onClick={onClose} className="absolute top-4 right-4 text-2xl">&times;</button>
-        <Image 
-          src="/images/heroicons-solid/Subtract.png" 
-          alt="Success" 
-          width={80}
-          height={80}
-          className="w-20 h-20 mx-auto mb-4"
-        />
-        <h2 className="text-3xl font-bold mb-4">Thank you for Nominating!!</h2>
-        <p className="mb-6">Your Nomination has been successful and under review, an email will be sent when the nomination is approved.</p>
-        <div className="flex space-x-4">
-          <button
-            onClick={handleNominateAnother}
-            className="flex-1 py-3 px-4 rounded-lg text-black"
-            style={{
-              background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
-            }}
-          >
-            Nominate In Another Category
-          </button>
-          <button
-            className="flex-1 py-3 px-4 rounded-lg border border-[#FFC247] text-[#FFC247]"
-          >
-            Invite Others To Nominate
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+//       <div className="bg-white rounded-3xl p-6 w-full max-w-2xl text-center">
+//         <button onClick={onClose} className="absolute top-4 right-4 text-2xl">&times;</button>
+//         <Image 
+//           src="/images/heroicons-solid/Subtract.png" 
+//           alt="Success" 
+//           width={80}
+//           height={80}
+//           className="w-20 h-20 mx-auto mb-4"
+//         />
+//         <h2 className="text-3xl font-bold mb-4">Thank you for Nominating!!</h2>
+//         <p className="mb-6">Your Nomination has been successful and under review, an email will be sent when the nomination is approved.</p>
+//         <div className="flex space-x-4">
+//           <button
+//             onClick={handleNominateAnother}
+//             className="flex-1 py-3 px-4 rounded-lg text-black"
+//             style={{
+//               background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
+//             }}
+//           >
+//             Nominate In Another Category
+//           </button>
+//           <button
+//             className="flex-1 py-3 px-4 rounded-lg border border-[#FFC247] text-[#FFC247]"
+//           >
+//             Invite Others To Nominate
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
   
+ const router = useRouter();
+    const [formData, setFormData] = useState<FormData>({
+      category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
+      subCategory: "Best Print Media Educational Advocacy Award",
+      competitiveType: "competitive",
+      name: "",
+      email: "",
+      organization: "",
+      phone: "",
+      socialMedia: "",
+      document: null,
+      achievements: "",
+    });
+    
+      const [loading, setLoading] = useState(false);
+      const [showConfirmation, setShowConfirmation] = useState(false);
+      const [showSuccess, setShowSuccess] = useState(false);
+      const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [formData, setFormData] = useState<FormData>({
-    category_id: "9f8e7d6c-5432-10fe-dcba-0987654321fe",
-    subCategory: "Leadership",
-    competitiveType: "competitive",
-    name: '',
-    email: '',
-    organization: '',
-    phone: '',
-    socialMedia: '',
-    document: null,
-    achievements: ''
-  });
+
+ const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, phone: value }));
+  };
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      setFormData((prev) => ({ ...prev, document: files[0] }));
+    }
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setShowConfirmation(true);
+  };
+
+  const handleNominate = async () => {
+    setLoading(true);
+    try {
+      await createNomination({
+        category: formData.category,
+        sub_category: formData.subCategory,
+        competitive_type: formData.competitiveType,
+        status: "pending",
+        name: formData.name,
+        email: formData.email,
+        organization: formData.organization,
+        phone: formData.phone,
+        social_media: formData.socialMedia,
+        document: formData.document,
+        achievements: formData.achievements,
+      });
+
+      setShowConfirmation(false);
+      setShowSuccess(true);
+    } catch (error: any) {
+      console.error("Failed to create nomination:", error.message);
+      setErrorMessage(error.response?.data?.error || error.message || "An unexpected error occurred.");
+      setShowConfirmation(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleNominateAnother = () => {
+    setShowSuccess(false);
+    setFormData({
+    category: "best Media Organization in Advocacy (Nigeria)",
+    subCategory: "Best Print Media Educational Advocacy Award",
+      competitiveType: "competitive",
+      name: "",
+      email: "",
+      organization: "",
+      phone: "",
+      socialMedia: "",
+      document: null,
+      achievements: "",
+    });
+  };
+
+
+  // const [showConfirmation, setShowConfirmation] = useState(false);
+  // const [showSuccess, setShowSuccess] = useState(false);
+  // const [formData, setFormData] = useState<FormData>({
+  //   category_id: "9f8e7d6c-5432-10fe-dcba-0987654321fe",
+  //   subCategory: "Leadership",
+  //   competitiveType: "competitive",
+  //   name: '',
+  //   email: '',
+  //   organization: '',
+  //   phone: '',
+  //   socialMedia: '',
+  //   document: null,
+  //   achievements: ''
+  // });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

@@ -1,7 +1,7 @@
 import apiClient from "./apiClient";
 
 interface NominationData {
-  category_id: string;
+  category: string;
   sub_category: string;
   competitive_type: string;
   status: string;
@@ -18,14 +18,14 @@ export const createNomination = async (data: NominationData): Promise<any> => {
   try {
     // Validate required fields
      // Debug: Verify category_id exists
-    console.log('Service Layer - Received category_id:', data.category_id);
+    console.log('Service Layer - Received category_id:', data.category);
     
-    if (!data.category_id) {
-      throw new Error('Category ID is required');
+    if (!data.category) {
+      throw new Error('Category  is required');
     }
 
     const payload = {
-      category_id: data.category_id,
+      category: data.category,
       sub_category: data.sub_category,
       competitive_type: data.competitive_type,
       status: data.status,

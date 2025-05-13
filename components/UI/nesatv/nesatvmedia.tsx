@@ -18,7 +18,7 @@ const MediaSection = ({
   mediaData,
 }: MediaSectionProps) => {
   return (
-    <section className="w-full px-6 py-12 bg-[#f5efe6] max-w-7xl mx-auto">
+    <section className="w-full px-6 py-12 bg-[#f5efe6] ">
       {/* Title and "See more" */}
       <div className="flex items-center justify-between mb-10">
         <h2 className="text-lg font-semibold text-black">
@@ -33,12 +33,12 @@ const MediaSection = ({
         {mediaData.map((media, idx) => (
           <div
             key={idx}
-            className="flex flex-col md:flex-row gap-6 items-start cursor-pointer group"
+            className="flex flex-col md:flex-row gap-6 md:gap-12 lg:gap-20 items-start cursor-pointer group"
             onClick={() => setActiveCategory(media)}
           >
             {/* Left: Black Card */}
             <div
-              className={`w-full md:w-1/2 rounded-xl bg-black overflow-hidden aspect-video relative border-2 transition-all ${
+              className={`w-full lg:w-1/4 md:w-1/2 rounded-xl bg-black overflow-hidden aspect-video relative border-2 transition-all ${
                 media.url === activeCategory?.url
                   ? "border-[#F0B561]"
                   : "border-transparent"
@@ -54,7 +54,7 @@ const MediaSection = ({
                 }
                 alt={media.title}
                 fill
-                className="object-contain"
+                className="object-cover w-full h-full"
               />
             </div>
 

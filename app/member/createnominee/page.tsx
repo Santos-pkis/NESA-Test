@@ -7,9 +7,10 @@ import "react-phone-input-2/lib/style.css";
 import { FiCheckCircle, FiUpload, FiX, FiArrowLeft } from "react-icons/fi";
 import { createNomination } from "@/lib/services/nominationService";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface FormData {
-  category_id: string;
+  category: string;
   subCategory: string;
   competitiveType: string;
   name: string;
@@ -21,11 +22,30 @@ interface FormData {
   achievements: string;
 }
 
-const CreateNominationPage: React.FC = () => {
+type Category = {
+  id: number;
+  title: string;
+  description: string;
+  detailsDescription?: string;
+};
+
+type CategoryDetail = {
+  id: number;
+  // Add other properties as needed
+};
+
+type Props = {
+  id: number;
+  category: Category | undefined;
+  details: CategoryDetail | undefined;
+};
+
+
+const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
-    category_id: "9f8e7d6c-5432-10fe-dcba-0987654321fe",
-    subCategory: "Leadership",
+    category: "best Media Organization in Advocacy (Nigeria)",
+    subCategory: "Best Print Media Educational Advocacy Award",
     competitiveType: "competitive",
     name: "",
     email: "",
@@ -66,7 +86,7 @@ const CreateNominationPage: React.FC = () => {
     setLoading(true);
     try {
       await createNomination({
-        category_id: formData.category_id,
+        category: formData.category,
         sub_category: formData.subCategory,
         competitive_type: formData.competitiveType,
         status: "pending",
@@ -93,8 +113,8 @@ const CreateNominationPage: React.FC = () => {
   const handleNominateAnother = () => {
     setShowSuccess(false);
     setFormData({
-      category_id: "9f8e7d6c-5432-10fe-dcba-0987654321fe",
-      subCategory: "Leadership",
+    category: "best Media Organization in Advocacy (Nigeria)",
+    subCategory: "Best Print Media Educational Advocacy Award",
       competitiveType: "competitive",
       name: "",
       email: "",
@@ -107,8 +127,42 @@ const CreateNominationPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <>
+<div className="relative min-h-screen md:min-h-[80vh] bg-gray-100">
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <Image
+      src="/images/childwriting.png" // Make sure this is a correct path from the 'public' folder
+      alt="African child studying"
+      fill
+      className="object-cover"
+      priority
+    />
+  </div>
+
+  {/* Black Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+
+  {/* Text Content */}
+  <div className="relative z-20 container mx-auto pt-20 md:pt-52 px-4 min-h-screen">
+        {/* Award Category Section */}
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Sub Category 1
+          </h2>
+          <h1 className="text-4xl font-bold text-[#E48900] mb-4">
+            Africa Education Philanthropy Icon of the Decade (2014-2024)
+          </h1>
+          <p className="text-white max-w-2xl">
+            This award honors NGOs that have made substantial effort in improving or building educational infrastructure. It includes initiatives like constructing new school buildings, renovating existing facilities, or providing essential infrastructure to enhance learning environment.
+          </p>
+        </div>
+  </div>
+</div>
+
+    
+     <div className="min-h-screen bg-gray-50">
+      <div className=" mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <button
           onClick={() => router.back()}
           className="flex items-center text-gray-600 mb-6 hover:text-gray-900 transition-colors"
@@ -118,14 +172,53 @@ const CreateNominationPage: React.FC = () => {
         </button>
 
         <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Nominate an Achiever</h1>
-          <p className="text-gray-600 mb-6">
-            Recognize outstanding individuals or organizations by submitting a nomination. 
-            Please fill out all required fields carefully.
-          </p>
+            <h1
+            className="pb-2 mb-6 _under_border"
+            style={{
+              fontFamily: "Poppins",
+              fontWeight: 500,
+              fontSize: "32px",
+              lineHeight: "100%",
+              letterSpacing: "0%",
+              color: "#1F2937", // Equivalent to text-gray-900
+            }}
+            >
+           Submit Nominee Personal Information
+            </h1>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {/* Category Dropdowns */}
+                          
+                            <div>
+                              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
+                                Competitive Category
+                              </label>
+                              <input
+                                type="text"
+                                id="category"
+                                name="category"
+                                onChange={handleInputChange}
+                                value={formData.category}
+                                readOnly
+                                className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                              />
+                            </div>
+                            <div >
+                              <label htmlFor="Subcategory" className="block text-sm font-medium text-gray-700 mb-2">
+                                Subcategory
+                              </label>
+                              <input
+                                type="text"
+                                id="subcategory"
+                                name="subcategory"
+                                onChange={handleInputChange}
+                                value={formData.subCategory}
+                                readOnly
+                                className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                              />
+                            </div>
+                          
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -142,6 +235,22 @@ const CreateNominationPage: React.FC = () => {
                 />
               </div>
 
+              {/* Linkedin Field */}
+              <div>
+                <label htmlFor="linkedIn" className="block text-sm font-medium text-gray-700 mb-2">
+                  Linkedin Profile <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="linkedIn"
+                  name="linkedinProfile"
+                  value={formData.linkedinProfile}
+                  required
+                  className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+
+                />
+              </div>
+
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -154,61 +263,34 @@ const CreateNominationPage: React.FC = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                  className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
                 />
               </div>
 
-              {/* Phone Field */}
+              
+              {/* Achievements Field */}
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone number <span className="text-red-500">*</span>
+                <label htmlFor="achievements" className="block text-sm font-medium text-gray-700 mb-2">
+                  Achievements
                 </label>
-                <PhoneInput
-                  country={"ng"}
-                  value={formData.phone}
-                  onChange={handlePhoneChange}
-                  inputProps={{
-                    name: "phone",
-                    required: true,
-                    className: "w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all h-12",
-                  }}
-                />
-              </div>
-
-              {/* Organization Field */}
-              <div>
-                <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">
-                  Organization
-                </label>
-                <input
-                  type="text"
-                  id="organization"
-                  name="organization"
-                  value={formData.organization}
+                <textarea
+                  id="achievements"
+                  name="achievements"
+                  rows={4}
+                  value={formData.achievements}
                   onChange={handleInputChange}
-                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                  placeholder="Write a personal statement or provide specific achievements"
+                  
+                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all resize-y"
                 />
               </div>
+              
 
-              {/* Social Media Field */}
-              <div>
-                <label htmlFor="socialMedia" className="block text-sm font-medium text-gray-700 mb-2">
-                  Social Media Profile
-                </label>
-                <input
-                  type="text"
-                  id="socialMedia"
-                  name="socialMedia"
-                  value={formData.socialMedia}
-                  onChange={handleInputChange}
-                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-                />
-              </div>
 
               {/* Document Upload */}
-              <div>
+              <div className="md:col-span-2">
                 <label htmlFor="document" className="block text-sm font-medium text-gray-700 mb-2">
-                  Supporting Document
+                                  Upload a document or image to support your nominee achievements
                 </label>
                 <label className="relative block border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#FFC247] transition-colors">
                   <input
@@ -216,7 +298,7 @@ const CreateNominationPage: React.FC = () => {
                     id="document"
                     name="document"
                     onChange={handleFileChange}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    className="absolute inset-0 w-full  h-full opacity-0 cursor-pointer"
                     accept=".jpg,.png,.pdf,.svg"
                   />
                   {formData.document ? (
@@ -227,7 +309,9 @@ const CreateNominationPage: React.FC = () => {
                     </div>
                   ) : (
                     <div className="flex flex-col items-center">
-                      <FiUpload className="w-8 h-8 text-gray-400 mb-2" />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto mb-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
                       <p className="text-gray-600">Upload supporting document</p>
                       <p className="text-xs text-gray-500 mt-1">JPG, PNG, PDF, and SVG files only</p>
                     </div>
@@ -235,22 +319,6 @@ const CreateNominationPage: React.FC = () => {
                 </label>
               </div>
 
-              {/* Achievements Field */}
-              <div className="md:col-span-2">
-                <label htmlFor="achievements" className="block text-sm font-medium text-gray-700 mb-2">
-                  Achievements <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  id="achievements"
-                  name="achievements"
-                  rows={5}
-                  value={formData.achievements}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-                  placeholder="Describe the nominee's accomplishments and why they deserve recognition..."
-                />
-              </div>
             </div>
 
             <div className="pt-4">
@@ -427,6 +495,7 @@ const CreateNominationPage: React.FC = () => {
         )}
       </AnimatePresence>
     </div>
+    </>
   );
 };
 
