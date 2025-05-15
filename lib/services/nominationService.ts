@@ -2,16 +2,13 @@ import apiClient from "./apiClient";
 
 interface NominationData {
   category: string;
-  sub_category: string;
-  competitive_type: string;
-  status: string;
+  subCategory: string;
+  competitiveType: string;
   name: string;
+  linkedinProfile: string;
   email: string;
-  organization: string;
-  phone: string;
-  social_media: string;
-  document: File | null;
   achievements: string;
+  document: File | null;
 }
 
 export const createNomination = async (data: NominationData): Promise<any> => {
@@ -26,16 +23,13 @@ export const createNomination = async (data: NominationData): Promise<any> => {
 
     const payload = {
       category: data.category,
-      sub_category: data.sub_category,
-      competitive_type: data.competitive_type,
-      status: data.status,
+      subCategory: data.subCategory,
+      competitiveType: data.competitiveType,
       name: data.name,
+      linkedinProfile: data.linkedinProfile,
       email: data.email,
-      organization: data.organization,
-      phone: data.phone,
-      social_media: data.social_media,
-      document: data.document, // This should be a string path if not uploading file
-      achievements: data.achievements
+      achievements: data.achievements,
+      document: data.document
     };
 
     const response = await apiClient.post(

@@ -16,7 +16,7 @@ const AwardCategories = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-14 gap:10">
           {/* Competitive Category */}
-          <div className="lg:w-[36vw] md:w-[45vw]">
+          <div className="lg:w-[36vw] md:w-[45vw] md:pb:4">
           <Link
             href={"/competitive"}
           >

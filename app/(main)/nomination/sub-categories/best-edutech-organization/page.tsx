@@ -156,7 +156,7 @@ const EduTechAwardCategoryPage = () => {
                 <div>
                   <strong>Awardees:</strong> winners receive widespread recognition for their contributions to educational technology, it provides
                   opportunity to network with other award winners, educational leaders, and policymakers, and it increases visibility
-                  through media coverage and promotional activities associated with the NESA-Africa/Nigeria 2024 Awards.
+                  through media coverage and promotional activities associated with the NESA-Africa/Nigeria 2025 Awards.
                 </div>
               </li>
               <li className="flex items-start">

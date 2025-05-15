@@ -14,12 +14,10 @@ interface FormData {
   subCategory: string;
   competitiveType: string;
   name: string;
+  linkedinProfile: string;
   email: string;
-  organization: string;
-  phone: string;
-  socialMedia: string;
-  document: File | null;
   achievements: string;
+  document: File | null;
 }
 
 type Category = {
@@ -44,17 +42,15 @@ type Props = {
 const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
-    category: "best Media Organization in Advocacy (Nigeria)",
-    subCategory: "Best Print Media Educational Advocacy Award",
-    competitiveType: "competitive",
-    name: "",
-    email: "",
-    organization: "",
-    phone: "",
-    socialMedia: "",
-    document: null,
-    achievements: "",
-  });
+      category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
+      subCategory: "Best Print Media Educational Advocacy Award",
+      competitiveType: "competitive",
+      name: "",
+      linkedinProfile: "",
+      email: "",
+      achievements: "",
+      document: null,
+    });
 
   const [loading, setLoading] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -82,21 +78,19 @@ const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
     setShowConfirmation(true);
   };
 
+
   const handleNominate = async () => {
     setLoading(true);
     try {
       await createNomination({
         category: formData.category,
-        sub_category: formData.subCategory,
-        competitive_type: formData.competitiveType,
-        status: "pending",
+        subCategory: formData.subCategory,
+        competitiveType: formData.competitiveType,
         name: formData.name,
+        linkedinProfile: formData.linkedinProfile,
         email: formData.email,
-        organization: formData.organization,
-        phone: formData.phone,
-        social_media: formData.socialMedia,
-        document: formData.document,
         achievements: formData.achievements,
+        document: formData.document,
       });
 
       setShowConfirmation(false);
@@ -113,16 +107,14 @@ const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
   const handleNominateAnother = () => {
     setShowSuccess(false);
     setFormData({
-    category: "best Media Organization in Advocacy (Nigeria)",
-    subCategory: "Best Print Media Educational Advocacy Award",
+      category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
+      subCategory: "Best Print Media Educational Advocacy Award",
       competitiveType: "competitive",
       name: "",
+      linkedinProfile: "",
       email: "",
-      organization: "",
-      phone: "",
-      socialMedia: "",
-      document: null,
       achievements: "",
+      document: null,
     });
   };
 
@@ -244,7 +236,7 @@ const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
                   type="text"
                   id="linkedIn"
                   name="linkedinProfile"
-                  value={formData.linkedinProfile}
+                  // value={formData.linkedinProfile}
                   required
                   className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
 
@@ -377,9 +369,7 @@ const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
                   
                   <div className="bg-gray-50 rounded-lg p-4">
                     <h3 className="font-medium text-gray-900 mb-2">{formData.name}</h3>
-                    <p className="text-gray-600 text-sm">{formData.organization || "No organization specified"}</p>
                     <p className="text-gray-600 text-sm mt-1">{formData.email}</p>
-                    <p className="text-gray-600 text-sm">{formData.phone}</p>
                   </div>
                 </div>
 

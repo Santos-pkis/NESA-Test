@@ -10,7 +10,7 @@ export const navlinks: NavLink[] = [
     path: "/about",
     children: [
       { label: "About NESA-Africa", path: "/about" },
-      { label: "About NESA-Africa/Nigeria-2024 Award", path: "/about-nesa" },
+      { label: "About NESA-Africa/Nigeria-2025 Award", path: "/about-nesa" },
       { label: "About Judges", path: "/about-judges" },
     ],
   },

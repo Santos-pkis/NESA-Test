@@ -4,6 +4,8 @@ import Image from 'next/image';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { createNomination } from '../../../lib/services/nominationService';
+import { FiCheckCircle, FiUpload, FiX, FiArrowLeft } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Category {
   title: string;
@@ -15,104 +17,17 @@ interface NominationPageProps {
   category: Category;
 }
 
-// interface FormData {
-//   category_id: string;
-//   subCategory: string;
-//   competitiveType: string;
-//   name: string;
-//   email: string;
-//   organization: string;
-//   phone: string;
-//   socialMedia: string;
-//   document: File | null;
-//   achievements: string;
-// }
 
-// interface ConfirmationPopupProps {
-//   details: FormData;
-//   onClose: () => void;
-//   onNominate: () => void;
-// }
-
-// const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ details, onClose, onNominate }) => {
-//   return (
-//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-//       <div className="bg-white rounded-3xl p-6 w-full max-w-2xl">
-//         <div className="flex justify-between items-center mb-4">
-//           <h2 className="text-2xl font-bold">Confirm your Nomination Details</h2>
-//           <button onClick={onClose} className="text-2xl">&times;</button>
-//         </div>
-//         <div className="space-y-4">
-//           <ConfirmationField label="Category" value={details.category_id} />
-//           <ConfirmationField label="Sub Category" value={details.subCategory} />
-//           <ConfirmationField label="Name of Individual/Organization" value={details.name} />
-//           <ConfirmationField label="Organization they belong to" value={details.organization} />
-//           <ConfirmationField label="Phone number" value={details.phone} />
-//           <ConfirmationField label="Social Media Profile" value={details.socialMedia || 'Not provided'} />
-//           <ConfirmationField label="Documents" value={details.document ? 'Image/Video Uploaded' : 'Not uploaded'} />
-//           <ConfirmationField label="Achievements" value={details.achievements} />
-//         </div>
-//         <button
-//           onClick={onNominate}
-//           className="w-full mt-6 text-black py-3 px-4 rounded-lg"
-//           style={{
-//             background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
-//           }}
-//         >
-//           Nominate
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const ConfirmationField: React.FC<{ label: string; value: string }> = ({ label, value }) => (
-//   <div>
-//     <p className="font-semibold">{label}:</p>
-//     <p className="text-gray-600">{value}</p>
-//   </div>
-// );
-
-// const SuccessPopup: React.FC<{ onClose: () => void, onNominateAnother: () => void }> = ({ onClose, onNominateAnother }) => {
-//   const router = useRouter();
-
-//   const handleNominateAnother = () => {
-//     router.push('/nomination');
-//   };
-
-//   return (
-//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-//       <div className="bg-white rounded-3xl p-6 w-full max-w-2xl text-center">
-//         <button onClick={onClose} className="absolute top-4 right-4 text-2xl">&times;</button>
-//         <Image 
-//           src="/images/heroicons-solid/Subtract.png" 
-//           alt="Success" 
-//           width={80}
-//           height={80}
-//           className="w-20 h-20 mx-auto mb-4"
-//         />
-//         <h2 className="text-3xl font-bold mb-4">Thank you for Nominating!!</h2>
-//         <p className="mb-6">Your Nomination has been successful and under review, an email will be sent when the nomination is approved.</p>
-//         <div className="flex space-x-4">
-//           <button
-//             onClick={handleNominateAnother}
-//             className="flex-1 py-3 px-4 rounded-lg text-black"
-//             style={{
-//               background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
-//             }}
-//           >
-//             Nominate In Another Category
-//           </button>
-//           <button
-//             className="flex-1 py-3 px-4 rounded-lg border border-[#FFC247] text-[#FFC247]"
-//           >
-//             Invite Others To Nominate
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+interface FormData {
+  category: string;
+  subCategory: string;
+  competitiveType: string;
+  name: string;
+  linkedinProfile: string;
+  email: string;
+  achievements: string;
+  document: File | null;
+}
 
 const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
   
@@ -122,12 +37,10 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
       subCategory: "Best Print Media Educational Advocacy Award",
       competitiveType: "competitive",
       name: "",
+      linkedinProfile: "",
       email: "",
-      organization: "",
-      phone: "",
-      socialMedia: "",
-      document: null,
       achievements: "",
+      document: null,
     });
     
       const [loading, setLoading] = useState(false);
@@ -162,16 +75,13 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
     try {
       await createNomination({
         category: formData.category,
-        sub_category: formData.subCategory,
-        competitive_type: formData.competitiveType,
-        status: "pending",
+        subCategory: formData.subCategory,
+        competitiveType: formData.competitiveType,
         name: formData.name,
+        linkedinProfile: formData.linkedinProfile,
         email: formData.email,
-        organization: formData.organization,
-        phone: formData.phone,
-        social_media: formData.socialMedia,
-        document: formData.document,
         achievements: formData.achievements,
+        document: formData.document,
       });
 
       setShowConfirmation(false);
@@ -188,143 +98,24 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
   const handleNominateAnother = () => {
     setShowSuccess(false);
     setFormData({
-    category: "best Media Organization in Advocacy (Nigeria)",
-    subCategory: "Best Print Media Educational Advocacy Award",
+      category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
+      subCategory: "Best Print Media Educational Advocacy Award",
       competitiveType: "competitive",
       name: "",
+      linkedinProfile: "",
       email: "",
-      organization: "",
-      phone: "",
-      socialMedia: "",
-      document: null,
       achievements: "",
-    });
-  };
-
-
-  // const [showConfirmation, setShowConfirmation] = useState(false);
-  // const [showSuccess, setShowSuccess] = useState(false);
-  // const [formData, setFormData] = useState<FormData>({
-  //   category_id: "9f8e7d6c-5432-10fe-dcba-0987654321fe",
-  //   subCategory: "Leadership",
-  //   competitiveType: "competitive",
-  //   name: '',
-  //   email: '',
-  //   organization: '',
-  //   phone: '',
-  //   socialMedia: '',
-  //   document: null,
-  //   achievements: ''
-  // });
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handlePhoneChange = (value: string) => {
-    setFormData(prev => ({ ...prev, phone: value }));
-  };
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (files && files.length > 0) {
-      setFormData(prev => ({ ...prev, document: files[0] }));
-    }
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setShowConfirmation(true);
-  };
-
-  const handleNominate = async () => {
-  console.group('Nomination Submission - Debug');
-  try {
-    // 1. Verify authentication
-    const token = getCookie('token');
-    console.log('Auth token:', token ? 'Found' : 'Missing');
-    if (!token) {
-      throw new Error('Authentication required. Please log in again.');
-    }
-
-    // 2. Validate required fields
-    if (!formData.category_id) {
-      throw new Error('Category ID is required');
-    }
-   // Debug: Log the payload structure
-    console.log('Component Payload:', {
-      category_id: formData.category_id,
-      subCategory: formData.subCategory,
-      // ... other fields ...
-    });
-
-
-    // 3. Prepare the payload with debug logging
-    const nominationData = {
-      category_id: formData.category_id,
-      sub_category: formData.subCategory,
-      competitive_type: formData.competitiveType,
-      status: "pending",
-      name: formData.name,
-      email: formData.email,
-      organization: formData.organization,
-      phone: formData.phone,
-      social_media: formData.socialMedia,
-      document: formData.document, // Ensure the document is passed as File | null
-      achievements: formData.achievements
-    };
-
-    console.log('Submitting:', nominationData);
-    
-
-    // 4. Make the API call
-      await createNomination(nominationData);
-    setShowConfirmation(false);
-    setShowSuccess(true);
-    
-  } catch (error: any) {
-    console.error('Submission Error:', {
-      message: error.message,
-      response: error.response?.data
-    });
-    
-    alert(`Submission failed: ${error.response?.data?.error || error.message}`);
-  }
-};
-
-// Add this helper function to your component
-const getCookie = (name: string): string | null => {
-  const cookies = document.cookie.split('; ');
-  for (const cookie of cookies) {
-    const [key, value] = cookie.split('=');
-    if (key === name) {
-      return decodeURIComponent(value);
-    }
-  }
-  return null;
-};
-
-  const handleNominateAnother = () => {
-    setShowSuccess(false);
-    setFormData({
-      category_id: "9f8e7d6c-5432-10fe-dcba-0987654321fe",
-      subCategory: "Leadership",
-      competitiveType: "competitive",
-      name: '',
-      email: '',
-      organization: '',
-      phone: '',
-      socialMedia: '',
       document: null,
-      achievements: ''
     });
   };
 
   return (
     <div className="min-h-screen bg-white">
       <div className="relative bg-[#191307] text-white py-24 px-8">
-        <div className="absolute inset-0 bg-[url('/images/nominatehero.jpeg')] bg-cover bg-center opacity-20"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: "url('/images/nominatehero.jpeg')" }}
+        ></div>
         <div className="relative z-10 max-w-4xl mx-auto">
           <h2 className="text-2xl mb-2 md:mt-16">Sub Category 1</h2>
           <h1 className="text-3xl font-bold text-[#FFC247] mb-4">{category.title}</h1>
@@ -340,72 +131,304 @@ const getCookie = (name: string): string | null => {
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Individual or Organization</label>
-              <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} placeholder="Name of Individual or Organization" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-              <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email Address" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
-            </div>
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone number</label>
-              <PhoneInput
-                country={'ng'}
-                value={formData.phone}
-                onChange={handlePhoneChange}
-                inputProps={{
-                  name: 'phone',
-                  required: true,
-                  autoFocus: false,
-                  className: 'w-full p-3 rounded-lg bg-[#FFF9ED] border-none',
+                              <div>
+                              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
+                                Competitive Category
+                              </label>
+                              <input
+                                type="text"
+                                id="category"
+                                name="category"
+                                onChange={handleInputChange}
+                                value={formData.category}
+                                readOnly
+                                className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                              />
+                            </div>
+                            <div >
+                              <label htmlFor="Subcategory" className="block text-sm font-medium text-gray-700 mb-2">
+                                Subcategory
+                              </label>
+                              <input
+                                type="text"
+                                id="subcategory"
+                                name="subCategory"
+                                onChange={handleInputChange}
+                                value={formData.subCategory}
+                                readOnly
+                                className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                              />
+                            </div>
+              {/* Name Field */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Individual or Organization <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                />
+              </div>
+
+              {/* Linkedin Field */}
+              <div>
+                <label htmlFor="linkedIn" className="block text-sm font-medium text-gray-700 mb-2">
+                  Linkedin Profile <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="linkedIn"
+                  name="linkedinProfile"
+                  value={formData.linkedinProfile}
+                  required
+                  onChange={handleInputChange}
+
+                  className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+
+                />
+              </div>
+              {/* Email Field */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                />
+              </div>
+
+                  {/* Achievements Field */}
+                  <div>
+                <label htmlFor="achievements" className="block text-sm font-medium text-gray-700 mb-2">
+                  Achievements
+                </label>
+                <textarea
+                  id="achievements"
+                  name="achievements"
+                  rows={4}
+                  value={formData.achievements}
+                  onChange={handleInputChange}
+                  placeholder="Write a personalstatement or provide specific achievements"
+                  
+                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all resize-y"
+                />
+                </div>
+
+              {/* Document Upload */}
+              <div className="md:col-span-2">
+                <label htmlFor="document" className="block text-sm font-medium text-gray-700 mb-2">
+                                  Upload a document or image to support your nominee achievements
+                </label>
+                <label className="relative block border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#FFC247] transition-colors">
+                  <input
+                    type="file"
+                    id="document"
+                    name="document"
+                    onChange={handleFileChange}
+                    className="absolute inset-0 w-full  h-full opacity-0 cursor-pointer"
+                    accept=".jpg,.png,.pdf,.svg"
+                  />
+                  {formData.document ? (
+                    <div className="flex flex-col items-center">
+                      <FiUpload className="w-8 h-8 text-[#FFC247] mb-2" />
+                      <p className="text-gray-700 font-medium">{formData.document.name}</p>
+                      <p className="text-sm text-gray-500 mt-1">Click to change file</p>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto mb-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                      <p className="text-gray-600">Upload supporting document</p>
+                      <p className="text-xs text-gray-500 mt-1">JPG, PNG, PDF, and SVG files only</p>
+                    </div>
+                  )}
+                </label>
+              </div>
+            <div className="pt-4 md:col-span-2">
+              <motion.button
+                type="submit"
+                disabled={loading}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full text-white py-3 px-6 rounded-xl font-medium disabled:opacity-70 relative overflow-hidden"
+                style={{
+                  background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
                 }}
-              />
+              >
+                {loading ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    Submitting...
+                  </div>
+                ) : (
+                  "Submit Nomination"
+                )}
+              </motion.button>
+              <p className="text-xs text-gray-500 mt-2 text-center">
+                By submitting this form, you confirm that all information provided is accurate.
+              </p>
             </div>
-            <div>
-              <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">Organization</label>
-              <input type="text" id="organization" name="organization" value={formData.organization} onChange={handleInputChange} placeholder="Name of the organization they belong to" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
-            </div>
-            <div>
-              <label htmlFor="socialMedia" className="block text-sm font-medium text-gray-700 mb-2">Social Media Profile</label>
-              <input type="text" id="socialMedia" name="socialMedia" value={formData.socialMedia} onChange={handleInputChange} placeholder="Social Media Handle" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none" />
-            </div>
-            <div>
-              <label htmlFor="document" className="block text-sm font-medium text-gray-700 mb-2">Document</label>
-              <div className="relative border-2 border-dashed border-gray-300 rounded-lg p-4 bg-[#FFF9ED]">
-                <input type="file" id="document" name="document" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept=".jpg,.png,.pdf,.svg" />
-                <div className="text-center">
-                  <p className="text-gray-600">Upload supporting document or video</p>
-                  <p className="text-xs text-gray-500 mt-1">JPG, PNG, PDF and SVG files only</p>
+              </div>
+          </form>
+                
+      </div>
+      {/* Confirmation Modal */}
+      <AnimatePresence>
+        {showConfirmation && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="bg-white rounded-xl shadow-xl w-full max-w-md"
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-2xl font-bold text-gray-900">Confirm Nomination</h2>
+                  <button onClick={() => setShowConfirmation(false)} className="text-gray-400 hover:text-gray-600">
+                    <FiX size={24} />
+                  </button>
+                </div>
+                
+                <div className="space-y-4 mb-6">
+                  <p className="text-gray-600">Please review your nomination details before submitting:</p>
+                  
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <h3 className="font-medium text-gray-900 mb-2">{formData.name}</h3>
+                    <p className="text-gray-600 text-sm mt-1">{formData.email}</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-end gap-3">
+                  <button
+                    onClick={() => setShowConfirmation(false)}
+                    className="px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleNominate}
+                    disabled={loading}
+                    className="px-4 py-2 rounded-lg text-white font-medium disabled:opacity-70"
+                    style={{
+                      background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
+                    }}
+                  >
+                    {loading ? "Submitting..." : "Confirm Submission"}
+                  </button>
                 </div>
               </div>
-            </div>
-            <div>
-              <label htmlFor="achievements" className="block text-sm font-medium text-gray-700 mb-2">Achievements</label>
-              <textarea id="achievements" name="achievements" rows={4} value={formData.achievements} onChange={handleInputChange} placeholder="Write a personal statement or provide specific Achievements of your nominee" className="w-full p-3 rounded-lg bg-[#FFF9ED] border-none"></textarea>
-            </div>
-          </div>
-          <button type="submit" className="w-full text-black py-3 px-4 rounded-lg" style={{
-            background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
-          }}>Submit for Nomination</button>
-        </form>
-      </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {showConfirmation && (
-        <ConfirmationPopup
-          details={formData}
-          onClose={() => setShowConfirmation(false)}
-          onNominate={handleNominate}
-        />
-      )}
+      {/* Success Modal */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className="bg-white rounded-xl shadow-xl w-full max-w-md text-center p-8"
+            >
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                  <FiCheckCircle className="w-10 h-10 text-green-500" />
+                </div>
+              </div>
+              
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Nomination Submitted!</h2>
+              <p className="text-gray-600 mb-6">
+                Thank you for recognizing excellence. Your nomination has been received and will be reviewed shortly.
+              </p>
 
-      {showSuccess && (
-        <SuccessPopup
-          onClose={() => setShowSuccess(false)}
-          onNominateAnother={handleNominateAnother}
-        />
-      )}
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={() => router.push("/member")}
+                  className="w-full py-3 px-4 rounded-lg text-white font-medium"
+                  style={{
+                    background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
+                  }}
+                >
+                  Return to Dashboard
+                </button>
+                <button
+                  onClick={handleNominateAnother}
+                  className="w-full py-3 px-4 rounded-lg border border-[#FFC247] text-[#FFC247] font-medium hover:bg-[#FFF9ED] transition-colors"
+                >
+                  Nominate Another
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Error Modal */}
+      <AnimatePresence>
+        {errorMessage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className="bg-white rounded-xl shadow-xl w-full max-w-md p-6"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-red-600">Submission Error</h2>
+                <button onClick={() => setErrorMessage(null)} className="text-gray-400 hover:text-gray-600">
+                  <FiX size={24} />
+                </button>
+              </div>
+              
+              <p className="text-gray-700 mb-6">{errorMessage}</p>
+              
+              <div className="flex justify-end">
+                <button
+                  onClick={() => setErrorMessage(null)}
+                  className="px-4 py-2 rounded-lg text-white font-medium"
+                  style={{
+                    background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
+                  }}
+                >
+                  Try Again
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
+
   );
 };
 
