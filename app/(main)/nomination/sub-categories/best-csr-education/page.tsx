@@ -145,7 +145,7 @@ const CSRAwardCategoryPage = () => {
     };
 
     if (selectedCategory) {
-        return <NominationPage category={selectedCategory} />;
+        return <NominationPage type="Best Corporate Social Responsibility (CSR) in Education (Nigeria)" category={selectedCategory} />;
     }
 
     return (

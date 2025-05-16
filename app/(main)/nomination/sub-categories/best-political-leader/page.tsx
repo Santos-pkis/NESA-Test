@@ -51,7 +51,7 @@ const PoliticalLeadersRecognitionPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type='Best Political Leaders Educational Support Services' category={selectedCategory} />;
   }
 
   return (

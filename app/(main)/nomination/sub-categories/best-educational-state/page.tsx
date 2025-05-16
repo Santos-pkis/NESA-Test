@@ -66,7 +66,7 @@ const EducationalFriendlyStatePage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type="Best Educational-Friendly State (Nigeria's Six Zones)" category={selectedCategory} />;
   }
 
   return (

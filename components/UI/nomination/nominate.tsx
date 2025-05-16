@@ -15,13 +15,14 @@ interface Category {
 
 interface NominationPageProps {
   category: Category;
+  type: string;
 }
 
 
 interface FormData {
   category: string;
+   categoryType: string;
   subCategory: string;
-  competitiveType: string;
   name: string;
   linkedinProfile: string;
   email: string;
@@ -29,13 +30,13 @@ interface FormData {
   document: File | null;
 }
 
-const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
+const NominationPage: React.FC<NominationPageProps> = ({ type, category }) => {
   
  const router = useRouter();
     const [formData, setFormData] = useState<FormData>({
-      category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
-      subCategory: "Best Print Media Educational Advocacy Award",
-      competitiveType: "competitive",
+      category: "competitive",
+      categoryType: type,
+      subCategory: category?.title,
       name: "",
       linkedinProfile: "",
       email: "",
@@ -54,9 +55,6 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handlePhoneChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, phone: value }));
-  };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -75,8 +73,8 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
     try {
       await createNomination({
         category: formData.category,
+         categoryType: formData. categoryType,
         subCategory: formData.subCategory,
-        competitiveType: formData.competitiveType,
         name: formData.name,
         linkedinProfile: formData.linkedinProfile,
         email: formData.email,
@@ -98,9 +96,9 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
   const handleNominateAnother = () => {
     setShowSuccess(false);
     setFormData({
-      category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
-      subCategory: "Best Print Media Educational Advocacy Award",
-      competitiveType: "competitive",
+      category: "competitive",
+      categoryType: type,
+      subCategory: category?.title,
       name: "",
       linkedinProfile: "",
       email: "",
@@ -133,26 +131,26 @@ const NominationPage: React.FC<NominationPageProps> = ({ category }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                               <div>
                               <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-                                Competitive Category
+                                Category
                               </label>
                               <input
                                 type="text"
                                 id="category"
                                 name="category"
                                 onChange={handleInputChange}
-                                value={formData.category}
+                                value={formData.categoryType}
                                 readOnly
                                 className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
                               />
                             </div>
                             <div >
-                              <label htmlFor="Subcategory" className="block text-sm font-medium text-gray-700 mb-2">
-                                Subcategory
+                              <label htmlFor=" categoryType" className="block text-sm font-medium text-gray-700 mb-2">
+                                Sub Category
                               </label>
                               <input
                                 type="text"
-                                id="subcategory"
-                                name="subCategory"
+                                id=" categoryType"
+                                name=" categoryType"
                                 onChange={handleInputChange}
                                 value={formData.subCategory}
                                 readOnly

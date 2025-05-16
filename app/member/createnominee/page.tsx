@@ -12,7 +12,7 @@ import Image from "next/image";
 interface FormData {
   category: string;
   subCategory: string;
-  competitiveType: string;
+  subCategory: string;
   name: string;
   linkedinProfile: string;
   email: string;
@@ -44,7 +44,7 @@ const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
   const [formData, setFormData] = useState<FormData>({
       category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
       subCategory: "Best Print Media Educational Advocacy Award",
-      competitiveType: "competitive",
+      subCategory: "competitive",
       name: "",
       linkedinProfile: "",
       email: "",
@@ -85,7 +85,7 @@ const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
       await createNomination({
         category: formData.category,
         subCategory: formData.subCategory,
-        competitiveType: formData.competitiveType,
+        subCategory: formData.subCategory,
         name: formData.name,
         linkedinProfile: formData.linkedinProfile,
         email: formData.email,
@@ -109,7 +109,7 @@ const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
     setFormData({
       category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
       subCategory: "Best Print Media Educational Advocacy Award",
-      competitiveType: "competitive",
+      subCategory: "competitive",
       name: "",
       linkedinProfile: "",
       email: "",

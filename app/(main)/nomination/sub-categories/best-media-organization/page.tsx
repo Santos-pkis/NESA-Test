@@ -52,7 +52,7 @@ const MediaEducationalAdvocacyAwardPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type='Best Media Organization in Educational Advocacy (Nigeria)' category={selectedCategory} />;
   }
 
   return (

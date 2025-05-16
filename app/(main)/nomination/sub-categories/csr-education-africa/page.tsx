@@ -153,7 +153,7 @@ const CSRInEducationAwardPage = () => {
     };
 
     if (selectedCategory) {
-        return <NominationPage category={selectedCategory} />;
+        return <NominationPage type='(CSR) in Education (Africa - Regional Competition)' category={selectedCategory} />;
     }
 
     return (

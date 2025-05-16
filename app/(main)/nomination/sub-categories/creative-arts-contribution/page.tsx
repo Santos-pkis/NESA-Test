@@ -71,7 +71,7 @@ const CreativeArtsRecognitionPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type='Creative Arts Industry Contribution to Education (Nigeria)' category={selectedCategory} />;
   }
 
   return (

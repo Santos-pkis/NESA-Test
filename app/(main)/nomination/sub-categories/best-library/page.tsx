@@ -76,7 +76,7 @@ const BestLibraryAwardPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type='Best Library in Nigerian Tertiary Institutions' category={selectedCategory} />;
   }
 
   return (

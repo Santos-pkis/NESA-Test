@@ -2,8 +2,8 @@ import apiClient from "./apiClient";
 
 interface NominationData {
   category: string;
+   categoryType: string;
   subCategory: string;
-  competitiveType: string;
   name: string;
   linkedinProfile: string;
   email: string;
@@ -23,8 +23,8 @@ export const createNomination = async (data: NominationData): Promise<any> => {
 
     const payload = {
       category: data.category,
+       categoryType: data. categoryType,
       subCategory: data.subCategory,
-      competitiveType: data.competitiveType,
       name: data.name,
       linkedinProfile: data.linkedinProfile,
       email: data.email,

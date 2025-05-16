@@ -57,7 +57,7 @@ const IslamicFaithEducationAwardPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type='Best Faith-Based Organization in Education' category={selectedCategory} />;
   }
 
   return (

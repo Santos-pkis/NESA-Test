@@ -1,5 +1,5 @@
 'use client'
-
+import Button from '@/components/Common/Button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -65,7 +65,7 @@ export default function CreateAccount() {
           <p><FaPhone /> +234-907-962-1110</p>
           <p><FaPhone /> +234-810-976-5897</p>
           <p><FaEnvelope /> nesa.africa@gmail.com</p>
-          <p><FaMapMarkerAlt /> 54, Falolu Street, Surulere, Lagos</p>
+          <p><FaMapMarkerAlt /> 19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos</p>
         </div>
       </div>
       <div className={styles.rightColumn}>
@@ -75,6 +75,8 @@ export default function CreateAccount() {
           </Link>
           <h1 className={styles.title}>Create your Account</h1>
           <p className={styles.subtitle}>Get Ready to Celebrate Excellence and unveil the nominees</p>
+
+          <div>
           <Link href="/scef-signup" passHref>
             <button className={styles.scefButton}>
               <Image
@@ -88,6 +90,22 @@ export default function CreateAccount() {
             </button>
           </Link>
           <div className={styles.orDivider}>Or</div>
+          <div className="w-full">
+              <span>already have an account?</span>
+                <Link href="/account/login">
+              <Button text="Log in" variant="filled" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+                    px-1 md:px-8 py-6 mb-4
+                    text-xs sm:text-sm md:text-lg
+                    text-center hover:bg-[#E48900] hover:text-black
+                    rounded-lg
+                    w-full sm:w-auto
+                    truncate
+                  " />
+          
+              </Link>
+              </div>
+              </div>
+
           <div className={styles.options}>
             {[
               { icon: <IoPersonSharp />, type: "Member", value: "member", description: "Sign up as a member and champion outstanding achievement and directly contribute to recognizing outstanding educators across the globe." },

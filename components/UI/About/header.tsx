@@ -57,7 +57,7 @@ const AboutHeader = () => {
 
 
         </motion.div>
-              <div className="grid lg:grid-cols-2">
+              <div className="grid lg:grid-cols-2 lg:gap-6">
             <motion.div variants={toTopV} className="md:text-justify pt-10">
             <p className="text-base lg:text-lg mb-4">
             <span className="bg-gradient-to-r from-[#FFC247] to-[#E48900] inline text-transparent bg-clip-text font-poppins font-medium text-[24px] leading-[32px] tracking-[0%]">
@@ -88,7 +88,7 @@ const AboutHeader = () => {
           </motion.div>
 
         <motion.div variants={opacityV} className="mt-12 relative overflow-hidden">
-          <div className="relative w-full mx-auto max-w-[1200px] h-[300px] md:h-auto">
+          <div className="relative w-full ml-auto max-w-[1200px] h-[300px] md:h-[610px] lg:container ">
             <video
               src="/images/about.mp4"
               className="w-full h-full object-cover rounded-md"
