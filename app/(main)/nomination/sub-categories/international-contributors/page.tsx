@@ -66,7 +66,7 @@ const InternationalBilateralAwardPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type=' Best STEM Education Champion Best International & Bilateral Contributors to EducatioN' category={selectedCategory} />;
   }
 
   return (

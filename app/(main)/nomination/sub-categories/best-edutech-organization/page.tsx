@@ -74,7 +74,7 @@ const EduTechAwardCategoryPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type="Best EduTech Organization (Africa)" category={selectedCategory} />;
   }
 
   return (

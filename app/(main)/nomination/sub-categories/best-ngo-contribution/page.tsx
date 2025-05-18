@@ -70,7 +70,7 @@ const NGOAwardCategoryPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type='Best NGO Contribution to Achieving' category={selectedCategory} />;
   }
 
   return (

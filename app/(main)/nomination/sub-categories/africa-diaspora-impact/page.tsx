@@ -56,7 +56,7 @@ const AfricaDiasporaAwardPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type="Diaspora Contributions to Education in Africa" category={selectedCategory} />;
   }
 
   return (

@@ -51,7 +51,7 @@ const SpecialRecognitionPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory}   />;
+    return <NominationPage type="Africa Lifetime Education Icon Recognition" category={selectedCategory}   />;
   }
 
   return (

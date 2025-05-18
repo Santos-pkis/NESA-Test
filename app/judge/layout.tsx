@@ -101,7 +101,10 @@ export default function JudgeLayout({ children }: JudgeLayoutProps) {
           </Link>
           <div className="hidden md:flex space-x-6 items-center">
             <NavItem href="/judge" label="Home" />
-            <NavItem href="/judge/nomination" label="Nomination" isHighlighted />
+                        <NavDropdown label="Nomination" items={[
+              { href: "/judge/competitive", label: "Competitive" },
+              { href: "/judge/non-competitive", label: "Non-Competitive" },
+            ]} />
             <NavDropdown label="Judges Arena" items={[
               { href: "/judge/JudgeC", label: "See Judges" },
               { href: "/judge/JudgeChat", label: "Judge Chat Room" },

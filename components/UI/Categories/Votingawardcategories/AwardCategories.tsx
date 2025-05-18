@@ -6,21 +6,26 @@ interface AwardCategoryProps {
 }
 
 const categories = [
-  { title: "NGO Contribution To Education in Nigeria", description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovations in Nigeria." },
-  { title: "Corporate Social Responsibility (CSR) in Education", description: "Honoring CSR by banks, telecoms, and other sectors, showing commitment to educational development." },
-  { title: "Faith-Based Organization Contribution to Education", description: "Honors faith-based organizations that significantly contributed to educational, moral, and community development." },
-  { title: "State Government Education Initiatives", description: "Acknowledges state governments demonstrating outstanding commitment and results in education from 2013 - 2024." },
-  { title: "Nigeria Tertiary Institution", description: "Awards the tertiary institution excelling in academic excellence, community engagement, and student support with ICT infrastructure." },
+  { title: "Best NGO Contribution to Education in Nigeria", type:"competitive", description: "Celebrates nigeria NGO" },
+  { title: "Best EduTech Organization (Africa)", type:"competitive", description: "Celebrates EDUTEch" },
+  { title: "Best NGO Contribution to Achieving Education for All (Africa - Regional Competition)", type:"competitive", description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovations in Nigeria." },
+  { title: "Best Corporate Social Responsibility (CSR) in Education (Nigeria)", type:"competitive", description: "Honoring CSR by banks, telecoms, and other sectors, showing commitment to educational development." },
+  { title: "Best Corporate Social Responsibility (CSR) in Education (Africa - Regional Competition)", type:"competitive", description: "Honoring CSR" },
+  { title: "Best Faith-Based Organization in Education", type:"non-competitive", description: "Honors faith-based organizations that significantly contributed to educational, moral, and community development." },
+  { title: "Best Educational-Friendly State (Nigeria's Six Zones)", type:"non-competitive", description: "Acknowledges state governments demonstrating outstanding commitment and results in education from 2013 - 2024." },
+  { title: "Best Library in Nigerian Tertiary Institutions", type:"non-competitive", description: "Awards the tertiary institution excelling in academic excellence, community engagement, and student support with ICT infrastructure." },
   { title: "Education In Schools", description: "Recognizes secondary schools for fostering innovation in education and student support with ICT infrastructure." },
-  { title: "Research Institutions", description: "Recognizes research institutes for their exceptional contributions to educational research and development in Nigeria." },
-  { title: "Media Organization and Houses", description: "Recognizes media for educational awareness and coverage, effectively amplifying educational issues and achievements." },
-  { title: "International Contributors to Education in Nigeria", description: "Honoring international sectors showing commitment to educational development through corporate social responsibility." },
+  { title: "Best Research & Development Contribution by Institutes", type:"non-competitive", description: "Recognizes research institutes for their exceptional contributions to educational research and development in Nigeria." },
+  { title: "Best Media Organization in Educational Advocacy (Nigeria)", type:"competitive", description: "Recognizes media for educational awareness and coverage, effectively amplifying educational issues and achievements." },
+  { title: "Best International & Bilateral Contributors to Education", type:"non-competitive", description: "Honoring international sectors showing commitment to educational development through corporate social responsibility." },
   { title: "Nigerian Associations Abroad", description: "Celebrates the diaspora's contributions to supporting and enhancing education in Nigeria." },
-  { title: "Political Leadership in Education", description: "Honoring educational initiatives by lawmakers, for legislative efforts that significantly impact the education sector." },
-  { title: "Special Recognition Awards", description: "Recognizing philanthropy and leadership for their outstanding contributions to education." },
-  { title: "Creative Arts Industry Contribution to Education", description: "Celebrates arts organizations for enriching and diversifying educational experiences through creative initiatives." },
-  { title: "Support for Education in Science and Technology", description: "Awards tech-based and STEM initiatives for championing STEM education and technological advancements in learning." },
+  { title: "Best Political Leaders' Educational Support Services", description: "Honoring educational initiatives by lawmakers, for legislative efforts that significantly impact the education sector." },
+  { title: "Africa Lifetime Education Icon Recognition", description: "Recognizing philanthropy and leadership for their outstanding contributions to education." },
+  { title: "Creative Arts Industry Contribution to Education (Nigeria)", type:"competitive", description: "Celebrates arts organizations for enriching and diversifying educational experiences through creative initiatives." },
+  { title: "Best STEM Education Champion", type:"non-competitive", description: "Awards tech-based and STEM initiatives for championing STEM education and technological advancements in learning." },
   { title: "Excellence in Promoting SDG 4 Achievement", description: "Recognizes efforts towards achieving SDG 4, for dedication to quality education under SDG 4." },
+  { title: "Diaspora Contributions to Education in Africa", type:"non-competitive", description: "Recognizes efforts towards achieving SDG 4, for dedication to quality education under SDG 4." },
+
 ];
 
 const AwardCategory: React.FC<AwardCategoryProps> = ({ title, description }) => (

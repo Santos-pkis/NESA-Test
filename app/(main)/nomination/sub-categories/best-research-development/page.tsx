@@ -51,7 +51,7 @@ const ResearchDevelopmentAwardPage = () => {
   };
 
   if (selectedCategory) {
-    return <NominationPage category={selectedCategory} />;
+    return <NominationPage type='Best Research & Development Contribution by Institutes' category={selectedCategory} />;
   }
 
   return (
