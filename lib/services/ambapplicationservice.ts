@@ -35,7 +35,7 @@ export const ambapplication = async (data: NominationData): Promise<any> => {
       payload, // Send as JSON
       {
         headers: {
-          'Content-Type': 'application/json', // Ensure JSON content type
+          'Content-Type': 'application/json', 
         }
       }
     );

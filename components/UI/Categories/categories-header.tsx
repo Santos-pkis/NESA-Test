@@ -58,12 +58,13 @@ const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
 
   return (
     <header>
-      <div className={`min-h-screen max-w-screen bg-[#17120a] text-white bg-gradient-to-t from-transparent via-[#f7ae2758] to-transparent ${styles.homeHeader}`}>
+      <div className={`min-h-screen max-w-screen bg-[#191307CC] text-white ${styles.homeHeader}`}>
         
           {Slides.map((slide, index) => {
             return (
               <section key={index} className={` h-[80] w-full bg-opacity-80  md:pt-16  transition-opacity duration-500 ${
                 currentSlide === index ? "opacity-100" : "opacity-0 hidden"}`}>
+                
                   {slide}
              
               </section>  
@@ -71,7 +72,7 @@ const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
           })
         }
                         {/* Scroll Feature */}
-        <div className="pb-8 md:pb-4 pt-6 flex items-center justify-between md:px-4 px-2">
+        <div className="absolute bottom-4 right-0 left-0 pb-8 md:pb-4 pt-6 flex items-center justify-between md:px-4 px-2">
           {/* Dots */}
           <div className="flex items-center md:space-x-2 space-x-1">
             {Array.from({ length: totalSlides }).map((_, id) => (

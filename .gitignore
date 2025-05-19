@@ -1,4 +1,26 @@
+Flows to be implemented 
+1. admin
+2. Tickets: e.g Choosing to attend the award dinner: revamp section on landing page, create Get your Ticket flow,to be linked with external ticketing apis
+3. general user Sign up revamp: to fit figma, to include choice of country (residence or nationality), email sent containing details of User types and CTAs to make choice
+--the user types :
+Ambassadors, members, sponsor
+amb. 1
+amb. 2
+amb. 3
+
+4. Get Involved flows: volunteer, donate, partner, sponsor
+5. Judges separation: into competitive and non-competitive categories
+6. API to upload Logos
+
+
+non-competitive:nominees are screened then can download their cetificates, and options to attend the gala
+the certificates are indexed and can be verified (uniqueness)
+
+competitive: nomines go to the judges portal first, then assessed then can be pushed out for voting
+
 create youtube links for competitive and non-competitive AWARDS
+
+
 create a page for the scholarship
 CSR to reach out to more people than the traditional award
 Being nominated on NESA will warrant creating account for you automatically

@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";  
 
 const Refer = () => {
+  const router = useRouter();
   return (
     <section className="bg-white py-16 text-center flex flex-col items-center justify-center relative ">
       <div className="max-w-3xl mx-auto px-4">
@@ -14,8 +15,8 @@ const Refer = () => {
           voting in the competitive categories!
         </p>
 
-        <button className="mt-6 bg-[#F7A500] hover:bg-[#e59b00] text-[11px] font-semibold text-black px-6 py-2 rounded transition duration-300">
-          Refer a Friend
+        <button onClick={() => router.push("/refer")} className="mt-6 bg-[#F7A500] hover:bg-[#e59b00] text-[11px] font-semibold text-black px-6 py-2 rounded transition duration-300">
+          Refer a Friendd
         </button>
       </div>
       <div className="max-h-[100%]">
