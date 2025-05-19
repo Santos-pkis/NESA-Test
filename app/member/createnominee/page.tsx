@@ -32,14 +32,14 @@
 // //   // Add other properties as needed
 // // };
 
-// // // type Props = {
-// // //   id: number;
-// // //   category: Category | undefined;
-// // //   details: CategoryDetail | undefined;
-// // // };
+type Props = {
+  id: number;
+  category: Category | undefined;
+  details: CategoryDetail | undefined;
+};
 
 
-// const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
+const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
 //   const router = useRouter();
 //   const [formData, setFormData] = useState<FormData>({
 //       category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
@@ -485,8 +485,8 @@
 // //         )}
 // //       </AnimatePresence>
 // //     </div>
-// //     </>
-// //   );
-// // };
+    </>
+  );
+};
 
-// // export default CreateNominationPage;
+export default CreateNominationPage;
