@@ -59,7 +59,7 @@ const AboutHeader = () => {
         </motion.div>
               <div className="grid lg:grid-cols-2 lg:gap-6">
             <motion.div variants={toTopV} className="md:text-justify pt-10">
-            <p className="text-base lg:text-lg mb-4">
+            <p className="text-sm mb-4">
             <span className="bg-gradient-to-r from-[#FFC247] to-[#E48900] inline text-transparent bg-clip-text font-poppins font-medium text-[24px] leading-[32px] tracking-[0%]">
               New Education Standard Award Africa (NESA Africa)  
             </span>{' '}

@@ -57,30 +57,7 @@ const NESAAfrica = () => {
         </div>
       </div>
 
-      {/* SMART Goals */}
-      <div className="max-w-xl mt-5">
-        <h4 className="text-lg md:text-xl font-semibold mb-4">
-          The NESA SMART Goals (2025–2030) for Sustainable Impact
-        </h4>
-        <ul className="space-y-3 text-sm md:text-base list-disc list-inside">
-          <li className="before:content-['>'] before:mr-2 before:text-[#E48900]">
-            Specific Goals (S)
-          </li>
-          <li className="before:content-['>'] before:mr-2 before:text-[#E48900]">
-            Measurable Goals (M)
-          </li>
-          <li className="before:content-['>'] before:mr-2 before:text-[#E48900]">
-            Achievable Goals (A)
-          </li>
-          <li className="before:content-['>'] before:mr-2 before:text-[#E48900]">
-            Relevant Goals (R)
-          </li>
-          <li className="before:content-['>'] before:mr-2 before:text-[#E48900]">
-            Time Bound Goals (T)
-          </li>
-        </ul>
-      </div>
-      </div>
+          </div>
     </section>
   );
 };

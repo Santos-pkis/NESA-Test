@@ -1,492 +1,237 @@
-// // "use client";
+"use client";
 
-// // import React, { useState, ChangeEvent, FormEvent } from "react";
-// // import { useRouter } from "next/navigation";
-// // import PhoneInput from "react-phone-input-2";
-// // import "react-phone-input-2/lib/style.css";
-// // import { FiCheckCircle, FiUpload, FiX, FiArrowLeft } from "react-icons/fi";
-// // import { createNomination } from "@/lib/services/nominationService";
-// // import { motion, AnimatePresence } from "framer-motion";
-// // import Image from "next/image";
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import WalletSummary from '@/components/Layout/Dashboard/WalletSummary';
+import ReferralInfo from '@/components/Layout/Dashboard/ReferralInfo';
+import VotingOverviewCard from '@/components/Layout/Dashboard/VotingOverviewCard';
+import SkeletonLoader from '@/components/UI/SkeletonLoader';
+import { useAuthContext } from '@/lib/context/AuthContext';
+import { FiAlertCircle, FiCheckCircle, FiX } from 'react-icons/fi';
 
-// interface FormData {
-//   category: string;
-//   subCategory: string;
-//   subCategory: string;
-//   name: string;
-//   linkedinProfile: string;
-//   email: string;
-//   achievements: string;
-//   document: File | null;
-// }
+const recentActivities = [
+  {
+    type: 'wallet',
+    title: 'Wallet Top-up',
+    description: 'You funded your wallet with ₦5,000',
+    date: 'April 6, 2025 at 3:45 PM',
+  },
+  {
+    type: 'referral',
+    title: 'New Referral Bonus',
+    description: 'You earned ₦1,000 from John Doe signup',
+    date: 'April 5, 2025 at 11:20 AM',
+  },
+  {
+    type: 'voting',
+    title: 'New Nomination',
+    description: 'You nominated Jane Smith for "Community Leader"',
+    date: 'April 3, 2025 at 4:05 PM',
+  },
+  {
+    type: 'wallet',
+    title: 'Withdrawal Processed',
+    description: '₦2,000 was withdrawn to your bank account',
+    date: 'April 1, 2025 at 10:00 AM',
+  },
+];
 
-// // type Category = {
-// //   id: number;
-// //   title: string;
-// //   description: string;
-// //   detailsDescription?: string;
-// // };
+export default function Dummy() {
+  const router = useRouter();
+  const { user } = useAuthContext();
+  const [loading, setLoading] = useState(true);
+  const [showNotification, setShowNotification] = useState(true);
+  const [verificationStatus, setVerificationStatus] = useState({
+    emailVerified: false,
+    kycCompleted: false,
+  });
 
-// // type CategoryDetail = {
-// //   id: number;
-// //   // Add other properties as needed
-// // };
+  useEffect(() => {
+    // Simulate API call to get verification status
+    const fetchVerificationStatus = async () => {
+      try {
+        // In a real app, you would fetch this from your backend:
+        // const response = await fetch(`/api/users/${user.id}/verification-status`);
+        // const status = await response.json();
+        
+        // Mock response for demonstration
+        const mockStatus = {
+          emailVerified: user?.emailVerified || false,
+          kycCompleted: user?.KYC || false,
+        };
+        
+        setVerificationStatus(mockStatus);
+        setLoading(false);
+      } catch (error) {
+        console.error('Failed to fetch verification status:', error);
+        setLoading(false);
+      }
+    };
 
-type Props = {
-  id: number;
-  category: Category | undefined;
-  details: CategoryDetail | undefined;
-};
+    const timer = setTimeout(fetchVerificationStatus, 2000);
+    return () => clearTimeout(timer);
+  }, [user]);
 
+  const needsAttention = !verificationStatus.emailVerified || !verificationStatus.kycCompleted;
 
-const CreateNominationPage: React.FC<Props> = ({ id, category, details }) => {
-//   const router = useRouter();
-//   const [formData, setFormData] = useState<FormData>({
-//       category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
-//       subCategory: "Best Print Media Educational Advocacy Award",
-//       subCategory: "competitive",
-//       name: "",
-//       linkedinProfile: "",
-//       email: "",
-//       achievements: "",
-//       document: null,
-//     });
+  const handleCompleteVerification = (type: 'email' | 'kyc') => {
+    if (type === 'email') {
+      router.push('/account/verify-email');
+    } else {
+      router.push('/account/complete-kyc');
+    }
+  };
 
-// //   const [loading, setLoading] = useState(false);
-// //   const [showConfirmation, setShowConfirmation] = useState(false);
-// //   const [showSuccess, setShowSuccess] = useState(false);
-// //   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Header Section with Notification */}
+        <div className="mb-10">
+          {loading ? (
+            <>
+              <SkeletonLoader className="h-8 w-1/2 mb-2" />
+              <SkeletonLoader className="h-4 w-1/3" />
+            </>
+          ) : (
+            <>
+              <div className="flex justify-between items-start">
+                <div>
+                  <h1 className="text-3xl font-bold text-gray-900">Welcome {user?.name || 'User'},</h1>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Track your nominations, referrals, and wallet activities
+                  </p>
+                </div>
+                {needsAttention && showNotification && (
+                  <button
+                    onClick={() => setShowNotification(false)}
+                    className="text-gray-400 hover:text-gray-500"
+                    aria-label="Dismiss notification"
+                  >
+                    <FiX size={18} />
+                  </button>
+                )}
+              </div>
 
-// //   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-// //     const { name, value } = e.target;
-// //     setFormData((prev) => ({ ...prev, [name]: value }));
-// //   };
+              {/* Verification Notification */}
+              {showNotification && needsAttention && (
+                <div className="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <FiAlertCircle className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-sm font-medium text-yellow-800">
+                        Account verification needed
+                      </h3>
+                      <div className="mt-2 text-sm text-yellow-700">
+                        <ul className="list-disc pl-5 space-y-1">
+                          {!verificationStatus.emailVerified && (
+                            <li>
+                              <button
+                                className="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 rounded"
+                                onClick={() => handleCompleteVerification('email')}
+                              >
+                                Verify your email address
+                              </button>
+                            </li>
+                          )}
+                          {!verificationStatus.kycCompleted && (
+                            <li>
+                              <button
+                                className="hover:underline focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 rounded"
+                                onClick={() => handleCompleteVerification('kyc')}
+                              >
+                                Complete KYC verification
+                              </button>
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
-// //   const handlePhoneChange = (value: string) => {
-// //     setFormData((prev) => ({ ...prev, phone: value }));
-// //   };
+              {/* Success notification when all verified */}
+              {!needsAttention && (
+                <div className="mt-4 bg-green-50 border-l-4 border-green-400 p-4 rounded-r-lg">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <FiCheckCircle className="h-5 w-5 text-green-400" aria-hidden="true" />
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-sm font-medium text-green-800">
+                        Account fully verified
+                      </h3>
+                      <div className="mt-2 text-sm text-green-700">
+                        <p>You have full access to all platform features.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </div>
 
-// //   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-// //     const files = e.target.files;
-// //     if (files && files.length > 0) {
-// //       setFormData((prev) => ({ ...prev, document: files[0] }));
-// //     }
-// //   };
+        {/* Voting Overview */}
+        <div className="mb-12">
+          {loading ? (
+            <SkeletonLoader className="h-40 w-full rounded-lg" />
+          ) : (
+            <VotingOverviewCard />
+          )}
+        </div>
 
-// //   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-// //     e.preventDefault();
-// //     setShowConfirmation(true);
-// //   };
+        {/* Summary Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+          {loading ? (
+            <>
+              <SkeletonLoader className="h-32 w-full rounded-lg" />
+              <SkeletonLoader className="h-32 w-full rounded-lg" />
+            </>
+          ) : (
+            <>
+              <WalletSummary />
+              <ReferralInfo />
+            </>
+          )}
+        </div>
 
-
-//   const handleNominate = async () => {
-//     setLoading(true);
-//     try {
-//       await createNomination({
-//         category: formData.category,
-//         subCategory: formData.subCategory,
-//         subCategory: formData.subCategory,
-//         name: formData.name,
-//         linkedinProfile: formData.linkedinProfile,
-//         email: formData.email,
-//         achievements: formData.achievements,
-//         document: formData.document,
-//       });
-
-// //       setShowConfirmation(false);
-// //       setShowSuccess(true);
-// //     } catch (error: any) {
-// //       console.error("Failed to create nomination:", error.message);
-// //       setErrorMessage(error.response?.data?.error || error.message || "An unexpected error occurred.");
-// //       setShowConfirmation(false);
-// //     } finally {
-// //       setLoading(false);
-// //     }
-// //   };
-
-//   const handleNominateAnother = () => {
-//     setShowSuccess(false);
-//     setFormData({
-//       category: category?.title || "Best Media Organization in Advocacy (Nigeria)",
-//       subCategory: "Best Print Media Educational Advocacy Award",
-//       subCategory: "competitive",
-//       name: "",
-//       linkedinProfile: "",
-//       email: "",
-//       achievements: "",
-//       document: null,
-//     });
-//   };
-
-// //   return (
-// //     <>
-// // <div className="relative min-h-screen md:min-h-[80vh] bg-gray-100">
-// //   {/* Background Image */}
-// //   <div className="absolute inset-0 z-0">
-// //     <Image
-// //       src="/images/childwriting.png" // Make sure this is a correct path from the 'public' folder
-// //       alt="African child studying"
-// //       fill
-// //       className="object-cover"
-// //       priority
-// //     />
-// //   </div>
-
-// //   {/* Black Overlay */}
-// //   <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-
-// //   {/* Text Content */}
-// //   <div className="relative z-20 container mx-auto pt-20 md:pt-52 px-4 min-h-screen">
-// //         {/* Award Category Section */}
-// //         <div className="mb-8">
-// //           <h2 className="text-3xl font-bold text-white mb-4">
-// //             Sub Category 1
-// //           </h2>
-// //           <h1 className="text-4xl font-bold text-[#E48900] mb-4">
-// //             Africa Education Philanthropy Icon of the Decade (2014-2024)
-// //           </h1>
-// //           <p className="text-white max-w-2xl">
-// //             This award honors NGOs that have made substantial effort in improving or building educational infrastructure. It includes initiatives like constructing new school buildings, renovating existing facilities, or providing essential infrastructure to enhance learning environment.
-// //           </p>
-// //         </div>
-// //   </div>
-// // </div>
-
-    
-// //      <div className="min-h-screen bg-gray-50">
-// //       <div className=" mx-auto py-8 px-4 sm:px-6 lg:px-8">
-// //         <button
-// //           onClick={() => router.back()}
-// //           className="flex items-center text-gray-600 mb-6 hover:text-gray-900 transition-colors"
-// //         >
-// //           <FiArrowLeft className="mr-2" />
-// //           Back to Dashboard
-// //         </button>
-
-// //         <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-// //             <h1
-// //             className="pb-2 mb-6 _under_border"
-// //             style={{
-// //               fontFamily: "Poppins",
-// //               fontWeight: 500,
-// //               fontSize: "32px",
-// //               lineHeight: "100%",
-// //               letterSpacing: "0%",
-// //               color: "#1F2937", // Equivalent to text-gray-900
-// //             }}
-// //             >
-// //            Submit Nominee Personal Information
-// //             </h1>
-          
-// //           <form onSubmit={handleSubmit} className="space-y-6">
-// //             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-// //                           {/* Category Dropdowns */}
-                          
-// //                             <div>
-// //                               <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-// //                                 Competitive Category
-// //                               </label>
-// //                               <input
-// //                                 type="text"
-// //                                 id="category"
-// //                                 name="category"
-// //                                 onChange={handleInputChange}
-// //                                 value={formData.category}
-// //                                 readOnly
-// //                                 className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-// //                               />
-// //                             </div>
-// //                             <div >
-// //                               <label htmlFor="Subcategory" className="block text-sm font-medium text-gray-700 mb-2">
-// //                                 Subcategory
-// //                               </label>
-// //                               <input
-// //                                 type="text"
-// //                                 id="subcategory"
-// //                                 name="subcategory"
-// //                                 onChange={handleInputChange}
-// //                                 value={formData.subCategory}
-// //                                 readOnly
-// //                                 className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-// //                               />
-// //                             </div>
-                          
-// //               {/* Name Field */}
-// //               <div>
-// //                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-// //                   Individual or Organization <span className="text-red-500">*</span>
-// //                 </label>
-// //                 <input
-// //                   type="text"
-// //                   id="name"
-// //                   name="name"
-// //                   value={formData.name}
-// //                   onChange={handleInputChange}
-// //                   required
-// //                   className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-// //                 />
-// //               </div>
-
-// //               {/* Linkedin Field */}
-// //               <div>
-// //                 <label htmlFor="linkedIn" className="block text-sm font-medium text-gray-700 mb-2">
-// //                   Linkedin Profile <span className="text-red-500">*</span>
-// //                 </label>
-// //                 <input
-// //                   type="text"
-// //                   id="linkedIn"
-// //                   name="linkedinProfile"
-// //                   // value={formData.linkedinProfile}
-// //                   required
-// //                   className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-
-// //                 />
-// //               </div>
-
-// //               {/* Email Field */}
-// //               <div>
-// //                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-// //                   Email <span className="text-red-500">*</span>
-// //                 </label>
-// //                 <input
-// //                   type="email"
-// //                   id="email"
-// //                   name="email"
-// //                   value={formData.email}
-// //                   onChange={handleInputChange}
-// //                   required
-// //                   className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-// //                 />
-// //               </div>
-
-              
-// //               {/* Achievements Field */}
-// //               <div>
-// //                 <label htmlFor="achievements" className="block text-sm font-medium text-gray-700 mb-2">
-// //                   Achievements
-// //                 </label>
-// //                 <textarea
-// //                   id="achievements"
-// //                   name="achievements"
-// //                   rows={4}
-// //                   value={formData.achievements}
-// //                   onChange={handleInputChange}
-// //                   placeholder="Write a personal statement or provide specific achievements"
-                  
-// //                   className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all resize-y"
-// //                 />
-// //               </div>
-              
-
-
-// //               {/* Document Upload */}
-// //               <div className="md:col-span-2">
-// //                 <label htmlFor="document" className="block text-sm font-medium text-gray-700 mb-2">
-// //                                   Upload a document or image to support your nominee achievements
-// //                 </label>
-// //                 <label className="relative block border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#FFC247] transition-colors">
-// //                   <input
-// //                     type="file"
-// //                     id="document"
-// //                     name="document"
-// //                     onChange={handleFileChange}
-// //                     className="absolute inset-0 w-full  h-full opacity-0 cursor-pointer"
-// //                     accept=".jpg,.png,.pdf,.svg"
-// //                   />
-// //                   {formData.document ? (
-// //                     <div className="flex flex-col items-center">
-// //                       <FiUpload className="w-8 h-8 text-[#FFC247] mb-2" />
-// //                       <p className="text-gray-700 font-medium">{formData.document.name}</p>
-// //                       <p className="text-sm text-gray-500 mt-1">Click to change file</p>
-// //                     </div>
-// //                   ) : (
-// //                     <div className="flex flex-col items-center">
-// //                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto mb-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-// //                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-// //                     </svg>
-// //                       <p className="text-gray-600">Upload supporting document</p>
-// //                       <p className="text-xs text-gray-500 mt-1">JPG, PNG, PDF, and SVG files only</p>
-// //                     </div>
-// //                   )}
-// //                 </label>
-// //               </div>
-
-// //             </div>
-
-// //             <div className="pt-4">
-// //               <motion.button
-// //                 type="submit"
-// //                 disabled={loading}
-// //                 whileHover={{ scale: 1.02 }}
-// //                 whileTap={{ scale: 0.98 }}
-// //                 className="w-full text-white py-3 px-6 rounded-xl font-medium disabled:opacity-70 relative overflow-hidden"
-// //                 style={{
-// //                   background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
-// //                 }}
-// //               >
-// //                 {loading ? (
-// //                   <div className="flex items-center justify-center">
-// //                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-// //                     Submitting...
-// //                   </div>
-// //                 ) : (
-// //                   "Submit Nomination"
-// //                 )}
-// //               </motion.button>
-// //               <p className="text-xs text-gray-500 mt-2 text-center">
-// //                 By submitting this form, you confirm that all information provided is accurate.
-// //               </p>
-// //             </div>
-// //           </form>
-// //         </div>
-// //       </div>
-
-// //       {/* Confirmation Modal */}
-// //       <AnimatePresence>
-// //         {showConfirmation && (
-// //           <motion.div
-// //             initial={{ opacity: 0 }}
-// //             animate={{ opacity: 1 }}
-// //             exit={{ opacity: 0 }}
-// //             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-// //           >
-// //             <motion.div
-// //               initial={{ scale: 0.95, y: 20 }}
-// //               animate={{ scale: 1, y: 0 }}
-// //               exit={{ scale: 0.95, y: 20 }}
-// //               className="bg-white rounded-xl shadow-xl w-full max-w-md"
-// //             >
-// //               <div className="p-6">
-// //                 <div className="flex justify-between items-center mb-4">
-// //                   <h2 className="text-2xl font-bold text-gray-900">Confirm Nomination</h2>
-// //                   <button onClick={() => setShowConfirmation(false)} className="text-gray-400 hover:text-gray-600">
-// //                     <FiX size={24} />
-// //                   </button>
-// //                 </div>
-                
-// //                 <div className="space-y-4 mb-6">
-// //                   <p className="text-gray-600">Please review your nomination details before submitting:</p>
-                  
-// //                   <div className="bg-gray-50 rounded-lg p-4">
-// //                     <h3 className="font-medium text-gray-900 mb-2">{formData.name}</h3>
-// //                     <p className="text-gray-600 text-sm mt-1">{formData.email}</p>
-// //                   </div>
-// //                 </div>
-
-// //                 <div className="flex justify-end gap-3">
-// //                   <button
-// //                     onClick={() => setShowConfirmation(false)}
-// //                     className="px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
-// //                   >
-// //                     Cancel
-// //                   </button>
-// //                   <button
-// //                     onClick={handleNominate}
-// //                     disabled={loading}
-// //                     className="px-4 py-2 rounded-lg text-white font-medium disabled:opacity-70"
-// //                     style={{
-// //                       background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
-// //                     }}
-// //                   >
-// //                     {loading ? "Submitting..." : "Confirm Submission"}
-// //                   </button>
-// //                 </div>
-// //               </div>
-// //             </motion.div>
-// //           </motion.div>
-// //         )}
-// //       </AnimatePresence>
-
-// //       {/* Success Modal */}
-// //       <AnimatePresence>
-// //         {showSuccess && (
-// //           <motion.div
-// //             initial={{ opacity: 0 }}
-// //             animate={{ opacity: 1 }}
-// //             exit={{ opacity: 0 }}
-// //             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-// //           >
-// //             <motion.div
-// //               initial={{ scale: 0.95 }}
-// //               animate={{ scale: 1 }}
-// //               exit={{ scale: 0.95 }}
-// //               className="bg-white rounded-xl shadow-xl w-full max-w-md text-center p-8"
-// //             >
-// //               <div className="flex justify-center mb-4">
-// //                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-// //                   <FiCheckCircle className="w-10 h-10 text-green-500" />
-// //                 </div>
-// //               </div>
-              
-// //               <h2 className="text-2xl font-bold text-gray-900 mb-2">Nomination Submitted!</h2>
-// //               <p className="text-gray-600 mb-6">
-// //                 Thank you for recognizing excellence. Your nomination has been received and will be reviewed shortly.
-// //               </p>
-
-// //               <div className="flex flex-col gap-3">
-// //                 <button
-// //                   onClick={() => router.push("/member")}
-// //                   className="w-full py-3 px-4 rounded-lg text-white font-medium"
-// //                   style={{
-// //                     background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
-// //                   }}
-// //                 >
-// //                   Return to Dashboard
-// //                 </button>
-// //                 <button
-// //                   onClick={handleNominateAnother}
-// //                   className="w-full py-3 px-4 rounded-lg border border-[#FFC247] text-[#FFC247] font-medium hover:bg-[#FFF9ED] transition-colors"
-// //                 >
-// //                   Nominate Another
-// //                 </button>
-// //               </div>
-// //             </motion.div>
-// //           </motion.div>
-// //         )}
-// //       </AnimatePresence>
-
-// //       {/* Error Modal */}
-// //       <AnimatePresence>
-// //         {errorMessage && (
-// //           <motion.div
-// //             initial={{ opacity: 0 }}
-// //             animate={{ opacity: 1 }}
-// //             exit={{ opacity: 0 }}
-// //             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-// //           >
-// //             <motion.div
-// //               initial={{ scale: 0.95 }}
-// //               animate={{ scale: 1 }}
-// //               exit={{ scale: 0.95 }}
-// //               className="bg-white rounded-xl shadow-xl w-full max-w-md p-6"
-// //             >
-// //               <div className="flex justify-between items-center mb-4">
-// //                 <h2 className="text-2xl font-bold text-red-600">Submission Error</h2>
-// //                 <button onClick={() => setErrorMessage(null)} className="text-gray-400 hover:text-gray-600">
-// //                   <FiX size={24} />
-// //                 </button>
-// //               </div>
-              
-// //               <p className="text-gray-700 mb-6">{errorMessage}</p>
-              
-// //               <div className="flex justify-end">
-// //                 <button
-// //                   onClick={() => setErrorMessage(null)}
-// //                   className="px-4 py-2 rounded-lg text-white font-medium"
-// //                   style={{
-// //                     background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
-// //                   }}
-// //                 >
-// //                   Try Again
-// //                 </button>
-// //               </div>
-// //             </motion.div>
-// //           </motion.div>
-// //         )}
-// //       </AnimatePresence>
-// //     </div>
-    </>
+        {/* Recent Activity Section */}
+        <div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            {loading ? <SkeletonLoader className="h-6 w-1/4" /> : 'Recent Activity'}
+          </h2>
+          <div className="bg-white shadow rounded-lg overflow-hidden">
+            {loading ? (
+              <div className="p-6 space-y-4">
+                {Array(4)
+                  .fill(0)
+                  .map((_, index) => (
+                    <div key={index} className="space-y-2">
+                      <SkeletonLoader className="h-4 w-3/4" />
+                      <SkeletonLoader className="h-4 w-1/2" />
+                      <SkeletonLoader className="h-3 w-1/3" />
+                    </div>
+                  ))}
+              </div>
+            ) : (
+              <ul className="divide-y divide-gray-200">
+                {recentActivities.map((activity, index) => (
+                  <li key={index} className="p-6 hover:bg-gray-50 transition-colors">
+                    <div>
+                      <p className="text-sm font-medium text-gray-800">{activity.title}</p>
+                      <p className="text-sm text-gray-500 mt-1">{activity.description}</p>
+                      <p className="text-xs text-gray-400 mt-2">{activity.date}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
-};
-
-export default CreateNominationPage;
+}
