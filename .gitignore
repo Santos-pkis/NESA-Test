@@ -1,6 +1,7 @@
 Flows to be implemented 
 1. admin
 2. Tickets: e.g Choosing to attend the award dinner: revamp section on landing page, create Get your Ticket flow,to be linked with external ticketing apis
+
 3. general user Sign up revamp: to fit figma, to include choice of country (residence or nationality), email sent containing details of User types and CTAs to make choice
 --the user types :
 Ambassadors, members, sponsor
@@ -10,15 +11,28 @@ amb. 3
 
 4. Get Involved flows: volunteer, donate, partner, sponsor
 5. Judges separation: into competitive and non-competitive categories
-6. API to upload Logos
+6. API to upload Logos, 
+7. these logos are clickable to page containing their about details.(displays nummber of views)
+6. implement an advertise with us CTA flow for other organizations. (displays number of views)
+7. wallet and voting points/afri gold coin integration
+9. judges arena and chat application
+10. judges portal with the ability to see number of nominations per nominee
+11. separation of judges into competitive and non-competitive awards
+12 flow to choose between download of certificates, presented by reps of the local chapter or attending the gala (non-competitive:nominees are screened then can download their cetificates, and options to attend the gala
+the certificates are indexed and can be verified (uniqueness))
+13. nesaTV real time comment section integration
+14. competitive: nomines go to the judges portal first, then assessed then can be pushed out for voting
+15. automate youtube storing for competitive and non-competitive nominee videos on upload, with description to link back to NESA
+16. implement that all CTAs are fully functiional.
+
+rotimi deliverables:
+1. real time chat application for judges backend integration
+2. comment section for nesaTV
+3. judges portal with the ability to see number of nominations per nominee
+4. revamp email sent after Sign up to contain CTAs for users to upgrade to ambassador, sponsor, or member
+5. publish live all APIs for easy access
 
 
-non-competitive:nominees are screened then can download their cetificates, and options to attend the gala
-the certificates are indexed and can be verified (uniqueness)
-
-competitive: nomines go to the judges portal first, then assessed then can be pushed out for voting
-
-create youtube links for competitive and non-competitive AWARDS
 
 
 create a page for the scholarship

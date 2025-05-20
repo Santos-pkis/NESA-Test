@@ -3,21 +3,77 @@ import { ChevronRight } from "lucide-react";
 import Button from "@/components/Common/Button";
 import useSlider from "@/lib/hooks/useSlider";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getjudges } from "@/lib/services/getjugdes";
+
+type Judge = {
+  id: string;
+  full_name: string;
+  experience?: string;
+  email?: string;
+  upload_document?: string;
+  phone_number?: string;
+  state_and_region?: string;
+  motivation_statement?: string;
+  education_background?: string;
+  upload_profile_image?: string;
+};
+
+
+const staticJudges: { name: string; role: string; image: string }[] = [
+  {
+    name: "Benneth Osarieme Ogbeiwi (Uncle Ben)",
+    role: "Head at Adrenaline Entertainment\nFormer Host at MTN Project Fame",
+    image: "/images/judg1.png"
+  },
+  {
+    name: "Dr Juliet Ihiabe",
+    role: "Executive Director of Family Bond Helping Foundation",
+    image: "/images/judg2.png"
+  },
+  {
+    name: "Paul-Kayode Joash",
+    role: "Chief Rainmaker at MyDoubleDouble International",
+    image: "/images/judg3.png"
+  },
+  {
+    name: "Oluwadaisi Patricia Aderibigbe Santos",
+    role: "Educationalist",
+    image: "/images/judg4.png"
+  },
+  {
+    name: "Damilola O.",
+    role: "QHSSE Manager",
+    image: "/images/judg5.png"
+  }
+];
+
+const BACKEND_URL = 'https://nesa-africa-backend-7sio.onrender.com';
+
+// const imageUrl = `${BACKEND_URL}/${judge.upload_profile_image}`;
 
 const Judges = () => {
   const { sliderRef: ref, moveLeft, moveRight } = useSlider();
+  const [remoteJudges, setRemoteJudges] = useState<Judge[]>([]);
+
+  useEffect(() => {
+    const fetchJudges = async () => {
+      try {
+        const data = await getjudges();
+        setRemoteJudges(data);
+        console.log(data)
+      } catch (err) {
+        console.error("Failed to fetch judges:", err);
+      }
+    };
+
+    fetchJudges();
+  }, []);
 
   return (
     <div>
       <div className="min-h-[50rem] relative flex items-center mx-auto" style={{ backgroundColor: "#FFF5E0" }}>
-        {/* <Image
-          src={"/images/bg/timeline.png"}
-          alt="dark background"
-          className="w-full h-full object-cover -z-[1] absolute top-0 left-0"
-          width={1024}
-          height={600}
-        /> */}
+
 
         <div className="container  text-white space-y-16 py-10">
           <div className="space-y-2">
@@ -42,23 +98,45 @@ const Judges = () => {
               marginRight: "calc(-50vw + 50%)",
             }}>
             <div
-            className=" flex items-center justify-between overflow-x-auto hide_scroll scroll-smooth w-screen px-12 lg:space-x-4 space-x-4 pb-10 pt-6"
+            className=" flex items-center sm:justify-center md:justify-between overflow-x-auto hide_scroll scroll-smooth w-screen md:px-12 px-4 lg:space-x-4 space-x-4 pb-10 pt-6"
             ref={ref}
 
             >
-{Array.from({ length: 5 }).map((_, id) => {
-  return (
-    <div key={id} className="flex-shrink-0 lg:w-[23%] w-[34%]">
-      <div className="relative w-full h-[350px]"> {/* Force same height */}
-        <Image
-          src={`/images/jud${id + 1}.png`}
-          alt={`Judge ${id + 1}`}
-          fill
-        />
-      </div>
-    </div>
-  );
-})}
+ {/* Static judges */}
+      {staticJudges.map((judge, id) => (
+        <div
+          key={`static-${id}`}
+          className="flex-shrink-0 bg-white lg:w-[23%] md:w-[34%] w-[104%] md:h-[350px] h-[450px] rounded-xl overflow-hidden relative bg-cover bg-center"
+          style={{ backgroundImage: `url(${judge.image})` }}
+        >
+          <div className="absolute bottom-0 w-full bg-black/60 text-white p-2">
+            <h3 className="text-lg font-semibold leading-tight">{judge.name}</h3>
+            <p className="text-sm whitespace-pre-line">{judge.role}</p>
+          </div>
+        </div>
+      ))}
+
+      
+      {/* Remote judges */}
+      {remoteJudges.map((judge) => {
+        const imageSrc = judge.upload_profile_image
+          ? `${BACKEND_URL}/${judge.upload_profile_image}`
+          : "/images/nesa-mg.png";
+
+        return (
+          <div
+            key={judge.id}
+            className="flex-shrink-0 lg:w-[23%] w-[34%] h-[350px] rounded-xl overflow-hidden relative bg-cover bg-center"
+            style={{ backgroundImage: `url(${imageSrc})` }}
+          >
+            <div className="absolute bottom-0 w-full bg-black/60 text-white p-4">
+              <h3 className="text-lg font-semibold leading-tight">{judge.full_name}</h3>
+              <p className="text-sm">{judge.experience}</p>
+            </div>
+          </div>
+        );
+      })}
+
 
             </div>
 

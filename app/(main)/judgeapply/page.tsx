@@ -16,7 +16,7 @@ import { useRouter } from 'next/navigation';
 
 // Validation schema
 const formSchema = z.object({
-  fullName: z.string().min(2, 'Full Name is required'),
+  full_name: z.string().min(2, 'Full Name is required'),
   email: z.string().email('Invalid email'),
   phone: z.string().min(5, 'Phone is required'),
   state: z.string().min(2, 'State/Region is required'),
@@ -68,7 +68,7 @@ const handleApply = async (data: FormData) => {
   setLoading(true);
   try {
     await judgesapplication({
-      fullName: data.fullName,
+      full_name: data.full_name,
       email: data.email,
       phone: data.phone,
       state: data.state,
@@ -88,7 +88,6 @@ const handleApply = async (data: FormData) => {
   } finally {
     setLoading(false);
   }
-  alert('Application submitted!');
 };
   const handlePhoneChange = (value: string) => {
     setPhoneNumber(value);
@@ -101,15 +100,23 @@ const handleApply = async (data: FormData) => {
 
         {/* Full Name */}
         <div>
-          <label  htmlFor='fullName' className="block text-sm font-medium mb-2">Full Name</label>
-          <input id="fullName" className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400" placeholder="Name.." {...register('fullName')} />
-          {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>}
+          <label  htmlFor='full_name' className="block text-sm font-medium mb-2">Full Name</label>
+          <input id="full_name" className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400" placeholder="Name.." {...register('full_name')} />
+          {errors.full_name && <p className="text-red-500 text-sm mt-1">{errors.full_name.message}</p>}
         </div>
 
         {/* Experience */}
         <div>
-          <label htmlFor="experience" className="block text-sm font-medium mb-2">Experience</label>
-          <textarea id="experience"  rows={4} className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400" placeholder="Write about your professional experience" {...register('experience')} />
+          <label htmlFor="experience" className="block text-sm font-medium mb-2">
+            Experience <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            id="experience"
+            rows={4}
+            className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400"
+            placeholder="Write about your professional experiences (at least 5 characters)"
+            {...register("experience")}
+          />
           {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience.message}</p>}
         </div>
 
@@ -279,21 +286,27 @@ const handleApply = async (data: FormData) => {
                         <div className="p-6">
                           <div className="flex justify-between items-center mb-4">
                             <h2 className="text-2xl font-bold text-gray-900">Confirm Application Details</h2>
-                            <button onClick={() => setShowConfirmation(false)} className="text-gray-400 hover:text-gray-600">
+                            <button
+                              type="button"
+                              onClick={() => setShowConfirmation(false)}
+                              className="text-gray-400 hover:text-gray-600"
+                              tabIndex={0}
+                              aria-label="Close confirmation modal"
+                            >
                               <FiX size={24} />
                             </button>
                           </div>
                             <div className="bg-gray-50 rounded-lg p-4">
-                              <h3 className="font-medium text-gray-900 mb-2">{formData?.fullName}</h3>
+                              <h3 className="font-medium text-gray-900 mb-2">{formData?.full_name}</h3>
                               <p className="text-gray-600 text-sm mt-1">{formData?.email}</p>
                             </div>
-                            <div className="bg-gray-50 rounded-lg p-4">
-                              <h3 className="font-medium text-gray-900 mb-2">{formData?.fullName}</h3>
-                              <p className="text-gray-600 text-sm mt-1">{formData?.email}</p>
-                            </div>
+
                           <div className="flex justify-end gap-3">
                             <button
+                              type="button"
                               onClick={() => setShowConfirmation(false)}
+                              tabIndex={0}
+                              aria-label="Close confirmation modal"
                               className="px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
                             >
                               Cancel

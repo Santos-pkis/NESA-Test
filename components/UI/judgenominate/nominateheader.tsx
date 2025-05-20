@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const JudgeNominationHeader = () => {
   return (
-    <div className="relative min-h-screen bg-[#191307] bg-opacity-80 text-white flex flex-col items-center justify-center">
+    <div className="relative min-h-screen bg-black bg-opacity-50 text-white flex flex-col items-center justify-center">
       {/* Background Image - Add your background image if needed */}
       <div className="absolute inset-0 w-full h-full -z-10">
         <Image 

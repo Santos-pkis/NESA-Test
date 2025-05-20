@@ -2,7 +2,7 @@ import apiClient from "./apiClient";
 
 // Validation schema
 interface ApplicationData {
-    fullName: string;
+    full_name: string;
     email: string;
     phone: string;
     state: string;
@@ -18,15 +18,15 @@ export const judgesapplication = async (data: ApplicationData): Promise<any> => 
   
         // Prepare payload
         const payload = {
-            fullName: data.fullName,
+            full_name: data.full_name,
             email: data.email,
-            phone: data.phone,
+            phone_number: data.phone,
             state: data.state,
-            education: data.education,
+            education_background: data.education,
             experience: data.experience,
             motivation: data.motivation,
-            profileImage: data.profileImage,
-            documents: data.documents
+            upload_profile_image: data.profileImage,
+            upload_document: data.documents
         };
 
     const response = await apiClient.post(
@@ -38,9 +38,12 @@ export const judgesapplication = async (data: ApplicationData): Promise<any> => 
         }
       }
     );
+   alert(response.data);
 
     return response.data;
   } catch (error: any) {
+     alert(error);
+
     console.error('API Error:', {
       status: error.response?.status,
       data: error.response?.data,

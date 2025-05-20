@@ -79,7 +79,7 @@ const OTPPage: React.FC = () => {
     setIsResending(true);
     try {
       // Call your resend OTP API here
-      setTimeLeft(45);
+      setTimeLeft(300);
       setError("");
       setOtp(["", "", "", "", "", ""]);
       inputRefs.current[0]?.focus();
@@ -112,7 +112,7 @@ const OTPPage: React.FC = () => {
           <div className="bg-[#FBF3E2] p-4 sm:p-6 md:p-8 rounded-lg w-full max-w-[90%] sm:max-w-[80%] md:max-w-md">
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-center">Verify Email Address</h2>
             <p className="text-xs sm:text-sm text-center mb-4 sm:mb-6">
-              Enter the 6 digit code that we just sent to {email}
+              Enter the 6 digit code we just sent to {email}
             </p>
             <div className="flex justify-center space-x-2 sm:space-x-4 mb-4 sm:mb-6">
               {otp.map((digit, index) => (
@@ -126,6 +126,17 @@ const OTPPage: React.FC = () => {
                   value={digit}
                   onChange={(e) => handleOtpChange(index, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(index, e)}
+                  onPaste={(e) => {
+                    const paste = e.clipboardData.getData("text").replace(/\D/g, "");
+                    if (paste.length === 6) {
+                      setOtp(paste.split(""));
+                      setError("");
+                      setTimeout(() => {
+                        inputRefs.current[5]?.focus();
+                      }, 0);
+                      e.preventDefault();
+                    }
+                  }}
                   className="w-10 h-10 sm:w-12 sm:h-12 text-center text-lg sm:text-2xl border border-gray-300 rounded-lg focus:border-[#FFC247] focus:outline-none bg-white"
                 />
               ))}
