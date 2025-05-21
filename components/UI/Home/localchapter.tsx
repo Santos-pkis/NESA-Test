@@ -14,7 +14,7 @@ const LocalChapterSection = () => {
       
       <div className="relative w-full max-w-4xl h-[200px] md:h-[300px] mb-8">
         <Image 
-          src="images/globe.png" 
+          src="images/localmap.png" 
           alt="World map with chapter locations" 
           fill
           className="object-contain"

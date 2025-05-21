@@ -41,8 +41,20 @@ const GetInvolved = () => {
       <div className=" mx-auto container lg:ml-14">
         <div className="space-y-10">
           <div className="space-y-4">
-            <h3 className="_under_border lg:text-[32px] text-[20px] font-poppins leading-[38px] font-semibold text-[#191307]   lg:mb-10 mb-6 mt-2 lg:-mt-5">Get Involved</h3>
-            <p className="font-poppins font-normal md:leading-[30px] tracking-[1%] md:text-[18px]">
+            <h3
+              className="_under_border lg:text-[32px] text-[20px] font-semibold text-[#191307] lg:mb-10 mb-6 mt-2 lg:-mt-5"
+              style={{
+                fontFamily: "Montserrat, sans-serif",
+                fontWeight: 600,
+                fontSize: "32px",
+                lineHeight: "100%",
+                letterSpacing: "0%",
+              }}
+            >
+              Get Involved
+            </h3>
+            <p
+              className="font-poppins font-normal text-[20px] leading-[36px] tracking-[0]">
               Becoming a member of NESA can help you fulfil your desire to improve the world by giving back to the
               community in your own unique way.
             </p>
@@ -56,7 +68,7 @@ const GetInvolved = () => {
                 id === involveData.length - 1 ? "md:col-span-2 lg:mx-auto md:mx-32" : ""
               }`}
               >
-              <div className="w-full lg:max-w-[650px] lg:max-h-[450px] aspect-square overflow-hidden">
+              <div className="w-full lg:max-w-[625px] lg:max-h-[425px] aspect-square overflow-hidden">
               <Image
               src={`/images/getinvolved/get${id + 1}.png`}
               alt={data.heading}

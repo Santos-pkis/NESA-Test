@@ -1,10 +1,32 @@
+Called candidates
+1. Mr Kazeem frontend
+2. ms mariam product designer 
+3. abiodun mutiat product designer (adminstrative potentials)
+4. Ep (not available)
+5. isaiah frontend 
+6.  jennny mei cybersecurity (not available)
+7. samuel (not available)
+8. sryvaya product designer
+9. emeka (not available)
+10. timilehyin: product management
+
+preferred local chapter()
+temp id for  general users
+mmbership id
+conversion of donations to afri gold coin: currecncy conversion by financial processing per country, rate of exchange negotiated.. percentage goes to get finance 
+mr mujeeb to break down figma into flows 
+judges can view all judges and their assigned categories but can only access thiers
+
+
 Flows to be implemented 
-1. admin
+
+1. Admin
 2. Tickets: e.g Choosing to attend the award dinner: revamp section on landing page, create Get your Ticket flow,to be linked with external ticketing apis
 
 3. general user Sign up revamp: to fit figma, to include choice of country (residence or nationality), email sent containing details of User types and CTAs to make choice
 --the user types :
 Ambassadors, members, sponsor
+types
 amb. 1
 amb. 2
 amb. 3
@@ -24,13 +46,17 @@ the certificates are indexed and can be verified (uniqueness))
 14. competitive: nomines go to the judges portal first, then assessed then can be pushed out for voting
 15. automate youtube storing for competitive and non-competitive nominee videos on upload, with description to link back to NESA
 16. implement that all CTAs are fully functiional.
+17. Revamp and optimization of all pages.
 
-rotimi deliverables:
+Mr. Rotimi deliverables:
 1. real time chat application for judges backend integration
 2. comment section for nesaTV
 3. judges portal with the ability to see number of nominations per nominee
 4. revamp email sent after Sign up to contain CTAs for users to upgrade to ambassador, sponsor, or member
-5. publish live all APIs for easy access
+5. Ensure all APIs Functions as expected
+6. publish live all APIs for easy access
+
+
 
 
 

@@ -10,11 +10,12 @@ import Button from "@/components/Common/Button";
 import CountdownTimer from "@/components/Common/Others/counter";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const HeroCenter = () => {
 
   const ref = useRef<HTMLDivElement>(null);
-
+  const router = useRouter();
   const totalSlides = [ ]
 
   return (
@@ -95,7 +96,7 @@ const HeroCenter = () => {
         " />
 
              
-              <Button text="Watch NESA TV" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+              <Button text="Watch NESA TV" onClick={() => router.push("/nesatv")} className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
           px-1 md:px-8 py-2
           text-xs sm:text-sm md:text-sm
           text-center hover:bg-[#E48900] hover:text-black

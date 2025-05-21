@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import { Copy, Download } from 'lucide-react';
 
 export default function ReferralPage() {
@@ -17,7 +17,7 @@ export default function ReferralPage() {
           <button className="text-left px-4 py-2 border border-white/30 rounded text-sm hover:bg-white/10">
             Wallet
           </button>
-          <button className="text-left px-4 py-2 border border-white/30 rounded text-sm flex items-center gap-2 hover:bg-white/10">
+          <button className="text-left px-4 py-2 border bg-white text-black border-white/30 rounded text-sm flex items-center gap-2 hover:bg-white/10">
             <Copy className="w-4 h-4" /> Referrals
           </button>
         </div>
@@ -40,6 +40,13 @@ export default function ReferralPage() {
             className="bg-[#151007] text-white rounded-xl p-6 w-full max-w-3xl shadow-md"
           >
             <div className="mb-4">
+              <h1 className="text-2xl font-bold mb-2">              <Image
+                              src={"/svgs/logo.svg"}
+                              alt="nesa logo"
+                              width={100}
+                              height={100}
+                              id="nav_logo"
+                            /></h1>
               <h2 className="text-lg font-semibold">{card.title}</h2>
             </div>
 
@@ -52,14 +59,14 @@ export default function ReferralPage() {
               Refer to get more earn more coins
             </p>
 
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="flex flex-col  sm:flex-row sm:items-center gap-4">
               <input
                 type="text"
                 value={referralCode}
                 readOnly
                 className="flex-1 px-4 py-2 rounded text-black font-mono"
               />
-
+              <div className='flex flex-col gap-2'>
               {card.showWithdraw && (
                 <button className="flex items-center gap-2 px-4 py-2 border border-white/50 rounded text-sm hover:bg-white/10">
                   Withdraw Reward <Download size={16} />
@@ -69,6 +76,7 @@ export default function ReferralPage() {
               <button className="flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded text-sm hover:bg-yellow-300">
                 Copy Referral Link <Copy size={16} />
               </button>
+              </div>
             </div>
           </div>
         ))}
