@@ -10,6 +10,10 @@ import { z } from 'zod';
 import 'react-phone-input-2/lib/style.css';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { FiCheckCircle, FiArrowLeftCircle, FiUpload, FiX, FiArrowLeft } from "react-icons/fi";
+import { useRouter } from 'next/navigation';
+
+
 const formSchema = z.object({
   company_name: z.string(),
   name: z.string().min(2, 'Full Name is required'),
@@ -29,6 +33,8 @@ export default function SponsorStep1({
   onUpdate: (data: Partial<FormData>) => void
   onNext: () => void
 }) {
+   const router = useRouter();
+  
   const {
     register,
     handleSubmit,
@@ -40,7 +46,9 @@ export default function SponsorStep1({
   });
 
   const [phoneNumber, setPhoneNumber] = useState(data.phone || '');
-
+      const handleBack = () => {
+      router.back();
+    };
   useEffect(() => {
     setValue('phone', phoneNumber);
   }, [phoneNumber, setValue]);
@@ -91,103 +99,133 @@ export default function SponsorStep1({
             </div>
           </div>
     
-    <form onSubmit={handleSubmit(onSubmit)} className="pt-20 max-w-5xl mx-auto p-8 space-y-8">
-      <h2 className="text-2xl _under_border font-semibold">Submit Information</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor='company_name' className="block text-sm font-medium mb-2">Company Name</label>
-          <input
-            id="company_name"
-            defaultValue={data.company_name}
-            {...register('company_name')}
-            placeholder="Your Company.."
-            className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400"
-          />
-          {errors.company_name && <p className="text-red-500 text-sm mt-1">{errors.company_name.message}</p>}
-        </div>
+            <div className="w-full md:w-2/3 p-6 md:p-12 md:pt-24 bg-white">
+            <div className="max-w-2xl mx-auto">
+              <button onClick={handleBack} className="flex items-center text-gray-600 mb-8">
+                <FiArrowLeftCircle className="text-3xl mr-2" />
+                <span className="ml-2">Back</span>
+              </button>
+                  <h1 className="text-3xl font-medium mb-2">Apply to become a sponsor</h1>
 
-        <div>
-          <label htmlFor='name' className="block text-sm font-medium mb-2">Full Name</label>
-          <input
-            id="name"
-            defaultValue={data.name}
-            {...register('name')}
-            placeholder="Your Name.."
-            className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400"
-          />
-          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
-        </div>
+              <p className="text-gray-600 mb-8">Fill the form to apply to be an Ambassador</p>
+              <h1 className="text-1xl font-medium mb-2">Personal information</h1>
+              
+              <form onSubmit={handleSubmit(onSubmit)} className="pt-20 max-w-5xl mx-auto p-8 space-y-8">
 
-        <div>
-          <label htmlFor='email' className="block text-sm font-medium mb-2">Email</label>
-          <input
-            id="email"
-            type="email"
-            defaultValue={data.email}
-            {...register('email')}
-            placeholder="Enter your email"
-            className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400"
-          />
+                <div className="mb-6">
+                <label htmlFor='company_name' className="block text-sm font-medium mb-2">Company Name</label>
+                 <input 
+                    type="text" 
+                    id="company_name"
+                    defaultValue={data.company_name}
+                    {...register('company_name')}
+                    placeholder="Your Company.." 
+                    className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400"
+ 
+                  />
+                {errors.company_name && <p className="text-red-500 text-sm mt-1">{errors.company_name.message}</p>}
+                </div>
+                <div className="mb-6">
+                <label htmlFor='name' className="block text-sm font-medium mb-2">Name</label>
+                 <input 
+                    type="text" 
+                    id="name"
+                    defaultValue={data.name}
+                    {...register('name')}
+                    placeholder="Your Name.." 
+                    className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400"
+ 
+                  />
+                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor='email' className="block text-sm font-medium mb-2">Email</label>
+                      <input
+                        id="email"
+                        type="email"
+                        defaultValue={data.email}
+                        {...register('email')}
+                        placeholder="Enter your Email" className="w-full p-3 rounded-lg bg-[#FCFBFA]" />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
-        </div>
 
-        <div>
-          <label className="block text-sm font-medium mb-2">Phone Number</label>
-          <PhoneInput
-            country={"ng"}
-            value={phoneNumber}
-            onChange={(value) => {
-              setPhoneNumber(value);
-              setValue('phone', value, { shouldValidate: true });
-            }}
-            inputProps={{ name: 'phone', required: true }}
-            inputStyle={{
-              width: '100%',
-              height: '48px',
-              padding: '12px 12px 12px 48px',
-              borderRadius: '6px',
-              background: '#FFF9ED',
-              border: '1px solid #D1D5DB',
-            }}
-            buttonStyle={{
-              height: '48px',
-              borderRadius: '6px 0 0 6px',
-              background: '#FFF9ED',
-              border: '1px solid #D1D5DB',
-            }}
-            dropdownStyle={{ background: '#FFF9ED' }}
-          />
-          {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
-        </div>
-
-        <div>
-          <label htmlFor='Business_reg_no' className="block text-sm font-medium mb-2">Business Registration Number</label>
-          <input
-            id="Business_reg_no"
-            defaultValue={data.Business_reg_no}
-            {...register('Business_reg_no')}
-            placeholder="Enter registration number"
-            className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-1 focus:ring-yellow-400"
-          />
-          {errors.Business_reg_no && <p className="text-red-500 text-sm mt-1">{errors.Business_reg_no.message}</p>}
-        </div>
-      </div>
-
-      <div className="text-center">
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="text-black font-bold py-3 px-4 rounded-lg w-full"
-          style={{
-            background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
-          }}
-        >
-          Continue
-        </motion.button>
-      </div>
-    </form>
-    </div>
+                </div>
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone number</label>
+                  <PhoneInput
+                    country={'ng'}
+                    value={phoneNumber}
+                    onChange={(value) => {
+                      setPhoneNumber(value);
+                      setValue('phone', value, { shouldValidate: true });
+                    }}
+                    enableAreaCodes={true}
+                    enableTerritories={true}
+                    enableLongNumbers={true}
+                    countryCodeEditable={false}
+                    inputProps={{
+                      name: 'phone',
+                      required: true,
+                      autoFocus: true,
+                    }}
+                    containerClass="mb-6"
+                    inputStyle={{
+                      width: '100%',
+                      height: '48px',
+                      padding: '12px 12px 12px 48px',
+                      borderRadius: '6px',
+                      background: '#FCFBFA',
+                      border: 'none',
+                    }}
+                    buttonStyle={{
+                      height: '48px',
+                      borderRadius: '6px 0 0 6px',
+                      background: '#FFF9ED',
+                      border: 'none',
+                    }}
+                    dropdownStyle={{
+                      background: '#FFF9ED',
+                    }}
+                  />
+                  {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
+                </div>
+                
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">registration number</label>
+                  <div className="relative">
+                    <input 
+                      id="Business_reg_no"
+                      defaultValue={data.Business_reg_no}
+                      {...register('Business_reg_no')}
+                      placeholder="Enter registration number"
+                      className="w-full p-3 rounded-lg bg-[#FCFBFA] pr-10" 
+                    />
+                    <MdLocationPin className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    
+                  </div>
+                    {errors.Business_reg_no && <p className="text-red-500 text-sm mt-1">{errors.Business_reg_no.message}</p>}
+                </div>
+                <div className="pt-4 md:col-span-2">
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="text-black font-bold py-3 px-4 rounded-lg w-full"
+                  style={{
+                    background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'
+                  }}
+       >
+                  Continue
+                </motion.button>
+                  <p className="text-xs text-gray-500 mt-2 text-center">
+                    By submitting this form, you confirm that all information provided is accurate.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+   </div>
     </>
   );
 }

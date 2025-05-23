@@ -101,44 +101,45 @@ const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement
 
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen w-full">
-      <div className="w-full md:w-1/3 relative overflow-hidden md:block hidden pt-24">
-        <Image
-          src="/images/Hero section.png"
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          
-        />
-        <div className="absolute inset-0 flex flex-col justify-between p-8 text-white">
-          <div>
+    <div className="flex flex-col md:flex-row min-h-screen w-full pt-20">
+          <div className="w-full md:w-1/3 relative overflow-hidden md:block hidden ">
             <Image
-              src="/images/NESA logo_UPDATED 1.png"
-              alt="NEW EDUCATION STANDARD AWARDS AFRICA"
-              width={150}
-              height={75}
-              className="mb-4"
+              src="/images/Hero section.png"
+              alt="Background"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+              className="h-[50px]"
+              
             />
+            <div className="absolute inset-0 flex flex-col justify-between p-8 text-white">
+              <div>
+                <Image
+                  src="/images/NESA logo_UPDATED 1.png"
+                  alt="NEW EDUCATION STANDARD AWARDS AFRICA"
+                  width={150}
+                  height={75}
+                  className="mb-4"
+                />
+              </div>
+              <div className="flex justify-center items-center flex-grow">
+                <Image
+                  src="/images/NESA Logo 2.png"
+                  alt="NESA Badge"
+                  width={250}
+                  height={250}
+                  className="max-w-full h-auto"
+                />
+              </div>
+              <div className="text-sm">
+                <p className="mb-2 flex items-center"><MdLocationPin className="mr-2" /> 19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos</p>
+                <p className="mb-2 flex items-center"><Phone className="mr-2" /> +234-907-962-1110</p>
+                <p className="mb-2 flex items-center"><Phone className="mr-2" /> +234-810-976-5897</p>
+                <p className="flex items-center"><Mail className="mr-2" /> nesa.africa@gmail.com</p>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-center items-center flex-grow">
-            <Image
-              src="/images/NESA Logo 2.png"
-              alt="NESA Badge"
-              width={250}
-              height={250}
-              className="max-w-full h-auto"
-            />
-          </div>
-          <div className="text-sm">
-            <p className="mb-2 flex items-center"><MdLocationPin className="mr-2" /> 19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos</p>
-            <p className="mb-2 flex items-center"><Phone className="mr-2" /> +234-907-962-1110</p>
-            <p className="mb-2 flex items-center"><Phone className="mr-2" /> +234-810-976-5897</p>
-            <p className="flex items-center"><Mail className="mr-2" /> nesa.africa@gmail.com</p>
-          </div>
-        </div>
-      </div>
-      <div className="w-full md:w-2/3 p-6 md:p-12 md:pt-24 bg-white">
+        <div className="w-full md:w-2/3 p-6 md:p-12 md:pt-24 bg-white">
         <div className="max-w-2xl mx-auto">
           <button onClick={handleBack} className="flex items-center text-gray-600 mb-8">
             <FiArrowLeftCircle className="text-3xl mr-2" />
@@ -146,7 +147,7 @@ const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement
           </button>
           <h1 className="text-3xl font-medium mb-2">Apply to become an ambassador</h1>
           <p className="text-gray-600 mb-8">Fill the form to apply to be an Ambassador</p>
-          <h1 className="text-1xl font-medium mb-2">Perosnal information</h1>
+          <h1 className="text-1xl font-medium mb-2">Personal information</h1>
           
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
