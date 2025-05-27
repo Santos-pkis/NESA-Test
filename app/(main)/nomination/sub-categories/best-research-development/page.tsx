@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
+import { useRouter } from 'next/navigation';
 
 interface Category {
   title: string;
@@ -12,6 +13,8 @@ interface Category {
 }
 
 const ResearchDevelopmentAwardPage = () => {
+const router = useRouter()
+
   const categories: Category[] = [
     {
       title: "The Overall Best Research and Development Contribution by Research Institutes in Achieving Education for all.",
@@ -47,12 +50,14 @@ const ResearchDevelopmentAwardPage = () => {
   };
 
   const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
+  router.push(
+    `/nominateform?type=${encodeURIComponent("Best Research & Development Contribution by Institutes")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
-  if (selectedCategory) {
-    return <NominationPage type='Best Research & Development Contribution by Institutes' category={selectedCategory} />;
-  }
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">

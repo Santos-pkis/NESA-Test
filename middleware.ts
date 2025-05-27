@@ -21,5 +21,5 @@ export function middleware(request: NextRequest) {
 
 // Apply middleware only to routes under /member
 export const config = {
-  matcher: "/member/:path*",
+  matcher: ["/member/:path*", "/nominateform"],
 };

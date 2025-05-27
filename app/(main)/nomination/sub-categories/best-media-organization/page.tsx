@@ -4,12 +4,14 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
+import { useRouter } from 'next/navigation';
 
 interface Category {
   title: string;
   description: string;
   image: string;
 }
+
 
 const MediaEducationalAdvocacyAwardPage = () => {
   const categories: Category[] = [
@@ -35,7 +37,7 @@ const MediaEducationalAdvocacyAwardPage = () => {
     },
     
   ];
-
+const router = useRouter()
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
@@ -48,12 +50,13 @@ const MediaEducationalAdvocacyAwardPage = () => {
   };
 
   const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
-
-  if (selectedCategory) {
-    return <NominationPage type='Best Media Organization in Educational Advocacy (Nigeria)' category={selectedCategory} />;
-  }
+  router.push(
+    `/nominateform?type=${encodeURIComponent("Best Media Organization in Educational Advocacy (Nigeria)")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">

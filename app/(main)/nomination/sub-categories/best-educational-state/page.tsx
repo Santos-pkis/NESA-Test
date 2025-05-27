@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
-
+import { useRouter } from 'next/navigation';
+const router = useRouter();
 interface Category {
   title: string;
   description: string;
@@ -62,12 +63,14 @@ const EducationalFriendlyStatePage = () => {
   };
 
   const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
+  router.push(
+    `/nominateform?type=${encodeURIComponent("Best Educational-Friendly State (Nigeria's Six Zones)")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
-  if (selectedCategory) {
-    return <NominationPage type="Best Educational-Friendly State (Nigeria's Six Zones)" category={selectedCategory} />;
-  }
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">

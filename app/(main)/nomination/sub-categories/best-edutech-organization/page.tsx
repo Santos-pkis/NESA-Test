@@ -3,6 +3,8 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
+import { useRouter } from "next/router";
+const router = useRouter()
 
 interface Category {
   title: string;
@@ -69,13 +71,15 @@ const EduTechAwardCategoryPage = () => {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
 
-  if (selectedCategory) {
-    return <NominationPage type="Best EduTech Organization (Africa)" category={selectedCategory} />;
-  }
+  const handleNominate = (category: Category) => {
+  router.push(
+    `/nominateform?type=${encodeURIComponent("Best EduTech Organization (Africa)")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">

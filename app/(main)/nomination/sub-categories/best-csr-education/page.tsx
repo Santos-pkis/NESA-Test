@@ -3,13 +3,14 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
-
+import { useRouter } from 'next/navigation';
 interface Category {
   title: string;
   description: string;
   image: string;
 }
 
+const router = useRouter();
 const CSRAwardCategoryPage = () => {
     const subcategories: Category[] = [
         {
@@ -140,13 +141,15 @@ const CSRAwardCategoryPage = () => {
         return () => clearInterval(interval);
     }, [nextSlide]);
 
-    const handleNominate = (category: Category) => {
-        setSelectedCategory(category);
-    };
+  const handleNominate = (category: Category) => {
+  router.push(
+    `/nominateform?type=${encodeURIComponent('Best Corporate Social Responsibility (CSR) in Education (Nigeria)')}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
-    if (selectedCategory) {
-        return <NominationPage type="Best Corporate Social Responsibility (CSR) in Education (Nigeria)" category={selectedCategory} />;
-    }
 
     return (
         <div className="min-h-screen bg-[#FFF5E0]">

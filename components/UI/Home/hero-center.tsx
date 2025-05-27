@@ -86,7 +86,7 @@ const HeroCenter = () => {
         w-full sm:w-auto 
         truncate
         " />
-              <Button text="Sponsor a category" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
+              <Button text="Sponsor a category" onClick={() => router.push("/sponsor")}  className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
         px-1 md:px-8 py-2
         text-xs sm:text-sm md:text-sm
         text-center hover:bg-[#E48900] hover:text-black

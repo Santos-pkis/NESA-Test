@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
-
+import { useRouter } from 'next/navigation';
 interface Category {
   title: string;
   description: string;
@@ -34,7 +34,7 @@ const AfricaDiasporaAwardPage = () => {
     },
   
   ];
-
+  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
@@ -51,13 +51,14 @@ const AfricaDiasporaAwardPage = () => {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
-
-  if (selectedCategory) {
-    return <NominationPage type="Diaspora Contributions to Education in Africa" category={selectedCategory} />;
-  }
+const handleNominate = (category: Category) => {
+  router.push(
+    `/nominateform?type=${encodeURIComponent('Diaspora Contributions to Education in Africa')}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">

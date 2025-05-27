@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
+import { useRouter } from 'next/navigation';
 
+const router = useRouter()
 interface Category {
   title: string;
   description: string;
@@ -70,14 +72,15 @@ const BestLibraryAwardPage = () => {
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + categories.length) % categories.length);
   };
-
   const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
+  router.push(
+    `/nominateform?type=${encodeURIComponent("Best Library in Nigerian Tertiary Institutions")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
-  if (selectedCategory) {
-    return <NominationPage type='Best Library in Nigerian Tertiary Institutions' category={selectedCategory} />;
-  }
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">
