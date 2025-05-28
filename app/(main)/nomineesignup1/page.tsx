@@ -1,9 +1,13 @@
 'use client'
-
+import { MdLocationPin } from "react-icons/md";
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import Image from 'next/image'
+import { Phone, Mail } from "lucide-react";
+import { FiCheckCircle, FiArrowLeftCircle, FiUpload, FiX, FiArrowLeft } from "react-icons/fi";
+
 
 export default function NomineeSignupPart1() {
   const router = useRouter()
@@ -43,12 +47,61 @@ export default function NomineeSignupPart1() {
     }).toString();
     router.push(`/nominee-signup-step2?${query}`);
   }
+      const handleBack = () => {
+      router.back();
+    };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <h1 className="text-2xl font-bold mb-6">Create your Nominee Account</h1>
+    <div className="flex flex-col md:flex-row min-h-screen w-full bg-white pt-20">
+                <div className="w-full md:w-1/3 relative overflow-hidden md:block hidden ">
+                  <Image
+                    src="/images/Hero section.png"
+                    alt="Background"
+                    layout="fill"
+                    objectFit="cover"
+                    quality={100}
+                    className="h-[50px]"
+                    
+                  />
+                  <div className="absolute inset-0 flex flex-col justify-between p-8 text-white">
+                    <div>
+                      <Image
+                        src="/images/NESA logo_UPDATED 1.png"
+                        alt="NEW EDUCATION STANDARD AWARDS AFRICA"
+                        width={150}
+                        height={75}
+                        className="mb-4"
+                      />
+                    </div>
+                    <div className="flex justify-center items-center flex-grow">
+                      <Image
+                        src="/images/NESA Logo 2.png"
+                        alt="NESA Badge"
+                        width={250}
+                        height={250}
+                        className="max-w-full h-auto"
+                      />
+                    </div>
+                    <div className="text-sm">
+                      <p className="mb-2 flex items-center"><MdLocationPin className="mr-2" /> 19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos</p>
+                      <p className="mb-2 flex items-center"><Phone className="mr-2" /> +234-907-962-1110</p>
+                      <p className="mb-2 flex items-center"><Phone className="mr-2" /> +234-810-976-5897</p>
+                      <p className="flex items-center"><Mail className="mr-2" /> nesa.africa@gmail.com</p>
+                    </div>
+                  </div>
+                </div>
+      
 
-      <div className="space-y-6">
+      <div className="w-full md:w-2/3 mx-auto p-6 md:p-12 md:pt-24 bg-white">
+
+        <button onClick={handleBack} className="flex items-center text-gray-600 mb-8">
+          <FiArrowLeftCircle className="text-3xl mr-2" />
+          <span className="ml-2">Back</span>
+        </button>
+              <h1 className="text-3xl font-medium mb-2">Create your Nominee Account</h1>
+              <p className="text-gray-600 mb-8">Fill the form to apply to be an Ambassador</p>
+
+        <form  className="pt-20 max-w-5xl mx-auto p-8 space-y-8">
         <div>
           <label className="block mb-2 font-medium">Nominee Type</label>
           <select
@@ -57,7 +110,6 @@ export default function NomineeSignupPart1() {
             onChange={handleChange}
             className="w-full p-3 border border-gray-300 rounded-lg"
           >
-            <option value="">Select</option>
             <option value="Individual">Individual</option>
             <option value="Organization">Organization</option>
           </select>
@@ -139,6 +191,7 @@ export default function NomineeSignupPart1() {
         >
           Continue
         </button>
+        </form>
       </div>
     </div>
   )
