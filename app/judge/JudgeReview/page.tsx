@@ -7,36 +7,42 @@ const nominees = [
     name: "Mr Joseph Johnson",
     title: "Brothers Building Futures (BBF)",
     achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
   },
   {
     id: 2,
     name: "Mr Joseph Johnson",
     title: "Brothers Building Futures (BBF)",
     achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
   },
   {
     id: 3,
     name: "Mr Joseph Johnson",
     title: "Brothers Building Futures (BBF)",
     achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
   },
   {
     id: 4,
     name: "Mr Joseph Johnson",
     title: "Brothers Building Futures (BBF)",
     achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
   },
   {
     id: 5,
     name: "Mr Joseph Johnson",
     title: "Brothers Building Futures (BBF)",
     achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
   },
   {
     id: 6,
     name: "Mr Joseph Johnson",
     title: "Brothers Building Futures (BBF)",
     achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
   },
 ];
 const GradientLine = () => (

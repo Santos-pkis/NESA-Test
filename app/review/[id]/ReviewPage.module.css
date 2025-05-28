@@ -1,0 +1,190 @@
+.container{
+    padding:0 ;
+    margin: 0;
+    flex-direction: column;
+}
+.divImage{
+    position: relative;
+}
+
+.image{
+border-radius: 50%;
+object-fit: cover; 
+position: absolute;
+margin-left: 6%;
+top: 30%;
+}
+.infoCont{
+    background-color: #FFF5DC;
+    padding-bottom: 60px;
+}
+.detailCont{
+    padding-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.text{    
+  font-size: 30px;     
+  font-weight: 600;  
+}
+.text1{   
+  font-size: 20px;     
+  font-weight: 400;  
+}
+.text2{      
+  font-size: 18px;   
+  font-weight: 500;  
+    margin-bottom: 10px;
+}
+.text3{       
+  font-size: 14px;    
+  font-weight: 400;  
+}
+.text4{        
+  font-size: 20px;    
+  font-weight: 400;  
+  margin-bottom: 20px;
+}
+.nameCont{
+    margin-bottom: 2%;
+}
+.certificate{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.reviewCont{
+    padding: 50px 0;
+}
+.reviewDetails{
+        margin-left: 5%;
+        margin-right: 5%;
+}
+.reviewandcomment{
+    font-size: 25px;
+}
+.rateNomineeCont{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+.lol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.reviewandcommentCont{
+    margin-bottom: 50px;
+}
+.ok{
+  margin-bottom: 30px;
+}
+.judgesCommentinfo{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.tttt{
+  font-size: 15px;
+}
+.ttt{
+  font-size: 12px;
+  font-weight: 300;
+}
+.input{
+  width: 50%;                      
+  background-color: #ffffff;        
+  border-radius: 6px;
+  padding: 0.5rem;                
+  font-size: 0.875rem;              
+  border: 1px solid #bebdbd; 
+}
+.inputbox{
+  margin-bottom: 70px;
+}
+.ccc{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+/* Responsive Breakpoints */
+@media screen and (max-width: 1024px) {
+  .image {
+    width: 150px !important;
+    height: 150px !important;
+    margin-left: 3%;
+    top: 25%;
+  }
+
+  .text {
+    font-size: 24px;
+  }
+
+  .text1, .text4 {
+    font-size: 18px;
+  }
+
+  .text2 {
+    font-size: 16px;
+  }
+
+  .text3 {
+    font-size: 13px;
+  }
+
+  .rateNomineeCont {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .image {
+    width: 100px !important;
+    height: 100px !important;
+    margin-left: 2%;
+    top: 20%;
+
+  }
+
+  .text {
+    font-size: 20px;
+  }
+
+  .text1, .text4 {
+    font-size: 16px;
+  }
+
+  .text2 {
+    font-size: 14px;
+  }
+
+  .text3 {
+    font-size: 12px;
+  }
+
+  .input {
+    width: 100%;
+  }
+  .certificate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+  .certificate img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .rateNomineeCont {
+    flex-direction: column;
+  }
+}
