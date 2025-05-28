@@ -2,6 +2,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import styles from './ReviewPage.module.css';
+import CommentCard from '@/components/UI/judgenomination/JudgeComment';
 
 interface Nominee {
   id: number;
@@ -11,9 +12,17 @@ interface Nominee {
   bio:string;
   imageURL: string;
 }
+interface Comment {
+  id: number;
+  name: string;
+  title: string;
+  imageURL: string;
+  comment:string;
+}
 
 // Mock data for demonstration
-const mockNominees: Nominee[] = [
+const mockNominees: Nominee[] = 
+[
   {
     id: 1,
     name: "Mr Joseph Johnson",
@@ -29,6 +38,7 @@ const mockNominees: Nominee[] = [
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
     imageURL:"/images/judgereview1.jpg",
+
   },
   {
     id: 3,
@@ -37,6 +47,7 @@ const mockNominees: Nominee[] = [
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
     imageURL:"/images/judgereview1.jpg",
+
   },
   {
     id: 4,
@@ -45,6 +56,7 @@ const mockNominees: Nominee[] = [
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
     imageURL:"/images/judgereview1.jpg",
+
   },
   {
     id: 5,
@@ -53,6 +65,7 @@ const mockNominees: Nominee[] = [
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
     imageURL:"/images/judgereview1.jpg",
+
   },
   {
     id: 6,
@@ -62,6 +75,26 @@ const mockNominees: Nominee[] = [
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
     imageURL:"/images/judgereview1.jpg",
   },
+];
+const mockComment: Comment[] = 
+[
+  {
+    id: 1,
+    name: "Dr. Aminah Danjumah",
+    title: "Yeelen Education Project",
+    comment:"dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
+    imageURL:"/images/Ellipse.png",
+  },
+  {
+    id: 2,
+    name: "Dr. Aminah Danjumah",
+    title: "Yeelen Education Project",
+    comment:"dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
+    imageURL:"/images/Ellipse.png",
+  },
+
+
+
 ];
 
 interface PageProps {
@@ -134,7 +167,7 @@ export default function ReviewDetailPage({ params }: PageProps) {
                 width={200}
                 height={200}
               />
-                              <Image
+                <Image
                 src="/images/certificate1.png"
                 alt={nominee.name}
                 width={200}
@@ -216,11 +249,20 @@ export default function ReviewDetailPage({ params }: PageProps) {
                   <p className={styles.ttt}>Yeelen Education Project</p>
                 </div>
             </div>
+
+            <div className={styles.inputbox}>
                 <input
                 type="text"
                 className={styles.input}
                 placeholder="Write a comment on Nominee"
               />
+            </div>
+
+                <div className={styles.ccc}>
+              {mockComment.map((comment) => (
+              <CommentCard key={comment.id} comment={comment} />
+            ))}
+            </div>
         </div>
 
 

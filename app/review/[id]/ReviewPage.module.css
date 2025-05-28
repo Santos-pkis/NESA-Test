@@ -6,8 +6,9 @@
 .divImage{
     position: relative;
 }
+
 .image{
-  border-radius: 50%;
+border-radius: 50%;
 object-fit: cover; 
 position: absolute;
 margin-left: 6%;
@@ -20,26 +21,27 @@ top: 30%;
 .detailCont{
     padding-top: 10%;
     margin-left: 5%;
+    margin-right: 5%;
 }
-.text{        /* text-white */
-  font-size: 30px;     /* text-xl = 20px */
+.text{    
+  font-size: 30px;     
   font-weight: 600;  
 }
-.text1{        /* text-white */
-  font-size: 20px;     /* text-xl = 20px */
+.text1{   
+  font-size: 20px;     
   font-weight: 400;  
 }
-.text2{        /* text-white */
-  font-size: 18px;     /* text-xl = 20px */
+.text2{      
+  font-size: 18px;   
   font-weight: 500;  
     margin-bottom: 10px;
 }
-.text3{        /* text-white */
-  font-size: 14px;     /* text-xl = 20px */
+.text3{       
+  font-size: 14px;    
   font-weight: 400;  
 }
-.text4{        /* text-white */
-  font-size: 20px;     /* text-xl = 20px */
+.text4{        
+  font-size: 20px;    
   font-weight: 400;  
   margin-bottom: 20px;
 }
@@ -56,6 +58,7 @@ top: 30%;
 }
 .reviewDetails{
         margin-left: 5%;
+        margin-right: 5%;
 }
 .reviewandcomment{
     font-size: 25px;
@@ -84,7 +87,7 @@ top: 30%;
   flex-direction: row;
   gap: 20px;
   align-items: center;
-    margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .tttt{
   font-size: 15px;
@@ -94,10 +97,94 @@ top: 30%;
   font-weight: 300;
 }
 .input{
-  width: 50%;                        /* w-full */
-  background-color: #ffffff;          /* bg-white */
+  width: 50%;                      
+  background-color: #ffffff;        
   border-radius: 6px;
-  padding: 0.5rem;                    /* p-2 = 8px */
-  font-size: 0.875rem;                /* text-sm = 14px */
+  padding: 0.5rem;                
+  font-size: 0.875rem;              
   border: 1px solid #bebdbd; 
+}
+.inputbox{
+  margin-bottom: 70px;
+}
+.ccc{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+/* Responsive Breakpoints */
+@media screen and (max-width: 1024px) {
+  .image {
+    width: 150px !important;
+    height: 150px !important;
+    margin-left: 3%;
+    top: 25%;
+  }
+
+  .text {
+    font-size: 24px;
+  }
+
+  .text1, .text4 {
+    font-size: 18px;
+  }
+
+  .text2 {
+    font-size: 16px;
+  }
+
+  .text3 {
+    font-size: 13px;
+  }
+
+  .rateNomineeCont {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .image {
+    width: 100px !important;
+    height: 100px !important;
+    margin-left: 2%;
+    top: 20%;
+
+  }
+
+  .text {
+    font-size: 20px;
+  }
+
+  .text1, .text4 {
+    font-size: 16px;
+  }
+
+  .text2 {
+    font-size: 14px;
+  }
+
+  .text3 {
+    font-size: 12px;
+  }
+
+  .input {
+    width: 100%;
+  }
+  .certificate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+  .certificate img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .rateNomineeCont {
+    flex-direction: column;
+  }
 }
