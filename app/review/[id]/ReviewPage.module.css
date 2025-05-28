@@ -1,0 +1,103 @@
+.container{
+    padding:0 ;
+    margin: 0;
+    flex-direction: column;
+}
+.divImage{
+    position: relative;
+}
+.image{
+  border-radius: 50%;
+object-fit: cover; 
+position: absolute;
+margin-left: 6%;
+top: 30%;
+}
+.infoCont{
+    background-color: #FFF5DC;
+    padding-bottom: 60px;
+}
+.detailCont{
+    padding-top: 10%;
+    margin-left: 5%;
+}
+.text{        /* text-white */
+  font-size: 30px;     /* text-xl = 20px */
+  font-weight: 600;  
+}
+.text1{        /* text-white */
+  font-size: 20px;     /* text-xl = 20px */
+  font-weight: 400;  
+}
+.text2{        /* text-white */
+  font-size: 18px;     /* text-xl = 20px */
+  font-weight: 500;  
+    margin-bottom: 10px;
+}
+.text3{        /* text-white */
+  font-size: 14px;     /* text-xl = 20px */
+  font-weight: 400;  
+}
+.text4{        /* text-white */
+  font-size: 20px;     /* text-xl = 20px */
+  font-weight: 400;  
+  margin-bottom: 20px;
+}
+.nameCont{
+    margin-bottom: 2%;
+}
+.certificate{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.reviewCont{
+    padding: 50px 0;
+}
+.reviewDetails{
+        margin-left: 5%;
+}
+.reviewandcomment{
+    font-size: 25px;
+}
+.rateNomineeCont{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+.lol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.reviewandcommentCont{
+    margin-bottom: 50px;
+}
+.ok{
+  margin-bottom: 30px;
+}
+.judgesCommentinfo{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+    margin-bottom: 30px;
+}
+.tttt{
+  font-size: 15px;
+}
+.ttt{
+  font-size: 12px;
+  font-weight: 300;
+}
+.input{
+  width: 50%;                        /* w-full */
+  background-color: #ffffff;          /* bg-white */
+  border-radius: 6px;
+  padding: 0.5rem;                    /* p-2 = 8px */
+  font-size: 0.875rem;                /* text-sm = 14px */
+  border: 1px solid #bebdbd; 
+}

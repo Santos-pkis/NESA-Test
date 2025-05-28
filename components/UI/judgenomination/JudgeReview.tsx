@@ -8,6 +8,7 @@ interface NomineeProps {
   name: string;
   title: string;
   achievements: string;
+  imageURL: string
 }
 
 interface ReviewCardProps {
@@ -25,7 +26,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ nominee }) => {
     <div className="w-full max-w-[412.33px] h-auto min-h-[512px] bg-[#191307] rounded-lg p-4 flex flex-col mx-auto">
       <div className="mb-4">
         <Image
-          src="/images/judgereview.png"
+          src={nominee.imageURL}
           alt={nominee.name}
           width={364.33}
           height={200}
