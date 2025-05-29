@@ -228,7 +228,7 @@ export default function ReviewDetailPage({ params }: PageProps) {
               <Image
                 src="/images/rating.png"
                 alt={nominee.name}
-                width={300}
+                width={200}
                 height={300}
               />
           </div>
