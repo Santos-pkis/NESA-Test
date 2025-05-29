@@ -48,7 +48,7 @@ const staticJudges: { name: string; role: string; image: string }[] = [
   }
 ];
 
-const BACKEND_URL = 'https://nesa-africa-backend-7sio.onrender.com';
+const BACKEND_URL = ' https://res.cloudinary.com/djovn7g8q/';
 
 // const imageUrl = `${BACKEND_URL}/${judge.upload_profile_image}`;
 

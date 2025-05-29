@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
+import { useRouter } from 'next/navigation';
 
 interface Category {
   title: string;
@@ -61,13 +62,16 @@ const InternationalBilateralAwardPage = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + categories.length) % categories.length);
   };
 
-  const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
+  const router = useRouter();
 
-  if (selectedCategory) {
-    return <NominationPage type=' Best STEM Education Champion Best International & Bilateral Contributors to EducatioN' category={selectedCategory} />;
-  }
+    const handleNominate = (category: Category) => {
+  router.push(
+    `/nominateform?type=${encodeURIComponent("Best STEM Education Champion Best International & Bilateral Contributors to EducatioN")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">

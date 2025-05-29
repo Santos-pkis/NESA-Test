@@ -19,7 +19,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ nominee }) => {
   const router = useRouter();
 
   const handleReview = () => {
-    router.push(`/review/${nominee.id}`);
+    router.push(`review/${nominee.id}`);
   };
 
   return (

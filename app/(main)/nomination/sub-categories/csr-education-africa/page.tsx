@@ -148,13 +148,15 @@ const CSRInEducationAwardPage = () => {
         return () => clearInterval(interval);
     }, [nextSlide]);
 
-    const handleNominate = (category: Category) => {
-        setSelectedCategory(category);
-    };
 
-    if (selectedCategory) {
-        return <NominationPage type='(CSR) in Education (Africa - Regional Competition)' category={selectedCategory} />;
-    }
+  const handleNominate = (category: Category) => {
+  router.push(
+    `/nominateform?type=${encodeURIComponent("(CSR) in Education (Africa - Regional Competition")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
     return (
         <div className="min-h-screen bg-[#FFF5E0]">

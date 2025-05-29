@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
-
+import { useRouter } from 'next/navigation';
 interface Category {
   title: string;
   description: string;
@@ -12,6 +12,8 @@ interface Category {
 }
 
 const PoliticalLeadersRecognitionPage = () => {
+const router = useRouter();
+
   const subcategories: Category[] = [
     {
       title: "Political Leaders in Nigeria 2024 Recognition Award for the Best Educational Support Services",
@@ -46,13 +48,16 @@ const PoliticalLeadersRecognitionPage = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + subcategories.length) % subcategories.length);
   };
 
-  const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
+  
 
-  if (selectedCategory) {
-    return <NominationPage type='Best Political Leaders Educational Support Services' category={selectedCategory} />;
-  }
+  const handleNominate = (category: Category) => {
+  router.push(
+    `/nominateform?type=${encodeURIComponent("Best Political Leaders Educational Support Services")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
   return (
     <div className="min-h-screen bg-[#191307]">

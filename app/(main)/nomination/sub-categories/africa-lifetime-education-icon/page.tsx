@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
+import { useRouter } from 'next/navigation';
 
 interface Category {
   title: string;
@@ -34,7 +35,7 @@ const SpecialRecognitionPage = () => {
       image: "/images/nesa-card2.png"
     }
   ];
-
+  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
@@ -47,12 +48,21 @@ const SpecialRecognitionPage = () => {
   };
 
   const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
+  router.push(
+    `/nominateform?type=${encodeURIComponent('Africa Lifetime Education Icon Recognition')}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
-  if (selectedCategory) {
-    return <NominationPage type="Africa Lifetime Education Icon Recognition" category={selectedCategory}   />;
-  }
+  // const handleNominate = (category: Category) => {
+  //   setSelectedCategory(category);
+  // };
+
+  // if (selectedCategory) {
+  //   return <NominationPage type="Africa Lifetime Education Icon Recognition" category={selectedCategory}   />;
+  // }
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">

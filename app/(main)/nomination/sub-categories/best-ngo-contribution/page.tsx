@@ -11,8 +11,8 @@ interface Category {
   description: string;
   image: string;
 }
-
 const NGOAwardCategoryPage = () => {
+  
   const router = useRouter();
   
   const subcategories: Category[] = [
@@ -65,13 +65,16 @@ const NGOAwardCategoryPage = () => {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
+  
   const handleNominate = (category: Category) => {
-    setSelectedCategory(category);
-  };
+  router.push(
+    `/nominateform?type=${encodeURIComponent("Best NGO Contribution to Achieving")}` +
+    `&title=${encodeURIComponent(category.title)}` +
+    `&description=${encodeURIComponent(category.description)}` +
+    `&image=${encodeURIComponent(category.image)}`
+  );
+};
 
-  if (selectedCategory) {
-    return <NominationPage type='Best NGO Contribution to Achieving' category={selectedCategory} />;
-  }
 
   return (
     <div className="min-h-screen bg-[#FFF5E0]">
