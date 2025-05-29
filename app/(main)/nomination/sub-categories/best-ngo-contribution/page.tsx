@@ -11,8 +11,8 @@ interface Category {
   description: string;
   image: string;
 }
-const router = useRouter()
 const NGOAwardCategoryPage = () => {
+  
   const router = useRouter();
   
   const subcategories: Category[] = [
