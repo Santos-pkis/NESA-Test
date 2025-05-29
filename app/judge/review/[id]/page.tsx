@@ -29,7 +29,7 @@ const mockNominees: Nominee[] =
     title: "Brothers Building Futures (BBF)",
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/judgereview1.png",
+    imageURL:"/images/Judgereview1.png",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const mockNominees: Nominee[] =
     title: "Brothers Building Futures (BBF)",
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/judgereview1.png",
+    imageURL:"/images/Judgereview1.png",
 
   },
   {
@@ -46,7 +46,7 @@ const mockNominees: Nominee[] =
     title: "Brothers Building Futures (BBF)",
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/judgereview1.png",
+    imageURL:"/images/Judgereview1.png",
 
   },
   {
@@ -55,7 +55,7 @@ const mockNominees: Nominee[] =
     title: "Brothers Building Futures (BBF)",
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/judgereview1.png",
+    imageURL:"/images/Judgereview1.png",
 
   },
   {
@@ -64,7 +64,7 @@ const mockNominees: Nominee[] =
     title: "Brothers Building Futures (BBF)",
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/judgereview1.png",
+    imageURL:"/images/Judgereview1.png",
 
   },
   {
@@ -73,7 +73,7 @@ const mockNominees: Nominee[] =
     title: "Brothers Building Futures (BBF)",
     achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%..",
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/judgereview1.png",
+    imageURL:"/images/Judgereview1.png",
   },
 ];
 const mockComment: Comment[] = 
