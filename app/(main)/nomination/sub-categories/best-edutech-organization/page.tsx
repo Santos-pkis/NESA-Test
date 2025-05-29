@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface Category {
   title: string;
