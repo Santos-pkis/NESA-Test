@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
 import { useRouter } from 'next/navigation';
-const router = useRouter();
 interface Category {
   title: string;
   description: string;
@@ -13,6 +12,8 @@ interface Category {
 }
 
 const ChristianFaithEducationAwardPage = () => {
+const router = useRouter();
+
   const categories: Category[] = [
     {
       title: "Christian faith organization Educational Champion of the Decade Award",

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
 import { useRouter } from "next/router";
-const router = useRouter()
 
 interface Category {
   title: string;
@@ -13,6 +12,8 @@ interface Category {
 }
 
 const EduTechAwardCategoryPage = () => {
+const router = useRouter()
+
   const mainCategory: Category = {
     title: "The Overall Best EduTech Organization in Nigeria and Africa 2024",
     description:

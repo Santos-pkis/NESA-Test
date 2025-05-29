@@ -10,8 +10,9 @@ interface Category {
   image: string;
 }
 
-const router = useRouter();
+
 const CSRAwardCategoryPage = () => {
+    const router = useRouter();
     const subcategories: Category[] = [
         {
             title: "The Overall Best Corporate Social Responsibility (CSR) in Education in Nigeria Award",

@@ -116,33 +116,32 @@ export default function ReviewDetailPage({ params }: PageProps) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.divImage}>
-              <Image
-                src="/images/nomineeNav.png"
-                alt={nominee.name}
-                width={1440}
-                height={200}
-              />
-      
-      </div>
+      <div className={styles.infoCont}>
+      <div className='mb-28' style={{
+            backgroundImage: `url('/images/nomineeNav.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '100%',
+            height: '200px',
+          }}>
+   
+            <div className='flex flex-col space-y-4 pl-10  pt-28'>
               <Image
                 src={nominee.imageURL}
                 alt={nominee.name}
                 width={200}
                 height={200}
-                className={styles.image}
+                className="rounded-full object-cover"
               />
+              <div>
+                <h1 className={styles.text}>{nominee.name}</h1>
+                <p className={styles.text1}>{nominee.title}</p>
+              </div>
+            </div>
+      </div>
 
-      <div className={styles.infoCont}>
-        
-        <div className={styles.detailCont}>
-
-          <div className={styles.nameCont}>
-            <h1 className={styles.text}>{nominee.name}</h1>
-            <p className={styles.text1}>{nominee.title}</p>
-          </div>
-          
-          <div className={styles.nameCont}>
+        <div className={`pt-24  ml-10 mr-10 flex flex-col space-y-6`}>
+          <div className={`${styles.nameCont} `}>
             <h1 className={styles.text2}>Bio :</h1>
             <p className={styles.text3}>{nominee.bio}</p>
           </div>

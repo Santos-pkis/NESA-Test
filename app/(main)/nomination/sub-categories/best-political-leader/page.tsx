@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
 import { useRouter } from 'next/navigation';
-const router = useRouter();
 interface Category {
   title: string;
   description: string;
@@ -13,6 +12,8 @@ interface Category {
 }
 
 const PoliticalLeadersRecognitionPage = () => {
+const router = useRouter();
+
   const subcategories: Category[] = [
     {
       title: "Political Leaders in Nigeria 2024 Recognition Award for the Best Educational Support Services",

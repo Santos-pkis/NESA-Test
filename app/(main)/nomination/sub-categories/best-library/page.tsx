@@ -6,7 +6,6 @@ import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import NominationPage from '@/components/UI/nomination/nominate';
 import { useRouter } from 'next/navigation';
 
-const router = useRouter()
 interface Category {
   title: string;
   description: string;
@@ -14,6 +13,8 @@ interface Category {
 }
 
 const BestLibraryAwardPage = () => {
+const router = useRouter()
+
   const categories: Category[] = [
     {
       title: "The best library in Nigerian tertiary institutions award 2024",
