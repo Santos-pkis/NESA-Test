@@ -55,6 +55,7 @@ top: 30%;
 }
 .reviewCont{
     padding: 50px 0;
+    background-color: #ffffff;
 }
 .reviewDetails{
         margin-left: 5%;
@@ -113,13 +114,21 @@ top: 30%;
   gap: 20px;
 }
 /* Responsive Breakpoints */
-@media screen and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .image {
-    width: 150px !important;
-    height: 150px !important;
-    margin-left: 3%;
-    top: 25%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; 
+    margin-left: 6%;
+    top: 15%;
+
   }
+    .detailCont{
+    padding-top: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 
   .text {
     font-size: 24px;
@@ -143,14 +152,22 @@ top: 30%;
 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .image {
     width: 100px !important;
     height: 100px !important;
-    margin-left: 2%;
-    top: 20%;
-
+    margin-left: 4%;
+    top: 15%;
   }
+  
+  .detailCont{
+    padding-top: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.reviewandcomment{
+    font-size: 17px;
+}
 
   .text {
     font-size: 20px;
