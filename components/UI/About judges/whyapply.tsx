@@ -52,7 +52,7 @@ export default function JudgeBenefitsSection() {
     },
     {
       title: "Corporate Sponsors & Representatives",
-      description: "Companies supporting education can nominate executives to serve as judgecs.mpanies supporting education can nominate executives to serve as judgecs."
+      description: "Companies supporting education can nominate executives to serve as judges",
     }
   ];
 
