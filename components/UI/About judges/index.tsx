@@ -8,27 +8,34 @@ const judges = [
     imageSrc: '/images/judge1.png',
   },
   {
-    name: 'Dr. Aminah Danjumah',
+    name: 'Damilola Omotosho',
     project: 'Yeelen Education Project',
-    achievements: 'Aminah\'s dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. An innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen\'s innovati',
-    imageSrc: '/images/judge2.png',
+    achievements: 'Aminah\'s dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. An innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen\'s innovation',
+    imageSrc: '/images/judge7.png',
+  },
+  {
+    name: 'Dr Juliet',
+    project: 'Yeelen Education Project',
+    achievements: 'Aminah\'s dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. An innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen\'s innovation',
+    imageSrc: '/images/judge8.png',
+  },
+  {
+    name: 'Paul-Kayode Joash',
+    project: 'Yeelen Education Project',
+    achievements: 'Paul-Kayode\'s mission is to develop individuals and organisations to operate in their peak performance.\
+     At MyDoubleDouble, Paul-Kayode is a prolific international inspirational Speaker, Sales/Marketing Guru and Personal & Business Transformation Coach/Trainer. Principal Coach at MyDoubleDouble. The host of MyDoubleDouble TV/Radio/Conferences both in the UK & Nigeria.',
+    imageSrc: '/images/judge9.png',
+  },
+  {
+    name: 'Oluwadaisi Patricia Aderibigbe Santos',
+    project: 'Educationalist',
+    achievements: 'Aminahs dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. er innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen\'s innovation',
+    imageSrc: '/images/judge10.png',
   },
   {
     name: 'Dr. Aminah Danjumah',
     project: 'Yeelen Education Project',
-    achievements: 'Aminah\'s dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. An innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen\'s innovati',
-    imageSrc: '/images/judge4.png',
-  },
-  {
-    name: 'Dr. Aminah Danjumah',
-    project: 'Yeelen Education Project',
-    achievements: 'Aminah\'s dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. An innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen\'s innovati',
-    imageSrc: '/images/judge5.png',
-  },
-  {
-    name: 'Dr. Aminah Danjumah',
-    project: 'Yeelen Education Project',
-    achievements: 'Aminah\'s dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. An innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen\'s innovati',
+    achievements: 'Aminah\'s dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. An innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen\'s innovation',
     imageSrc: '/images/judge6.png',
   },
 ];
@@ -36,6 +43,10 @@ const judges = [
 const JudgesList = () => {
   return (
     <section className="bg-white text-black py-10 px-5 lg:px-20">
+      <div>
+        <h1 className="text-2xl _under_border font-medium mb-6 flex items-center mx-[10px]">Meet Our Current Judges</h1>
+        <p className="text-l  font-normal mb-10 flex items-center mx-[10px]">Get to know the NESA Africa/Nigeria Judges, their background, and achievements</p>
+      </div>
       <div className="max-w-7xl mx-auto space-y-10">
         {judges.map((judge, index) => (
           <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}>
@@ -49,19 +60,19 @@ const JudgesList = () => {
               />
             </div>
             <div className="w-full md:w-2/3 md:px-8">
-              <h3 className="font-normal text-xl mb-2">{judge.name}</h3>
-              {judge.title && <p className="text-gray-700 mb-2 font-normal">{judge.title}</p>}
-              {judge.project && <p className="text-gray-700 mb-2 font-normal">{judge.project}</p>}
+              <h3 className="font-medium text-3xl mb-2">{judge.name}</h3>
+              {judge.title && <p className="text-l mb-6 font-light">{judge.title}</p>}
+              {judge.project && <p className="text-l mb-6 font-light">{judge.project}</p>}
               {judge.about && (
                 <>
-                  <h4 className="text-gray-700 mb-2 font-normal">About:</h4>
-                  <p className="mb-4 text-gray-600 mb-2 font-normal">{judge.about}</p>
+                  <h4 className="text-l mb-1 font-medium">About:</h4>
+                  <p className="mb-4 text-black-600 mb-2 font-light">{judge.about}</p>
                 </>
               )}
               {judge.achievements && (
                 <>
-                  <h4 className="font-normal text-xl mb-2">Achievements:</h4>
-                  <p className="text-gray-700 mb-2 font-normal ">{judge.achievements}</p>
+                  <h4 className="text-l mb-1 font-medium">Achievements:</h4>
+                  <p className="mb-4 text-black-600 mb-2 font-light">{judge.achievements}</p>
                 </>
               )}
 <p className="inline-flex items-center cursor-pointer mt-2">
