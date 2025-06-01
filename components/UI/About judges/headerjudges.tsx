@@ -16,7 +16,7 @@ const JudgesSection = () => {
           <h2 className={styles.text1}>
           New Education Standard Award: Our Prestigious Judges
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl font-light leading-relaxed mx-auto lg:mx-0 max-w-[500px] lg:-ml-10">
+          <p className="text-base sm:text-lg lg:text-xl font-light leading-relaxed mx-auto lg:mx-0 lg:-ml-10">
             NESA stands as the pinnacle award of the decade, a fervent celebration of excellence within the Nigerian 
             education system. We uplift contributors, ignite innovation, and envision an ecosystem where 
             excellence becomes the driving force for transformative change.
