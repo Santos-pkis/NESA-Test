@@ -1,10 +1,10 @@
 import React from 'react';
-import { Award, Users, Crown, TrendingUp } from 'lucide-react';
+import { BadgeCheck, Users, Crown, TrendingUp } from 'lucide-react';
 
 export default function JudgeBenefitsSection() {
   const benefits = [
     {
-      icon: <Award className="w-12 h-12" />,
+      icon: <BadgeCheck className="w-12 h-12" />,
       title: "Earn Recognition",
       description: "Gain the prestigious NESA Africa Ambassador status and stand out as a leader across Africa."
     },
@@ -52,18 +52,18 @@ export default function JudgeBenefitsSection() {
     },
     {
       title: "Corporate Sponsors & Representatives",
-      description: "Companies supporting education can nominate executives to serve as judges."
+      description: "Companies supporting education can nominate executives to serve as judges",
     }
   ];
 
   return (
-    <div className="py-12 px-4 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-12">Why Apply or Nominate a Judge?</h2>
+    <div className="py-12 px-4 max-w-6xl mx-[10px] md:mx-[25px]">
+      <h2 className="text-3xl font-semibold text-center mb-12">Why Apply or Nominate a Judge?</h2>
       
       {/* Benefits Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 mx-[10px]">
         {benefits.map((benefit, index) => (
-          <div key={index} className="bg-amber-300 rounded-2xl p-6 flex flex-col items-center text-center">
+          <div key={index} className="bg-midGold rounded-2xl p-6 flex flex-col items-center text-center">
             <div className="text-black mb-4">
               {benefit.icon}
             </div>
@@ -75,19 +75,20 @@ export default function JudgeBenefitsSection() {
       
       {/* Who We Are Looking For Section */}
       <div>
-        <h2 className="text-2xl _under_border font-bold mb-6 flex items-center">
+        <h2 className="text-2xl _under_border font-medium mb-6 flex items-center mx-[10px]" >
           Who We Are Looking For
         </h2>
         
         <ul className="space-y-4">
-          {targetProfiles.map((profile, index) => (
-            <li key={index} className="flex items-start">
-              <span className="text-amber-500 font-bold mr-2 mt-1">•</span>
-              <div>
-                <span className="font-bold">{profile.title}</span>
-                <span> – {profile.description}</span>
-              </div>
-            </li>
+{targetProfiles.map((profile, index) => (
+  <div key={index} className="flex items-center space-x-2 ">
+    <div>
+    <span className="text-black-400 font-regular text-l leading-none mr-2">•</span>
+    <span className="font-medium text-black-400 mr-2">{profile.title}</span>
+    <span className="text-black-200 font-light ">- {profile.description}</span>
+
+    </div>
+  </div>
           ))}
         </ul>
       </div>
