@@ -68,13 +68,11 @@ export default function JudgingPanel() {
                    className={styles.img}
                  />
               </div>
-
+            </div>
           </div>
-
         </div>
-
       </div>
-
+      </div>
     // <div className="bg-amber-50 px-6 py-12 md:py-16">
     //   <div className="max-w-6xl mx-auto">
     //     <div className={styles.cont}>
