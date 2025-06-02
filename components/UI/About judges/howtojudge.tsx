@@ -1,7 +1,12 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image'
+import { useRouter } from 'next/navigation';
+import Button from '@/components/Common/Button';
 
 export default function JudgingPanel() {
+  const router = useRouter();
   return (
     <div className="bg-amber-50 px-6 py-12 md:py-16">
       <div className="max-w-6xl mx-auto">
@@ -36,12 +41,12 @@ export default function JudgingPanel() {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <a href="#" className="bg-amber-400 hover:bg-amber-500 text-black font-medium py-3 px-8 rounded-md transition-colors">
-                Apply To Judge
-              </a>
-              <a href="#" className="bg-gray-200 hover:bg-gray-300 text-black font-medium py-3 px-8 rounded-md transition-colors">
+              <Button text="Apply To Judge" variant="filled" onClick={() => router.push("/judgeapply")} className="bg-amber-400 hover:bg-amber-500 text-black font-medium py-3 px-8 rounded-md transition-colors" />
+                
+              
+              <button onClick={()=> router.push("Judgesnominate")} className="bg-gray-200 hover:bg-gray-300 text-black font-medium py-3 px-8 rounded-md transition-colors">
                 Nominate A Judge
-              </a>
+              </button>
             </div>
           </div>
           

@@ -96,7 +96,7 @@ export default function JudgeLayout({ children }: JudgeLayoutProps) {
     <div className="flex flex-col min-h-screen ">
       <nav className="text-white py-4 bg-[#17120a] fixed w-full z-50">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <Link href="/judge" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image src="/svgs/logo.svg" alt="NEW EDUCATION STANDARD AWARDS AFRICA" width={150} height={50} />
           </Link>
           <div className="hidden md:flex space-x-6 items-center">

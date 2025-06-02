@@ -72,7 +72,7 @@ const ForgotPasswordPage: React.FC = () => {
           </div>
           <div className="text-sm">
             <p className="mb-2 flex items-center">
-              <MdLocationPin className="mr-2" /> 54, Falolu Street, Surulere,
+              <MdLocationPin className="mr-2" /> 19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere,
               Lagos
             </p>
             <p className="mb-2 flex items-center">

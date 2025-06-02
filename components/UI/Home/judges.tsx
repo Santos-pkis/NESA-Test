@@ -5,6 +5,8 @@ import useSlider from "@/lib/hooks/useSlider";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getjudges } from "@/lib/services/getjugdes";
+import { useRouter } from "next/navigation";
+
 
 type Judge = {
   id: string;
@@ -53,6 +55,7 @@ const BACKEND_URL = ' https://res.cloudinary.com/djovn7g8q/';
 // const imageUrl = `${BACKEND_URL}/${judge.upload_profile_image}`;
 
 const Judges = () => {
+  const router = useRouter();
   const { sliderRef: ref, moveLeft, moveRight } = useSlider();
   const [remoteJudges, setRemoteJudges] = useState<Judge[]>([]);
 
@@ -83,7 +86,7 @@ const Judges = () => {
 <span>Each judge is carefully vetted for integrity, expertise, and commitment to advancing education for all. </span>
 </p>
                 <div className="flex justify-end items-end">
-                <button className="flex text-primaryGold items-center gap-2">
+                <button onClick={() => router.push("/about-judges")} className="flex text-primaryGold items-center gap-2">
                 <p>see all Judges</p>
                 <ChevronRight />
                 </button>

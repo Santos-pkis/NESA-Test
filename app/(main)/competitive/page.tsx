@@ -20,7 +20,7 @@ const Page = () => {
       subCategoryPath: "/nomination/sub-categories/best-media-organization"
     },
     {
-      title: "Best Corporate Social Responsibility (CSR) in Education (Africa - Regional)",
+      title: "Best CSR in Education (Africa – Regional)",
       description: "Honors exceptional international award programs for international collaborations and contributions to Nigeria educational development.",
       subCategoryPath: "/nomination/sub-categories/best-csr-education"
     },
@@ -35,24 +35,24 @@ const Page = () => {
       subCategoryPath: "/nomination/sub-categories/creative-arts-contribution"
     },
     {
-      title: "Best EduTech Organization (Africa)",
+      title: "Best EduTech Organization in Africa",
       description: "Recognizing philanthropy and leadership contributions for their outstanding contributions to education.",
       subCategoryPath: "/sub-categories/best-edutech-organization"
     },
     {
-      title: "Best NGO Contribution to Education (Nigeria)",
+      title: "Best NGO Contribution to Education (Nigeria)404",
       description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
-      subCategoryPath: "/nomination/sub-categories/best-ngo-contribution"
+      subCategoryPath: "/nomination/sub-categories/nigeria-ngo"
     },
     {
-      title: "Best CSR in Education (Nigeria)",
+      title: "Best CSR in Education (Nigeria)404",
       description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
-      subCategoryPath: "/sub-categories/best-csr-education"
+      subCategoryPath: "/sub-categories/nigeria-csr"
     },
     {
-      title: "Regional CSR Awards (Banking, Telecom, Healthcare, Media, etc.)",
+      title: "Best STEM Education Program or Project (Africa-wide)404",
       description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
-      subCategoryPath: "/nomination/sub-categories/best-csr-education"
+      subCategoryPath: "/nomination/sub-categories/stem"
     }
     
   ];
