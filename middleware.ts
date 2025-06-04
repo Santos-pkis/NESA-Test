@@ -11,7 +11,8 @@ export function middleware(request: NextRequest) {
   if (!token) {
     // Redirect to the login page if not authenticated
     const loginUrl = new URL("/account/login", request.url);
-    loginUrl.searchParams.set("redirect", request.nextUrl.pathname); // Add redirect query param
+    // Add redirect query param so user can continue to intended page after login
+    loginUrl.searchParams.set("redirect", request.nextUrl.pathname + request.nextUrl.search);
     return NextResponse.redirect(loginUrl);
   }
 
@@ -19,7 +20,7 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// Apply middleware only to routes under /member
+// Apply middleware only to routes below 
 export const config = {
   matcher: ["/member/:path*", "/nominateform"],
 };

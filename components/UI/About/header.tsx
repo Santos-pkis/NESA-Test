@@ -63,7 +63,7 @@ const AboutHeader = () => {
             <span className="bg-gradient-to-r from-[#FFC247] to-[#E48900] inline text-transparent bg-clip-text font-poppins font-medium text-[24px] leading-[32px] tracking-[0%]">
               New Education Standard Award Africa (NESA Africa)  
             </span>{' '}
-            <span className="font-poppins font-normal text-[24px] leading-[32px] tracking-[0%]">
+            <span className="font-poppins font-normal text-[16px] leading-[32px] tracking-[0%]">
                is a prestigious initiative committed to recognizing and celebrating excellence, innovation, and impactful contributions in education across Africa. Established to set new benchmarks in education, the awards serve as a catalyst for change, inspiring organizations, institutions, governments, and individuals to drive lasting improvements in the African education sector.
             </span>
             </p>
@@ -71,17 +71,17 @@ const AboutHeader = () => {
             <span className="bg-gradient-to-r from-[#FFC247] to-[#E48900] inline text-transparent bg-clip-text font-poppins font-medium text-[24px] leading-[32px] tracking-[0%]">
             NESA Africa 2025,{' '}
             </span>
-            <span className="font-poppins font-normal text-[24px] leading-[32px] tracking-[0%]">
+            <span className="font-poppins font-normal text-[16px] leading-[32px] tracking-[0%]">
              hosted by the {' '}
              </span>
-             <span className="bg-gradient-to-r from-[#FFC247] to-[#E48900] inline text-transparent bg-clip-text font-poppins font-medium text-[24px] leading-[32px] tracking-[0%]">
+             <span className="bg-gradient-to-r from-[#FFC247] to-[#E48900] inline text-transparent bg-clip-text font-poppins font-medium text-[16px] leading-[32px] tracking-[0%]">
              Santos Creations Educational Foundation (SCEF) Nigeria Local Chapter, </span>
-             <span className="font-poppins font-normal text-[24px] leading-[32px] tracking-[0%]">
+             <span className="font-poppins font-normal text-[16px] leading-[32px] tracking-[0%]">
              marks the inaugural edition of this transformative initiative. The awards are structured to encourage educational development through sustainable partnerships, leveraging Corporate Social Responsibility (CSR), policy advocacy, philanthropy, and community engagement.
              </span>
             </p>
             <p>
-            <span className="font-poppins font-normal text-[24px] leading-[32px] tracking-[0%]">
+            <span className="font-poppins font-normal text-[16px] leading-[32px] tracking-[0%]">
             As part of its long-term vision (2025–2030), NESA Africa will transition into a continental movement, expanding its impact across the five African regions while engaging diaspora and global partners in ensuring education for all.
             </span>
             </p>

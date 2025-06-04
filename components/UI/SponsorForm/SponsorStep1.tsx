@@ -91,7 +91,7 @@ export default function SponsorStep1({
                 />
               </div>
               <div className="text-sm">
-                <p className="mb-2 flex items-center"><MdLocationPin className="mr-2" /> 19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos</p>
+                <p className="mb-2 flex items-center"><MdLocationPin className="mr-2" />19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos</p>
                 <p className="mb-2 flex items-center"><Phone className="mr-2" /> +234-907-962-1110</p>
                 <p className="mb-2 flex items-center"><Phone className="mr-2" /> +234-810-976-5897</p>
                 <p className="flex items-center"><Mail className="mr-2" /> nesa.africa@gmail.com</p>

@@ -1,5 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 const data = [
   {
     range: "May 1, 2025-",
@@ -43,6 +45,7 @@ const data = [
 ];
 
 const Timeline = () => {
+  const router = useRouter(); 
   return (
     <section className="relative text-white py-16 ">
             <Image
@@ -75,7 +78,7 @@ const Timeline = () => {
                   ))}
                 </ul>
                 
-                <button className="flex items-center gap-2 text-yellow-500">
+                <button onClick={() => {router.push('/about-nesa')}} className="flex items-center gap-2 text-yellow-500">
                   <span>Read more</span>
                   <ChevronRight className="w-5 h-5" />
                 </button>

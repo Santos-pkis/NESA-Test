@@ -65,7 +65,7 @@ export default function CreateAccount() {
           <p><FaPhone /> +234-907-962-1110</p>
           <p><FaPhone /> +234-810-976-5897</p>
           <p><FaEnvelope /> nesa.africa@gmail.com</p>
-          <p><FaMapMarkerAlt /> 19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos</p>
+          <p><FaMapMarkerAlt />19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere, Lagos</p>
         </div>
       </div>
       <div className={styles.rightColumn}>

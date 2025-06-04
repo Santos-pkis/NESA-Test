@@ -51,9 +51,15 @@ const LoginPage: React.FC = () => {
 
       if (response.token) {
         setPopupMessage("Verification successful! Redirecting...");
+        const searchParams = new URLSearchParams(window.location.search);
+        const redirect = searchParams.get("redirect");
         setTimeout(() => {
           setShowPopup(false);
-          router.push("/member/");
+          if (redirect) {
+            router.push(redirect);
+          } else {
+            router.push("/member/");
+          }
         }, 100);
       }
     } catch (err: any) {
@@ -102,7 +108,7 @@ const LoginPage: React.FC = () => {
           </div>
           <div className="text-sm">
             <p className="mb-2 flex items-center">
-              <MdLocationPin className="mr-2" /> 54, Falolu Street, Surulere,
+              <MdLocationPin className="mr-2" /> 19 Godwin Okigbo Street, Masha Kilo, bus stop, Surulere,
               Lagos
             </p>
             <p className="mb-2 flex items-center">

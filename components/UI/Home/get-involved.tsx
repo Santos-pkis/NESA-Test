@@ -7,31 +7,37 @@ const involveData: {
   heading: string;
   description: string;
   cta: string;
+  href?: string;
 }[] = [
   {
     heading: "Sponsor a Category or the Gala Event",
     description: "Be the force behind Africa's changemakers. By sponsoring an award category, a session at the EduAid Expo, or the NESA-Africa Awards Gala itself, your organization directly empowers the heroes working to achieve education for all.Your brand will be featured in front of millions across Africa, celebrated for investing in social impact, sustainability, and the future of our continent.",
     cta: `Sponsor a Category`,
+    href: `/sponsor`,
   },
   {
     heading: `Join as an Ambassador (Local Chapters — Online or Real-Time)`,
     description: `Lead the change, locally and globally. Join our vibrant network of Ambassadors, representing cities, universities, diaspora communities, and local chapters across Africa and the world.Ambassadors are the heart of our engagement strategy — they organize, promote, and expand the movement both online and on-ground.`,
     cta: `Become a NESA Ambassador`,
+    href: `/apply-ambassador`,
   },
   {
     heading: `Become a Member`,
     description: `Membership that makes a difference. When you join NESA-Africa and Santos Creations Educational Foundation (SCEF) as a Member, you become part of a growing community of educators, innovators, advocates, and businesses committed to changing lives through education.`,
     cta: `Become a member now`,
+    href: `/apply-ambassador`,
   },
   {
     heading: `Volunteer with Us`,
     description: `Give your time. Grow your impact. Volunteers are the backbone of our movement. From media production to ambassador support, logistics to research, volunteering with NESA-Africa offers the opportunity to gain experience, make friends, and leave a lasting mark on education transformation across Africa.`,
     cta: `Volunteer now`,
+    href: `/volunteer`,
   },
   {
     heading: `Donate to Empower Education for All`,
     description: `Every contribution creates opportunities. Your donation directly funds scholarships, provides rural schools with digital tools, supports displaced learners, and strengthens our sustainable education programs.Secure and easy — donate through the GFA Wallet and make a real difference.`,
     cta: `Donate one`,
+    href: `/donate`,  
   },
 ];
 
@@ -81,7 +87,7 @@ const GetInvolved = () => {
               <div className="space-y-3 lg:max-w-[650px]">
               <h4 className="text-2xl font-semibold font-poppins">{data.heading}</h4>
               <p className="font-poppins pb-6 text-justify font-normal md:leading-[30px] tracking-[1%] md:text-[18px]">{data.description}</p>
-              <Link className="py-4" href="/donate" passHref>
+              <Link className="py-4" href={data.href ?? "#"} passHref>
                 
               <button className="flex text-primaryGold items-center gap-2">
               <p>{data.cta}</p>

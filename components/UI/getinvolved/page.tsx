@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
 import Button from "@/components/Common/Button";
@@ -6,8 +7,10 @@ import SponsorshipPackages from '@/components/UI/getinvolved/sponsorship';
 import NesaAmbassador from '@/components/UI/getinvolved/ambassador';
 import DonateNow from '@/components/UI/getinvolved/donate';
 import VolunteerWithUs from '@/components/UI/getinvolved/volunteer';
+import { useRouter } from 'next/navigation'
 
 const NESACommunityPage = () => {
+  const router = useRouter()
 
   const benefits = [
     "Brand Visibility Across Africa",
@@ -20,32 +23,33 @@ const NESACommunityPage = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] bg-gray-800 text-white mt-12 sm:mt-20 md:mt-0">
+      <section className="relative min-h-[60vh] bg-gray-800 text-white mt-12 sm:mt-20 md:pt-20">
         <Image
           src="/images/getinvolved1.png"
           alt="NESA 2023 Community"
           layout="fill"
           objectFit="cover"
           />
-        {/* Content Overlay */}
-      <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24">
-        <div className="max-w-4xl">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+        {/* Content Overlay font-raleway font-bold text-[48px] leading-[60px] tracking-normal text-white mb-6 */}
+      <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24  bg-gradient-to-b from-gray-800 to-transparent">  
+        <div className="max-w-4xl container mx-auto">
+          <h1 className="font-raleway text-[48px] md:text-4xl lg:text-5xl font-medium text-white mb-6 leading-tight">
             Be a part of NESA Africa 2025 and help drive transformative change in education across the continent.
           </h1>
           
-          <p className="text-white text-lg md:text-xl mb-10">
-            Contribute to advocating for the Excellence of Education in Africa with NESA Africa
-          </p>
+            <p
+              className="text-white mb-6 font-poppins font-normal md:text-xl leading-[36px] tracking-[0]">
+              Contribute to advocating for the Excellence of Education in Africa with NESA Africa
+            </p>
           
           <div className="flex flex-wrap gap-4">
-            <button className="bg-transparent hover:bg-yellow-500 text-yellow-500 hover:text-black font-medium py-3 px-6 border border-yellow-500 hover:border-transparent rounded-md transition duration-300">
+            <button onClick={() => {router.push('/apply-ambassador')}} className="bg-transparent hover:bg-yellow-500 text-yellow-500 hover:text-black font-medium py-3 px-6 border border-yellow-500 hover:border-transparent rounded-md transition duration-300">
               Become an Ambassador
             </button>
             
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-3 px-6 rounded-md transition duration-300">
-              Become a Sponsor
-            </button>
+            <Button text='Become a Sponsor' onClick={() => {router.push('/sponsor')}} variant='filled' className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-3 px-6 rounded-md transition duration-300" />
+              
+        
           </div>
         </div>
         </div>
@@ -93,13 +97,13 @@ const NESACommunityPage = () => {
             ))}
           </ul>
 
-          <a 
-            href="#" 
+          <div 
+            onClick={() => {router.push('/sponsor')}} 
             className="inline-flex items-center text-amber-500 font-semibold text-lg hover:text-amber-600 transition-colors"
           >
             Apply to Sponsor
             <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
+          </div>
         </div>
       </div>
     </div>
