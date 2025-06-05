@@ -33,7 +33,13 @@ const LoginPage: React.FC = () => {
     const response = await signIn({ email, password });
 
     if (response?.user) {
-      router.push(`/account/otp?email=${encodeURIComponent(email)}`); // Redirect to OTPPage with email
+      const searchParams = new URLSearchParams(window.location.search);
+      const redirect = searchParams.get("redirect");
+      let otpUrl = `/account/otp?email=${encodeURIComponent(email)}`;
+      if (redirect) {
+        otpUrl += `&redirect=${encodeURIComponent(redirect)}`;
+      }
+      router.push(otpUrl); // Redirect to OTPPage with email and redirect param if present
     } else {
       setFormError(response?.message || "Login failed. Please try again.");
     }

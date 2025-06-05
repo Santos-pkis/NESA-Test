@@ -9,7 +9,7 @@ const OTPPage: React.FC = () => {
   const email = searchParams.get("email") || ""; // Get email from query params
 
   const [otp, setOtp] = useState<string[]>(["", "", "", "", "", ""]); // 6-digit OTP
-  const [timeLeft, setTimeLeft] = useState<number>(45);
+  const [timeLeft, setTimeLeft] = useState<number>(300);
   const [error, setError] = useState<string>("");
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [isResending, setIsResending] = useState<boolean>(false);
@@ -60,8 +60,14 @@ const OTPPage: React.FC = () => {
 
         setSuccessMessage("OTP verified successfully! Redirecting...");
         setTimeout(() => {
-          // Redirect to the member dashboard
-          window.location.href = "/member/";
+          // Redirect to the initialy intended page if any or member dashboard
+          const searchParams = new URLSearchParams(window.location.search);
+          const redirect = searchParams.get("redirect");
+            if (redirect) {
+            window.location.href = redirect;
+            } else {
+            window.location.href = "/member";
+            }
         }, 1000);
       } else {
         setError("OTP verification failed. Please try again.");
@@ -74,7 +80,7 @@ const OTPPage: React.FC = () => {
   };
 
   const handleResendOtp = async () => {
-    if (timeLeft > 0 && timeLeft < 45) return;
+    if (timeLeft > 0 && timeLeft < 300) return;
 
     setIsResending(true);
     try {
@@ -160,9 +166,9 @@ const OTPPage: React.FC = () => {
               Didn't receive the code?{" "}
               <button
                 onClick={handleResendOtp}
-                disabled={(timeLeft > 0 && timeLeft < 45) || isResending}
+                disabled={(timeLeft > 0 && timeLeft < 300) || isResending}
                 className={`text-[#FFC247] hover:underline focus:outline-none font-bold ${
-                  timeLeft > 0 && timeLeft < 45 ? "opacity-50 cursor-not-allowed" : ""
+                  timeLeft > 0 && timeLeft < 300 ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
                 {isResending ? "Sending..." : "Resend OTP"}
