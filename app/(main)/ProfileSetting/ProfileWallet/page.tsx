@@ -68,7 +68,7 @@ export default function WalletPage() {
           </button>
 
           <button
-            onClick={() => router.push('/refer')}
+            onClick={() => router.push('/ProfileSetting/refer')}
             className="flex items-center px-2 md:px-4 py-2 rounded text-sm hover:bg-white/10"
           >
             <Share2 className="w-5 h-5" />

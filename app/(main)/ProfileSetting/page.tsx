@@ -27,14 +27,14 @@ export default function ProfilePage() {
             </button>
 
             <button
-            onClick={() => router.push('/ProfileWallet')}
+            onClick={() => router.push('/ProfileSetting/ProfileWallet')}
              className="flex items-center px-2 md:px-4 py-2 rounded text-sm hover:bg-white/10">
               <Wallet className="w-5 h-5" />
               <span className="hidden md:inline ml-2">Wallet</span>
             </button>
 
             <button 
-            onClick={() => router.push('/refer')}
+            onClick={() => router.push('/ProfileSetting/refer')}
             className="flex items-center px-2 md:px-4 py-2 rounded text-sm hover:bg-white/10">
               <Share2 className="w-5 h-5" />
               <span className="hidden md:inline ml-2">Referrals</span>
