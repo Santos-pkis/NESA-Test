@@ -1,360 +1,187 @@
 import React, { useState } from 'react';
 import Image from "next/image";
-import { IoIosSearch, IoIosArrowBack } from "react-icons/io";
-import { categories, Category, Region, SubCategory, Nominee } from '@/lib/data/awardData';
+import ReviewCard from '@/components/UI/judgenomination/JudgeReview';
+import Judges from "@/components/UI/judgenomination/judges1";
+import FAQs from "@/components/Common/Others/faq";
+import { Pencil } from 'lucide-react'; // or any icon lib
 
 
-const AwardCategory: React.FC<{
-  category: Category;
-  onSelectCategory: (category: Category) => void;
-  isFirst?: boolean;
-}> = ({ category, onSelectCategory, isFirst = false }) => {
-  const truncateDescription = (text: string, maxLength: number): string => {
-    if (text.length <= maxLength) return text;
-    return text.substr(0, maxLength) + '...';
-  };
 
-  const truncatedDescription = truncateDescription(category.description, isFirst ? 300 : 100);
 
-  return (
-    <div
-      className={`bg-[#191307] text-white rounded-3xl flex flex-col lg:${
-        isFirst ? 'flex-row' : 'flex-col'
-      } justify-between`}
-      style={{
-        width: '100%',
-        height: 'auto',
-        minHeight: isFirst ? '448px' : '540px',
-      }}
-    >
-      <div className={`${isFirst ? 'lg:w-1/2' : 'w-full'} p-6 flex justify-center items-center`}>
-        <div className="relative w-full" style={{
-          paddingBottom: '66.67%', // 3:2 aspect ratio
-        }}>
-          <Image
-            src="/images/nesa-card2.png"
-            alt="NESA Logo"
-            layout="fill"
-            objectFit="contain"
-          />
-        </div>
-      </div>
-      <div
-        className={`${
-          isFirst ? 'lg:w-1/2' : 'w-full'
-        } p-6 flex flex-col justify-between`}
-      >
-        <div>
-          <h3 className="text-xl font-bold mb-2">{category.title}</h3>
-          <p className="text-sm mb-4">{truncatedDescription}</p>
-        </div>
-        <div className="mt-auto">
-          <button
-            onClick={() => onSelectCategory(category)}
-            className="w-full py-2 px-4 rounded-lg font-medium"
-            style={{
-              background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
-              color: 'black',
-            }}
-          >
-            {category.regions ? 'See Regions' : 'See Sub-Categories'}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const RegionComponent: React.FC<{
-  region: Region;
-  onSelectRegion: (region: Region) => void;
-}> = ({ region, onSelectRegion }) => {
-  return (
-    <div className="bg-[#191307] text-white rounded-3xl flex flex-col justify-between" style={{ width: '100%', minHeight: '540px' }}>
-      <div className="w-full p-6 flex justify-center items-center">
-        <div className="relative w-full" style={{ paddingBottom: '66.67%' }}>
-          <Image src="/images/nesa-card2.png" alt="NESA Logo" layout="fill" objectFit="contain" />
-        </div>
-      </div>
-      <div className="w-full p-6 flex flex-col justify-between flex-grow">
-        <div>
-          <h3 className="text-xl font-bold mb-2">{region.name}</h3>
-          <p className="text-sm mb-4">Region in Africa</p>
-        </div>
-        <div className="mt-auto">
-          <button
-            onClick={() => onSelectRegion(region)}
-            className="w-full py-2 px-4 rounded-lg font-medium"
-            style={{
-              background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
-              color: 'black',
-            }}
-          >
-            See Sub-Categories
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const SubCategoryComponent: React.FC<{
-  subCategory: SubCategory;
-  onSelectSubCategory: (subCategory: SubCategory) => void;
-}> = ({ subCategory, onSelectSubCategory }) => {
-  return (
-    <div className="bg-[#191307] text-white rounded-3xl flex flex-col justify-between" style={{ width: '100%', minHeight: '540px' }}>
-      <div className="w-full p-6 flex justify-center items-center">
-        <div className="relative w-full" style={{ paddingBottom: '66.67%' }}>
-          <Image src="/images/nesa-card2.png" alt="NESA Logo" layout="fill" objectFit="contain" />
-        </div>
-      </div>
-      <div className="w-full p-6 flex flex-col justify-between flex-grow">
-        <div>
-          <h3 className="text-xl font-bold mb-2">{subCategory.title}</h3>
-          <p className="text-sm mb-4">{subCategory.description}</p>
-        </div>
-        <div className="mt-auto">
-          <button
-            onClick={() => onSelectSubCategory(subCategory)}
-            className="w-full py-2 px-4 rounded-lg font-medium"
-            style={{
-              background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
-              color: 'black',
-            }}
-          >
-            See Nominees
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const NomineeComponent: React.FC<{ nominee: Nominee }> = ({ nominee }) => {
-  return (
-    <div 
-      className="bg-[#191307] text-white rounded-3xl p-6 flex flex-col justify-between" 
-      style={{ width: '100%', minHeight: '540px' }}
-    >
-      <div>
-        <div className="relative w-full mb-4 flex justify-center items-center">
-          <div className="relative w-full" style={{ paddingBottom: '66.67%' }}>
-            <Image 
-              src={nominee.image} 
-              alt={nominee.name} 
-              layout="fill" 
-              objectFit="cover" 
-              className="rounded-2xl" 
-            />
-          </div>
-        </div>
-        <h3 className="text-xl font-bold mb-2">{nominee.name}</h3>
-        {(nominee.state || nominee.country) && (
-          <p className="text-sm mb-2 text-gray-400">
-            {nominee.state && nominee.country 
-              ? `${nominee.state}, ${nominee.country}`
-              : nominee.state || nominee.country}
-          </p>
-        )}
-        <p className="text-sm mb-4">{nominee.achievement}</p>
-      </div>
-      <button 
-        className="w-full py-2 px-4 rounded-lg font-medium mt-auto" 
-        style={{
-          background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
-          color: 'black',
-        }}
-      >
-        Review
-      </button>
-    </div>
-  );
-};
 
 const JudgePage: React.FC = () => {
-  const [search, setSearch] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
-  const [selectedRegion, setSelectedRegion] = useState<Region | null>(null);
-  const [selectedSubCategory, setSelectedSubCategory] = useState<SubCategory | null>(null);
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
+const nominees = [
+  {
+    id: 1,
+    name: "Mr Joseph Johnson",
+    title: "Brothers Building Futures (BBF)",
+    achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
+  },
+  {
+    id: 2,
+    name: "Mr Joseph Johnson",
+    title: "Brothers Building Futures (BBF)",
+    achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
+  },
+  {
+    id: 3,
+    name: "Mr Joseph Johnson",
+    title: "Brothers Building Futures (BBF)",
+    achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
+  },
+  {
+    id: 4,
+    name: "Mr Joseph Johnson",
+    title: "Brothers Building Futures (BBF)",
+    achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
+  },
+  {
+    id: 5,
+    name: "Mr Joseph Johnson",
+    title: "Brothers Building Futures (BBF)",
+    achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
+  },
+  {
+    id: 6,
+    name: "Mr Joseph Johnson",
+    title: "Brothers Building Futures (BBF)",
+    achievements: "dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community.",
+    imageURL:"/images/judgereview.png",
+  },
+];
 
-  const filteredCategories = categories.filter((category) =>
-    category.title.toLowerCase().includes(search.toLowerCase())
+const Criteria = [
+  {
+    question: "Criteria 1: Lorem Ipsum",
+    answer: `Lorem ipsum dolor sit amet consectetur. Vitae scelerisque non enim laoreet. Suspendisse in ut sagittis.`,
+  },
+  {
+    question: "Criteria 2: Lorem Ipsum",
+    answer: `Lorem ipsum dolor sit amet consectetur. Vitae scelerisque non enim laoreet. Suspendisse in ut sagittis.`,
+  },
+  {
+    question: "Criteria 3: Lorem Ipsum",
+    answer: `Lorem ipsum dolor sit amet consectetur. Vitae scelerisque non enim laoreet. Suspendisse in ut sagittis. `,
+  },
+  {
+    question: "Criteria 4: Lorem Ipsum",
+    answer: `Lorem ipsum dolor sit amet consectetur. Vitae scelerisque non enim laoreet. Suspendisse in ut sagittis. `,
+  },
+];
+
+
+
+
+const GradientLine = () => (
+    <div className="h-[3px] bg-gradient-to-r from-[#FFC247] to-[#E48900] mt-2 w-36" />
   );
 
-  const handleSelectCategory = (category: Category) => {
-    setSelectedCategory(category);
-    setSelectedRegion(null);
-    setSelectedSubCategory(null);
-  };
+return(
+  <div className='flex flex-col'>
+      <div className='mt-[27px] md:mt-[93px] px-[7%] md:px-[10%] flex items-center gap-10' style={{
+            backgroundImage: `url('/images/judgenavimg.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '100%',
+            height: '200px',
+          }}>
+              {/* image */}
+<div className="relative flex-shrink-0 w-[150px] h-[150px] hidden md:block">
+      {/* Profile image */}
+      <Image
+        src="/images/Judgereview1.png"
+        alt="profileImage"
+        width={150}
+        height={150}
+        className="rounded-full object-cover w-full h-full"
+      />
 
-  const handleSelectRegion = (region: Region) => {
-    setSelectedRegion(region);
-    setSelectedSubCategory(null);
-  };
-
-  const handleSelectSubCategory = (subCategory: SubCategory) => {
-    setSelectedSubCategory(subCategory);
-  };
-
-  const handleBack = () => {
-    if (selectedSubCategory) {
-      setSelectedSubCategory(null);
-    } else if (selectedRegion) {
-      setSelectedRegion(null);
-    } else if (selectedCategory) {
-      setSelectedCategory(null);
-    }
-  };
-
-  return (
-    <div className="bg-white py-10 sm:py-20 lg:pt-32">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Hero Section */}
-        <div className="mb-12 sm:mb-16">
-          {!selectedCategory && !selectedRegion && !selectedSubCategory && (
-            <div className="relative mb-8 mt-12 sm:mt-0">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  value={search}
-                  onChange={handleSearchChange}
-                  className="w-full max-w-[400px] h-[40px] pl-10 pr-4 py-2 rounded-lg"
-                  style={{
-                    background: '#FFF5E0',
-                    padding: '12px 20px 12px 40px',
-                  }}
-                />
-                <IoIosSearch
-                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                />
-              </div>
-            </div>
-          )}
-          {(selectedCategory || selectedRegion || selectedSubCategory) && (
-            <div className="mb-8 mt-12 sm:mt-0">
-              <button
-                onClick={handleBack}
-                className="flex items-center justify-center"
-                style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
-                }}
-              >
-                <IoIosArrowBack size={24} color="white" />
-              </button>
-            </div>
-          )}
-          <div className={`mt-8 ${!selectedCategory && !selectedRegion && !selectedSubCategory ? 'text-center' : 'text-left'}`}>
-            {!selectedCategory && !selectedRegion && !selectedSubCategory && (
-              <h2 className="text-3xl font-medium mb-1">
-                The Blue Garnet Award Categories
-              </h2>
-            )}
-            {selectedCategory && !selectedRegion && !selectedSubCategory && (
-              <h2 className="text-3xl font-medium mb-1">
-                {selectedCategory.title}
-              </h2>
-            )}
-            {selectedRegion && !selectedSubCategory && (
-              <h2 className="text-3xl font-medium mb-1">
-                {selectedRegion.name}
-              </h2>
-            )}
-            {selectedSubCategory && (
-              <h2 className="text-3xl font-medium mb-1">
-                The Nominee Profiles
-              </h2>
-            )}
-            <div
-              className={`mb-8 ${!selectedCategory && !selectedRegion && !selectedSubCategory ? 'mx-auto' : ''}`}
-              style={{
-                height: '4px',
-                width: '150px',
-                borderRadius: '8px',
-                margin: !selectedCategory && !selectedRegion && !selectedSubCategory ? '1rem auto 2rem' : '1rem 0 2rem',
-                background:
-                  'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)',
-              }}
-            ></div>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="flex flex-col items-start gap-6">
-          {!selectedCategory && !selectedRegion && !selectedSubCategory && (
-            <>
-              <div className="w-full lg:col-span-3">
-                {filteredCategories.length > 0 && (
-                  <AwardCategory
-                    key={0}
-                    category={filteredCategories[0]}
-                    onSelectCategory={handleSelectCategory}
-                    isFirst={true}
-                  />
-                )}
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                {filteredCategories.slice(1).map((category, index) => (
-                  <AwardCategory
-                    key={index + 1}
-                    category={category}
-                    onSelectCategory={handleSelectCategory}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-          {selectedCategory && !selectedRegion && !selectedSubCategory && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {selectedCategory.regions ? (
-                selectedCategory.regions.map((region, index) => (
-                  <RegionComponent
-                    key={index}
-                    region={region}
-                    onSelectRegion={handleSelectRegion}
-                  />
-                ))
-              ) : selectedCategory.subCategories ? (
-                selectedCategory.subCategories.map((subCategory, index) => (
-                  <SubCategoryComponent
-                    key={index}
-                    subCategory={subCategory}
-                    onSelectSubCategory={handleSelectSubCategory}
-                  />
-                ))
-              ) : null}
-            </div>
-          )}
-          {selectedRegion && !selectedSubCategory && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {selectedRegion.subCategories.map((subCategory, index) => (
-                <SubCategoryComponent
-                  key={index}
-                  subCategory={subCategory}
-                  onSelectSubCategory={handleSelectSubCategory}
-                />
-              ))}
-            </div>
-          )}
-          {selectedSubCategory && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-              {selectedSubCategory.nominees.map((nominee, index) => (
-                <NomineeComponent key={index} nominee={nominee} />
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      {/* Edit button */}
+      <button
+        className="absolute bottom-0 right-0 bg-yellow-400 hover:bg-yellow-500 p-2 rounded-full shadow-md"
+        title="Edit"
+      >
+        <Pencil size={16} className="text-black" />
+      </button>
     </div>
-  );
-};
+
+            {/* texts */}
+            <div className='gap-2 flex flex-col'>
+              <h1 className='text-4xl bg-gradient-to-r from-[#FFC247] to-[#E48900] bg-clip-text text-transparent font-medium'>Welcome, [Name] </h1>
+              <p className='text-white font-light'>Lorem ipsum dolor sit amet consectetur. Vitae scelerisque non enim laoreet. Suspendisse in ut sagittis.</p>
+            </div>
+      </div>
+
+
+{/* second section */}
+          <div className='bg-[#FFF5E0] p-20 pl-[50px] md:pl-[8%] '>
+
+            <div className='flex items-center gap-10 px-auto flex flex-col md:flex-row'>
+
+              <div className=' flex-shrink-0'>
+                <Image
+                src={'/images/awardimg.png'}
+                alt={'profileImage'}
+                width={300}
+                height={300}
+                className=" object-cover"
+              />
+              </div>
+
+              <div className=''>
+                <h1 className='text-2xl md:text-3xl'>Your Assigned Category Is:</h1>
+                <h1 className='text-2xl md:text-3xl mb-[9px]'>[Category Name]</h1>
+                <p className='font-light'>Lorem ipsum dolor sit amet consectetur. Dolor sed enim neque sit tellus. In morbi tristique nulla velit. Mauris sollicitudin non id quam ut vel nunc nullam. Lobortis porttitor et dolor pretium posuere tristique tempus. Eu sit malesuada lacus ultrices feugiat posuere rhoncus diam. Lobortis ante nisi fames tristique feugiat convallis gravida ac sapien. Purus in semper ut egestas elementum mattis feugiat lorem.</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* pending nominee */}
+                <div className=" bg-gray-100 pt-10">
+                  <div className="container px-1 pb-8">
+                    <div className="mb-12 mx-12 md:mx-0 flex justify-between" >
+                      <div>
+                      <h2 className="text-xl font-medium md:text-3xl md:font-medium inline-block">Pending Nominee Reviews</h2>
+                      <GradientLine />
+                      </div>
+                      <div>
+                        <a href="/judge/JudgeReview" className='text-[#E0AA3E] underline'>See all &gt;</a>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {nominees.map((nominee) => (
+                        <ReviewCard key={nominee.id} nominee={nominee} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* meet the judges */}
+                <Judges />
+
+                {/* judging crieteria */}
+                <section>
+                <div className="container py-20">
+                  <h3 className="text-3xl">Judging Criteria</h3>
+                  <GradientLine/>
+
+                  <FAQs data={Criteria}/>
+                </div>
+              </section>
+
+
+      </div>
+)
+
+}
+
 
 export default JudgePage;

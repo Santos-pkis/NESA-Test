@@ -58,7 +58,6 @@ const Judges = () => {
   const router = useRouter();
   const { sliderRef: ref, moveLeft, moveRight } = useSlider();
   const [remoteJudges, setRemoteJudges] = useState<Judge[]>([]);
-
   useEffect(() => {
     const fetchJudges = async () => {
       try {
