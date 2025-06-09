@@ -98,13 +98,15 @@ const mockComment: Comment[] =
 ];
 
 interface PageProps {
-  params: { id: string };
+  params: { name: string };
 }
 
 export default function ReviewDetailPage({ params }: PageProps) {
+  const formattedName = params.name.toLowerCase().replace(/-/g, " ");
   const nominee = mockNominees.find(
-    (n) => n.id === parseInt(params.id, 10)
+    (n) => n.name.toLowerCase() === formattedName
   );
+
 
   if (!nominee) {
     notFound(); // shows the default 404 page if nominee not found
