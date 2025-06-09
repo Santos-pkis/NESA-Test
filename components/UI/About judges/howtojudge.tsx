@@ -59,7 +59,7 @@ export default function JudgingPanel() {
           <div className="lg:w-1/3 flex items-center justify-center">
             <div className="relative">
               <div className="absolute -top-1 -right-2 -bottom-2 -left-2 bg-black rounded-xl -z-10"></div>
-              <div className="border-2 border-amber-500 rounded-xl overflow-hidden">
+              <div className=" rounded-xl overflow-hidden">
                 <Image 
                   src="/images/judgeguide.png"
                   width={30} 
