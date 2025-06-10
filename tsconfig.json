@@ -35,7 +35,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "dist/types/**/*.ts"
-  ],
+, "app/judge/all categories/allcategories"  ],
   "exclude": [
     "node_modules"
   ]

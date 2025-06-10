@@ -54,20 +54,8 @@ const Page = () => {
     {
       title: "Diaspora Association Educational Impact Award404",
       description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
-      subCategoryPath: "/sub-categories/404"
-    },
-
-    {
-      title: "Diaspora Contributions to Education in Africa (Individuals & Organizations)",
-      description: "diaspora africa place holder",
       subCategoryPath: "/nomination/sub-categories/africa-diaspora-impact"
     },
-
-    {
-      title: "Overall Best CSR in Education in Nigeria",
-      description: "Celebrates NGOs that have made significant improvements in educational access, quality, and innovation from 2013-2024.",
-      subCategoryPath: "/nomination/sub-categories/best-csr-education"
-    }
     
   ];
   

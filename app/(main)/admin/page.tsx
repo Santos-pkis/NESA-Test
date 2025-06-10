@@ -23,7 +23,7 @@ export default function AdminDashboard() {
         );
       default:
         return (
-          <div className="p-6 text-xl font-medium">
+          <div className="p-6 pt-20 text-xl font-medium">
             {selected} content coming soon...
           </div>
         );
