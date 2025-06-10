@@ -1,6 +1,6 @@
-import Button from "@/components/Common/Button";
 "use client";
 import AboutHeader from "@/components/UI/About/header";
+import Button from "@/components/Common/Button";
 import { panel } from "@/lib/data/about";
 import { allCategories } from "@/lib/data/category";
 import useSlider from "@/lib/hooks/useSlider";
