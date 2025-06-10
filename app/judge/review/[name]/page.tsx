@@ -31,50 +31,6 @@ const mockNominees: Nominee[] =
     bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
     imageURL:"/images/Judgereview1.png",
   },
-  {
-    id: 2,
-    name: "Mr Joseph Johnson",
-    title: "Brothers Building Futures (BBF)",
-    achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
-    bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/Judgereview1.png",
-
-  },
-  {
-    id: 3,
-    name: "Mr Joseph Johnson",
-    title: "Brothers Building Futures (BBF)",
-    achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
-    bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/Judgereview1.png",
-
-  },
-  {
-    id: 4,
-    name: "Mr Joseph Johnson",
-    title: "Brothers Building Futures (BBF)",
-    achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
-    bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/Judgereview1.png",
-
-  },
-  {
-    id: 5,
-    name: "Mr Joseph Johnson",
-    title: "Brothers Building Futures (BBF)",
-    achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%.",
-    bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/Judgereview1.png",
-
-  },
-  {
-    id: 6,
-    name: "Mr Joseph Johnson",
-    title: "Brothers Building Futures (BBF)",
-    achievements: "Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She aslo partnered with the Ministry of Education to implement Yeelen's innovative after-school program in 10 public schools, improving standardized test scores by an average of 20%..",
-    bio:"Dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community, his innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. ",
-    imageURL:"/images/Judgereview1.png",
-  },
 ];
 const mockComment: Comment[] = 
 [
@@ -98,13 +54,15 @@ const mockComment: Comment[] =
 ];
 
 interface PageProps {
-  params: { id: string };
+  params: { name: string };
 }
 
 export default function ReviewDetailPage({ params }: PageProps) {
+  const formattedName = params.name.toLowerCase().replace(/-/g, " ");
   const nominee = mockNominees.find(
-    (n) => n.id === parseInt(params.id, 10)
+    (n) => n.name.toLowerCase() === formattedName
   );
+
 
   if (!nominee) {
     notFound(); // shows the default 404 page if nominee not found
