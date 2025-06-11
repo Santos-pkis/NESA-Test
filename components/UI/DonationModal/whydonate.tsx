@@ -110,52 +110,7 @@ const WhyDonationMatters = () => {
       </div>
 
 
-      <section className="mt-16 text-center">
-        <hr />
-        <p className="text-lg  mt-8">
-          <b className="pb-6">Donate to NESA-Africa 2025</b> <br></br>
- Fuel Africa’s Education Transformation Movement 
-Every contribution you make supports scholarships, school projects, media campaigns, and awards that recognize the heroes of education across Africa. NESA-Africa 2025 is more than an event—it’s a call to action for equity, excellence, and empowerment in education.
- Why Donate? 
-1.  Empower Future Leaders 
-Your donation helps provide visibility, recognition, and funding to teachers, innovators, and changemakers driving educational impact in Africa.
-2.  Support Scholarships & CSR Projects 
-NESA-Africa partners with EduAid-Africa to deliver scholarships, renovate schools, and train educators in underserved communities.
-3.  Amplify Education Advocacy 
-We broadcast across the continent through NESA TV and “It’s In Me Radio” to tell the stories of Africa’s education champions. Your donation fuels our media platforms.
-4.  Sponsor Youth Participation & Events 
-Your giving enables free access for students and young educators to attend our expos, panels, and workshops during the NESA-Africa Week.
-5.  Be Recognized as a Change Agent 
-Donors receive social media spotlights, digital badges, and VIP recognition at the NESA Gala Awards. Institutional donors are featured on our donor wall.
- Ways to Give 
-You can donate in  any currency . All funds are processed through the  GFA Wallet , and automatically converted to  Afri-Gold Coins (AGC) .
-Payment MethodDescription Paystack Cards/Bank Transfers – Global Fairsure Smart Contracts & API Gateway Bancable Digital Banking – Institutional Zelle / TapTap Send Diaspora Transfers in USD, GBP, EUR Direct Wallet Transfer To your NESA/GFA wallet address
- Conversion Rate:  1 USD = 10 AGC (Afri-Gold Coin) GFA uses a pegged rate of  ₦1,800/USD  – GFA retains the difference for project reinvestment and platform sustainability.
- Your Donation Comes with Bonuses 
-*  Earn Afri-Gold Coin (AGC)  in your GFA Wallet
-* Use AGC to vote during NESA Awards
-* Redeem discounts on NESA merchandise
-* Get discounted or free access to NESA Events
-* Receive updates on how your funds are used
-Donate Categories
-* One-time or recurring personal gift
-* Donate on behalf of a loved one
-* Institutional/Corporate donation
-* Educational CSR partnership
-* Faith-based or diaspora group giving
-Partner With Us
-Want to create a  custom donation campaign , sponsor a scholarship, or support a local NESA Chapter?
-Email:  donate@nesa.africa 
-Donate Now
-Click here to Make Your Donation All donations are tracked in your GFA Wallet for transparency.
- Together, let’s raise Africa’s education heroes. 
- ReplyReply to allForward 
-Add reaction
-nesa.africa@gmail.com
-
-
-        </p>
-        </section>
+      
     </section>
   );
 };

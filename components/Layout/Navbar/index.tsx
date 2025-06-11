@@ -55,7 +55,7 @@ const Navbar = () => {
         className="bg-[#17120a] fixed top-0 left-0 w-full h-[5rem] px-[2.5rem] flex items-center justify-between transition-transform duration-300 ease-in-out z-[1000]"
         ref={ref}
       >
-        <div className="container mx-auto flex justify-between items-center gap-x-6">
+        <div className="container mx-auto flex justify-between items-center md:gap-x-6 space-x-10">
           <motion.div>
             <Link href={"/"}>
               <Image

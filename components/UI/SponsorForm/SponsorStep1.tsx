@@ -191,6 +191,30 @@ export default function SponsorStep1({
                   {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
                 </div>
                 
+                
+                <div className="mb-6">
+                  <label htmlFor="sponsorshipType" className="block text-sm font-medium text-gray-700 mb-2">Select Sponsorship Category</label>
+                    <select id="sponsorshipType" name="sponsorshipType" required>
+                    <option value="">-- Choose an option --</option>
+                    <option value="Award Category Sponsorship">Award Category Sponsorship</option>
+                    <option value="Sub-Category Sponsorship">Sub-Category Sponsorship</option>
+                    <option value="NESA TV/Media">NESA TV / Media Sponsorship</option>
+                    <option value="Regional Sponsorship">Regional Sponsorship</option>
+                    <option value="Pre-Award Gala Events">Pre-Award Gala Events (Oct 13–15)</option>
+                    <option value="EduAid-Africa Expo">EduAid-Africa Expo (Oct 16)</option>
+                    <option value="Gala Awards Night">Gala Awards Night (Oct 17)</option>
+                    <option value="Full Program Sponsor">Full Program Sponsor</option>
+                    </select>
+                </div>
+                <div className="mb-6">
+                <label htmlFor="amount">Proposed Sponsorship Amount (USD)</label>
+                <input type="number" id="amount" name="amount" required />
+                </div>
+
+                <div className="mb-6">
+                <label htmlFor="message">Additional Notes or Custom Package Request</label>
+                <textarea id="message" name="message" rows={4}></textarea>
+                </div>
                 <div className="mb-6">
                   <label className="block text-sm font-medium text-gray-700 mb-2">registration number</label>
                   <div className="relative">
@@ -223,7 +247,12 @@ export default function SponsorStep1({
                   </p>
                 </div>
               </form>
+            <p className="mt-8 text-sm text-gray-800">
+              For direct payments, bank details and GFA Wallet integration will be shared upon confirmation.
+              For inquiries, email <a href="mailto:sponsor@nesa.africa" className="underline text-blue-600">sponsor@nesa.africa</a>
+            </p>
             </div>
+
           </div>
    </div>
     </>
