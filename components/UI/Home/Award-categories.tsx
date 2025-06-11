@@ -17,7 +17,7 @@ const AwardCategories = () => {
         <div className="grid md:grid-cols-2 md:gap-x-6 gap:10">
           
                                         {/* africa lifet time Category */}
-          <div className=" md:col-span-2 md:px-20  lg:px-14 container md:mx-auto md:pb:4">
+          <div className=" md:col-span-2 md:px-20  lg:px-14 md:container md:mx-auto md:pb:4">
           <Link
             href={"/nomination/sub-categories/africa-lifetime-education-icon"}
           >
