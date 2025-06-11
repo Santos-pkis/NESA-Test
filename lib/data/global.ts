@@ -23,7 +23,8 @@ export const navlinks: NavLink[] = [
       { label: "Competitive", path: "/competitive" },
       { label: "Non-Competitive", path: "/non-competitive" },
       { label: "Nomination Process", path: "/nomination" },
-       { label: "Judge Portal", path: "/judge" },
+      { label: "Judge Portal", path: "/judge" },
+      { label: "See All", path: "/SeeAll" },
     ],
   },
   {
