@@ -7,7 +7,7 @@ const JudgesApplications = ({ selectApplicant }: any) => {
   ];
 
   return (
-    <div className="p-6">
+    <div className="p-6 pt-20 mt-4 ">
       <h2 className="text-2xl font-semibold mb-4">Judges Applications</h2>
       <table className="w-full text-left bg-white shadow rounded">
         <thead className="bg-gray-100">
