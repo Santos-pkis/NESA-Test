@@ -1,13 +1,60 @@
 import { cn } from "@/lib/utils/util";
+import {getNominations} from "@/lib/services/getNominations";
+import { useEffect, useState } from "react";
+import { getjudges } from "@/lib/services/getjugdes";
 
-const NominationPanel = () => (
+ type Nomination = {
+    fullName: string;
+    email: string;
+    subCategory: string | null;
+    status: string;
+    createdAt: string;
+    updatedAt: string;
+    nominationCount: string;
+    latestCreatedAt: string;
+};
+
+type NominationsResponse = {
+    totalNominations: number;
+    totalAccepted: number;
+    totalPending: number;
+    nominations: Nomination[];
+};
+const NominationPanel = () => {
+  const [nominees, setNominees] = useState<NominationsResponse | null>(null);
+  useEffect(() => {
+    const fetchNominees = async () => {
+      try {
+        const data = await getNominations();
+        setNominees(data);
+        console.log(data)
+      } catch (err) {
+        console.error("Failed to fetch nominations:", err);
+      }
+    };
+
+    fetchNominees();
+  }, []);
+return (
 <div className="p-6 w-full pt-28">
           <h2 className="text-2xl font-semibold mb-6">Overview</h2>
-          <div className="grid grid-cols-3 gap-4 mb-6">
-            <StatCard title="Total Nominations" count="1,456" change="4.8%" />
-            <StatCard title="Accepted Nominations" count="986" change="4.8%" />
-            <StatCard title="Pending Nominations" count="470" change="4.8%" />
-          </div>
+            <div className="grid grid-cols-3 gap-4 mb-6">
+            <StatCard
+              title="Total Nominations"
+              count={nominees ? nominees.totalNominations : 0}
+              change="4.8%"
+            />
+            <StatCard
+              title="Accepted Nominations"
+              count={nominees ? nominees.totalAccepted : 0}
+              change="4.8%"
+            />
+            <StatCard
+              title="Pending Nominations"
+              count={nominees ? nominees.totalPending : 0}
+              change="4.8%"
+            />
+            </div>
 
           <div className="bg-white rounded-lg shadow-md p-4">
             <div className="flex justify-between items-center mb-4">
@@ -30,6 +77,7 @@ const NominationPanel = () => (
                 </tr>
               </thead>
               <tbody>
+                {/* Example static data mapping, remove or update as needed
                 {nominations.map((n, i) => (
                   <tr key={i} className="border-b text-sm">
                     <td className="py-2">{i + 1}</td>
@@ -51,11 +99,42 @@ const NominationPanel = () => (
                     <td>{n.date}</td>
                   </tr>
                 ))}
+                */}
+
+                {nominees && Array.isArray(nominees.nominations) && nominees.nominations.length > 0 ? (
+                  nominees.nominations.map((n, i) => (
+                    <tr key={i} className="border-b text-sm">
+                      <td className="py-2">{i + 1}</td>
+                      <td>{n.fullName}</td>
+                      <td>{n.subCategory || "-"}</td>
+                      <td>{n.nominationCount}</td>
+                      <td>
+                        <span
+                          className={cn(
+                            "px-2 py-1 rounded-full text-xs font-medium",
+                            n.status === "Accepted"
+                              ? "bg-green-100 text-green-600"
+                              : "bg-yellow-100 text-yellow-600"
+                          )}
+                        >
+                          {n.status}
+                        </span>
+                      </td>
+                      <td>{n.latestCreatedAt ? new Date(n.latestCreatedAt).toLocaleDateString() : "-"}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={6} className="text-center py-4 text-gray-500">
+                      No nominations found.
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
-        </div>
-);
+        </div>)
+}
 type StatCardProps = {
   title: string;
   count: string | number;

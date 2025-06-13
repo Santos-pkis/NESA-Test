@@ -56,7 +56,7 @@ const HeroCenter = () => {
           <div className="space-y-3 text-center md:text-left md:min-w-full">
             <div className="flex items-center justify-center md:justify-start md:gap-2 gap-1 text-primaryGold pt-4 md:pt-8 lg:pt-10">
               <FaStar />
-              <p className="md:text-lg md:font-semibold text-[14px]">The NESA Africa Awards 2025</p>
+              <p className="text-lg md:font-semibold ">The NESA Africa Awards 2025</p>
               <FaStar />
             </div>
 
@@ -76,8 +76,24 @@ const HeroCenter = () => {
             <p className="md:text-[20px] text-[14px] leading-[32px] font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#FFC247] to-[#E48900]">
               A flagship initiative under <SantosLink />
             </p>
-            {/* buttons */}
-            <div className="lg:flex lg:pb-1 pb-10 sm:flex flex-wrap lg:flex-nowrap items-center justify-center md:grid md:grid md:grid-cols-2 gap-1 space-y-2 md:gap-2 pt-2 w-full">
+ 
+
+          </div>
+   
+
+          <div className="lg:w-auto md:ml-8 flex justify-center">
+          <Image 
+            src="/images/nesa-mg.png" 
+            alt="home logo"
+            width={300} 
+            height={300}
+            className="max-w-440px md:min-w-72 lg:min-w-440px"
+            // className="object-contain"
+          />
+        </div>
+      </div>
+           {/* buttons */}
+            <div className="lg:flex lg:pb-1 pb-10 sm:flex flex-wrap lg:flex-nowrap lg:px-10 items-center md:grid md:grid-cols-2 gap-1 space-y-2 md:gap-2 pt-5 w-full lg:w-full md:w-[640px] md:pl-2 md:pr-44">
               <Button text="Vote with Afrigold coin" className="rounded-lg px-3 md:px-4 py-2     flex items-center justify-center
         px-1 md:px-8 py-2 md:-mb-2
         text-xs sm:text-sm md:text-sm
@@ -113,22 +129,6 @@ const HeroCenter = () => {
         truncate
         " />
             </div>
-
-          </div>
-   
-
-          <div className="lg:w-auto md:ml-8 flex justify-center">
-          <Image 
-            src="/images/nesa-mg.png" 
-            alt="home logo"
-            width={300} 
-            height={300}
-            className="max-w-440px md:min-w-72 lg:min-w-440px"
-            // className="object-contain"
-          />
-        </div>
-      </div>
-
             {/* Video Section */}
       <div className="w-full flex justify-center lg:p-16 lg:pt-8">
         <div
