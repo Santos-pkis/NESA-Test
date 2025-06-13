@@ -20,7 +20,7 @@ const Sidebar = ({ selected, setSelected }: any) => {
     { name: 'Volunteers' },
     {
       name: 'Judges',
-      subItems: ['Applications', 'Nominations']
+      subItems: ['Judges', 'Applications', 'Nominations']
     },
     { name: 'Merchandise Sale' },
     { name: 'Website' },

@@ -1,6 +1,6 @@
 "use client"
 import {useState, useEffect} from 'react'
-import { getjudges } from "@/lib/services/getjugdes";
+import { getApprovedJudges } from "@/lib/services/getApprovedJudges";
 
 
 type Judge = {
@@ -16,7 +16,7 @@ type Judge = {
   upload_profile_image?: string;
 };
 
-const JudgesApplications = ({ selectApplicant }: any) => {
+const ApprovedJudges = ({ selectApplicant }: any) => {
   const applicants = [
     { name: 'Savannah Nguyen', status: 'Accepted', date: '28/10/2012' },
     { name: 'Jacob Jones', status: 'Pending', date: '18/09/2016' },
@@ -26,7 +26,7 @@ const JudgesApplications = ({ selectApplicant }: any) => {
   useEffect(() => {
     const fetchJudges = async () => {
       try {
-        const data = await getjudges();
+        const data = await getApprovedJudges();
         setRemoteJudges(data);
         console.log(data)
       } catch (err) {
@@ -39,7 +39,7 @@ const JudgesApplications = ({ selectApplicant }: any) => {
 
   return (
     <div className="p-6 pt-20 mt-4 ">
-      <h2 className="text-2xl font-semibold mb-4">Judges Applications</h2>
+      <h2 className="text-2xl font-semibold mb-4">Judges</h2>
       <table className="w-full text-left bg-white shadow rounded">
         <thead className="bg-gray-100">
           <tr>
@@ -72,4 +72,4 @@ const JudgesApplications = ({ selectApplicant }: any) => {
   );
 };
 
-export default JudgesApplications;
+export default ApprovedJudges;

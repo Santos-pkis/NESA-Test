@@ -6,7 +6,7 @@ import NominationPanel from '@/components/UI/Admin/NominationPanel';
 import VotingPanel from '@/components/UI/Admin/VotingPanel';
 import JudgesApplications from '@/components/UI/Admin/JudgesApplication';
 import JudgeDetail from '@/components/UI/Admin/JudgeDetail';
-
+import ApprovedJudges from '@/components/UI/Admin/ApprovedJudges';
 export default function AdminDashboard() {
   const [selected, setSelected] = useState('Nomination');
   const [applicant, setApplicant] = useState(null);
@@ -16,6 +16,8 @@ export default function AdminDashboard() {
     switch (selected) {
       case 'Nomination':
         return <NominationPanel />;
+      case 'Judges/Judges':
+        return <ApprovedJudges selectApplicant={setApplicant} />;                 
       case 'Judges/Applications':
         return applicant ? (
           <JudgeDetail applicant={applicant} goBack={() => setApplicant(null)} />
