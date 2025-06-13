@@ -105,7 +105,7 @@ export default function JudgeLayout({ children }: JudgeLayoutProps) {
               { href: "/nomination/sub-categories/africa-lifetime-education-icon", label: "African Icon" },
               { href: "/judge/competitive", label: "Competitive" },
               { href: "/judge/non-competitive", label: "Non-Competitive" },
-              { href: "/SeeAll", label: "See All" },
+              { href: "/judge/SeeAll", label: "See All" },
             ]} />
             <NavDropdown label="Judges Arena" items={[
               { href: "/judge/SeeJudges", label: "See Judges" },
