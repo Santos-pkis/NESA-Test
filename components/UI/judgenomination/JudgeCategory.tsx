@@ -16,9 +16,11 @@ interface JudgeCardProps {
   judge: Judge;
 }
 
- const router = useRouter();
+
 
 const JudgeCard: React.FC<JudgeCardProps> = ({ judge }) => {
+   const router = useRouter();
+   
   if (!judge) {
     return null;
   }
