@@ -102,8 +102,15 @@ const WhyDonationMatters = () => {
             solutions that reflect the real needs of African students. You're helping shape curriculums
             that are relevant, inclusive, and future-focused.
           </p>
+
+
+          
         </div>
+        
       </div>
+
+
+      
     </section>
   );
 };

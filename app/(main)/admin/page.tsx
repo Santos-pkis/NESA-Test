@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Sidebar from '@/components/UI/Admin/Sidebar';
 import NominationPanel from '@/components/UI/Admin/NominationPanel';
+import VotingPanel from '@/components/UI/Admin/VotingPanel';
 import JudgesApplications from '@/components/UI/Admin/JudgesApplication';
 import JudgeDetail from '@/components/UI/Admin/JudgeDetail';
 
@@ -21,6 +22,9 @@ export default function AdminDashboard() {
         ) : (
           <JudgesApplications selectApplicant={setApplicant} />
         );
+      case 'Voting':
+        return <VotingPanel />;
+
       default:
         return (
           <div className="p-6 pt-20 text-xl font-medium">
