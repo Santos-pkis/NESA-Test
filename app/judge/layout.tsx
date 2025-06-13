@@ -102,6 +102,7 @@ export default function JudgeLayout({ children }: JudgeLayoutProps) {
           <div className="hidden md:flex space-x-6 items-center">
             <NavItem href="/judge" label="Home" />
                         <NavDropdown label="Nomination" items={[
+             {href: "/nomination/sub-categories/africa-lifetime-education-icon" , label: "Afrian Education Icon"},
               { href: "/judge/competitive", label: "Competitive" },
               { href: "/judge/non-competitive", label: "Non-Competitive" },
             ]} />
