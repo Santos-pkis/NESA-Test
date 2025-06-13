@@ -20,11 +20,12 @@ export const navlinks: NavLink[] = [
     path: "/awards",
     
     children: [
+       { label: "African Icon", path: "/nomination/sub-categories/africa-lifetime-education-icon" },
       { label: "Competitive", path: "/competitive" },
       { label: "Non-Competitive", path: "/non-competitive" },
       { label: "Nomination Process", path: "/nomination" },
       { label: "Judge Portal", path: "/judge" },
-      { label: "See All", path: "/SeeAll" },
+
     ],
   },
   {

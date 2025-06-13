@@ -21,7 +21,6 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ nominee }) => {
   const handleReview = () => {
     const slug = nominee.name.toLowerCase().replace(/\s+/g, '-');
 router.push(`/judge/review/${slug}`);
-
   };
 
   return (
