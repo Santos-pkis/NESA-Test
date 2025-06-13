@@ -16,16 +16,18 @@ interface JudgeCardProps {
   judge: Judge;
 }
 
+ const router = useRouter();
+
 const JudgeCard: React.FC<JudgeCardProps> = ({ judge }) => {
   if (!judge) {
     return null;
   }
-  const router = useRouter();
-    const handleReview = (name: string) => {
+
+  const handleReview = (name: string) => {
   const slug = name.toLowerCase().replace(/\s+/g, '-');
   router.push(`/judge/review/${slug}`);
   };
-
+ 
   return (
     <div className="bg-[#191307] rounded-lg overflow-hidden w-full max-w-[412px] h-auto flex flex-col">
       <div className="p-4 flex-grow">
