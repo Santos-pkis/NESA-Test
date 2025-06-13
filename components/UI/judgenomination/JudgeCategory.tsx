@@ -2,14 +2,14 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 import { FaLinkedin, FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 interface Judge {
-  id: number;
   name: string;
   organization: string;
   achievements: string;
-  imageUrl: string;
+  image: string;
 }
 
 interface JudgeCardProps {
@@ -20,13 +20,18 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge }) => {
   if (!judge) {
     return null;
   }
+  const router = useRouter();
+    const handleReview = (name: string) => {
+  const slug = name.toLowerCase().replace(/\s+/g, '-');
+  router.push(`/judge/review/${slug}`);
+  };
 
   return (
     <div className="bg-[#191307] rounded-lg overflow-hidden w-full max-w-[412px] h-auto flex flex-col">
       <div className="p-4 flex-grow">
         <div className="mb-4 flex justify-center">
           <Image
-            src={judge.imageUrl}
+            src={judge.image}
             alt={judge.name}
             width={332}
             height={261}
@@ -55,12 +60,13 @@ const JudgeCard: React.FC<JudgeCardProps> = ({ judge }) => {
         <p className="text-gray-400 text-xs">{judge.achievements}</p>
       </div>
       <div className="p-4">
-        <Link href={`/review/${judge.id}`} passHref>
+        <div>
           <button className="w-full py-2 px-4 rounded-full text-black font-semibold cursor-pointer transition-colors"
+          onClick={()=>handleReview(judge.name)}
                   style={{background: 'linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)'}}>
             View Profile
           </button>
-        </Link>
+        </div>
       </div>
     </div>
   );

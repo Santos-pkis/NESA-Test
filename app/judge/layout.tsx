@@ -101,12 +101,14 @@ export default function JudgeLayout({ children }: JudgeLayoutProps) {
           </Link>
           <div className="hidden md:flex space-x-6 items-center">
             <NavItem href="/judge" label="Home" />
-                        <NavDropdown label="Nomination" items={[
+            <NavDropdown label="Nomination" items={[
+              { href: "/nomination/sub-categories/africa-lifetime-education-icon", label: "African Icon" },
               { href: "/judge/competitive", label: "Competitive" },
               { href: "/judge/non-competitive", label: "Non-Competitive" },
+              { href: "/SeeAll", label: "See All" },
             ]} />
             <NavDropdown label="Judges Arena" items={[
-              { href: "/judge/JudgeC", label: "See Judges" },
+              { href: "/judge/SeeJudges", label: "See Judges" },
               { href: "/judge/JudgeChat", label: "Judge Chat Room" },
             ]} />
             <NavDropdown label="Reviews" items={[
@@ -130,7 +132,7 @@ export default function JudgeLayout({ children }: JudgeLayoutProps) {
             <NavItem href="/judge" label="Home" mobile />
             <NavItem href="/judge/nomination" label="Nomination" isHighlighted mobile />
             <NavDropdown label="Judges Arena" items={[
-              { href: "/judge/JudgeC", label: "See Judges" },
+              { href: "/judge/SeeJudges", label: "See Judges" },
               { href: "/judge/JudgeChat", label: "Judge Chat Room" },
             ]} mobile />
             <NavDropdown label="Reviews" items={[
