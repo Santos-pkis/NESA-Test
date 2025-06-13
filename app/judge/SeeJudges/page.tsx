@@ -14,7 +14,7 @@ const JudgePage: React.FC = () => {
 
   const handleReview = (name: string) => {
   const slug = name.toLowerCase().replace(/\s+/g, '-');
-  router.push(`/judge/review/${slug}`);
+  router.push(`/judge/review/Judge/${slug}`);
   };
 
   return (

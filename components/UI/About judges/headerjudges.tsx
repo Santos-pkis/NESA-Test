@@ -11,8 +11,9 @@ const JudgesSection = () => {
           fill
         />
       </div>
-      <div className={styles.container}>
-        <div className="w-full lg:w-3/5 text-center lg:text-left">
+      <div className="relative z-10 w-full max-w-[80rem] ml-[25px] mr-auto mt-[50px] flex flex-col items-center gap-10 
+                lg:flex-row lg:items-start">
+        <div className="w-full lg:w-3/5 text-center flex bg-blue flex-col lg:text-left">
           <h2 className={styles.text1}>
           New Education Standard Award: Our Prestigious Judges
           </h2>
@@ -26,25 +27,25 @@ const JudgesSection = () => {
           <div className="grid grid-cols-2 gap-4 max-w-md">
             <div className="col-span-1">
               <Image
-                src="/images/hjudge.png"
+                src='/images/judge1.png'
                 alt="Judge 1"
-                width={200}
-                height={200}
+                width={100}
+                height={100}
                 className="rounded-lg w-full h-auto"
               />
             </div>
             <div className="col-span-1 row-span-2 mt-10 sm:mt-20 ml-0 sm:ml-3">
               <Image
-                src="/images/hjudge3.png"
+                src='/images/judge7.png'
                 alt="Judge 2"
                 width={200}
-                height={420}
+                height={220}
                 className="rounded-md w-full h-auto"
               />
             </div>
             <div className="col-span-1 mt-4 ml-0 sm:ml-5">
               <Image
-                src="/images/hjudge1.png"
+                src='/images/judge6.png'
                 alt="Judge 3"
                 width={200}
                 height={180}

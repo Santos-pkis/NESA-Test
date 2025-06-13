@@ -20,14 +20,14 @@ interface JudgeCardProps {
 
 const JudgeCard: React.FC<JudgeCardProps> = ({ judge }) => {
    const router = useRouter();
-   
+
   if (!judge) {
     return null;
   }
 
   const handleReview = (name: string) => {
   const slug = name.toLowerCase().replace(/\s+/g, '-');
-  router.push(`/judge/review/${slug}`);
+  router.push(`/judge/review/Judge/${slug}`);
   };
  
   return (

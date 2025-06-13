@@ -1,8 +1,10 @@
+"use client";
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
 
 const judges = [
   {
-    name: 'Mr. Benneth Osarieme Ogbe',
+    name: 'Mr Benneth Osarieme Ogbeiwi',
     title: 'Textured, Opinionated and Professional.',
     about: 'A highly motivated individual with over two decades of experience: sharing knowledge in music & the arts, benneth ogbeiwi\'s doggedness makes it impossible for individuals to deviate from the cause. He has been constantly told that he is very imposing in getting the job done: "I enjoy this privilege, which has afforded me the opportunity to collaborate with my associates to achieve set goals"',
     imageSrc: '/images/judge1.png',
@@ -14,13 +16,13 @@ const judges = [
     imageSrc: '/images/judge7.png',
   },
   {
-    name: 'Dr Juliet',
+    name: 'Dr Juliet Ihiabe',
     project: 'Yeelen Education Project',
     achievements: 'Aminah\'s dedication to improving rural education, particularly for girls, demonstrates a significant impact on her community. An innovative mobile library system and successful partnership with the government showcase her ability to create sustainable change. She also partnered with the Ministry of Education to implement Yeelen\'s innovation',
     imageSrc: '/images/judge8.png',
   },
   {
-    name: 'Paul-Kayode Joash',
+    name: 'Paul Kayode Joash',
     project: 'Yeelen Education Project',
     achievements: 'Paul-Kayode\'s mission is to develop individuals and organisations to operate in their peak performance.\
      At MyDoubleDouble, Paul-Kayode is a prolific international inspirational Speaker, Sales/Marketing Guru and Personal & Business Transformation Coach/Trainer. Principal Coach at MyDoubleDouble. The host of MyDoubleDouble TV/Radio/Conferences both in the UK & Nigeria.',
@@ -40,7 +42,16 @@ const judges = [
   },
 ];
 
+
+
+
 const JudgesList = () => {
+     const router = useRouter();
+
+       const handleReview = (name: string) => {
+  const slug = name.toLowerCase().replace(/\s+/g, '-');
+  router.push(`/judge/review/Judge/${slug}`);
+  };
   return (
     <section className="bg-white text-black py-10 px-5 lg:px-20">
       <div>
@@ -75,6 +86,9 @@ const JudgesList = () => {
                   <p className="mb-4 text-black-600 mb-2 font-light">{judge.achievements}</p>
                 </>
               )}
+            <div
+            onClick={()=>handleReview(judge.name)}
+            >
 <p className="inline-flex items-center cursor-pointer mt-2">
   <span className="relative">
     <span style={{ background: 'var(--Gradient, #FFC247)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
@@ -83,7 +97,9 @@ const JudgesList = () => {
     <span className="absolute bottom-[-1px] left-0 w-full h-[1px]" style={{ background: 'var(--Gradient, #FFC247)' }}></span>
   </span>
   <span className="ml-1" style={{ color: 'var(--Gradient, #FFC247)' }}> &gt; </span>
-</p>  </div>
+</p> 
+</div>
+ </div>
           </div>
         ))}
       </div>
