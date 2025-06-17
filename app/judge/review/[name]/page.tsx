@@ -73,9 +73,10 @@ export default function ReviewDetailPage({ params }: PageProps) {
   );
 
   return (
-    <div className={styles.container}>
-      <div className={styles.infoCont}>
-      <div className='mb-28' style={{
+    <div className="	p-0 m-0 flex flex-col">
+      <div className="bg-[#FFF5DC] pb-[60px]
+">
+      <div className='mb-[150px]' style={{
             backgroundImage: `url('/images/nomineeNav.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -92,26 +93,38 @@ export default function ReviewDetailPage({ params }: PageProps) {
                 className="rounded-full object-cover"
               />
               <div>
-                <h1 className={styles.text}>{nominee.name}</h1>
-                <p className={styles.text1}>{nominee.title}</p>
+                <h1 className="text-[30px] font-semibold
+">{nominee.name}</h1>
+                <p className="text-[20px] font-normal
+">{nominee.title}</p>
               </div>
             </div>
       </div>
 
         <div className={`pt-24  ml-10 mr-10 flex flex-col space-y-6`}>
-          <div className={`${styles.nameCont} `}>
-            <h1 className={styles.text2}>Bio :</h1>
-            <p className={styles.text3}>{nominee.bio}</p>
+          <div className="flex flex-col gap-[4px]
+">
+            <h1 className="text-[18px] font-medium mb-[10px]
+">Bio :</h1>
+            <p className="text-[14px] font-normal
+">{nominee.bio}</p>
           </div>
 
-          <div className={styles.nameCont}>
-            <h1  className={styles.text2}>Achievements:</h1>
-            <p className={styles.text3}>{nominee.achievements}</p>
+          <div className="flex flex-col gap-[4px]
+">
+            <h1  className="text-[18px] font-medium mb-[10px]
+">Achievements:</h1>
+            <p className="text-[14px] font-normal
+">{nominee.achievements}</p>
           </div>
 
-          <div className={styles.nameCont}>
-            <h1  className={styles.text4}>Certificates</h1>
-            <div className={styles.certificate}>
+          <div className="flex flex-col gap-[4px]
+">
+            <h1  className="text-[20px] font-medium mb-[20px]
+">Certificates</h1>
+            <div className="flex flex-col md:flex-row gap-6 w-full h-full
+">
+    
                 <Image
                 src="/images/certificate1.png"
                 alt={nominee.name}
@@ -134,8 +147,10 @@ export default function ReviewDetailPage({ params }: PageProps) {
           </div>
 
           <div>
-            <h1  className={styles.text4}>Images and Videos</h1>
-            <div className={styles.certificate}>
+            <h1  className="text-[20px] font-medium mb-[20px]
+">Images and Videos</h1>
+            <div className="flex flex-col md:flex-row gap-6
+">
               <Image
                 src="/images/video1.png"
                 alt={nominee.name}
@@ -170,17 +185,23 @@ export default function ReviewDetailPage({ params }: PageProps) {
 
 
 
-      <div className={styles.reviewCont}>
+      <div className="py-[50px] bg-white
+">
 
-        <div className={styles.reviewDetails}>
+        <div className="mx-[5%]
+">
 
-        <div className={styles.reviewandcommentCont}>
-          <h1 className={styles.reviewandcomment}>Reviews and Comments</h1>
+        <div className="mb-[50px]
+">
+          <h1 className="text-[25px]
+">Reviews and Comments</h1>
           <GradientLine />
         </div>
 
-        <div className={styles.rateNomineeCont}>
-          <div className={styles.lol}>
+        <div className="flex flex-row items-center justify-center mb-[50px]
+">
+          <div className="flex flex-col items-center gap-[20px]
+">
           <h1>Rate Nominee</h1>
               <Image
                 src="/images/rating.png"
@@ -192,30 +213,38 @@ export default function ReviewDetailPage({ params }: PageProps) {
         </div>
 
 
-        <div className={styles.judgesCommentCont}>
-            <h1 className={styles.ok}>Judges Comments</h1>
-            <div className={styles.judgesCommentinfo}>
+        <div>
+            <h1 className="mb-[30px]
+">Judges Comments</h1>
+            <div className="flex flex-row items-center gap-[20px] mb-[20px]
+">
                 <Image
                 src="/images/Ellipse.png"
                 alt={nominee.name}
                 width={50}
                 height={10}
               />
-                <div className={styles.judgesCommentinfotext}>
-                  <h1 className={styles.tttt}>Dr. Aminah Danjumah</h1>
-                  <p className={styles.ttt}>Yeelen Education Project</p>
+                <div>
+                  <h1 className="text-[15px]
+">Dr. Aminah Danjumah</h1>
+                  <p className="text-[12px] font-light
+">Yeelen Education Project</p>
                 </div>
             </div>
 
-            <div className={styles.inputbox}>
+            <div className="mb-[70px]
+">
                 <input
                 type="text"
-                className={styles.input}
+                className="w-1/2 bg-white rounded-md p-2 text-sm border border-[#bebdbd]
+"
                 placeholder="Write a comment on Nominee"
               />
             </div>
 
-                <div className={styles.ccc}>
+                <div className="flex flex-row gap-[20px]
+
+">
               {mockComment.map((comment) => (
               <CommentCard key={comment.id} comment={comment} />
             ))}
