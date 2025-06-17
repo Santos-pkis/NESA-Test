@@ -7,10 +7,21 @@ import VotingPanel from '@/components/UI/Admin/VotingPanel';
 import JudgesApplications from '@/components/UI/Admin/JudgesApplication';
 import JudgeDetail from '@/components/UI/Admin/JudgeDetail';
 import ApprovedJudges from '@/components/UI/Admin/ApprovedJudges';
-export default function AdminDashboard() {
-  const [selected, setSelected] = useState('Nomination');
-  const [applicant, setApplicant] = useState(null);
+import { useEffect } from 'react';
 
+export default function AdminDashboard() {
+  const [selected, setSelected] = useState(() => {
+  return localStorage.getItem('admin_selected_panel') || 'nominationpanel';
+});
+  const [applicant, setApplicant] = useState(null);
+    useEffect(() => {
+      const saved = localStorage.getItem('admin_selected_panel');
+      if (saved) setSelected(saved);
+    }, []);
+    // Persist selected panel in localStorage
+    useEffect(() => {
+      localStorage.setItem('admin_selected_panel', selected);
+    }, [selected]);
   // Handle content switching
   const renderContent = () => {
     switch (selected) {
@@ -30,7 +41,7 @@ export default function AdminDashboard() {
       default:
         return (
           <div className="p-6 pt-20 text-xl font-medium">
-            {selected} content coming soon...
+            {selected} content coming soon, hold...
           </div>
         );
     }

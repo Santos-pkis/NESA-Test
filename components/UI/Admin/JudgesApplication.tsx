@@ -1,19 +1,28 @@
 "use client"
 import {useState, useEffect} from 'react'
-import { getjudges } from "@/lib/services/getjugdes";
+import { getjudgesapplicants } from "@/lib/services/getjugdesApplicants";
+import { cn } from "@/lib/utils/util";
+
 
 
 type Judge = {
-  id: string;
-  full_name: string;
-  experience?: string;
-  email?: string;
-  upload_document?: string;
-  phone_number?: string;
-  state_and_region?: string;
-  motivation_statement?: string;
-  education_background?: string;
-  upload_profile_image?: string;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  region: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  applicationCount: string;
+  latestCreatedAt: string;
+};
+
+type GetJudgesResponse = {
+  totalApplications: number;
+  totalAccepted: number;
+  totalPending: number;
+  totalDenied: number;
+  applicants: Judge[];
 };
 
 const JudgesApplications = ({ selectApplicant }: any) => {
@@ -22,14 +31,15 @@ const JudgesApplications = ({ selectApplicant }: any) => {
     { name: 'Jacob Jones', status: 'Pending', date: '18/09/2016' },
     { name: 'Albert Flores', status: 'Denied', date: '18/09/2016' },
   ];
-    const [remoteJudges, setRemoteJudges] = useState<Judge[]>([]);
+    const [remoteJudges, setRemoteJudges] = useState<GetJudgesResponse | null>(null);
   useEffect(() => {
     const fetchJudges = async () => {
       try {
-        const data = await getjudges();
+        const data = await getjudgesapplicants();
         setRemoteJudges(data);
         console.log(data)
       } catch (err) {
+        alert("Failed to fetch judges: " + err);
         console.error("Failed to fetch judges:", err);
       }
     };
@@ -39,37 +49,103 @@ const JudgesApplications = ({ selectApplicant }: any) => {
 
   return (
     <div className="p-6 pt-20 mt-4 ">
-      <h2 className="text-2xl font-semibold mb-4">Judges Applications</h2>
+      <h2 className="font-poppins font-medium text-[24px] leading-[36px] tracking-normal mb-4">Overview</h2>
+                  <div className="grid grid-cols-4 gap-4 mb-6">
+                    <StatCard
+                      title="Total Applications"
+                      count={remoteJudges ? remoteJudges.totalApplications : 0}
+                      change="100%"
+                    />
+                    <StatCard
+                      title="Accepted"
+                      count={remoteJudges ? remoteJudges.totalAccepted : 0}
+                      change={
+                        remoteJudges && remoteJudges.totalApplications > 0
+                          ? `${((remoteJudges.totalAccepted / remoteJudges.totalApplications) * 100).toFixed(1)}%`
+                          : "0%"
+                      }
+                    />
+                    <StatCard
+                      title="Pending"
+                      count={remoteJudges ? remoteJudges.totalPending : 0}
+                      change={
+                        remoteJudges && remoteJudges.totalApplications > 0
+                          ? `${((remoteJudges.totalPending / remoteJudges.totalApplications) * 100).toFixed(1)}%`
+                          : "0%"
+                      }
+                    />
+                    <StatCard
+                      title="Denied"
+                      count={remoteJudges ? remoteJudges.totalDenied : 0}
+                      change={
+                        remoteJudges && remoteJudges.totalApplications > 0
+                          ? `${((remoteJudges.totalDenied / remoteJudges.totalApplications) * 100).toFixed(1)}%`
+                          : "0%"
+                      }
+                    />
+                  </div>
+
+
       <table className="w-full text-left bg-white shadow rounded">
         <thead className="bg-gray-100">
           <tr>
             <th className="p-3">S/N</th>
             <th>Name</th>
             <th>Status</th>
+            <th>Email</th>
             <th>Date</th>
           </tr>
         </thead>
         <tbody>
-            {/* {applicants.map((a, i) => (
-            <tr key={i} className="border-t cursor-pointer hover:bg-gray-50" onClick={() => selectApplicant(a)}>
-              <td className="p-3">{i + 1}</td>
-              <td>{a.name}</td>
-              <td>{a.status}</td>
-              <td>{a.date}</td>
-            </tr>
-            ))} */}
-            {remoteJudges.map((judge, i) => (
-            <tr key={judge.id} className="border-t cursor-pointer hover:bg-gray-50" onClick={() => selectApplicant(judge)}>
-              <td className="p-3">{i + 1}</td>
-              <td>{judge.full_name}</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            ))}
+
+            {remoteJudges &&
+              Array.isArray(remoteJudges.applicants) && remoteJudges.applicants.length > 0 ? (
+                remoteJudges.applicants.map((judge, judgeIdx) => (
+                  <tr
+                    key={judgeIdx}
+                    className="border-t cursor-pointer hover:bg-gray-50"
+                    onClick={() => selectApplicant(judge)}
+                  >
+                    <td className="p-3">{judgeIdx + 1}</td>
+                    <td>{judge.fullName}</td>
+                    <td>{judge.email}</td>
+                    <td>
+                      <span
+                        className={cn(
+                          "px-2 py-1 rounded-full text-xs font-medium",
+                          judge.status === "Accepted"
+                            ? "bg-[#00B215] text-[#00B215]"
+                            : "bg-yellow-100 text-yellow-600"
+                        )}
+                      >
+                        {judge.status}
+                      </span>
+                    </td>
+                    <td>{judge.createdAt}</td>
+                  </tr>
+                ))
+              ) : null}
         </tbody>
       </table>
     </div>
   );
 };
+
+type StatCardProps = {
+  title: string;
+  count: string | number;
+  change: string;
+};
+
+function StatCard({ title, count, change }: StatCardProps) {
+  return (
+    <div className="bg-white p-4 rounded-lg shadow">
+      <p className="text-sm text-gray-500 mb-1">{title}</p>
+      <div className="text-2xl font-bold">{count}</div>
+      <div className="text-green-500 text-sm">▲ {change}</div>
+    </div>
+  );
+}
+
 
 export default JudgesApplications;

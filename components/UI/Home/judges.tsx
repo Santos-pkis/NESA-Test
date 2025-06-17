@@ -4,21 +4,22 @@ import Button from "@/components/Common/Button";
 import useSlider from "@/lib/hooks/useSlider";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getjudges } from "@/lib/services/getjugdes";
+import { getjudgesapplicants } from "@/lib/services/getjugdesApplicants";
 import { useRouter } from "next/navigation";
+import { getApprovedJudges } from "@/lib/services/getApprovedJudges";
 
 
 type Judge = {
-  id: string;
-  full_name: string;
-  experience?: string;
-  email?: string;
-  upload_document?: string;
-  phone_number?: string;
-  state_and_region?: string;
-  motivation_statement?: string;
-  education_background?: string;
-  upload_profile_image?: string;
+    id: string;
+    full_name: string;
+    current_role: string;
+    linkedin_profile: string;
+    email: string;
+    country: string;
+    reason: string;
+    document: string;
+    updatedAt: string;
+    createdAt: string;
 };
 
 
@@ -61,7 +62,7 @@ const Judges = () => {
   useEffect(() => {
     const fetchJudges = async () => {
       try {
-        const data = await getjudges();
+        const data = await getApprovedJudges();
         setRemoteJudges(data);
         console.log(data)
       } catch (err) {
@@ -120,20 +121,21 @@ const Judges = () => {
 
       
       {/* Remote judges */}
-      {remoteJudges.map((judge) => {
-        const imageSrc = judge.upload_profile_image
-          ? `${BACKEND_URL}/${judge.upload_profile_image}`
-          : "/images/nesa-mg.png";
+      {remoteJudges.map((judge, id) => {
+        const imageSrc = "/images/nesa-mg.png";
+        // judge.upload_profile_image
+        //   ? `${BACKEND_URL}/${judge.upload_profile_image}`
+        //   : "/images/nesa-mg.png";
 
         return (
           <div
-            key={judge.id}
+            key={id}
             className="flex-shrink-0 lg:w-[23%] w-[34%] h-[350px] rounded-xl overflow-hidden relative bg-cover bg-center"
             style={{ backgroundImage: `url(${imageSrc})` }}
           >
             <div className="absolute bottom-0 w-full bg-black/60 text-white p-4">
               <h3 className="text-lg font-semibold leading-tight">{judge.full_name}</h3>
-              <p className="text-sm">{judge.experience}</p>
+              <p className="text-sm">{judge.reason}</p>
             </div>
           </div>
         );

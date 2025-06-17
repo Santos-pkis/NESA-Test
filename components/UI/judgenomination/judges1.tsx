@@ -4,7 +4,7 @@ import Button from "@/components/Common/Button";
 import useSlider from "@/lib/hooks/useSlider";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getjudges } from "@/lib/services/getjugdes";
+import { getjudges } from "@/lib/services/getjugdesApplicants";
 import { useRouter } from "next/navigation";
 
 

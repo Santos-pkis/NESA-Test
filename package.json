@@ -38,6 +38,7 @@
     "react-international-phone": "^4.5.0",
     "react-loader-spinner": "^6.1.6",
     "react-phone-input-2": "^2.15.1",
+    "react-toastify": "^11.0.5",
     "styled-components": "^6.1.11",
     "swiper": "^11.2.6",
     "tailwind-variants": "^1.0.0",

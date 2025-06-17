@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils/util";
 import {getNominations} from "@/lib/services/getNominations";
 import { useEffect, useState } from "react";
-import { getjudges } from "@/lib/services/getjugdes";
+// import { toast } from "react-toastify";
 
  type Nomination = {
     fullName: string;
@@ -29,6 +29,8 @@ const NominationPanel = () => {
         setNominees(data);
         console.log(data)
       } catch (err) {
+        alert("Failed to fetch nominations: " + err);
+        // toast.error("Failed to fetch nominations" err);
         console.error("Failed to fetch nominations:", err);
       }
     };
