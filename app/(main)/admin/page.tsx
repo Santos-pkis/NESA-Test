@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 
 export default function AdminDashboard() {
   const [selected, setSelected] = useState(() => {
-  return localStorage.getItem('admin_selected_panel') || 'nominationpanel';
+  return localStorage.getItem('admin_selected_panel') || 'Nomination';
 });
   const [applicant, setApplicant] = useState(null);
     useEffect(() => {
