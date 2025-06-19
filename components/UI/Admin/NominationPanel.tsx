@@ -1,26 +1,8 @@
 import { cn } from "@/lib/utils/util";
-import {getNominations} from "@/lib/services/getNominations";
+import { getNominations, Nomination, NominationsResponse } from "@/lib/services/getNominations";
 import { useEffect, useState } from "react";
 // import { toast } from "react-toastify";
-
- type Nomination = {
-    fullName: string;
-    email: string;
-    subCategory: string | null;
-    status: string;
-    createdAt: string;
-    updatedAt: string;
-    nominationCount: string;
-    latestCreatedAt: string;
-};
-
-type NominationsResponse = {
-    totalNominations: number;
-    totalAccepted: number;
-    totalPending: number;
-    nominations: Nomination[];
-};
-const NominationPanel = () => {
+const NominationPanel = ({ selectApplicant }: any) => {
   const [nominees, setNominees] = useState<NominationsResponse | null>(null);
   useEffect(() => {
     const fetchNominees = async () => {
@@ -79,33 +61,10 @@ return (
                 </tr>
               </thead>
               <tbody>
-                {/* Example static data mapping, remove or update as needed
-                {nominations.map((n, i) => (
-                  <tr key={i} className="border-b text-sm">
-                    <td className="py-2">{i + 1}</td>
-                    <td>{n.name}</td>
-                    <td>{n.subCategory}</td>
-                    <td>{n.count}</td>
-                    <td>
-                      <span
-                        className={cn(
-                          "px-2 py-1 rounded-full text-xs font-medium",
-                          n.status === "Accepted"
-                            ? "bg-green-100 text-green-600"
-                            : "bg-yellow-100 text-yellow-600"
-                        )}
-                      >
-                        {n.status}
-                      </span>
-                    </td>
-                    <td>{n.date}</td>
-                  </tr>
-                ))}
-                */}
 
                 {nominees && Array.isArray(nominees.nominations) && nominees.nominations.length > 0 ? (
                   nominees.nominations.map((n, i) => (
-                    <tr key={i} className="border-b text-sm">
+                    <tr key={n.id} className="border-b text-sm" onClick={() => selectApplicant(n.id)}>
                       <td className="py-2">{i + 1}</td>
                       <td>{n.fullName}</td>
                       <td>{n.subCategory || "-"}</td>

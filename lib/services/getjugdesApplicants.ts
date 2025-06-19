@@ -27,8 +27,8 @@ export const getjudgesapplicants = async (): Promise<GetJudgesResponse> => {
         "Content-Type": "application/json",
       },
     });
-
-    return response.data.applicants ?? [];
+    console.log("response!", response.data);
+    return response.data;
   } catch (error: any) {
     console.error("API Error:", {
       status: error.response?.status,

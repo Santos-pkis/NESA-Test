@@ -1,6 +1,7 @@
 import apiClient from "./apiClient";
 
 export type Nomination = {
+    id: string
     fullName: string;
     email: string;
     subCategory: string | null;

@@ -8,12 +8,13 @@ import JudgesApplications from '@/components/UI/Admin/JudgesApplication';
 import JudgeDetail from '@/components/UI/Admin/JudgeDetail';
 import ApprovedJudges from '@/components/UI/Admin/ApprovedJudges';
 import { useEffect } from 'react';
+import NomineeDetail from '@/components/UI/Admin/nomineeDetail';
 
 export default function AdminDashboard() {
   const [selected, setSelected] = useState(() => {
   return localStorage.getItem('admin_selected_panel') || 'Nomination';
 });
-  const [applicant, setApplicant] = useState(null);
+  const [applicant, setApplicant] = useState<string | null>(null);
     useEffect(() => {
       const saved = localStorage.getItem('admin_selected_panel');
       if (saved) setSelected(saved);
@@ -26,7 +27,12 @@ export default function AdminDashboard() {
   const renderContent = () => {
     switch (selected) {
       case 'Nomination':
-        return <NominationPanel />;
+        return applicant ? (
+          <NomineeDetail applicant={applicant} goBack={() => setApplicant(null)} />
+        ) : (
+         <NominationPanel selectApplicant={setApplicant}/>
+        );
+        break;
       case 'Judges/Judges':
         return <ApprovedJudges selectApplicant={setApplicant} />;                 
       case 'Judges/Applications':

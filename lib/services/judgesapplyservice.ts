@@ -30,7 +30,7 @@ export const judgesapplication = async (data: ApplicationData): Promise<any> => 
         };
 
     const response = await apiClient.post(
-      "/api/judges/judge",
+      "/api/judge-apply/applicant",
       payload, // Send as JSON
       {
         headers: {
