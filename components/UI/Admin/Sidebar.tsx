@@ -28,11 +28,11 @@ const Sidebar = ({ selected, setSelected }: any) => {
 
   return (
     <div className="w-64 bg-black text-white h-screen py-6 px-4 space-y-2">
-      <div className="mb-6 font-bold text-xl text-center text-yellow-400">NESA Admin</div>
+      
       {navItems.map((item) => (
         <div key={item.name}>
           <div
-            className={`flex justify-between items-center px-3 py-2 rounded cursor-pointer ${selected === item.name ? 'bg-yellow-100 text-black' : 'hover:bg-yellow-800'}`}
+            className={`flex justify-between items-center px-3 py-2 rounded cursor-pointer ${selected === item.name ? 'bg-[#FFF8EB] text-black border-r-4 border-r-[#F5A300]' : 'hover:bg-yellow-800'}`}
             onClick={() => item.subItems ? toggleMenu(item.name) : setSelected(item.name)}
           >
             <span>{item.name}</span>

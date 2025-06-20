@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils/util";
 
 
 type Judge = {
+  id: string; 
   fullName: string;
   email: string;
   phoneNumber: string;
@@ -104,7 +105,7 @@ const JudgesApplications = ({ selectApplicant }: any) => {
                   <tr
                     key={judgeIdx}
                     className="border-t cursor-pointer hover:bg-gray-50"
-                    onClick={() => selectApplicant(judge)}
+                    onClick={() => selectApplicant(judge.id)}
                   >
                     <td className="p-3">{judgeIdx + 1}</td>
                     <td>{judge.fullName}</td>

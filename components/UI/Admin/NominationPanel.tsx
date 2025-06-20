@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils/util";
 import { getNominations, Nomination, NominationsResponse } from "@/lib/services/getNominations";
 import { useEffect, useState } from "react";
-// import { toast } from "react-toastify";
+import SkeletonLoader from '@/components/UI/SkeletonLoader';
+import { Suspense } from "react";
+
 const NominationPanel = ({ selectApplicant }: any) => {
   const [nominees, setNominees] = useState<NominationsResponse | null>(null);
   useEffect(() => {
@@ -64,25 +66,27 @@ return (
 
                 {nominees && Array.isArray(nominees.nominations) && nominees.nominations.length > 0 ? (
                   nominees.nominations.map((n, i) => (
-                    <tr key={n.id} className="border-b text-sm" onClick={() => selectApplicant(n.id)}>
-                      <td className="py-2">{i + 1}</td>
-                      <td>{n.fullName}</td>
-                      <td>{n.subCategory || "-"}</td>
-                      <td>{n.nominationCount}</td>
-                      <td>
-                        <span
-                          className={cn(
-                            "px-2 py-1 rounded-full text-xs font-medium",
-                            n.status === "Accepted"
-                              ? "bg-green-100 text-green-600"
-                              : "bg-yellow-100 text-yellow-600"
-                          )}
-                        >
-                          {n.status}
-                        </span>
-                      </td>
-                      <td>{n.latestCreatedAt ? new Date(n.latestCreatedAt).toLocaleDateString() : "-"}</td>
-                    </tr>
+                    <Suspense key={n.id} fallback={<SkeletonLoader />}>
+                      <tr className="border-b cursor-pointer hover:bg-gray-50 text-sm" onClick={() => selectApplicant(n.id)}>
+                        <td className="py-2">{i + 1}</td>
+                        <td>{n.fullName}</td>
+                        <td>{n.subCategory || "-"}</td>
+                        <td>{n.nominationCount}</td>
+                        <td>
+                          <span
+                            className={cn(
+                              "px-2 py-1 rounded-full text-xs font-medium",
+                              n.status === "Accepted"
+                                ? "bg-green-100 text-green-600"
+                                : "bg-yellow-100 text-yellow-600"
+                            )}
+                          >
+                            {n.status}
+                          </span>
+                        </td>
+                        <td>{n.latestCreatedAt ? new Date(n.latestCreatedAt).toLocaleDateString() : "-"}</td>
+                      </tr>
+                    </Suspense>
                   ))
                 ) : (
                   <tr>

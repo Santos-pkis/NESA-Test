@@ -1,6 +1,7 @@
 import apiClient from "./apiClient";
 
 type Judge = {
+  id: string; 
   fullName: string;
   email: string;
   phoneNumber: string;

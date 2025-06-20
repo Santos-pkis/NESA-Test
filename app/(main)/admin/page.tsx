@@ -16,8 +16,11 @@ export default function AdminDashboard() {
 });
   const [applicant, setApplicant] = useState<string | null>(null);
     useEffect(() => {
+      if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('admin_selected_panel');
       if (saved) setSelected(saved);
+      }
+
     }, []);
     // Persist selected panel in localStorage
     useEffect(() => {
@@ -54,7 +57,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden pt-20">
       <Sidebar selected={selected} setSelected={setSelected} />
       <main className="flex-1 overflow-y-auto bg-gray-50">{renderContent()}</main>
     </div>
