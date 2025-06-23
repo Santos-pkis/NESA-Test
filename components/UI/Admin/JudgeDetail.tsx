@@ -24,9 +24,19 @@ const JudgeDetail = ({ applicant: id, goBack }: { applicant: string; goBack: () 
     fetchJudge();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-  if (!data) return <div>No data found.</div>;
+  if (loading) return <div>Loading...
+
+      <div className="text-sm text-gray-600 cursor-pointer" onClick={goBack}>&larr; Back</div>
+``
+  </div>;
+  if (error) return <div>{error}
+
+      <div className="text-sm text-gray-600 cursor-pointer" onClick={goBack}>&larr; Back</div>
+  
+  </div>;
+  if (!data) return <div>No data found. 
+      <div className="text-sm text-gray-600 cursor-pointer" onClick={goBack}>&larr; Back</div>
+  </div>;
 
   return (
     <div className="p-6 pt-20 mt-4 space-y-4">

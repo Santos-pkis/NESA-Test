@@ -60,23 +60,34 @@ const HeroCenter = () => {
               <FaStar />
             </div>
 
-            <h1
+            {/* <h1
             className="text-[24px] md:text-[28px] lg:text-[40px] lg:leading-[54px] tracking-[1%] text-white font-raleway"
           >
             “Honoring Africa's Changemakers - Building the Future of Education Across the Continent”
+          </h1> */}
+                       <h1 className="text-[24px] md:text-[28px] lg:text-[40px] lg:leading-[54px] tracking-[1%] text-white font-raleway"
+          >
+            🏆 Honoring Africa's Changemakers – Building the Future of Education Across the Continent
           </h1>
-
           {/* Description */}
-          <p
+                    <p
+            className="lg:text-[16px] lg:text-[18px] md:text-[16px] text-[14px] md:leading-[26px] font-normal md:text-gray-300 text-[#FFFFFF] font-poppins"
+          >
+            After 15 years of vision, setbacks, and unwavering commitment — NESA-Africa 2025 emerges as the continent’s highest platform for honoring those rebuilding African education from the ground up.
+          </p>
+
+          {/* <p
             className="lg:text-[16px] lg:text-[18px] md:text-[16px] text-[14px] md:leading-[26px] font-normal md:text-gray-300 text-[#FFFFFF] font-poppins"
           >
             NESA Africa 2025 recognizes individuals, NGOs, corporations, policymakers, and influencers who are shaping education systems — not students or teachers, but the visionaries transforming Africa's future.
-          </p>
+          </p> */}
 
             <p className="md:text-[20px] text-[14px] leading-[32px] font-poppins text-transparent bg-clip-text bg-gradient-to-r from-[#FFC247] to-[#E48900]">
-              A flagship initiative under <SantosLink />
+              The NESA Africa Awards 2025 is a flagship initiative of the Santos Creations Educational Foundation (SCEF) — recognizing visionaries across NGOs, corporations, policy, media, EdTech, philanthropy, creative sectors, and the diaspora who are architecting Africa’s education systems. <SantosLink />
+              <br></br>
             </p>
- 
+            
+            <p><span className="text-red">🛑</span> This is not a teacher or student award. It celebrates builders of systems, advocates of change, and funders of futures.</p>
 
           </div>
    
