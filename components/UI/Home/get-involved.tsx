@@ -64,6 +64,32 @@ const GetInvolved = () => {
               Becoming a member of NESA can help you fulfil your desire to improve the world by giving back to the
               community in your own unique way.
             </p>
+            <div className="bg-white rounded-xl p-4 mb-4">
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-lg font-semibold text-[#191307]">
+                  <span role="img" aria-label="handshake">🤝</span>
+                  <span>GET INVOLVED – JOIN, DONATE, SPONSOR</span>
+                </div>
+                <ul className="list-none mt-2 space-y-1 text-base text-[#191307]">
+                  <li className="flex items-center gap-2">
+                    <span role="img" aria-label="check">✔️</span>
+                    <span>Join a Local Chapter — Online or Hybrid</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span role="img" aria-label="check">✔️</span>
+                    <span>Become an Ambassador — Represent NESA in your country</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span role="img" aria-label="check">✔️</span>
+                    <span>Attend Events — Join Webinars, Buy Tickets</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span role="img" aria-label="check">✔️</span>
+                    <span>Sponsor — Categories, Programs, Gala Awards</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 justify-center lg:gap-2 gap-4">
@@ -98,6 +124,39 @@ const GetInvolved = () => {
               </div>
               </div>
             ))}
+            </div>
+            <div className="bg-white rounded-xl p-6 my-8">
+              <div className="flex items-center gap-3 mb-3">
+                <span role="img" aria-label="heart" className="text-2xl">❤️</span>
+                <span className="text-xl font-bold text-[#b91c1c]">DONATE TO EDUCATION IN AFRICA</span>
+              </div>
+              <p className="font-poppins text-base md:text-lg mb-4">
+                Every donation through the GFA Wallet goes directly into secure, transparent project streams including:
+              </p>
+              <ul className="list-none space-y-2 text-[#191307] font-poppins text-base md:text-lg">
+                <li className="flex items-start gap-2">
+                  <span role="img" aria-label="school">🏫</span>
+                  <span>Renovate 2,000 Schools in Africa (via Rebuild My School Africa)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span role="img" aria-label="backpack">🎒</span>
+                  <span>Send a Child to School — Sponsor tuition &amp; learning costs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span role="img" aria-label="shirt">👕</span>
+                  <span>Donate Uniforms, Books &amp; Backpacks</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span role="img" aria-label="laptop">💻</span>
+                  <span>
+                    Support eLearning Kits for Conflict Zones — Provide solar tablets, radios, and education packs to displaced students in insurgency-affected regions
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span role="img" aria-label="lightbulb">💡</span>
+                  <i>Track your donation impact in real time via GFA Wallet dashboard.</i>
+                </li>
+              </ul>
             </div>
         </div>
       </div>

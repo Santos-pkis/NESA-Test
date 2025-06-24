@@ -86,90 +86,31 @@ const Timeline = () => {
             </div>
           ))}
         </div>
+        <div className="mt-20 bg-yellow-500/10 rounded-xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-lg border border-yellow-500/30 animate-pulse">
+          <div className="flex-1">
+            <h4 className="text-lg font-bold text-yellow-400 flex items-center gap-2 mb-2">
+              <span role="img" aria-label="celebration">🎉</span>
+              AWARDS GALA: <span className="text-white ml-2">December 22, 2025</span>
+            </h4>
+            <ul className="space-y-2 text-lg text-white/90">
+              <li>
+          <span role="img" aria-label="location">📍</span>
+          <span className="ml-2">Hybrid Event | Broadcast Across Africa | Host Country: <span className="font-semibold text-yellow-300">Nigeria</span></span>
+              </li>
+              <li>
+          <span role="img" aria-label="organizer">🏛</span>
+          <span className="ml-2">Organizer: <span className="font-semibold text-yellow-300">Santos Creations Educational Foundation</span></span>
+              </li>
+              <li>
+          <span role="img" aria-label="money">💰</span>
+          <span className="ml-2">Powered by: <span className="font-semibold text-yellow-300">GFA Wallet Technologies Ltd</span></span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Timeline;
-// // Compare this snippet from components/UI/Home/get-involved.tsx:"use client";
-// import React from "react";
-// import Image from "next/image";
-// const timeline = [
-//   {
-//     date: "April 1, 2025 – End of April 2025",
-//     title: "Nomination Launch & Awareness Phase",
-//     points: [
-//       "Launch of the nomination process on the NESA digital platform. Inviting entries from eligible participants across various categories",
-//       "Continuous collection of nominations, allowing participants to submit their applications along with supporting documents and evidence of work.",
-//     ],
-//   },
-//   {
-//     date: "May – June 2025",
-//     title: "Nomination Review & Pre-Voting Preparation",
-//     points: [
-//       "Judges & verification teams review submitted nominations.",
-//       "Verification of nominees' supporting documents & video documentaries.",
-//       "Judges evaluate & shortlist the top nominees for public voting.",
-//     ],
-//   },
-//   {
-//     date: "July 2025",
-//     title: "Pre-Voting Publicity & Event Ticket Sales",
-//     points: [
-//       "Feature top nominees in digital ads & interviews.",
-//       "Behind-the-scenes nominee documentaries on NESA TV & partner networks.",
-//     ],
-//   },
-//   {
-//     date: "August – October 2025",
-//     title: "Voting, Africa Education Expo & Grand Awards Ceremony",
-//     points: [
-//       "Public Voting Opens (August 1, 2025)",
-//       "NESA Africa Education Expo (October 15, 2025)",
-//       "Grand Awards & Fundraising Dinner (October 16-17, 2025)",
-//       "A panel of judges reviews the submissions to determine the recipients of the Platinum Awards in each category.",
-//     ],
-//   },
-// ];
-
-// const Timeline = () => {
-//   return (
-//     <div className="bg-[#0c0c0c] text-white py-16 px-6 md:px-20 relative overflow-hidden">
-//       <h2 className="text-2xl md:text-3xl font-semibold mb-12">NESA Nigeria 2025 Award Timelines</h2>
-//       <Image
-//         src={"/images/bg/datebg.png"}
-//         alt="dark background"
-//         className="w-full h-full object-cover -z-[1] absolute top-0 left-0"
-//         width={1440}
-//         height={1580}
-//       />
-//       <div className="space-y-16">
-//         {timeline.map((item, index) => (
-//           <div key={index} className="flex flex-col md:flex-row gap-8">
-//             {/* Date Column */}
-//             <div className="w-full md:w-1/3 text-gold font-medium text-lg">{item.date}</div>
-
-//             {/* Details Column */}
-//             <div className="w-full md:w-2/3 space-y-4">
-//               <h3 className="text-white text-xl font-semibold">{item.title}</h3>
-//               <ul className="list-disc list-inside space-y-2 text-[#cfcfcf]">
-//                 {item.points.map((point, i) => (
-//                   <li key={i}>{point}</li>
-//                 ))}
-//               </ul>
-
-//               {/* Read More */}
-//               <button className="flex items-center text-gold font-medium hover:underline">
-//                 Read more
-//                 <span className="ml-2">→</span>
-//               </button>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Timeline;

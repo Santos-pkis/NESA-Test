@@ -5,6 +5,7 @@ import { bottomLinks, contactInfos, footerData, socials } from "./data";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Social } from "@/lib/types/global";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
@@ -16,6 +17,20 @@ const Footer = () => {
         width={1024}
         height={600}
       />
+      <div className="container mb-12">
+        <div className="max-w-2xl mx-auto text-center space-y-4">
+            <motion.p
+            className="text-lg md:text-2xl font-medium leading-snug"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            >
+            “Africa’s future is not waiting. It is being designed — by the ones building the policies, platforms, and partnerships that fuel learning at scale.”
+            </motion.p>
+          <p className="text-base md:text-lg font-medium text-[#ffd37a]">
+        NESA-Africa 2025 — Celebrating Vision, Strategy &amp; System-Builders.
+          </p>
+        </div>
+      </div>
 
       <div className="bg-[#15110999] absolute top-0 left-0 w-full -z-[1] h-full"></div>
       <div className="space-y-8">
@@ -66,7 +81,7 @@ const Footer = () => {
 
         <div className="container border-t-2 border-white/10 pt-8">
           <div className="flex items-center md:justify-between gap-7 md:gap-0 md:flex-row flex-col">
-            <p>Nesa©2024</p>
+            <p>Nesa © 2024</p>
 
             <div className="flex items-center gap-6">
               {bottomLinks.map((data, id) => (

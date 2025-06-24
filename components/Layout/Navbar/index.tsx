@@ -172,7 +172,7 @@ const AuthButtons = ({ user }: { user: any }) => {
             background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
           }}
         >
-          Sign Up / Login
+          Sign Up/Login
         </motion.button>
       </Link>
     </div>
