@@ -12,7 +12,9 @@ import NomineeDetail from '@/components/UI/Admin/nomineeDetail';
 
 export default function AdminDashboard() {
   const [selected, setSelected] = useState(() => {
+      if (typeof window !== 'undefined') {
   return localStorage.getItem('admin_selected_panel') || 'Nomination';
+      }
 });
   const [applicant, setApplicant] = useState<string | null>(null);
     useEffect(() => {
@@ -24,7 +26,9 @@ export default function AdminDashboard() {
     }, []);
     // Persist selected panel in localStorage
     useEffect(() => {
-      localStorage.setItem('admin_selected_panel', selected);
+      if (typeof window !== 'undefined') {
+      localStorage.setItem('admin_selected_panel', selected || 'Nomination');
+      }
     }, [selected]);
   // Handle content switching
   const renderContent = () => {
