@@ -107,23 +107,23 @@ const HeroCenter = () => {
         <span className="text-red">🛑</span> This is not a teacher or student award. It celebrates builders of systems, advocates of change, and funders of futures.
           </motion.p>
         </motion.div>
-        
 
         <motion.div
           className="lg:w-auto md:ml-8 flex justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 5, ease: "easeOut" }}
+          initial={{ opacity: 0, rotateY: -90 }}
+          animate={{ opacity: 1, rotateY: 0 }}
+          transition={{ duration: 6, ease: "easeOut" }}
+          style={{ transformStyle: "preserve-3d" }}
         >
           <Image
-            src="/images/nesa-mg.png"
-            alt="home logo"
-            width={300}
-            height={300}
-            className="max-w-440px md:min-w-72 lg:min-w-440px"
+        src="/images/nesa-mg.png"
+        alt="home logo"
+        width={300}
+        height={300}
+        className="max-w-440px md:min-w-72 lg:min-w-440px"
           />
         </motion.div>
-    </motion.div>
+      </motion.div>
 
       {/* buttons */}
           <motion.div

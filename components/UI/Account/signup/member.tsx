@@ -1,5 +1,6 @@
 "use client";
 
+import Button from '@/components/Common/Button';
 import React, { useState } from "react";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import { Eye, EyeOff, Mail, Phone } from "lucide-react";
@@ -9,6 +10,8 @@ import Image from "next/image";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useAuth } from "@/lib/hooks/useAuth";
+import styles from '@/public/styles/CreateAccount.module.css';
+import Link from 'next/link';
 
 const MembershipForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -151,6 +154,7 @@ const MembershipForm: React.FC = () => {
       {/* Right Side - Form */}
       <div className="w-full md:w-2/3 p-6 md:p-12 bg-white">
         <div className="max-w-2xl mx-auto">
+          <div className='flex justify-between mb-6'>
           <button
             onClick={handleBack}
             className="flex items-center text-gray-600 mb-8"
@@ -158,10 +162,41 @@ const MembershipForm: React.FC = () => {
             <FiArrowLeftCircle className="text-3xl mr-2" />
             <span className="ml-2">Back</span>
           </button>
-          <h1 className="text-3xl font-bold mb-2">As a Member</h1>
-          <p className="text-gray-600 mb-8">
-            Inspire change and impact education through your effort.
-          </p>
+
+                    <div className="mt-4">
+              <span>already have an account?</span>
+                <Link href="/account/login">
+              <Button text="Log in" variant="filled" className="rounded-lg px-3 md:px-4 py-2 flex items-center justify-center
+                    px-1 md:px-8 py-6 mb-4
+                    text-xs sm:text-sm md:text-lg
+                    text-center hover:bg-[#E48900] hover:text-black
+                    rounded-lg
+                    w-full sm:w-auto
+                    truncate
+                  " />
+          
+              </Link>
+              </div>
+          </div>
+<h1 className={styles.title}>Create your Account</h1>
+          <p className={styles.subtitle}>Get Ready to Celebrate Excellence and unveil the nominees</p>
+
+          <div>
+          <Link href="/scef-signup" passHref>
+            <button className={styles.scefButton}>
+              <Image
+                src="/images/image-removebg-preview 1.png"
+                alt="SCEF Logo"
+                width={50}
+                height={20}
+                style={{ objectFit: "contain" }}
+              />
+              Sign Up with SCEF
+            </button>
+          </Link>
+          <div className={styles.orDivider}>Or</div>
+
+              </div>
           
           {error && (
             <div className="mb-6 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">

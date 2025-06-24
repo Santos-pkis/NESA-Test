@@ -165,14 +165,14 @@ const AuthButtons = ({ user }: { user: any }) => {
   " />
           
       </Link>
-      <Link href="/account/signup">
+      <Link href="/account/signup/membersignup">
         <motion.button
-          className="text-[#17120a] w-[7rem] flex justify-center items-center py-2 px-4 font-[500] text-sm rounded-[1rem]"
+          className="text-[#17120a] w-[7.5rem] flex justify-center items-center py-2 px-4 font-medium text-[15px] rounded-lg"
           style={{
             background: `linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)`,
           }}
         >
-          Sign Up
+          Sign Up / Login
         </motion.button>
       </Link>
     </div>
