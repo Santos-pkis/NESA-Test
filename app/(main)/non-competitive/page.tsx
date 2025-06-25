@@ -7,11 +7,13 @@ import HomePartners from "@/components/UI/Home/partners";
 import Judges from "@/components/UI/Home/judges";
 import GetInvolved from "@/components/UI/Home/get-involved";
 import AwardCategories from "@/components/UI/Home/Award-categories";
-import Whynominate from "@/components/UI/competitve-nominate/whynominate";
-import HowToNominate from "@/components/UI/competitve-nominate/howtonominate";
-import Category from "@/components/UI/competitve-nominate/nominatecategories";
+import Whynominate from "@/components/UI/categorynominate/whynominate";
+import HowToNominate from "@/components/UI/categorynominate/howtonominate";
+import Category from "@/components/UI/categorynominate/nominatecategories";
 import CountdownTimer from "@/components/Common/Others/countdown";
-import CompetitiveHeader from "@/components/UI/Categories/categories-header";
+import CategoryHeader from "@/components/UI/Categories/categories-header";
+import PlatinumOverview from "@/components/UI/categorynominate/PlatinumOverview";
+
 
 const Page = () => {
   const categoryData = [
@@ -64,13 +66,13 @@ const Page = () => {
 
   return (
     <>
-      {/* <NonCompetitiveHeader categoryData={categoryData} /> */}
-      <CompetitiveHeader categoryData={categoryData} />
+      <CategoryHeader categoryData={categoryData} type="non-competitive" />
       <main className="pb-8">
       <CountdownTimer 
         onTimeUpdate={(time) => ''} 
         targetDateProp="2025-09-10T19:55:00Z" 
       />
+      <PlatinumOverview />
       <Whynominate />
       <HowToNominate />
       <Category categoryData={categoryData} head={title} />

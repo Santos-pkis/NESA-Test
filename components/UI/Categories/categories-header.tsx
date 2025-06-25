@@ -9,7 +9,7 @@ import SlideImage4 from "../Home/SlideImage4";
 import SlideImage5 from "../Home/SlideImage5";
 import SlideImage6 from "../Home/SlideImage6";
 import styles from "@/components/Common/Slide/style.module.scss";
-import CompetitiveHeroCenter from "@/components/UI/Categories/categories-hero-center";
+import CategoryHeroCenter from "@/components/UI/Categories/categories-hero-center";
 
 
 export interface CategoryCardProps {
@@ -18,24 +18,77 @@ export interface CategoryCardProps {
     description: string;
     subCategoryPath: string;
   }[];
- }
+  type?: 'competitive' | 'non-competitive'; // add type prop
+}
 
-const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [activeDot, setActiveDot] = useState(0);
-    const totalSlides = 8; 
+const CategoryHeader: React.FC<CategoryCardProps> = ({ categoryData, type = 'competitive' }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeDot, setActiveDot] = useState(0);
+  const totalSlides = categoryData.length + 1; // 1 for the overview slide
 
-    const Slides = categoryData.map((item, index) => {
+  // Dynamic overview content
+  const overviewSlide = type === 'non-competitive' ? (
+    <div className="col-span-2 mt-8 rounded-xl shadow-lg p-6 md:p-10 text-white">
+      <div className="flex items-center gap-3 mb-4">
+        <span className="text-2xl md:text-3xl">🟦</span>
+        <h2 className="text-xl md:text-2xl font-bold">
+          NESA-Africa 2025 – Platinum Certificate of Recognition
+        </h2>
+      </div>
+      <div className="mb-2 flex items-center gap-2">
+        <span className="text-lg">🌍</span>
+        <span className="font-semibold text-primaryGold">Overview</span>
+      </div>
+      <p className="mb-4 text-base md:text-lg">
+        Honoring Africa’s Unsung Heroes in Education with a Global Voice
+      </p>
+      <p className="mb-4 text-base md:text-lg">
+        The Platinum Certificate of Recognition is a semi-competitive honorary award introduced by NESA-Africa 2025 to uplift silent changemakers—everyday individuals and lesser-known contributors whose dedication to educational transformation spans across schools, communities, civil society, and institutions.
+      </p>
+      <p className="mb-4 text-base md:text-lg">
+        Unlike the high-profile Blue Garnet categories, the Platinum Certificate allows global public nominations, but final awardees are selected through a careful judge-led validation process emphasizing social impact, SDG alignment, sustainability, and inclusivity.
+      </p>
+    </div>
+  ) : (
+    <div className="col-span-2 mt-8 rounded-xl shadow-lg p-6 md:p-10 text-white">
+      <div className="flex items-center gap-3 mb-4">
+        <span className="text-2xl md:text-3xl">🟦</span>
+        <h2 className="text-xl md:text-2xl font-bold">
+          NESA-Africa 2025 – Competitive Awards Framework
+        </h2>
+      </div>
+      <div className="mb-2 flex items-center gap-2">
+        <span className="text-lg">🌍</span>
+        <span className="font-semibold text-primaryGold">Overview</span>
+      </div>
+      <p className="mb-4 text-base md:text-lg">
+        NESA-Africa 2025 is honoring excellence in education through 8 Competitive Blue Garnet Awards, each representing a major category. Within each, multiple sub-categories (101 in total) will be recognized with Gold Certificates, with top performers competing for the prestigious Blue Garnet Award in their main category.
+      </p>
+      <p className="mb-4 text-base md:text-lg">
+        Each nominee first competes at the sub-category level for a Gold Certificate, and winners of each sub-category are elevated to contend for the Blue Garnet Award in their main category. The award evaluation process aligns with SDG 4, Africa Agenda 2063, and ESG principles to ensure that excellence is judged by both impact and sustainability.
+      </p>
+      <p className="mb-4 text-base md:text-lg">
+        Nominees are celebrated across a wide spectrum, from grassroots education projects to tech-based learning platforms and creative initiatives—ensuring that innovation, equity, and scale are recognized
+continent-wide.
+      </p>
+    </div>
+  );
 
-      return (
-      <CompetitiveHeroCenter
-        key={index}
-        index={index+1}
-        title={item.title}
-        description={item.description}
-        subCategoryPath={item.subCategoryPath}
-      />
-    )});
+    // Slides: overview first, then category slides
+    const Slides = [
+      overviewSlide,
+      ...categoryData.map((item, index) => {
+        return (
+          <CategoryHeroCenter
+            key={index + 1}
+            index={index + 1}
+            title={item.title}
+            description={item.description}
+            subCategoryPath={item.subCategoryPath}
+          />
+        );
+      })
+    ];
 
 
     const nextSlide = () => {
@@ -117,4 +170,4 @@ const CompetitiveHeader: React.FC<CategoryCardProps> = ({ categoryData }) => {
   );
 };
 
-export default CompetitiveHeader;
+export default CategoryHeader;

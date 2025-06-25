@@ -18,7 +18,7 @@ type Props = {
   description: string;
   subCategoryPath: string;
 };
-const CompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: Props) => {
+const CategoryHeroCenter = ({ index, title, description, subCategoryPath }: Props) => {
 
   const ref = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -76,6 +76,7 @@ const CompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: P
         <div className="lg:w-auto md:ml-8 pl-10 pr-10 flex justify-center">
           <Image src={"/images/nesa-mg.png"} className="min-w-32 md:min-w-72 lg:min-w-440px" alt="" width={300} height={300} />
         </div>
+
       </div>
             
             
@@ -83,4 +84,4 @@ const CompetitiveHeroCenter = ({ index, title, description, subCategoryPath }: P
   );
 };
 
-export default CompetitiveHeroCenter;
+export default CategoryHeroCenter;

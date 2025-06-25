@@ -7,11 +7,11 @@ import HomePartners from "@/components/UI/Home/partners";
 import Judges from "@/components/UI/Home/judges";
 import GetInvolved from "@/components/UI/Home/get-involved";
 import AwardCategories from "@/components/UI/Home/Award-categories";
-import Whynominate from "@/components/UI/competitve-nominate/whynominate";
-import HowToNominate from "@/components/UI/competitve-nominate/howtonominate";
-import Category from "@/components/UI/competitve-nominate/nominatecategories";
+import Whynominate from "@/components/UI/categorynominate/whynominate";
+import HowToNominate from "@/components/UI/categorynominate/howtonominate";
+import Category from "@/components/UI/categorynominate/nominatecategories";
 import CountdownTimer from "@/components/Common/Others/countdown";
-import CompetitiveHeader from "@/components/UI/Categories/categories-header";
+import CategoryHeader from "@/components/UI/Categories/categories-header";
 
 const Page = () => {
   const categoryData = [
@@ -83,7 +83,7 @@ const Page = () => {
 
   return (
     <>
-      {/* <NonCompetitiveHeader categoryData={categoryData} /> */}
+      {/* <NonCategoryHeader categoryData={categoryData} /> */}
       <main className="py-20">
 
       <Category categoryData={categoryData} head={title} />

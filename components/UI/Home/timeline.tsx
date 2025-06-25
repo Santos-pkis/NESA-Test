@@ -86,9 +86,9 @@ const Timeline = () => {
             </div>
           ))}
         </div>
-        <div className="mt-20 bg-yellow-500/10 rounded-xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-lg border border-yellow-500/30 animate-pulse">
-          <div className="flex-1">
-            <h4 className="text-lg font-bold text-yellow-400 flex items-center gap-2 mb-2">
+        <div className="mt-20 bg-yellow-500/10 rounded-xl p-8 flex flex-col md:flex-row justify-center items-center gap-8 shadow-lg border border-yellow-500/30 animate-pulse">
+          <div className="flex-1 container mx-auto px-6 flex flex-col items-center text-center">
+            <h4 className="text-lg font-bold text-yellow-400 flex items-center gap-2 mb-2 justify-center">
               <span role="img" aria-label="celebration">🎉</span>
               AWARDS GALA: <span className="text-white ml-2">December 22, 2025</span>
             </h4>
