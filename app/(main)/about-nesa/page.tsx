@@ -10,6 +10,8 @@ import Button from "@/components/Common/Button";
 import { useEffect } from "react";
 import AwardStructure from "@/components/UI/Home/award-structure/awardstructure";
 import NESARoadmap from "@/components/UI/Home/roadmap/timeline";
+import AboutNesa2025 from "@/components/UI/About/AboutNesa2025";
+
 const Page = () => {
   const { sliderRef: ref, moveLeft, moveRight } = useSlider();
 
@@ -24,7 +26,7 @@ const Page = () => {
   return (
     <>
       <NesaAfricaHeader />
-
+        <AboutNesa2025 />
       <main className="space-y-12 sm:space-y-16 md:space-y-20">
         <section className="bg-[#fff5e0] space-y-12 sm:space-y-16 md:space-y-20 py-12 sm:py-16 md:py-20">
           <div className="container px-4 sm:px-6 lg:px-8">
