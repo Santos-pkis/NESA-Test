@@ -42,6 +42,10 @@ export const navlinks: NavLink[] = [
   {
     label: "Media",
     path: "nesatv",
+        children: [
+      { label: "NESA-TV", path: "/nesatv" },
+      { label: "it's in me Radio", path: "/radio-podcast" },
+    ],
     // path: "/nesa-media",
   },
 ];

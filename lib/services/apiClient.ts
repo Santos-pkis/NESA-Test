@@ -33,6 +33,7 @@ const getCookie = (name: string): string | null => {
 
 apiClient.interceptors.request.use((config) => {
   const token = getCookie('token');
+  const userId = getCookie('userId');
   console.log('Request Interceptor - Token:', token); // Debug log
   
   if (token) {

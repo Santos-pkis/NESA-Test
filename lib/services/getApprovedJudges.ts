@@ -15,7 +15,7 @@ type Judge = {
 
 export const getApprovedJudges = async (): Promise<Judge[]> => {
 try {
-    const response = await apiClient.get("/api/judges/judge", {
+    const response = await apiClient.get("/api/judges/judge-list", {
         headers: {
             "Content-Type": "application/json",
         },

@@ -101,7 +101,7 @@ const NavLinks = () => (
 
 const NavLink = ({ link }: { link: any }) => (
   <motion.li>
-    {link.children && (link.label === "About" || link.label === "Awards") ? (
+    {link.children && (link.label === "About" || link.label === "Awards" || link.label === "Media") ? (
       <DropdownLink link={link} />
     ) : (
       <Link
