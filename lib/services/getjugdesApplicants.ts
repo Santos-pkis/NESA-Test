@@ -15,7 +15,7 @@ type Judge = {
 
 type GetJudgesResponse = {
   totalApplications: number;
-  totalAccepted: number;
+  totalApproved: number;
   totalPending: number;
   totalDenied: number;
   applicants: Judge[];

@@ -373,7 +373,7 @@ const SpecialRecognitionPage = () => {
           <span className="absolute -bottom-2 left-0 w-16 h-1 bg-gradient-to-r from-[#FFC247] to-[#E48900]"></span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {subcategories.slice(1).map((category, index) => (
+          {subcategories.map((category, index) => (
             <div key={index} className="bg-[#191307] rounded-3xl overflow-hidden shadow-lg transition-transform hover:scale-105 flex flex-col p-6">
               <div className="h-[220px] flex items-center justify-center mb-4">
                 <div className="relative w-full h-full flex items-center justify-center">

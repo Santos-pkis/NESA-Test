@@ -35,6 +35,7 @@ apiClient.interceptors.request.use((config) => {
   const token = getCookie('token');
   const userId = getCookie('userId');
   console.log('Request Interceptor - Token:', token); // Debug log
+  console.log('Request Interceptor - userId:', userId); // Debug log
   
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;

@@ -20,7 +20,7 @@ type Judge = {
 
 type GetJudgesResponse = {
   totalApplications: number;
-  totalAccepted: number;
+  totalApproved: number;
   totalPending: number;
   totalDenied: number;
   applicants: Judge[];
@@ -59,10 +59,10 @@ const JudgesApplications = ({ selectApplicant }: any) => {
                     />
                     <StatCard
                       title="Accepted"
-                      count={remoteJudges ? remoteJudges.totalAccepted : 0}
+                      count={remoteJudges ? remoteJudges.totalApproved : 0}
                       change={
                         remoteJudges && remoteJudges.totalApplications > 0
-                          ? `${((remoteJudges.totalAccepted / remoteJudges.totalApplications) * 100).toFixed(1)}%`
+                          ? `${((remoteJudges.totalApproved / remoteJudges.totalApplications) * 100).toFixed(1)}%`
                           : "0%"
                       }
                     />

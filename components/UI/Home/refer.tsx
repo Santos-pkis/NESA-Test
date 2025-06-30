@@ -15,7 +15,7 @@ const Refer = () => {
           voting in the competitive categories!
         </p>
 
-        <button onClick={() => router.push("/refer")} className="mt-6 bg-[#F7A500] hover:bg-[#e59b00] text-[11px] font-semibold text-black px-6 py-2 rounded transition duration-300">
+        <button onClick={() => router.push("/ProfileSetting/refer")} className="mt-6 bg-[#F7A500] hover:bg-[#e59b00] text-[11px] font-semibold text-black px-6 py-2 rounded transition duration-300">
           Refer a Friend
         </button>
       </div>
