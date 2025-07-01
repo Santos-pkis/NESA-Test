@@ -142,7 +142,7 @@ const AuthButtons = ({ user }: { user: any }) => {
   if (user) {
     // If the user is logged in, show the profile icon
     return (
-      <Link href="/member">
+      <Link href="/ProfileSetting">
         <motion.div className="flex items-center space-x-2 cursor-pointer">
           <User className="text-white w-6 h-6" />
           <span className="text-white font-medium">Account</span>

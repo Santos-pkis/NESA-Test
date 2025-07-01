@@ -22,7 +22,7 @@ const LocalChapterSection = () => {
         />
       </div>
       
-      <Link href="/apply-ambassador">
+      <Link href="/ambassador">
         <button className="px-6 py-2 rounded bg-[#f0b64d] text-[#333333] font-medium hover:bg-[#e0a63d] transition-colors">
           join a Local Chapter
         </button>

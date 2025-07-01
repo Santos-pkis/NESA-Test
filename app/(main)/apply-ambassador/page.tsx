@@ -358,7 +358,7 @@ const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement
       
                     <div className="flex flex-col gap-3">
                       <button
-                        onClick={() => router.push("/member")}
+                        onClick={() => router.push("/ProfileSetting")}
                         className="w-full py-3 px-4 rounded-lg text-white font-medium"
                         style={{
                           background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",

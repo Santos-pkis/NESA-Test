@@ -67,7 +67,7 @@ const CategoryHeroCenter = ({ index, title, description, subCategoryPath }: Prop
               text="Nominate Now"
               variant="filled"
               className="rounded-md md:px-8 py-2 text-center w-1/2 hover:bg-[#E48900] hover:text-black w-auto"
-              onClick={() => router.push('/member/createnominee')}
+              onClick={() => router.push('/nomination/sub-categories/africa-lifetime-education-icon')}
               />
             </div>
           </div>

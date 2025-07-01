@@ -16,12 +16,12 @@ const OnboardingFlow: React.FC = () => {
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
     } else {
-      router.push("/member"); // Redirect to member dashboard after onboarding
+      router.push("/ProfileSetting"); // Redirect to member dashboard after onboarding
     }
   };
 
   const handleSkip = () => {
-    router.push("/member"); // Skip directly to dashboard
+    router.push("/ProfileSetting"); // Skip directly to dashboard
   };
 
   const handleBack = () => {

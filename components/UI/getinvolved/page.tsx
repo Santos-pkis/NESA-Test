@@ -115,7 +115,7 @@ const NESACommunityPage = () => {
                   <li>Corporate Member</li>
                 </ul>
               </div>
-              <a href="/membership" className="inline-block text-amber-600 font-semibold hover:underline mb-1">💬 Join Now as a Member</a>
+              <a href="/ambassador" className="inline-block text-amber-600 font-semibold hover:underline mb-1">💬 Join Now as a Member</a>
               <p className="text-sm text-gray-500">(Access special member-only events, workshops, nomination rights, and more.)</p>
             </li>
             <li>

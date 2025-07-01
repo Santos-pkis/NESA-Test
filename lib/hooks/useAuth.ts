@@ -23,7 +23,8 @@ export const useAuth = () => {
     const userId = getCookie("userId");
     if (token && userId) {
       getUserById(userId)
-        .then((data) => setUser(data))
+        .then((data) => {console.log(data) 
+          setUser(data)})
         .catch((err) => {
           if (err instanceof Error) setError(err.message);
         });

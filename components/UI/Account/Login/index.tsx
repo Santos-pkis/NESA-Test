@@ -64,7 +64,7 @@ const LoginPage: React.FC = () => {
           if (redirect) {
             router.push(redirect);
           } else {
-            router.push("/member/");
+            router.push("/ProfileSetting");
           }
         }, 100);
       }

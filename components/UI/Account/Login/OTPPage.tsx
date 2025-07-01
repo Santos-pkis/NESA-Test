@@ -66,7 +66,7 @@ const OTPPage: React.FC = () => {
             if (redirect) {
             window.location.href = redirect;
             } else {
-            window.location.href = "/member";
+            window.location.href = "/ProfileSetting";
             }
         }, 1000);
       } else {
