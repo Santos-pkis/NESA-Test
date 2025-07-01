@@ -109,7 +109,7 @@ export default function JudgeLayout({ children }: JudgeLayoutProps) {
             ]} />
             <NavDropdown label="Judges Arena" items={[
               { href: "/judge/SeeJudges", label: "See Judges" },
-              { href: "/judge/JudgeChat", label: "Judge Chat Room" },
+              { href: "/chatroom", label: "Judge Chat Room" },
             ]} />
             <NavDropdown label="Reviews" items={[
               { href: "/judge/JudgeReview", label: "JudgeReview" },
