@@ -28,7 +28,7 @@ const Page = () => {
         if (!userId) throw new Error('User ID not found');
         // user is already fetched in useAuthContext
         setFormData({
-          name: user?.name || '',
+          name: user?.fullName || '',
           email: user?.email || '',
           role: user?.role || '',
           referral: user?.referral || '',
@@ -221,8 +221,8 @@ const InfoSection: React.FC<InfoSectionProps> = ({ title, data, editing, handleC
 
 // Data formatters (safely access user fields)
 const personalInfo = (user: any) => ({
-  "First name": user?.name?.split(' ')[0] || "",
-  "Last name": user?.name?.split(' ')[1] || "",
+  "First name": user?.fullName?.split(' ')[0] || "",
+  "Last name": user?.fullName?.split(' ')[1] || "",
   "Email address": user?.email || "",
   "Occupation": user?.role || "",
   "Phone number": "+234 8194739570", // Placeholder

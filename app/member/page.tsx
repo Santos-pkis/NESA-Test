@@ -96,7 +96,7 @@ export default function DashboardPage() {
             <>
               <div className="flex justify-between items-start">
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900">Welcome {user?.name || 'User'},</h1>
+                  <h1 className="text-3xl font-bold text-gray-900">Welcome {user?.fullName || 'User'},</h1>
                   <p className="mt-2 text-sm text-gray-600">
                     Track your nominations, referrals, and wallet activities
                   </p>

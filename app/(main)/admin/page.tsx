@@ -9,8 +9,11 @@ import JudgeDetail from '@/components/UI/Admin/JudgeDetail';
 import ApprovedJudges from '@/components/UI/Admin/ApprovedJudges';
 import { useEffect } from 'react';
 import NomineeDetail from '@/components/UI/Admin/nomineeDetail';
-
+import { useAuth } from '@/lib/hooks/useAuth';
 export default function AdminDashboard() {
+  const { user } = useAuth();
+    console.log(user)
+
   const [selected, setSelected] = useState(() => {
       if (typeof window !== 'undefined') {
   return localStorage.getItem('admin_selected_panel') || 'Nomination';
@@ -60,10 +63,21 @@ export default function AdminDashboard() {
     }
   };
 
+  // Restrict access to Admins only
+  if (!user || user.role !== "Admin") {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-xl text-red-600 font-semibold">
+          Unauthorized: Admin access only.
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex h-screen overflow-hidden pt-20">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar selected={selected} setSelected={setSelected} />
-      <main className="flex-1 overflow-y-auto bg-gray-50">{renderContent()}</main>
+      <main className="flex-1 pt-20 overflow-y-auto bg-gray-50">{renderContent()}</main>
     </div>
   );
 }

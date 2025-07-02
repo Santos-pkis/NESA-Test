@@ -8,6 +8,7 @@ import VotingOverviewCard from '@/components/Layout/Dashboard/VotingOverviewCard
 import SkeletonLoader from '@/components/UI/SkeletonLoader';
 import { useAuthContext } from '@/lib/context/AuthContext';
 import { FiAlertCircle, FiCheckCircle, FiX } from 'react-icons/fi';
+import { useAuth } from '@/lib/hooks/useAuth';
 
 const recentActivities = [
   {
@@ -38,7 +39,8 @@ const recentActivities = [
 
 export default function Dummy() {
   const router = useRouter();
-  const { user } = useAuthContext();
+  const { user } = useAuth();
+  console.log(user)
   const [loading, setLoading] = useState(true);
   const [showNotification, setShowNotification] = useState(true);
   const [verificationStatus, setVerificationStatus] = useState({
@@ -96,9 +98,13 @@ export default function Dummy() {
             <>
               <div className="flex justify-between items-start">
                 <div>
-                  <h1 className="text-3xl font-bold text-gray-900">Welcome {user?.name || 'User'},</h1>
+                  {user?.fullName ? (
+                    <h1 className="text-3xl font-bold text-gray-900">Welcome {user.fullName},</h1>
+                  ) : (
+                    <SkeletonLoader className="h-8 w-1/2 mb-2" />
+                  )}
                   <p className="mt-2 text-sm text-gray-600">
-                    Track your nominations, referrals, and wallet activities
+                    Track your nominations, referrals, and wallet activitiesss
                   </p>
                 </div>
                 {needsAttention && showNotification && (

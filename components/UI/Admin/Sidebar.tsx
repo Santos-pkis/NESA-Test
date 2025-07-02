@@ -27,7 +27,7 @@ const Sidebar = ({ selected, setSelected }: any) => {
   ];
 
   return (
-    <div className="w-64 bg-black text-white h-screen py-6 px-4 space-y-2">
+    <div className="w-64 pt-20 bg-black text-white h-screen py-6 px-4 space-y-2">
       
       {navItems.map((item) => (
         <div key={item.name}>

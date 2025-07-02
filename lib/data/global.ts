@@ -48,4 +48,8 @@ export const navlinks: NavLink[] = [
     ],
     // path: "/nesa-media",
   },
+    {
+    label: "Admin",
+    path: "admin",
+  },
 ];

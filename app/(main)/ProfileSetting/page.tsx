@@ -2,10 +2,13 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { User, Wallet, Share2, PenSquareIcon } from 'lucide-react';
+import { useAuth } from '@/lib/hooks/useAuth';
+
 
 export default function ProfilePage() {
   const router = useRouter();
-
+const { user } = useAuth();
+console.log('USER', user);
   const PersonalInfo =[{
     firstname:'Mujeeb',
     lastname:'Azeez',
@@ -78,26 +81,25 @@ export default function ProfilePage() {
 
 
               {/* down own */}
-              <div className='flex flex-col md:flex-row gap-[30%]'>
+                <div className='flex flex-col md:flex-row gap-[30%]'>
 
                 {/* left */}
                 <div className='w-[100%] md:w-[20%]'>
 
                   <div className='mb-[20px]'>
-                    <p className='font-light text-[10px]'>First name</p>
-                    <h1>{info.firstname}</h1>
+                  <p className='font-light text-[10px]'>Full Name</p>
+                  <h1>{user?.fullName || '-'}</h1>
                   </div>
 
                   <div className='mb-[20px]'>
-                    <p className='font-light text-[10px]'>Email address</p>
-                    <h1>{info.email}</h1>
+                  <p className='font-light text-[10px]'>Email address</p>
+                  <h1>{user?.email || '-'}</h1>
                   </div>
 
                   <div className='mb-[20px]'>
-                    <p className='font-light text-[10px]'>Phone number</p>
-                    <h1>{info.phonenumber}</h1>
+                  <p className='font-light text-[10px]'>Phone number</p>
+                  <h1>{user?.phoneNumber || '-'}</h1>
                   </div>
-
 
                 </div>
 
@@ -107,23 +109,22 @@ export default function ProfilePage() {
                 {/* right */}
                   <div className='w-[100%] md:w-[80%]'>
 
-                  <div className='mb-[20px]'>
-                    <p className='font-light text-[10px]'>Lastname</p>
-                    <h1>{info.lastname}</h1>
+                    <div className='mb-[20px]'>
+                      <p className='font-light text-[10px]'>Role</p>
+                      <h1>{user?.role || '-'}</h1>
+                    </div>
+
+                    <div className='mb-[20px]'>
+                      <p className='font-light text-[10px]'> Type</p>
+                      <h1>{user?.nomineeType || '-'}</h1>
+                    </div>
+
+                    <div className='mb-[20px]'>
+                      <p className='font-light text-[10px]'>State/Region</p>
+                      <h1>{user?.stateOrRegion || '-'}</h1>
+                    </div>
+
                   </div>
-
-                  <div className='mb-[20px]'>
-                    <p className='font-light text-[10px]'>Occupation</p>
-                    <h1>{info.occupation}</h1>
-                  </div>
-
-                  <div className='mb-[20px]'>
-                    <p className='font-light text-[10px]'>Address</p>
-                    <h1>{info.address}</h1>
-                  </div>
-
-
-                </div>
 
               </div>
                 <div className="flex items-center">

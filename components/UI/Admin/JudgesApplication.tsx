@@ -50,7 +50,7 @@ const JudgesApplications = ({ selectApplicant }: any) => {
 
   return (
     <div className="p-6 pt-20 mt-4 ">
-      <h2 className="font-poppins font-medium text-[24px] leading-[36px] tracking-normal mb-4">Overview</h2>
+      <h2 className="font-poppins font-medium text-[24px] leading-[36px] tracking-normal mb-4">Judges Applicants Overview</h2>
                   <div className="grid grid-cols-4 gap-4 mb-6">
                     <StatCard
                       title="Total Applications"
@@ -92,8 +92,8 @@ const JudgesApplications = ({ selectApplicant }: any) => {
           <tr>
             <th className="p-3">S/N</th>
             <th>Name</th>
-            <th>Status</th>
             <th>Email</th>
+            <th>Status</th>
             <th>Date</th>
           </tr>
         </thead>
