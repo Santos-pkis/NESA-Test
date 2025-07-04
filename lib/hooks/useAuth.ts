@@ -8,9 +8,15 @@ interface Credentials {
 }
 
 interface UserData {
-  name: string;
+  fullName: string;
+  nomineeType: string;
   email: string;
   password: string;
+  role: string;
+  state: string;
+  region: string;
+  phoneNumber: string;
+  image?: string;
   [key: string]: any;
 }
 

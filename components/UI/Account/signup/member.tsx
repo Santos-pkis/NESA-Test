@@ -19,15 +19,20 @@ const MembershipForm: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [formData, setFormData] = useState({
     name: "",
+    nomineeType: "Individual",
     email: "",
     password: "",
     confirmPassword: "",
-    role: "Judge",
-    referral: "null",
+    role: "General User",
+    state: "",
     region: "",
+    phoneNumber: "",
+    image: "",
     KYC: false,
+    referral: "null",
     GFA_wallet_id: "null"
   });
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [showSuccessPopup, setShowSuccessPopup] = useState<boolean>(false);
@@ -50,42 +55,60 @@ const MembershipForm: React.FC = () => {
     setPhoneNumber(value);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type, checked } = e.target;
-    setFormData({ 
-      ...formData, 
-      [name]: type === "checkbox" ? checked : value 
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value
     });
   };
+
+  // Handle image file selection
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setImageFile(e.target.files[0]);
+    }
+  };
+
+  // Add handler for nomineeType, state, image if you add those fields as selects/inputs
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-    
     if (formData.password.length < 8) {
       setError("Password must be at least 8 characters");
       return;
     }
-    
     setLoading(true);
     try {
+      let imageUrl = "";
+      if (imageFile) {
+        // Upload image to Cloudinary or your backend
+        const data = new FormData();
+        data.append("file", imageFile);
+        data.append("upload_preset", "nesa_upload"); // Change to your Cloudinary preset
+        const res = await fetch("https://api.cloudinary.com/v1_1/demo/image/upload", {
+          method: "POST",
+          body: data
+        });
+        const fileRes = await res.json();
+        imageUrl = fileRes.secure_url;
+      }
       await register({
-        name: formData.name,
+        fullName: formData.name,
+        nomineeType: formData.nomineeType,
         email: formData.email,
         password: formData.password,
         role: formData.role,
-        referral: formData.referral,
+        state: formData.state,
         region: formData.region,
-        KYC: formData.KYC,
-        GFA_wallet_id: formData.GFA_wallet_id,
-        phone: phoneNumber
+        phoneNumber: phoneNumber,
+        image: imageUrl,
       });
-      
       setShowSuccessPopup(true);
       setTimeout(() => {
         router.push("/account/onboarding");
@@ -221,6 +244,21 @@ const MembershipForm: React.FC = () => {
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
+                Type
+              </label>
+              <select
+                name="nomineeType"
+                value={formData.nomineeType}
+                onChange={handleChange}
+                className="w-full p-3 rounded-lg bg-[#FFF9ED] border border-[#FFC247] focus:border-[#E48900] focus:outline-none"
+                required
+              >
+                <option value="Individual">Individual</option>
+                <option value="Organization">Organization</option>
+              </select>
+            </div>
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Email
               </label>
               <input
@@ -267,20 +305,31 @@ const MembershipForm: React.FC = () => {
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Address
+                State
               </label>
-              <div className="relative">
-                <input
-                  type="text"
-                  name="region"
-                  value={formData.region}
-                  onChange={handleChange}
-                  placeholder="Enter your country"
-                  className="w-full p-3 rounded-lg bg-[#FFF9ED] border border-[#FFC247] focus:border-[#E48900] focus:outline-none pr-10"
-                  required
-                />
-                <MdLocationPin className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              </div>
+              <input
+                type="text"
+                name="state"
+                value={formData.state}
+                onChange={handleChange}
+                placeholder="Enter your state"
+                className="w-full p-3 rounded-lg bg-[#FFF9ED] border border-[#FFC247] focus:border-[#E48900] focus:outline-none"
+                required
+              />
+            </div>
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Country
+              </label>
+              <input
+                type="text"
+                name="region"
+                value={formData.region}
+                onChange={handleChange}
+                placeholder="Enter your region"
+                className="w-full p-3 rounded-lg bg-[#FFF9ED] border border-[#FFC247] focus:border-[#E48900] focus:outline-none"
+                required
+              />
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -305,6 +354,26 @@ const MembershipForm: React.FC = () => {
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
+            </div>
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Profile Image (optional)
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="w-full p-3 rounded-lg bg-[#FFF9ED] border border-[#FFC247] focus:border-[#E48900] focus:outline-none"
+              />
+              {imageFile && (
+                <div className="mt-2">
+                  <img
+                    src={URL.createObjectURL(imageFile)}
+                    alt="Preview"
+                    className="h-24 w-24 object-cover rounded-full border"
+                  />
+                </div>
+              )}
             </div>
             <div className="mb-8">
               <label className="block text-sm font-medium text-gray-700 mb-2">

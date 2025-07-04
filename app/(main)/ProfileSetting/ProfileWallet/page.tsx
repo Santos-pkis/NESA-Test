@@ -106,7 +106,7 @@ export default function WalletPage() {
                 />
               </span>
               <span className="bg-gradient-to-r from-[#FFC247] to-[#E48900] bg-clip-text text-transparent text-5xl font-medium text-center">
-                25
+                5
               </span>
             </div>
 

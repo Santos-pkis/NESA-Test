@@ -128,7 +128,7 @@ const TeamSection: React.FC = () => {
           Meet the Passionate Individuals Leading NESA
         </h1>
         <TeamCarousel
-          title="Board of Trustees (SCEF)"
+          title="Executives"
           data={executives}
           activeSlide={activeExecSlide}
           setActiveSlide={setActiveExecSlide}

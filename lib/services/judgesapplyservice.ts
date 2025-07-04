@@ -21,10 +21,10 @@ export const judgesapplication = async (data: ApplicationData): Promise<any> => 
             full_name: data.full_name,
             email: data.email,
             phone_number: data.phone,
-            state: data.state,
+            state_and_region: data.state,
             education_background: data.education,
             experience: data.experience,
-            motivation: data.motivation,
+            motivation_statement: data.motivation,
             upload_profile_image: data.profileImage,
             upload_document: data.documents
         };

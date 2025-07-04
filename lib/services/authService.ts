@@ -12,10 +12,16 @@ interface OTPData {
 }
 
 interface UserData {
-  name: string;
+  fullName: string;
+  nomineeType: string;
   email: string;
   password: string;
-  [key: string]: any; // Allow additional optional fields
+  role: string;
+  state: string;
+  region: string;
+  phoneNumber: string;
+  image?: string;
+  [key: string]: any;
 }
 
 interface AuthResponse {
