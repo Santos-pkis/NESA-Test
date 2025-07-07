@@ -82,15 +82,17 @@ const JudgeForm: React.FC = () => {
     setLoading(true);
     try {
       await register({
-        name: formData.name,
+        fullName: formData.name,
         email: formData.email,
         password: formData.password,
         role: formData.role,
         referral: formData.referral,
         region: formData.region,
-        KYC: formData.KYC,
-        GFA_wallet_id: formData.GFA_wallet_id,
-        phone: phoneNumber
+        kyc: formData.KYC,
+        gfaWalletId: formData.GFA_wallet_id,
+        phoneNumber: phoneNumber,
+        nomineeType: "", // Provide appropriate value if needed
+        state: "" // Provide appropriate value if needed
       });
       
       setShowSuccessPopup(true);

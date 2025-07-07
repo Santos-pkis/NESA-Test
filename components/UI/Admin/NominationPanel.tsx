@@ -21,6 +21,35 @@ const NominationPanel = ({ selectApplicant }: any) => {
 
     fetchNominees();
   }, []);
+
+  // Export to CSV helper
+  const handleExport = () => {
+    if (!nominees || !Array.isArray(nominees.nominations) || nominees.nominations.length === 0) {
+      alert('No nominations to export.');
+      return;
+    }
+    const headers = ['S/N', 'Name', 'Sub-Category', 'No of Nominations', 'Status', 'Date'];
+    const rows = nominees.nominations.map((n, i) => [
+      i + 1,
+      n.fullName,
+      n.subCategory || '-',
+      n.nominationCount,
+      n.status,
+      n.latestCreatedAt ? new Date(n.latestCreatedAt).toLocaleDateString() : '-'
+    ]);
+    const csvContent = [headers, ...rows]
+      .map(row => row.map(field => `"${String(field).replace(/"/g, '""')}"`).join(','))
+      .join('\r\n');
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'nominations.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 return (
 <div className="p-6 w-full pt-28">
           <h2 className="text-2xl font-semibold mb-6">Overview</h2>
@@ -48,7 +77,7 @@ return (
               <div className="flex gap-2">
                 <button className="border px-2 py-1 rounded text-sm">Filters</button>
                 <button className="border px-2 py-1 rounded text-sm">Sort By</button>
-                <button className="bg-black text-white px-3 py-1 rounded text-sm">Export</button>
+                <button className="bg-black text-white px-3 py-1 rounded text-sm" onClick={handleExport}>Export</button>
               </div>
             </div>
             <table className="w-full text-sm">
