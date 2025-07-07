@@ -21,10 +21,14 @@ export default function ProfilePage() {
     role: '',
     nomineeType: '',
     stateOrRegion: '',
+    image: '',
   });
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   useEffect(() => {
-    if (user) {
+    if (!user) {
+      console.log('No user found, redirecting to signup');
+    } else {
       setFormData({
         fullName: user.fullName || '',
         email: user.email || '',
@@ -32,6 +36,7 @@ export default function ProfilePage() {
         role: user.role || '',
         nomineeType: user.nomineeType || '',
         stateOrRegion: user.stateOrRegion || '',
+        image: user.image || '',
       });
     }
   }, [user]);
@@ -39,7 +44,10 @@ export default function ProfilePage() {
   const handleEdit = () => setEditing(true);
   const handleCancel = () => {
     setEditing(false);
-    if (user) {
+    setImageFile(null);
+    if (!user) {
+      router.replace('/account/signup/membersignup');
+    } else {
       setFormData({
         fullName: user.fullName || '',
         email: user.email || '',
@@ -47,6 +55,7 @@ export default function ProfilePage() {
         role: user.role || '',
         nomineeType: user.nomineeType || '',
         stateOrRegion: user.stateOrRegion || '',
+        image: user.image || '',
       });
     }
   };
@@ -57,18 +66,40 @@ export default function ProfilePage() {
     role: string;
     nomineeType: string;
     stateOrRegion: string;
+    image: string;
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: ProfileFormData) => ({ ...prev, [name]: value }));
+    setFormData((prev: ProfileFormData) => ({ ...prev, [name]: value, image: prev.image }));
+  };
+
+  // Handle image file selection
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setImageFile(e.target.files[0]);
+    }
   };
   const handleSave = async () => {
     setLoading(true);
     setErrorMsg('');
     try {
-      await updateUser(formData);
+      let imageUrl = formData.image;
+      if (imageFile) {
+        // Upload image to Cloudinary or your backend
+        const data = new FormData();
+        data.append('file', imageFile);
+        data.append('upload_preset', 'nesa_upload'); // Change to your Cloudinary preset
+        const res = await fetch('https://api.cloudinary.com/v1_1/demo/image/upload', {
+          method: 'POST',
+          body: data
+        });
+        const fileRes = await res.json();
+        imageUrl = fileRes.secure_url;
+      }
+      await updateUser({ ...formData, image: imageUrl });
       setEditing(false);
+      setImageFile(null);
     } catch (err) {
       if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
         setErrorMsg((err as any).message);
@@ -111,16 +142,58 @@ export default function ProfilePage() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           width: '100%',
-          height: '200px',
+          height: '250px',
         }}>
           <div className='flex flex-col space-y-4 pl-10 pt-28'>
-            <Image
-              src={"/images/Ellipse.png"}
-              alt={'personal info'}
-              width={200}
-              height={200}
-              className="rounded-full object-cover"
-            />
+            {editing ? (
+              <div className="relative w-[200px] h-[200px]">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="hidden"
+                  id="profile-image-upload"
+                />
+                {(imageFile || formData.image) ? (
+                  <Image
+                    src={imageFile ? URL.createObjectURL(imageFile) : formData.image}
+                    alt={'personal info'}
+                    width={200}
+                    height={200}
+                    className="rounded-full object-cover border border-gray-200"
+                  />
+                ) : (
+                  <div className="w-[200px] h-[200px] rounded-full bg-gray-200 flex items-center justify-center text-gray-400 text-6xl border border-gray-200">
+                    <span className="select-none">?</span>
+                  </div>
+                )}
+                {/* Plus sign only in editing mode */}
+                <label htmlFor="profile-image-upload" className="absolute bottom-3 right-3 bg-[#FFC247] hover:bg-[#E48900] text-black rounded-full p-2 shadow cursor-pointer border-2 border-white flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z"/></svg>
+                </label>
+              </div>
+            ) : (
+              <div className="relative w-[200px] h-[200px]">
+                {formData.image ? (
+                  <Image
+                    src={formData.image}
+                    alt={'personal info'}
+                    width={200}
+                    height={200}
+                    className="rounded-full object-cover border border-gray-200"
+                  />
+                ) : (
+                  <div className="w-[200px] h-[200px] rounded-full bg-gray-200 flex items-center justify-center text-gray-400 text-6xl border border-gray-200">
+                    <span className="select-none">?</span>
+                  </div>
+                )}
+                {/* No plus sign in view mode */}
+                {/* Hidden input for non-editing state, triggers edit mode */}
+                {!formData.image && !editing && (
+                  <input type="file" accept="image/*" className="hidden" id="profile-image-upload" readOnly />
+                )}
+              </div>
+            )}
           </div>
         </div>
 
@@ -205,7 +278,7 @@ export default function ProfilePage() {
               </div>
               {/* right */}
               <div className='w-[100%] md:w-[80%]'>
-                <div className='mb-[20px]'>
+                {/* <div className='mb-[20px]'>
                   <p className='font-light text-[10px]'>Role</p>
                   {editing ? (
                     <input
@@ -219,7 +292,7 @@ export default function ProfilePage() {
                   ) : (
                     <h1>{formData.role || '-'}</h1>
                   )}
-                </div>
+                </div> */}
                 <div className='mb-[20px]'>
                   <p className='font-light text-[10px]'>Type</p>
                   {editing ? (
