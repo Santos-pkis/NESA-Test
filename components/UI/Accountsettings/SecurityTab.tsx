@@ -86,12 +86,13 @@ const SecurityTab = () => {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
       <div className="p-6 border-b border-gray-200">
+        
         <h2 className="text-xl font-bold text-gray-900">Security Settings</h2>
         <p className="text-gray-600">Manage your password and account security</p>
       </div>
 
       <div className="p-6 space-y-6">
-        <div className="p-5 bg-deepGold/10 rounded-lg border border-deepGold/20">
+        {/* <div className="p-5 bg-deepGold/10 rounded-lg border border-deepGold/20">
           <div className="flex items-start">
             <div className="bg-deepGold/20 p-2 rounded-full mr-4 text-deepGold">
               <Shield className="w-5 h-5" />
@@ -104,7 +105,7 @@ const SecurityTab = () => {
               Enable
             </button>
           </div>
-        </div>
+        </div> */}
 
         <div className="border border-gray-200 rounded-lg divide-y divide-gray-200">
           <div className="p-5">

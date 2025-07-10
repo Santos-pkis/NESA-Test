@@ -9,6 +9,7 @@ import JudgeDetail from '@/components/UI/Admin/JudgeDetail';
 import ApprovedJudges from '@/components/UI/Admin/ApprovedJudges';
 import { useEffect } from 'react';
 import NomineeDetail from '@/components/UI/Admin/nomineeDetail';
+import VolunteersPanel from '@/components/UI/Admin/VolunteersPanel';
 import { useAuth } from '@/lib/hooks/useAuth';
 export default function AdminDashboard() {
   const { user } = useAuth();
@@ -42,7 +43,6 @@ export default function AdminDashboard() {
         ) : (
          <NominationPanel selectApplicant={setApplicant}/>
         );
-        break;
       case 'Judges/Judges':
         return <ApprovedJudges selectApplicant={setApplicant} />;                 
       case 'Judges/Applications':
@@ -53,7 +53,8 @@ export default function AdminDashboard() {
         );
       case 'Voting':
         return <VotingPanel />;
-
+      case 'Volunteers':
+        return <VolunteersPanel />;
       default:
         return (
           <div className="p-6 pt-20 text-xl font-medium">

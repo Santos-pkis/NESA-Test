@@ -4,16 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { useAuth } from "@/lib/hooks/useAuth"; // Import the useAuth hook
+import { useAuthContext } from '@/lib/context/AuthContext';
 import { ChevronDown, Menu, X, User } from "lucide-react";
 import { navlinks } from "@/lib/data/global";
 import styles from "./style.module.scss";
 import Button from "@/components/Common/Button";
+import { IoEyeSharp, IoEyeOffSharp, IoLogOut } from "react-icons/io5";
 
 const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { user } = useAuth(); // Get the user from the useAuth hook
+  const { user, getUserId, logout, updateUser } = useAuthContext();
+  
 
   const controlMenu = (action: boolean) => setSidebarOpen(action);
 
@@ -45,6 +47,8 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+
+
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -139,13 +143,30 @@ const DropdownLink = ({ link }: { link: any }) => (
 );
 
 const AuthButtons = ({ user }: { user: any }) => {
+  const { logout } = useAuthContext();
+
   if (user) {
     // If the user is logged in, show the profile icon
+  const handleLogout = () => {
+    logout();
+    window.location.href = '/login';
+  };
     return (
       <Link href="/ProfileSetting">
-        <motion.div className="flex items-center space-x-2 cursor-pointer">
+        <motion.div className="flex items-center justify-center space-x-2 cursor-pointer">
           <User className="text-white w-6 h-6" />
           <span className="text-white font-medium">Account</span>
+                    {/* Logout Button */}
+                    <div className="flex justify-center ">
+                      <button
+                        onClick={handleLogout}
+                        className="px-3 sm:px-4  rounded-md flex items-center space-x-2 transition-all duration-300 hover:opacity-80 active:transform active:scale-95"
+                        style={{ fontSize: '18px'}}
+                      >
+                        <IoLogOut size={24} style={{ color: '#CDA292' }} />
+                        <span style={{ fontSize: '18px', color: '#CDA292' }}>Log Out</span>
+                      </button>
+                    </div>
         </motion.div>
       </Link>
     );

@@ -277,7 +277,7 @@ const JudgeForm: React.FC = () => {
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Address
+                Country
               </label>
               <div className="relative">
                 <input

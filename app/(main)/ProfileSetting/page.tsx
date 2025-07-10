@@ -4,13 +4,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { User, Wallet, Share2, PenSquareIcon } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useAuth } from '@/lib/hooks/useAuth';
+import { useAuthContext } from '@/lib/context/AuthContext';
+import { IoEyeSharp, IoEyeOffSharp, IoLogOut } from "react-icons/io5";
+import SecurityTab from "@/components/UI/Accountsettings/SecurityTab";
 
 
 
 export default function ProfilePage() {
   const router = useRouter();
-  const { user, updateUser } = useAuth();
+  const { user, getUserId, logout, updateUser } = useAuthContext();
+  
   const [editing, setEditing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -40,6 +43,11 @@ export default function ProfilePage() {
       });
     }
   }, [user]);
+
+    const handleLogout = () => {
+    logout();
+    window.location.href = '/login';
+  };
 
   const handleEdit = () => setEditing(true);
   const handleCancel = () => {
@@ -132,6 +140,17 @@ export default function ProfilePage() {
             <Share2 className="w-5 h-5" />
             <span className="hidden md:inline ml-2">Referrals</span>
           </button>
+                    {/* Logout Button */}
+                    <div className="flex justify-center mt-4 sm:mt-6 mb-8 sm:mb-12">
+                      <button
+                        onClick={handleLogout}
+                        className="px-3 sm:px-4 py-2 rounded-md flex items-center space-x-2 transition-all duration-300 hover:opacity-80 active:transform active:scale-95"
+                        style={{ fontSize: '18px', marginBottom: '24px' }}
+                      >
+                        <IoLogOut size={24} style={{ color: '#CDA292' }} />
+                        <span style={{ fontSize: '18px', color: '#CDA292' }}>Log Out</span>
+                      </button>
+                    </div>
         </div>
       </aside>
 
@@ -230,9 +249,9 @@ export default function ProfilePage() {
             </div>
             {errorMsg && <div className="text-red-500 mb-2">{errorMsg}</div>}
             {/* Editable Fields */}
-            <div className='flex flex-col md:flex-row gap-[30%]'>
+            <div className='flex flex-col md:flex-row gap-4 '>
               {/* left */}
-              <div className='w-[100%] md:w-[20%]'>
+              <div className='w-[100%] md:w-[80%] lg:w-[50%]'>
                 <div className='mb-[20px]'>
                   <p className='font-light text-[10px]'>Full Name</p>
                   {editing ? (
@@ -277,26 +296,12 @@ export default function ProfilePage() {
                 </div>
               </div>
               {/* right */}
-              <div className='w-[100%] md:w-[80%]'>
-                {/* <div className='mb-[20px]'>
-                  <p className='font-light text-[10px]'>Role</p>
-                  {editing ? (
-                    <input
-                      type="text"
-                      name="role"
-                      value={formData.role}
-                      onChange={handleChange}
-                      className="border rounded px-2 py-1 w-full text-black"
-                      disabled
-                    />
-                  ) : (
-                    <h1>{formData.role || '-'}</h1>
-                  )}
-                </div> */}
+              <div className='w-[100%] md:w-[30%] lg:w-[50%]'>
                 <div className='mb-[20px]'>
                   <p className='font-light text-[10px]'>Type</p>
                   {editing ? (
                     <input
+                    disabled
                       type="text"
                       name="nomineeType"
                       value={formData.nomineeType}
@@ -336,6 +341,9 @@ export default function ProfilePage() {
               </div>
             )}
           </div>
+
+          
+            <SecurityTab /> 
         </div>
       </main>
     </div>

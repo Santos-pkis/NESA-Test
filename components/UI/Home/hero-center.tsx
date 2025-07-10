@@ -152,6 +152,11 @@ const HeroCenter = () => {
           onClick={() => router.push("/nomination/sub-categories/africa-lifetime-education-icon")}
           className="rounded-lg px-3 md:px-4 py-2 flex items-center justify-center px-1 md:px-8 py-2 text-xs sm:text-sm md:text-sm text-center hover:bg-[#E48900] hover:text-black rounded-lg w-full sm:w-auto truncate"
         />
+          <Button
+          text="Be a content uploader"
+          onClick={() => router.push("/account/signup/volunteersignup")}
+          className="rounded-lg px-3 md:px-4 py-2 flex items-center justify-center px-1 md:px-8 py-2 text-xs sm:text-sm md:text-sm text-center hover:bg-[#E48900] hover:text-black rounded-lg w-full sm:w-auto truncate"
+        />
       </motion.div>
 
       {/* Video Section */}
