@@ -6,7 +6,7 @@ import 'react-phone-input-2/lib/style.css';
 import { createNomination } from '../../../lib/services/nominationService';
 import { FiCheckCircle, FiUpload, FiX, FiArrowLeft } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { useAuth } from '@/lib/hooks/useAuth';
 interface Category {
   title: string;
   description: string;
@@ -20,27 +20,43 @@ interface NominationPageProps {
 
 
 interface FormData {
+  nomineeFullName: string;
+  awardSuperCategory: string;
   category: string;
-   categoryType: string;
   subCategory: string;
-  name: string;
-  linkedinProfile: string;
-  email: string;
   achievements: string;
+  socialImpact: string;
+  sustainabilityEvidence: string;
+  country: string;
+  email: string;
+  phone: string;
+  whatsapp?: string;
+  website: string;
   document: File | null;
 }
 
 const NominationPage: React.FC<NominationPageProps> = ({ type, category }) => {
-  
+  const { user, logout } = useAuth();
  const router = useRouter();
+
+     const handleLogout = () => {
+    logout();
+    window.location.href = '/login';
+  };
+  
     const [formData, setFormData] = useState<FormData>({
-      category: "competitive",
-      categoryType: type,
-      subCategory: category?.title,
-      name: "",
-      linkedinProfile: "",
-      email: "",
+      nomineeFullName: "",
+      awardSuperCategory: "",
+      category: "",
+      subCategory: "",
       achievements: "",
+      socialImpact: "",
+      sustainabilityEvidence: "",
+      country: "",
+      email: "",
+      phone: "",
+      whatsapp: "",
+      website: "",
       document: null,
     });
     
@@ -50,7 +66,7 @@ const NominationPage: React.FC<NominationPageProps> = ({ type, category }) => {
       const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
 
- const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -72,16 +88,21 @@ const NominationPage: React.FC<NominationPageProps> = ({ type, category }) => {
     setLoading(true);
     try {
       await createNomination({
+        nomineeFullName: formData.nomineeFullName,
+        awardSuperCategory: formData.awardSuperCategory,
         category: formData.category,
-         categoryType: formData. categoryType,
         subCategory: formData.subCategory,
-        name: formData.name,
-        linkedinProfile: formData.linkedinProfile,
-        email: formData.email,
         achievements: formData.achievements,
+        socialImpact: formData.socialImpact,
+        sustainabilityEvidence: formData.sustainabilityEvidence,
+        country: formData.country,
+        email: formData.email,
+        phone: formData.phone,
+        whatsapp: formData.whatsapp,
+        website: formData.website,
         document: formData.document,
+        submittedByRole: user?.role || "",
       });
-
       setShowConfirmation(false);
       setShowSuccess(true);
     } catch (error: any) {
@@ -96,13 +117,18 @@ const NominationPage: React.FC<NominationPageProps> = ({ type, category }) => {
   const handleNominateAnother = () => {
     setShowSuccess(false);
     setFormData({
-      category: "competitive",
-      categoryType: type,
-      subCategory: category?.title,
-      name: "",
-      linkedinProfile: "",
-      email: "",
+      nomineeFullName: "",
+      awardSuperCategory: "",
+      category: "",
+      subCategory: "",
       achievements: "",
+      socialImpact: "",
+      sustainabilityEvidence: "",
+      country: "",
+      email: "",
+      phone: "",
+      whatsapp: "",
+      website: "",
       document: null,
     });
   };
@@ -129,138 +155,195 @@ const NominationPage: React.FC<NominationPageProps> = ({ type, category }) => {
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                              <div>
-                              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-                                Category
-                              </label>
-                              <input
-                                type="text"
-                                id="category"
-                                name="category"
-                                onChange={handleInputChange}
-                                value={formData.categoryType}
-                                readOnly
-                                className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-                              />
-                            </div>
-                            <div >
-                              <label htmlFor=" categoryType" className="block text-sm font-medium text-gray-700 mb-2">
-                                Sub Category
-                              </label>
-                              <input
-                                type="text"
-                                id=" categoryType"
-                                name=" categoryType"
-                                onChange={handleInputChange}
-                                value={formData.subCategory}
-                                readOnly
-                                className="bg-gray-50 p-3 rounded-lg w-full bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-                              />
-                            </div>
-              {/* Name Field */}
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Individual or Organization <span className="text-red-500">*</span>
-                </label>
+            <div>
+              <label htmlFor="nomineeFullName" className="block text-sm font-medium text-gray-700 mb-2">Nominee Full Name</label>
+              <input
+                type="text"
+                id="nomineeFullName"
+                name="nomineeFullName"
+                value={formData.nomineeFullName}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="awardSuperCategory" className="block text-sm font-medium text-gray-700 mb-2">Award Super Category</label>
+              <input
+                type="text"
+                id="awardSuperCategory"
+                name="awardSuperCategory"
+                value={formData.awardSuperCategory}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+              <input
+                type="text"
+                id="category"
+                name="category"
+                value={formData.category}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="subCategory" className="block text-sm font-medium text-gray-700 mb-2">Subcategory</label>
+              <input
+                type="text"
+                id="subCategory"
+                name="subCategory"
+                value={formData.subCategory}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <label htmlFor="achievements" className="block text-sm font-medium text-gray-700 mb-2">Description of Achievements</label>
+              <textarea
+                id="achievements"
+                name="achievements"
+                rows={3}
+                value={formData.achievements}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all resize-y"
+              />
+            </div>
+            <div>
+              <label htmlFor="socialImpact" className="block text-sm font-medium text-gray-700 mb-2">Social Impact</label>
+              <input
+                type="text"
+                id="socialImpact"
+                name="socialImpact"
+                value={formData.socialImpact}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="sustainabilityEvidence" className="block text-sm font-medium text-gray-700 mb-2">Sustainability Evidence</label>
+              <input
+                type="text"
+                id="sustainabilityEvidence"
+                name="sustainabilityEvidence"
+                value={formData.sustainabilityEvidence}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">Country/Region</label>
+              <input
+                type="text"
+                id="country"
+                name="country"
+                value={formData.country}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-2">WhatsApp Contact (optional)</label>
+              <input
+                type="text"
+                id="whatsapp"
+                name="whatsapp"
+                value={formData.whatsapp}
+                onChange={handleInputChange}
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">Website / Social Media Link</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                value={formData.website}
+                onChange={handleInputChange}
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <label htmlFor="document" className="block text-sm font-medium text-gray-700 mb-2">Upload Documents/Links</label>
+              <label className="relative block border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#FFC247] transition-colors">
                 <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
+                  type="file"
+                  id="document"
+                  name="document"
+                  onChange={handleFileChange}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  accept=".jpg,.png,.pdf,.svg,.doc,.docx"
                 />
-              </div>
-
-              {/* Linkedin Field */}
-              <div>
-                <label htmlFor="linkedIn" className="block text-sm font-medium text-gray-700 mb-2">
-                  Linkedin Profile <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="linkedIn"
-                  name="linkedinProfile"
-                  value={formData.linkedinProfile}
-                  required
-                  onChange={handleInputChange}
-
-                  className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-
-                />
-              </div>
-              {/* Email Field */}
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full p-3 ro1unded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all"
-                />
-              </div>
-
-                  {/* Achievements Field */}
-                  <div>
-                <label htmlFor="achievements" className="block text-sm font-medium text-gray-700 mb-2">
-                  Achievements
-                </label>
-                <textarea
-                  id="achievements"
-                  name="achievements"
-                  rows={4}
-                  value={formData.achievements}
-                  onChange={handleInputChange}
-                  placeholder="Write a personalstatement or provide specific achievements"
-                  
-                  className="w-full p-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#FFC247] focus:ring-2 focus:ring-[#FFC247]/20 transition-all resize-y"
-                />
-                </div>
-
-              {/* Document Upload */}
-              <div className="md:col-span-2">
-                <label htmlFor="document" className="block text-sm font-medium text-gray-700 mb-2">
-                                  Upload a document or image to support your nominee achievements
-                </label>
-                <label className="relative block border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-[#FFC247] transition-colors">
-                  <input
-                    type="file"
-                    id="document"
-                    name="document"
-                    onChange={handleFileChange}
-                    className="absolute inset-0 w-full  h-full opacity-0 cursor-pointer"
-                    accept=".jpg,.png,.pdf,.svg"
-                  />
-                  {formData.document ? (
-                    <div className="flex flex-col items-center">
-                      <FiUpload className="w-8 h-8 text-[#FFC247] mb-2" />
-                      <p className="text-gray-700 font-medium">{formData.document.name}</p>
-                      <p className="text-sm text-gray-500 mt-1">Click to change file</p>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col items-center">
+                {formData.document ? (
+                  <div className="flex flex-col items-center">
+                    <FiUpload className="w-8 h-8 text-[#FFC247] mb-2" />
+                    <p className="text-gray-700 font-medium">{formData.document.name}</p>
+                    <p className="text-sm text-gray-500 mt-1">Click to change file</p>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto mb-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                      <p className="text-gray-600">Upload supporting document</p>
-                      <p className="text-xs text-gray-500 mt-1">JPG, PNG, PDF, and SVG files only</p>
-                    </div>
-                  )}
-                </label>
-              </div>
-            <div className="pt-4 md:col-span-2">
+                    <p className="text-gray-600">Upload supporting document</p>
+                    <p className="text-xs text-gray-500 mt-1">JPG, PNG, PDF, SVG, DOC, DOCX files only</p>
+                  </div>
+                )}
+              </label>
+            </div>
+            <div className="pt-4 md:col-span-2 flex gap-4">
+              <motion.button
+                type="button"
+                disabled={loading}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-1/2 text-[#191307] border border-[#FFC247] py-3 px-6 rounded-xl font-medium disabled:opacity-70 relative overflow-hidden bg-white hover:bg-[#FFF9ED]"
+                style={{}}
+                onClick={() => {/* Save as draft logic here */}}
+              >
+                SAVE AS DRAFT
+              </motion.button>
               <motion.button
                 type="submit"
                 disabled={loading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full text-white py-3 px-6 rounded-xl font-medium disabled:opacity-70 relative overflow-hidden"
+                className="w-1/2 text-white py-3 px-6 rounded-xl font-medium disabled:opacity-70 relative overflow-hidden"
                 style={{
                   background: "linear-gradient(90deg, #FFC247 -6.07%, #E48900 156.79%)",
                 }}
@@ -271,15 +354,12 @@ const NominationPage: React.FC<NominationPageProps> = ({ type, category }) => {
                     Submitting...
                   </div>
                 ) : (
-                  "Submit Nomination"
+                  "SUBMIT NOMINEE"
                 )}
               </motion.button>
-              <p className="text-xs text-gray-500 mt-2 text-center">
-                By submitting this form, you confirm that all information provided is accurate.
-              </p>
             </div>
-              </div>
-          </form>
+          </div>
+        </form>
                 
       </div>
       {/* Confirmation Modal */}

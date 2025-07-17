@@ -1,47 +1,55 @@
 import apiClient from "./apiClient";
 
 interface NominationData {
+  nomineeFullName: string;
+  awardSuperCategory: string;
   category: string;
-   categoryType: string;
   subCategory: string;
-  name: string;
-  linkedinProfile: string;
-  email: string;
   achievements: string;
+  socialImpact: string;
+  sustainabilityEvidence: string;
+  country: string;
+  email: string;
+  phone: string;
+  whatsapp?: string;
+  website: string;
   document: File | null;
+  submittedByRole?: string;
 }
 
 export const createNomination = async (data: NominationData): Promise<any> => {
   try {
     // Validate required fields
-     // Debug: Verify category_id exists
-    console.log('Service Layer - Received category_id:', data.category);
-    
-    if (!data.category) {
-      throw new Error('Category  is required');
+    if (!data.nomineeFullName || !data.awardSuperCategory || !data.category || !data.subCategory) {
+      throw new Error('Required fields are missing');
     }
 
-    const payload = {
-      category: data.category,
-       categoryType: data. categoryType,
-      subCategory: data.subCategory,
-      name: data.name,
-      linkedinProfile: data.linkedinProfile,
-      email: data.email,
-      achievements: data.achievements,
-      document: data.document
-    };
+    // Use FormData for file upload
+    const formData = new FormData();
+    formData.append('nomineeFullName', data.nomineeFullName);
+    formData.append('awardSuperCategory', data.awardSuperCategory);
+    formData.append('category', data.category);
+    formData.append('subCategory', data.subCategory);
+    formData.append('achievements', data.achievements);
+    formData.append('socialImpact', data.socialImpact);
+    formData.append('sustainabilityEvidence', data.sustainabilityEvidence);
+    formData.append('country', data.country);
+    formData.append('email', data.email);
+    formData.append('phone', data.phone);
+    formData.append('website', data.website);
+    if (data.whatsapp) formData.append('whatsapp', data.whatsapp);
+    if (data.submittedByRole) formData.append('submittedByRole', data.submittedByRole);
+    if (data.document) formData.append('document', data.document);
 
     const response = await apiClient.post(
-      "/api/nominations/create-nominate",
-      payload, // Send as JSON
+      '/api/nominations/create-nominate',
+      formData,
       {
         headers: {
-          'Content-Type': 'application/json', // Ensure JSON content type
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       }
     );
-
     return response.data;
   } catch (error: any) {
     console.error('API Error:', {

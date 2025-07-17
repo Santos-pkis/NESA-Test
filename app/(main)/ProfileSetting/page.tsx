@@ -13,7 +13,101 @@ import SecurityTab from "@/components/UI/Accountsettings/SecurityTab";
 export default function ProfilePage() {
   const router = useRouter();
   const { user, getUserId, logout, updateUser } = useAuthContext();
-  
+
+  // If user is a volunteer, render the Nominee Entry UI
+  if (user && user.role === 'Volunteer') {
+    return (
+      <div className="min-h-screen p-32 flex bg-[#181A20]">
+        {/* Header */}
+        
+        {/* Sidebar */}
+        <aside className="w-64 bg-[#181A20] p-8 flex flex-col space-y-8 border-r border-[#23262F]">
+          <div className="flex flex-col gap-4">
+            <button className="bg-[#FFC247] text-black font-semibold py-2 px-4 rounded flex items-center gap-2">
+              <span>Add Nominee</span>
+            </button>
+            <button className="text-white py-2 px-4 rounded flex items-center gap-2 hover:bg-[#23262F]">
+              <span>Submissions</span>
+            </button>
+          </div>
+        </aside>
+        {/* Main Content */}
+        <main className="flex-1 flex flex-col items-center justify-start bg-[#F8F8F8] py-12 px-4">
+          <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-10">
+            <h1 className="text-3xl font-bold text-[#181A20] mb-8">Nominee Entry</h1>
+            <form className="space-y-6">
+              <div>
+                <label className="block text-gray-700 mb-1">Nominee Full Name</label>
+                <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="Jonathan Mwangi" />
+              </div>
+              <div>
+                <label className="block text-gray-700 mb-1">Award Super Category</label>
+                <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="Blue Garnet Awards" />
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-1">
+                  <label className="block text-gray-700 mb-1">Category</label>
+                  <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="Excellence in Literacy" />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-gray-700 mb-1">Subcategory</label>
+                  <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="Reading Advocacy" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-gray-700 mb-1">Description of Achievements</label>
+                <textarea className="w-full border border-gray-300 rounded-lg p-3" rows={3} placeholder="Jonathan Mwangi serves local literacy across public reading programs in East Africa." />
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-1">
+                  <label className="block text-gray-700 mb-1">Social Impact</label>
+                  <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="Impact on community literacy" />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-gray-700 mb-1">Sustainability Evidence</label>
+                  <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="Sustainability of reading facilities" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-gray-700 mb-1">Country/Region</label>
+                <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="Kenya" />
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-1">
+                  <label className="block text-gray-700 mb-1">Email</label>
+                  <input className="w-full border border-gray-300 rounded-lg p-3" type="email" placeholder="jonathan.mwangi@email.com" />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-gray-700 mb-1">Phone Number</label>
+                  <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="+254 712 345578" />
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-1">
+                  <label className="block text-gray-700 mb-1">WhatsApp Contact (optional)</label>
+                  <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="+254 712 345579" />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-gray-700 mb-1">Website / Social Media Link</label>
+                  <input className="w-full border border-gray-300 rounded-lg p-3" type="text" placeholder="www.readkenya.org" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-gray-700 mb-1">Upload Documents/Links</label>
+                <input className="w-full border border-gray-300 rounded-lg p-3" type="file" />
+              </div>
+              <div className="flex gap-4 mt-6">
+                <button type="button" className="w-1/2 border border-[#FFC247] text-[#FFC247] py-3 rounded-lg font-semibold hover:bg-[#FFF9ED]">SAVE AS DRAFT</button>
+                <button type="submit" className="w-1/2 bg-[#FFC247] text-black py-3 rounded-lg font-semibold hover:bg-[#E48900]">SUBMIT NOMINEE</button>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // Non-volunteer users: show the original profile page UI
   const [editing, setEditing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -44,7 +138,7 @@ export default function ProfilePage() {
     }
   }, [user]);
 
-    const handleLogout = () => {
+  const handleLogout = () => {
     logout();
     window.location.href = '/login';
   };
@@ -349,3 +443,4 @@ export default function ProfilePage() {
     </div>
   );
 }
+
