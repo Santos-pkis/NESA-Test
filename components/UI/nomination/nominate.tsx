@@ -389,7 +389,7 @@ const NominationPage: React.FC<NominationPageProps> = ({ type, category }) => {
                   <p className="text-gray-600">Please review your nomination details before submitting:</p>
                   
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="font-medium text-gray-900 mb-2">{formData.name}</h3>
+                    <h3 className="font-medium text-gray-900 mb-2">{formData.nomineeFullName}</h3>
                     <p className="text-gray-600 text-sm mt-1">{formData.email}</p>
                   </div>
                 </div>
