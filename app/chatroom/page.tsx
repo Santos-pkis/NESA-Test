@@ -119,24 +119,28 @@ export default function Chatroom() {
     }
   };
 
-  const vote = async (room: string, option: string) => {
-    if (userVotes[room]) return;
+ const vote = async (room: string, option: string) => {
+  if (userVotes[room]) return;
 
-    await submitVote(room, option);
+  const result = await submitVote(room, option, username);
 
-    setPolls((prev) => ({
-      ...prev,
-      [room]: {
-        ...prev[room],
-        votes: {
-          ...prev[room].votes,
-          [option]: prev[room].votes[option] + 1,
-        },
+  if (!result) return; // stop if backend failed (alert already shown)
+
+  // Only update UI if backend succeeded
+  setPolls((prev) => ({
+    ...prev,
+    [room]: {
+      ...prev[room],
+      votes: {
+        ...prev[room].votes,
+        [option]: prev[room].votes[option] + 1,
       },
-    }));
+    },
+  }));
 
-    setUserVotes((prev) => ({ ...prev, [room]: option }));
-  };
+  setUserVotes((prev) => ({ ...prev, [room]: option }));
+};
+
 
   if (!isJoined) {
     return (

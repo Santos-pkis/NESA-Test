@@ -1,6 +1,6 @@
 // src/app/api/chatroom/api.ts
 
-export const API_URL = 'https://socket-production-fe9d.up.railway.app'; // Your backend URL
+export const API_URL = 'https://nesa-chatroom-socket.onrender.com'; // Your backend URL
 
 // Fetch available categories (chatroom categories)
 export async function fetchCategories() {
@@ -31,12 +31,15 @@ export async function fetchPoll(room: string) {
 }
 
 // Submit a vote for a specific poll option in a room
-export async function submitVote(room: string, option: string) {
+export async function submitVote(room: string, option: string, userId: string) {
   const res = await fetch(`${API_URL}/vote`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ room, option }),
+    body: JSON.stringify({ room, option, userId }), 
   });
-  if (!res.ok) throw new Error('Failed to submit vote');
-  return await res.json();
+     if (!res.ok) {
+      const error = await res.json().catch(() => ({ error: 'Failed to submit vote' }));
+      alert(error.error || 'Failed to submit vote');
+      return null; // stop further execution
+    }
 }
